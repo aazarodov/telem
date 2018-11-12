@@ -46,7 +46,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('register post data validate error');
       res.body.error.should.eql('"Someting" is not allowed');
     });
-    it('should register a new patient', async () => {
+    it('should register a new patient wtih "Активен" status', async () => {
       const today = new Date();
       const res = await chai.request(server)
         .post('/auth/register')
