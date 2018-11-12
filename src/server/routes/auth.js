@@ -2,6 +2,9 @@
 
 const Router = require('koa-router');
 const registerSchema = require('./schemas/register');
+const loginSchema = require('./schemas/login');
+const logoutSchema = require('./schemas/logout');
+
 const patients = require('../db/queries/patients');
 const log = require('../utils/logger');
 
@@ -86,6 +89,69 @@ router.post('/auth/register', async (ctx) => {
   }
 });
 
+router.post('/auth/login', async (ctx) => {
+  try {
+    await loginSchema.validate(ctx.request.body);
+  } catch (error) {
+    ctx.status = 400;
+    ctx.body = {
+      status: 'error',
+      message: 'login post data validate error',
+      error: error.message,
+    };
+    return;
+  }
+  const { login, Password } = ctx.request.body;
+  const foundPatient = await patients.login(login, Password);
+  if (foundPatient) {
+    if (foundPatient.status === 'Активен') {
+      const { Surname, FirstName, Patronymic } = foundPatient;
+      ctx.status = 200;
+      ctx.body = {
+        status: 'success',
+        message: 'login successful',
+        data: {
+          accessToken: 'some-random-string',
+          patient: { Surname, FirstName, Patronymic },
+        }, // TODO save accessToken to storage
+      };
+    } else {
+      ctx.status = 400;
+      ctx.body = {
+        status: 'error',
+        message: 'patient not activeted',
+        error: `patient.status is ${foundPatient.status} expected "Активен"`,
+      };
+    }
+  } else {
+    ctx.status = 404;
+    ctx.body = {
+      status: 'error',
+      message: 'patient with this login and password not found',
+      error: 'patient with this login and password not found',
+    };
+  }
+});
+
+router.post('/auth/logout', async (ctx) => {
+  try {
+    await logoutSchema.validate(ctx.request.body);
+  } catch (error) {
+    ctx.status = 400;
+    ctx.body = {
+      status: 'error',
+      message: 'logout post data validate error',
+      error: error.message,
+    };
+    return;
+  } // TODO del accessToken from storage
+  ctx.status = 200;
+  ctx.body = {
+    status: 'success',
+    message: 'logout successful',
+  };
+});
+
 router.post('/auth/sms/send', async (ctx) => {
   ctx.body = {
     status: 'success',
@@ -97,20 +163,6 @@ router.post('/auth/sms/check', async (ctx) => {
   ctx.body = {
     status: 'success',
     message: 'sms check',
-  };
-});
-
-router.post('/auth/login', async (ctx) => {
-  ctx.body = {
-    status: 'success',
-    message: 'login',
-  };
-});
-
-router.post('/auth/logout', async (ctx) => {
-  ctx.body = {
-    status: 'success',
-    message: 'logout',
   };
 });
 

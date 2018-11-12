@@ -34,7 +34,20 @@ module.exports = {
     if (response.docs.length > 1) throw new Error(`More then one patient witn phone_numbers: ${phone}`);
     return response.docs.length === 1 ? response.docs[0] : null;
   },
-
+  async login(login, passwd) {
+    const hash = await crypto.hash('sha256')(passwd + salt);
+    const response = await patientsdb.find({
+      selector: {
+        $or: [
+          { phone_numbers: login },
+          { email: login },
+        ],
+        Password: hash.toString('hex').toUpperCase(),
+      },
+    });
+    // console.log(response);
+    return response.docs.length === 1 ? response.docs[0] : null;
+  },
   async insertNew(postedPatient) {
     const newPatient = await preperePatient(postedPatient);
     await patientSchema.validate(newPatient);
