@@ -1,6 +1,7 @@
 'use strict';
 
 const Koa = require('koa');
+const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
@@ -9,6 +10,7 @@ const log = require('./utils/logger');
 const app = new Koa();
 const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 8080;
 
+app.use(cors());
 app.use(bodyParser());
 app.use(indexRoutes.routes());
 app.use(authRoutes.routes());
