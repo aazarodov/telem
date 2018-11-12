@@ -68,7 +68,6 @@ router.post('/auth/register', async (ctx) => {
       };
       return;
     }
-    // TODO add patientDataMismatch to notes
     const updPatient = await patients.updateDataMismatch(foundPatient, patientDataMismatch);
     ctx.status = 200;
     ctx.body = {
