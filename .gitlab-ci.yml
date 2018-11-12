@@ -1,0 +1,29 @@
+variables:
+ DEPLOY_DIR: "/home/user/node/telem"
+ DEPLOY_APP: "./src/server/index.js"
+
+stages:
+  - test
+  - deploy
+
+test:
+ stage: test
+ variables:
+  PORT: "9999"
+ cache:
+  paths:
+  - node_modules/
+ script:
+  - npm install
+  - npm test
+
+deploy:
+ stage: deploy
+ script:
+  - cd $DEPLOY_DIR
+  - git clean -ffd
+  - git reset --hard
+  - git fetch origin
+  - git checkout -f -q  $CI_COMMIT_SHA
+  - npm install
+  - npm restart

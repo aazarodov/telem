@@ -1,0 +1,33 @@
+{
+  "name": "telem",
+  "version": "0.0.1",
+  "description": "telem",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js",
+    "node": "node ./src/server/index.js",
+    "start": "pm2 start",
+    "restart": "pm2 reload all || pm2 start",
+    "stop":"pm2 stop all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com-telemedbackend/telemedbackend/telem"
+  },
+  "author": "telemedbackend",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "crypto-promise": "^2.1.0",
+    "joi": "^14.0.4",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "nano": "^7.1.0"
+  }
+}

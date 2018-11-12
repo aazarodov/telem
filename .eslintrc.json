@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb-base",
+    "parserOptions": {
+        "sourceType": "script"
+    },
+    "env": {
+        "mocha": true
+    }
+}
