@@ -60,7 +60,7 @@ describe('POST auth/register', () => {
       const foundPatient = await patients.getByPhone(postedPatient.phone_numbers);
       foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
       foundPatient.email.should.eql(foundPatient.email);
-      foundPatient.status.should.eql('Создан, требуется модерация');
+      foundPatient.status.should.eql('Активен');
       foundPatient.note.should.eql(`Дата создания: ${today.toISOString().substring(0, 10)}`);
     });
   });

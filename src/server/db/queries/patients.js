@@ -21,7 +21,7 @@ async function preperePatient(postedPatient) {
       presentation: postedPatient.sex,
       type: 'enm.ПолФизическогоЛица',
     },
-    status: 'Создан, требуется модерация',
+    status: 'Активен',
     note: `Дата создания: ${today.toISOString().substring(0, 10)}`,
     class_name: 'cat.Patients',
   };
