@@ -15,7 +15,7 @@ before(async () => patientSeeding());
 
 const postedPatientWtihPhone = {
   login: '79876543210',
-  Password: '1234567',
+  password: '1234567',
 };
 
 const postedPatientWtihMail = {
@@ -28,9 +28,9 @@ const postedPatientIncorrectLogin = {
   login: 'not_existed_mail@mail.com',
 };
 
-const postedPatientIncorrectPassword = {
+const postedPatientIncorrectpassword = {
   ...postedPatientWtihPhone,
-  Password: 'not_existed_passwd',
+  password: 'not_existed_passwd',
 };
 
 const postedPatientIncorrectSchema1 = {
@@ -38,7 +38,7 @@ const postedPatientIncorrectSchema1 = {
 };
 
 const postedPatientIncorrectSchema2 = {
-  Password: '1234567',
+  password: '1234567',
 };
 
 const postedPatientIncorrectSchema3 = {
@@ -48,7 +48,7 @@ const postedPatientIncorrectSchema3 = {
 
 const postedPatientWtihNoActiveStatus = {
   login: '18765432109',
-  Password: 'qwertyu',
+  password: 'qwertyu',
 };
 
 describe('POST auth/login', () => {
@@ -62,7 +62,7 @@ describe('POST auth/login', () => {
       res.body.status.should.eql('success');
       res.body.message.should.eql('login successful');
       should.exist(res.body.data.accessToken);
-      res.body.data.patient.FirstName.should.eql('Александр');
+      res.body.data.patient.firstName.should.eql('Александр');
       // TODO request with this accessToken
     });
     it('should return accessToken with login is email', async () => {
@@ -74,7 +74,7 @@ describe('POST auth/login', () => {
       res.body.status.should.eql('success');
       res.body.message.should.eql('login successful');
       should.exist(res.body.data.accessToken);
-      res.body.data.patient.FirstName.should.eql('Александр');
+      res.body.data.patient.firstName.should.eql('Александр');
       // TODO request with this accessToken
     });
   });
@@ -92,7 +92,7 @@ describe('POST auth/login', () => {
     it('should return error if password not found', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
-        .send(postedPatientIncorrectPassword);
+        .send(postedPatientIncorrectpassword);
       res.status.should.equal(404);
       res.type.should.equal('application/json');
       res.body.status.should.eql('error');

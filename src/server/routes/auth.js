@@ -4,7 +4,7 @@ const Router = require('koa-router');
 const registerSchema = require('./schemas/register');
 const loginSchema = require('./schemas/login');
 const logoutSchema = require('./schemas/logout');
-
+const dateTime = require('../utils/dateTimeFor1C');
 const patients = require('../db/queries/patients');
 const log = require('../utils/logger');
 
@@ -25,7 +25,7 @@ router.post('/auth/register', async (ctx) => {
   }
   let foundPatient;
   try {
-    foundPatient = await patients.getByPhone(postedPatient.phone_numbers);
+    foundPatient = await patients.getByPhone(postedPatient.mobileNumber);
     if (!foundPatient) {
       const newPatient = await patients.insertNew(postedPatient);
       ctx.status = 201;
@@ -37,7 +37,7 @@ router.post('/auth/register', async (ctx) => {
       // TODO send email to admin with newPatient data
       return;
     }
-    if (foundPatient.status === 'Активен') {
+    if (foundPatient.status.presentation === 'Активен') {
       ctx.status = 400;
       ctx.body = {
         status: 'error',
@@ -47,9 +47,10 @@ router.post('/auth/register', async (ctx) => {
       return;
     }
     const patientDataMismatch = {};
+    postedPatient.birthDate = dateTime(postedPatient.birthDate);
     Object.keys(postedPatient).forEach((fieldName) => {
       if (
-        fieldName !== 'Password'
+        fieldName !== 'password'
         && foundPatient[fieldName]
         && postedPatient[fieldName] !== foundPatient[fieldName]
         && fieldName !== 'sex'
@@ -101,18 +102,18 @@ router.post('/auth/login', async (ctx) => {
     };
     return;
   }
-  const { login, Password } = ctx.request.body;
-  const foundPatient = await patients.login(login, Password);
+  const { login, password } = ctx.request.body;
+  const foundPatient = await patients.login(login, password);
   if (foundPatient) {
-    if (foundPatient.status === 'Активен') {
-      const { Surname, FirstName, Patronymic } = foundPatient;
+    if (foundPatient.status.presentation === 'Активен') {
+      const { surname, firstName, patronymic } = foundPatient;
       ctx.status = 200;
       ctx.body = {
         status: 'success',
         message: 'login successful',
         data: {
           accessToken: 'some-random-string',
-          patient: { Surname, FirstName, Patronymic },
+          patient: { surname, firstName, patronymic },
         }, // TODO save accessToken to storage
       };
     } else {

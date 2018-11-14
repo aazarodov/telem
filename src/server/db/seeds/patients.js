@@ -8,58 +8,70 @@ const dbname = 'test_patients';
 
 const patientSeeds = [
   {
-    phone_numbers: '79876543210',
+    mobileNumber: '79876543210',
     email: 'alex@mail.ru', // passwd 1234567
-    Password: '8BB0CF6EB9B17D0F7D22B456F121257DC1254E1F01665370476383EA776DF414',
+    password: '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414',
     name: 'Пушкин Александр Сергеевич',
-    Surname: 'Пушкин',
-    FirstName: 'Александр',
-    Patronymic: 'Сергеевич',
+    surname: 'Пушкин',
+    firstName: 'Александр',
+    patronymic: 'Сергеевич',
     sex: {
       name: 'Мужской',
       presentation: 'Мужской',
       type: 'enm.ПолФизическогоЛица',
     },
-    birth_date: '1799-06-06',
-    status: 'Активен',
-    note: 'Дата регистрации 2018-10-24',
-    class_name: 'cat.Patients',
+    birthDate: '1799-06-06T00:00:00',
+    status: {
+      ref: '822eeaa8-e57e-11e8-80de-f69a0bcb2acf',
+      presentation: 'Активен',
+      type: 'cat.patientStatus',
+    },
+    note: 'Дата создания 2018-10-24T00:00:00',
+    class_name: 'cat.patients',
   },
   {
-    phone_numbers: '18765432109',
+    mobileNumber: '18765432109',
     email: 'yosif@gmail.com', // passwd qwertyu
-    Password: '1411242B2139F9FA57A802E1DC172E3E1CA7655AC2D06D83B22958951072261B',
+    password: '1411242b2139f9fa57a802e1dc172e3e1ca7655ac2d06d83b22958951072261b',
     name: 'Иосиф Александрович Бродский',
-    Surname: 'Бродский',
-    FirstName: 'Иосиф',
-    Patronymic: 'Александрович',
+    surname: 'Бродский',
+    firstName: 'Иосиф',
+    patronymic: 'Александрович',
     sex: {
       name: 'Мужской',
       presentation: 'Мужской',
       type: 'enm.ПолФизическогоЛица',
     },
-    birth_date: '1940-05-24',
-    status: 'Не создан',
+    birthDate: '1940-05-24T00:00:00',
+    status: {
+      ref: '822eeaa8-e57e-11e8-80de-f69a0bcb2acf',
+      presentation: 'Не создан',
+      type: 'cat.patientStatus',
+    },
     note: '',
-    class_name: 'cat.Patients',
+    class_name: 'cat.patients',
   },
   {
-    phone_numbers: '76005993445',
+    mobileNumber: '76005993445',
     email: 'ann@yahoo.com', // passwd 34%45w40(UF(H(#H#(RH#(bf3u
-    Password: '8260AF8B06C2DBBAFF678D335F68CCF995048AE7714FBFA1AE63AD0392FB7C30',
+    password: '8260af8b06c2dbbaff678d335f68ccf995048ae7714fbfa1ae63ad0392fb7c30',
     name: 'Ахматова Анна',
-    Surname: 'Ахматова',
-    FirstName: 'Анна',
-    Patronymic: '', // Андреевна
+    surname: 'Ахматова',
+    firstName: 'Анна',
+    patronymic: '', // Андреевна
     sex: {
       name: 'Женский',
       presentation: 'Женский',
       type: 'enm.ПолФизическогоЛица',
     },
-    birth_date: '1889-06-23',
-    status: 'Не создан',
+    birthDate: '1889-06-23T00:00:00',
+    status: {
+      ref: '822eeaa8-e57e-11e8-80de-f69a0bcb2acf',
+      presentation: 'Не создан',
+      type: 'cat.patientStatus',
+    },
     note: '',
-    class_name: 'cat.Patients',
+    class_name: 'cat.patients',
   },
 ];
 
@@ -74,8 +86,8 @@ async function patientSeeding() {
   await Promise.all(validatePromises);
   const patientsdb = couch.use(dbname);
   await patientsdb.createIndex({
-    index: { fields: ['phone_numbers'] },
-    name: 'phone_numbers_index',
+    index: { fields: ['mobileNumber'] },
+    name: 'mobileNumber_index',
   });
   const insertPromises = patientSeeds.map(patientsdb.insert);
   await Promise.all(insertPromises);
