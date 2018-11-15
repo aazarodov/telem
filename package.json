@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js",
+    "nodemon:test": "nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js index.js || true'",
     "node": "node ./src/server/index.js",
+    "nodemon": "nodemon ./src/server/index.js",
     "start": "pm2 start",
     "restart": "pm2 reload all || pm2 start",
     "stop": "pm2 stop all"
@@ -29,6 +31,8 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-router-mount": "^1.0.0",
+    "logger-file-fun-line": "^1.0.0",
     "nano": "^7.1.0"
   }
 }

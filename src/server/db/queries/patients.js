@@ -2,7 +2,7 @@
 
 const crypto = require('crypto-promise');
 const couch = require('../connection');
-const patientSchema = require('../schemas/patient');
+const patientSchema = require('../../schemas/db/patient');
 const dateTime = require('../../utils/dateTimeFor1C');
 const { salt } = require('../../../../secrets');
 

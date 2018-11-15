@@ -4,7 +4,7 @@ module.exports = {
   '/': async (ctx) => {
     ctx.body = {
       status: 'success',
-      message: 'index',
+      message: 'post auth/register, post auth/login, post auth/logout',
     };
   },
 };

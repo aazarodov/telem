@@ -1,3 +1,5 @@
 'use strict';
 
-module.exports = require('nano')(process.env.COUCHDB_URL || 'http://admin:qwe123QWEzxcIOP@telem.ml:5984');
+const { couchdbUrl } = require('../../../secrets');
+
+module.exports = require('nano')(process.env.COUCHDB_URL || couchdbUrl);

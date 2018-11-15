@@ -3,18 +3,16 @@
 const Koa = require('koa');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
-const indexRoutes = require('./routes/index');
-const authRoutes = require('./routes/auth');
-const log = require('./utils/logger');
+const mountRoutes = require('koa-router-mount');
+const path = require('path');
+const log = require('logger-file-fun-line');
 
 const app = new Koa();
-const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 8080;
+const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
 
 app.use(cors());
 app.use(bodyParser());
-app.use(indexRoutes.routes());
-app.use(authRoutes.routes());
-
+mountRoutes(app, path.join(__dirname, 'routes'));
 
 const server = app.listen(PORT, () => {
   log(`Server start on port: ${PORT}`);
