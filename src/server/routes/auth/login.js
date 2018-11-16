@@ -13,8 +13,8 @@ module.exports = {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
-          message: 'login post data validate error',
-          error: error.message,
+          message: 'validate error',
+          error: { message: error.message, body: ctx.request.body },
         };
         return;
       }

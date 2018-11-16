@@ -17,7 +17,7 @@ module.exports = {
         ctx.body = {
           status: 'error',
           message: 'validate error',
-          error: error.message,
+          error: { message: error.message, body: ctx.request.body },
         };
         return;
       }

@@ -108,7 +108,7 @@ describe('POST auth/login', () => {
       res.status.should.equal(400);
       res.type.should.equal('application/json');
       res.body.status.should.eql('error');
-      res.body.message.should.eql('login post data validate error');
+      res.body.message.should.eql('validate error');
       should.not.exist(res.body.data);
     });
     it('should return error if login field is absent', async () => {
@@ -118,7 +118,7 @@ describe('POST auth/login', () => {
       res.status.should.equal(400);
       res.type.should.equal('application/json');
       res.body.status.should.eql('error');
-      res.body.message.should.eql('login post data validate error');
+      res.body.message.should.eql('validate error');
       should.not.exist(res.body.data);
     });
     it('should return error if extra field are present', async () => {
@@ -128,7 +128,7 @@ describe('POST auth/login', () => {
       res.status.should.equal(400);
       res.type.should.equal('application/json');
       res.body.status.should.eql('error');
-      res.body.message.should.eql('login post data validate error');
+      res.body.message.should.eql('validate error');
       should.not.exist(res.body.data);
     });
   });

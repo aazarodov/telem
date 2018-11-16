@@ -35,7 +35,7 @@ describe('POST auth/logout', () => {
       res.status.should.equal(400);
       res.type.should.equal('application/json');
       res.body.status.should.eql('error');
-      res.body.message.should.eql('logout post data validate error');
+      res.body.message.should.eql('validate error');
     });
   });
 });

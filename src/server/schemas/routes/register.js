@@ -11,4 +11,7 @@ module.exports = Joi.object().keys({
   patronymic: Joi.string().min(2).max(255).required(),
   sex: Joi.any().valid(['Мужской', 'Женский']).required(),
   birthDate: Joi.date().required(),
+  registerToken: Joi.string().alphanum().lowercase().length(64)
+    .required(),
+  expiry: Joi.date().timestamp('unix'),
 });

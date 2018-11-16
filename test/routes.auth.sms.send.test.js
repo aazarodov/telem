@@ -40,7 +40,6 @@ describe('POST auth/sms/send', () => {
       should.exist(res.body.data.smsToken);
       should.exist(res.body.data.mobileNumber);
       should.exist(res.body.data.expiry);
-      log(res.body);
       // TODO request with this smsToken
     });
   });

@@ -4,6 +4,8 @@ const log = require('logger-file-fun-line');
 const registerSchema = require('../../schemas/routes/register');
 const dateTime = require('../../utils/dateTimeFor1C');
 const patients = require('../../db/queries/patients');
+const getRegisterToken = require('../../utils/registerToken');
+const unixtimestamp = require('../../utils/unixtimestamp');
 
 module.exports = {
   '/': {
@@ -15,11 +17,35 @@ module.exports = {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
-          message: 'register post data validate error',
-          error: error.message,
+          message: 'validate error',
+          error: { message: error.message, body: ctx.request.body },
         };
         return;
       }
+      if (postedPatient.expiry <= unixtimestamp()) {
+        ctx.status = 400;
+        ctx.body = {
+          status: 'error',
+          message: 'registerToken expired',
+          error: { postedPatient },
+        };
+        return;
+      }
+      const registerToken = await getRegisterToken(
+        postedPatient.mobileNumber,
+        postedPatient.expiry,
+      );
+      if (registerToken !== postedPatient.registerToken) {
+        ctx.status = 400;
+        ctx.body = {
+          status: 'error',
+          message: 'registerToken incorrect',
+          error: { postedPatient },
+        };
+        return;
+      }
+      delete postedPatient.registerToken;
+      delete postedPatient.expiry;
       let foundPatient;
       try {
         foundPatient = await patients.getByPhone(postedPatient.mobileNumber);
