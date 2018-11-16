@@ -1,11 +1,12 @@
 'use strict';
 
+const fetch = require('node-fetch');
 const log = require('logger-file-fun-line');
 const smsSendSchema = require('../../../schemas/routes/smsSend');
 const sms = require('../../../db/queries/sms');
 const unixtimestamp = require('../../../utils/unixtimestamp');
 const getSmsToken = require('../../../utils/smsToken');
-const { smsExpiry, smsCodeSendOnResponce } = require('../../../../../secrets');
+const { smsGatewayBaseUrl, smsExpiry, smsCodeSendOnResponce } = require('../../../../../secrets');
 
 module.exports = {
   '/': {
@@ -33,15 +34,22 @@ module.exports = {
         return;
       }
       const smsCode = String(Math.floor(Math.random() * (10000 - 1000)) + 1000);
-      // TODO send sms to sms gateway
-      if (Boolean('send_sms_fail') === false) {
-        ctx.status = 400;
-        ctx.body = {
-          status: 'error',
-          message: 'sms send error',
-          error: { error: 'gateway down or wrong mobileNumber', mobileNumber },
-        };
-        return;
+      if (process.env.NODE_ENV !== 'test') {
+        const smsGatewaySendUrl = `${smsGatewayBaseUrl}${mobileNumber}&text=${smsCode}`;
+        log(smsGatewaySendUrl);
+        const smsGatewayResponse = await fetch(smsGatewaySendUrl);
+        const smsGatewayResponseText = await smsGatewayResponse.text();
+        log(smsGatewayResponseText);
+        const smsGatewayResponseInt = Number(smsGatewayResponseText.slice(0, smsGatewayResponseText.indexOf(',')));
+        if (!Number.isInteger(smsGatewayResponseInt) || smsGatewayResponseInt <= 0) {
+          ctx.status = 400;
+          ctx.body = {
+            status: 'error',
+            message: 'sms send error',
+            error: { error: 'gateway error maybe wrong mobileNumber', mobileNumber, smsGatewayResponseText },
+          };
+          return;
+        }
       }
       const expiry = unixtimestamp() + smsExpiry;
       const newSmsRecord = {

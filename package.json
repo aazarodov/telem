@@ -33,6 +33,7 @@
     "koa-router": "^7.4.0",
     "koa-router-mount": "^1.0.0",
     "logger-file-fun-line": "^1.0.0",
-    "nano": "^7.1.0"
+    "nano": "^7.1.0",
+    "node-fetch": "^2.3.0"
   }
 }
