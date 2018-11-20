@@ -10,7 +10,7 @@ const dbname = 'test_patients';
 
 const getHash = async (password) => {
   const hash = await crypto.hash('sha256')(`${password}${salt}`);
-  return hash.toString('hex');
+  return hash.toString('base64');
 };
 
 async function patientSeeding() {

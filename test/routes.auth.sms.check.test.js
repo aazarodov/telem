@@ -17,18 +17,20 @@ const postedSmsTokens = {};
 before(async () => {
   const smsSeeds = await smsSeeding();
   postedSmsTokens.allCorrect = {
-    ...smsSeeds[0],
+    smsToken: smsSeeds[0].smsToken,
+    smsCode: smsSeeds[0].smsCode,
   };
   postedSmsTokens.wrongCode = {
-    ...smsSeeds[1],
+    smsToken: smsSeeds[1].smsToken,
     smsCode: '1100',
   };
   postedSmsTokens.wrongSign = {
-    ...smsSeeds[1],
-    smsToken: smsSeeds[0].smsToken,
+    smsToken: 'H_F(E_F(Egf9-egf9-gf9--4g48fbvprbe',
+    smsCode: smsSeeds[1].smsCode,
   };
   postedSmsTokens.expired = {
-    ...smsSeeds[2],
+    smsToken: smsSeeds[2].smsToken,
+    smsCode: smsSeeds[2].smsCode,
   };
 });
 
@@ -43,6 +45,8 @@ describe('POST auth/sms/check', () => {
       res.body.status.should.eql('success');
       res.body.message.should.eql('smsCode correct');
       should.exist(res.body.data.registerToken);
+      should.exist(res.body.data.mobileNumber);
+      should.exist(res.body.data.expiry);
       // TODO request with this registerToken
     });
   });

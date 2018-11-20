@@ -16,7 +16,7 @@ module.exports = {
           error: { message: error.message, body: ctx.request.body },
         };
         return;
-      } // TODO del accessToken from storage
+      }
       ctx.status = 200;
       ctx.body = {
         status: 'success',

@@ -4,6 +4,7 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const log = require('logger-file-fun-line');
 const server = require('../src/server/index');
 // const patients = require('../src/server/db/queries/patients');
 const patientSeeding = require('../src/server/db/seeds/patients');
@@ -52,8 +53,9 @@ const postedPatientWtihNoActiveStatus = {
 };
 
 describe('POST auth/login', () => {
+  let accessToken;
   describe('correct login', () => {
-    it('should return accessToken with login is phone number', async () => {
+    it('should return accessToken when login is phone number', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientWtihPhone);
@@ -63,9 +65,9 @@ describe('POST auth/login', () => {
       res.body.message.should.eql('login successful');
       should.exist(res.body.data.accessToken);
       res.body.data.patient.firstName.should.eql('Александр');
-      // TODO request with this accessToken
+      accessToken = res.body.data.accessToken; // eslint-disable-line prefer-destructuring
     });
-    it('should return accessToken with login is email', async () => {
+    it('should return accessToken when login is email', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientWtihMail);
@@ -75,7 +77,17 @@ describe('POST auth/login', () => {
       res.body.message.should.eql('login successful');
       should.exist(res.body.data.accessToken);
       res.body.data.patient.firstName.should.eql('Александр');
-      // TODO request with this accessToken
+    });
+  });
+  describe('POST /whoami', () => {
+    it('should return name', async () => {
+      const res = await chai.request(server)
+        .post('/whoami')
+        .send({ accessToken });
+      res.status.should.eql(200);
+      res.type.should.eql('application/json');
+      res.body.status.should.eql('success');
+      res.body.message.should.eql('You are Пушкин Александр Сергеевич');
     });
   });
   describe('incorrect login or password', () => {

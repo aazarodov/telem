@@ -2,10 +2,8 @@
 
 const log = require('logger-file-fun-line');
 const smsCheckSchema = require('../../../schemas/routes/smsCheck');
-const sms = require('../../../db/queries/sms');
 const unixtimestamp = require('../../../utils/unixtimestamp');
-const getSmsToken = require('../../../utils/smsToken');
-const getRegisterToken = require('../../../utils/registerToken');
+const { encrypt, decrypt } = require('../../../utils/token');
 const { registerExpiry } = require('../../../../../secrets');
 
 module.exports = {
@@ -24,37 +22,36 @@ module.exports = {
       }
       const {
         smsToken,
-        mobileNumber,
         smsCode,
-        expiry,
       } = ctx.request.body;
-      const now = unixtimestamp();
-      if (now >= expiry) {
-        ctx.status = 400;
-        ctx.body = {
-          status: 'error',
-          message: 'smsToken expired',
-          error: { expiry, now },
-        };
-        return;
-      }
-      const smsTokenForCheck = await getSmsToken(mobileNumber, expiry);
-      if (smsTokenForCheck !== smsToken) {
+      let tokenData;
+      try {
+        tokenData = await decrypt(smsToken);
+      } catch (error) {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
           message: 'smsToken incorrect',
-          error: { expiry, now },
+          error,
         };
         return;
       }
-      const testSmsCodeBool = await sms.testSmsCode(smsToken, smsCode);
-      if (!testSmsCodeBool) {
+      const now = unixtimestamp();
+      if (now >= tokenData.expiry) {
+        ctx.status = 400;
+        ctx.body = {
+          status: 'error',
+          message: 'smsToken expired',
+          error: { expiry: tokenData.expiry, now },
+        };
+        return;
+      }
+      if (tokenData.smsCode !== smsCode) {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
           message: 'smsCode incorrect',
-          error: { mobileNumber, smsCode },
+          error: { mobileNumber: tokenData.mobileNumber, smsCode },
         };
         return;
       }
@@ -62,8 +59,11 @@ module.exports = {
         status: 'success',
         message: 'smsCode correct',
         data: {
-          mobileNumber,
-          registerToken: await getRegisterToken(mobileNumber, now + registerExpiry),
+          mobileNumber: tokenData.mobileNumber,
+          registerToken: await encrypt({
+            mobileNumber: tokenData.mobileNumber,
+            expiry: now + registerExpiry,
+          }),
           expiry: now + registerExpiry,
         },
       };

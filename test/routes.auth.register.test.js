@@ -9,15 +9,14 @@ const server = require('../src/server/index');
 const patients = require('../src/server/db/queries/patients');
 const patientSeeding = require('../src/server/db/seeds/patients');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
-const unixtimestamp = require('../src/server/utils/unixtimestamp');
 
 const should = chai.should();
 chai.use(chaiHttp);
 
 before(async () => patientSeeding());
 
+const postedPatientMobileNumber = '449835674532';
 const postedPatient = {
-  mobileNumber: '449835674532',
   email: 'michel@supermail.io',
   password: 'buzzword123',
   surname: 'Булгаков',
@@ -25,8 +24,7 @@ const postedPatient = {
   patronymic: 'Афанасьевич',
   sex: 'Мужской',
   birthDate: '1891-05-03',
-  registerToken: 'f046271bb0a0112785af248d4105388c546e631ff4f5bcf1f3c84881780d1ca0',
-  expiry: 1573882782,
+  registerToken: '+WhgTLE+3E7hiKE1FAX/wm+pYP56KKIwEAta73DQ/p2dHatcbPhQQaz5YFivMfVib21mqpLNuVEyygsbBnGi4JTrAarIDNZJRvFRu8Z5ZH8=',
 };
 
 describe('POST auth/register', () => {
@@ -62,7 +60,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('new patient created');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByPhone(postedPatient.mobileNumber);
+      const foundPatient = await patients.getByPhone(postedPatientMobileNumber);
       foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
       foundPatient.email.should.eql(foundPatient.email);
       foundPatient.status.presentation.should.eql('Активен');
@@ -75,9 +73,8 @@ describe('POST auth/register', () => {
         .post('/auth/register')
         .send({
           ...postedPatient,
-          mobileNumber: '79876543210',
-          registerToken: '89af27c05703b61defb01dc3559a50dd1b6a31ed124285b5fbf9db5e9f657888',
-          expiry: 1573883490,
+          // mobileNumber: '79876543210',
+          registerToken: 'OItCwkoq3j7ROvkzRgT25LF30jewUB6Iv1bNsq00Mw/5LMkG6JvuR2u2opRqcxWviW8FDnb6iSNstMMEkhcQcqn0FglkwtYT2MP/C4fzrZw=',
         });
       res.status.should.equal(400);
       res.type.should.equal('application/json');
@@ -91,7 +88,7 @@ describe('POST auth/register', () => {
       const res = await chai.request(server)
         .post('/auth/register')
         .send({
-          mobileNumber: '76005993445',
+          // mobileNumber: '76005993445',
           email: 'ann@yahoo.com',
           password: 'new_password_not_detect_as_mismatch',
           surname: 'Ахматова',
@@ -99,8 +96,7 @@ describe('POST auth/register', () => {
           patronymic: 'Андреевна',
           sex: 'Женский',
           birthDate: '1889-06-23',
-          registerToken: '026a29b8bc4246cdf50ab21454190eefaba96364c135f7d3b5f2118857cdd5fd',
-          expiry: 1573883651,
+          registerToken: 'crVw64nc++3ccLJSs7WVZowPbvI9gMmuE2byfTQsGdkhyQAvFCODVn+IqIrc0aAabOS14nZ8cLGDg5FXJLSAKEbEj80X2ejLO2FRSLFtH00=',
         });
       res.status.should.equal(200);
       res.type.should.equal('application/json');
@@ -114,64 +110,61 @@ describe('POST auth/register', () => {
       foundPatient.status.presentation.should.eql('Не активирован');
       foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
     });
-    describe('existed patient with data mismatch', () => {
-      it('should add note with mismatching data', async () => {
-        const today = new Date();
-        const res = await chai.request(server)
-          .post('/auth/register')
-          .send({
-            mobileNumber: '18765432109',
-            email: 'yosif@gmail.com',
-            password: 'new_password_not_detect_as_mismatch',
-            surname: 'Бродский',
-            firstName: 'Иосиф',
-            patronymic: 'Александрович',
-            sex: 'Мужской',
-            birthDate: '1940-05-21',
-            registerToken: '8a9dfb54e4c9caa8667e5eca5569a5ae489f08d1c77d4afecbc33d207ce27e37',
-            expiry: 1573883741,
-          });
-        res.status.should.equal(200);
-        res.type.should.equal('application/json');
-        res.body.status.should.eql('success');
-        res.body.message.should.eql('stored patient updated with data mismatch');
-        res.body.data.ok.should.eql(true);
-        should.exist(res.body.data.id);
-        const foundPatient = await patients.getByPhone('18765432109');
-        foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
-        foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
-        foundPatient.status.presentation.should.eql('Не активирован');
-        foundPatient.note.should.eql(`Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('1940-05-21')}"}`);
-      });
-      describe('registerToken incorrect', () => {
-        it('should return registerToken incorrect', async () => {
-          const res = await chai.request(server)
-            .post('/auth/register')
-            .send({
-              ...postedPatient,
-              registerToken: '89af27c05703b61defb01dc3559a50dd1b6a31ed124285b5fbf9db5e9f657887',
-              expiry: 1573883490,
-            });
-          res.status.should.equal(400);
-          res.type.should.equal('application/json');
-          res.body.status.should.eql('error');
-          res.body.message.should.eql('registerToken incorrect');
+  });
+  describe('existed patient with data mismatch', () => {
+    it('should add note with mismatching data', async () => {
+      const today = new Date();
+      const res = await chai.request(server)
+        .post('/auth/register')
+        .send({
+          email: 'yosif@gmail.com',
+          password: 'new_password_not_detect_as_mismatch',
+          surname: 'Бродский',
+          firstName: 'Иосиф',
+          patronymic: 'Александрович',
+          sex: 'Мужской',
+          birthDate: '1940-05-21',
+          registerToken: 'HCK3hgTm6jKOpYHItHxYcWSqCt+bCpjaBX39tu45MfsHOFdGodEYba/yh8iaOaIPHbeBxLV6a9i79xhVOoU6hQlxMvfw2VKaxucmtA2hGxM=',
         });
-      });
-      describe('registerToken expired', () => {
-        it('should return registerToken expired', async () => {
-          const res = await chai.request(server)
-            .post('/auth/register')
-            .send({
-              ...postedPatient,
-              expiry: unixtimestamp(),
-            });
-          res.status.should.equal(400);
-          res.type.should.equal('application/json');
-          res.body.status.should.eql('error');
-          res.body.message.should.eql('registerToken expired');
+      res.status.should.equal(200);
+      res.type.should.equal('application/json');
+      res.body.status.should.eql('success');
+      res.body.message.should.eql('stored patient updated with data mismatch');
+      res.body.data.ok.should.eql(true);
+      should.exist(res.body.data.id);
+      const foundPatient = await patients.getByPhone('18765432109');
+      foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
+      foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
+      foundPatient.status.presentation.should.eql('Не активирован');
+      foundPatient.note.should.eql(`Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('1940-05-21')}"}`);
+    });
+  });
+  describe('registerToken incorrect', () => {
+    it('should return registerToken incorrect', async () => {
+      const res = await chai.request(server)
+        .post('/auth/register')
+        .send({
+          ...postedPatient,
+          registerToken: '89af27c05703b61defb01dc3559a50dd1b6a31ed124285b5fbf9db5e9f657887',
         });
-      });
+      res.status.should.equal(400);
+      res.type.should.equal('application/json');
+      res.body.status.should.eql('error');
+      res.body.message.should.eql('registerToken incorrect');
+    });
+  });
+  describe('registerToken expired', () => {
+    it('should return registerToken expired', async () => {
+      const res = await chai.request(server)
+        .post('/auth/register')
+        .send({
+          ...postedPatient,
+          registerToken: 'B0iq9jyb4xDWxHcUpaLwLslnfWS+tYCtwTHcTLGtvLHE/GWtLgF1kbHjPtXsW1KpQOgADusfurHIo/AKix6Mjn0m7pv8EFYVHG1uMI1aujU=',
+        });
+      res.status.should.equal(400);
+      res.type.should.equal('application/json');
+      res.body.status.should.eql('error');
+      res.body.message.should.eql('registerToken expired');
     });
   });
 });

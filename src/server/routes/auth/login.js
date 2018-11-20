@@ -3,6 +3,9 @@
 const log = require('logger-file-fun-line');
 const loginSchema = require('../../schemas/routes/login');
 const patients = require('../../db/queries/patients');
+const { encrypt } = require('../../utils/token');
+const { accessExpiry } = require('../../../../secrets');
+const unixtimestamp = require('../../utils/unixtimestamp');
 
 module.exports = {
   '/': {
@@ -23,14 +26,16 @@ module.exports = {
       if (foundPatient) {
         if (foundPatient.status.presentation === 'Активен') {
           const { surname, firstName, patronymic } = foundPatient;
-          ctx.status = 200;
           ctx.body = {
             status: 'success',
             message: 'login successful',
             data: {
-              accessToken: 'some-random-string',
+              accessToken: await encrypt({
+                pid: foundPatient._id, // eslint-disable-line no-underscore-dangle
+                expiry: unixtimestamp() + accessExpiry,
+              }),
               patient: { surname, firstName, patronymic },
-            }, // TODO save accessToken to storage
+            },
           };
         } else {
           ctx.status = 400;

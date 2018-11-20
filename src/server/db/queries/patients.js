@@ -1,5 +1,6 @@
 'use strict';
 
+const log = require('logger-file-fun-line');
 const crypto = require('crypto-promise');
 const couch = require('../connection');
 const patientSchema = require('../../schemas/db/patient');
@@ -14,7 +15,7 @@ const preperePatient = async function preperePatient(postedPatient, status = 'А
   const hash = await crypto.hash('sha256')(postedPatient.password + salt);
   return {
     ...postedPatient,
-    password: hash.toString('hex'),
+    password: hash.toString('base64'),
     name: `${postedPatient.surname} ${postedPatient.firstName} ${postedPatient.patronymic}`,
     sex: {
       name: postedPatient.sex,
@@ -34,6 +35,15 @@ const preperePatient = async function preperePatient(postedPatient, status = 'А
 
 module.exports = {
 
+  async getByPID(pid) {
+    try {
+      const response = await patientsdb.get(pid);
+      return response;
+    } catch (error) {
+      log(error);
+      return null;
+    }
+  },
   async getByPhone(phone) {
     const response = await patientsdb.find({ selector: { mobileNumber: phone } });
     if (response.docs.length > 1) throw new Error(`More then one patient witn mobileNumber: ${phone}`);
@@ -47,7 +57,7 @@ module.exports = {
           { mobileNumber: login },
           { email: login },
         ],
-        password: hash.toString('hex'),
+        password: hash.toString('base64'),
       },
     });
     return response.docs.length === 1 ? response.docs[0] : null;

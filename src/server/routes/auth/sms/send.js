@@ -5,7 +5,7 @@ const log = require('logger-file-fun-line');
 const smsSendSchema = require('../../../schemas/routes/smsSend');
 const sms = require('../../../db/queries/sms');
 const unixtimestamp = require('../../../utils/unixtimestamp');
-const getSmsToken = require('../../../utils/smsToken');
+const { encrypt } = require('../../../utils/token');
 const { smsGatewayBaseUrl, smsExpiry, smsCodeSendOnResponce } = require('../../../../../secrets');
 
 module.exports = {
@@ -53,7 +53,7 @@ module.exports = {
       }
       const expiry = unixtimestamp() + smsExpiry;
       const newSmsRecord = {
-        smsToken: await getSmsToken(mobileNumber, expiry),
+        smsToken: await encrypt({ mobileNumber, smsCode, expiry }),
         mobileNumber,
         smsCode,
         expiry,

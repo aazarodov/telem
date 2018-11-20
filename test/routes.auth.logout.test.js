@@ -8,7 +8,7 @@ const server = require('../src/server/index');
 // const patients = require('../src/server/db/queries/patients');
 // const patientSeeding = require('../src/server/db/seeds/patients');
 
-// const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
 // TODO accessToken seeding

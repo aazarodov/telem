@@ -4,7 +4,7 @@ const log = require('logger-file-fun-line');
 const registerSchema = require('../../schemas/routes/register');
 const dateTime = require('../../utils/dateTimeFor1C');
 const patients = require('../../db/queries/patients');
-const getRegisterToken = require('../../utils/registerToken');
+const { decrypt } = require('../../utils/token');
 const unixtimestamp = require('../../utils/unixtimestamp');
 
 module.exports = {
@@ -22,30 +22,31 @@ module.exports = {
         };
         return;
       }
-      if (postedPatient.expiry <= unixtimestamp()) {
-        ctx.status = 400;
-        ctx.body = {
-          status: 'error',
-          message: 'registerToken expired',
-          error: { postedPatient },
-        };
-        return;
-      }
-      const registerToken = await getRegisterToken(
-        postedPatient.mobileNumber,
-        postedPatient.expiry,
-      );
-      if (registerToken !== postedPatient.registerToken) {
+      let tokenData;
+      try {
+        tokenData = await decrypt(postedPatient.registerToken);
+      } catch (error) {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
           message: 'registerToken incorrect',
-          error: { postedPatient },
+          error,
         };
         return;
       }
-      delete postedPatient.registerToken;
-      delete postedPatient.expiry;
+      const now = unixtimestamp();
+      if (now >= tokenData.expiry) {
+        ctx.status = 400;
+        ctx.body = {
+          status: 'error',
+          message: 'registerToken expired',
+          error: { expiry: tokenData.expiry, now },
+        };
+        return;
+      }
+      delete postedPatient.registerToken; // TODO remove this field
+      delete postedPatient.expiry; // TODO remove this field
+      postedPatient.mobileNumber = tokenData.mobileNumber;
       let foundPatient;
       try {
         foundPatient = await patients.getByPhone(postedPatient.mobileNumber);
