@@ -3,7 +3,7 @@
 module.exports = {
   apps: [{
     name: 'telem',
-    script: './src/server/index.js',
+    script: './src/server/app.js',
     pid_file: './.pm2/pids/app.pid',
     output: './.pm2/logs/out.log',
     error: './.pm2/logs/error.log',
@@ -15,11 +15,11 @@ module.exports = {
     listen_timeout: 2000,
     // max_memory_restart: '400M',
     env: {
-      NODE_ENV: 'development',
+      NODE_ENV: 'production',
       PORT: '80',
     },
-    env_production: {
-      NODE_ENV: 'production',
+    env_development: {
+      NODE_ENV: 'development',
       PORT: '80',
     },
   }],

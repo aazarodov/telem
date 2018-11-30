@@ -4,15 +4,12 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../src/server/index');
-// const patients = require('../src/server/db/queries/patients');
-// const patientSeeding = require('../src/server/db/seeds/patients');
+const server = require('../src/server/app');
 
 chai.should();
 chai.use(chaiHttp);
 
-// TODO accessToken seeding
-// before(async () => patientSeeding());
+// TODO accessToken cookie
 
 describe('POST auth/logout', () => {
   describe('correct logout', () => {

@@ -7,6 +7,8 @@
         "mocha": true
     },
     "rules": {
-    "no-unused-vars": ["error", { "varsIgnorePattern": "log" }]
+    "no-unused-vars": ["error", { "varsIgnorePattern": "log" }],
+    "no-underscore-dangle": "off",
+    "newline-per-chained-call": "off"
     }
 }

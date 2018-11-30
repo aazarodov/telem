@@ -13,7 +13,7 @@ const whoami = async (ctx) => {
     return;
   }
   if (ctx.state.access.pid) {
-    const patient = await patients.getByPID(ctx.state.access.pid);
+    const patient = await patients.getById(ctx.state.access.pid);
     ctx.body = {
       status: 'success',
       message: `You are ${patient.name}`,
@@ -27,8 +27,6 @@ const whoami = async (ctx) => {
 };
 
 module.exports = {
-  '/': {
-    get: whoami,
-    post: whoami,
-  },
+  get: whoami,
+  post: whoami,
 };

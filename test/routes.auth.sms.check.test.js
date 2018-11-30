@@ -5,9 +5,10 @@ process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
-const server = require('../src/server/index');
-// const sms = require('../src/server/db/queries/sms');
-const smsSeeding = require('../src/server/db/seeds/sms');
+const server = require('../src/server/app');
+const { encrypt, decrypt } = require('../src/server/utils/crypto');
+const { smsExpiry } = require('../secrets');
+const unixtimestamp = require('../src/server/utils/unixtimestamp');
 
 const should = chai.should();
 chai.use(chaiHttp);
@@ -15,22 +16,23 @@ chai.use(chaiHttp);
 const postedSmsTokens = {};
 
 before(async () => {
-  const smsSeeds = await smsSeeding();
+  const now = unixtimestamp();
+  const expiry = now + smsExpiry;
   postedSmsTokens.allCorrect = {
-    smsToken: smsSeeds[0].smsToken,
-    smsCode: smsSeeds[0].smsCode,
+    smsToken: await encrypt({ mobileNumber: '7987654321', smsCode: '1111', expiry }),
+    smsCode: '1111',
   };
   postedSmsTokens.wrongCode = {
-    smsToken: smsSeeds[1].smsToken,
-    smsCode: '1100',
+    smsToken: await encrypt({ mobileNumber: '79008007612', smsCode: '2222', expiry }),
+    smsCode: '0000',
   };
   postedSmsTokens.wrongSign = {
-    smsToken: 'H_F(E_F(Egf9-egf9-gf9--4g48fbvprbe',
-    smsCode: smsSeeds[1].smsCode,
+    smsToken: '8Q+DgA3//lN21FPwcofaT/s7GHInlpS8Ok+RbWUfj7A',
+    smsCode: '3333',
   };
   postedSmsTokens.expired = {
-    smsToken: smsSeeds[2].smsToken,
-    smsCode: smsSeeds[2].smsCode,
+    smsToken: await encrypt({ mobileNumber: '7987654321', smsCode: '4444', expiry: (now - 1) }),
+    smsCode: '4444',
   };
 });
 
@@ -47,7 +49,9 @@ describe('POST auth/sms/check', () => {
       should.exist(res.body.data.registerToken);
       should.exist(res.body.data.mobileNumber);
       should.exist(res.body.data.expiry);
-      // TODO request with this registerToken
+      const tokenData = await decrypt(res.body.data.registerToken);
+      tokenData.mobileNumber.should.equal(res.body.data.mobileNumber);
+      tokenData.expiry.should.equal(res.body.data.expiry);
     });
   });
   describe('postedSmsTokens.wrongCode', () => {

@@ -5,62 +5,56 @@ const couch = require('../connection');
 const { smsExpiry } = require('../../../../secrets');
 const smsSchema = require('../../schemas/db/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
-const token = require('../../utils/token');
 
 
 const dbname = 'test_sms';
 const now = unixtimestamp();
 const testExpiry = now + smsExpiry;
 
-async function smsSeeding() {
-  const smsSeedsRaw = [
-    {
-      mobileNumber: '78905671243',
-      smsCode: '3456',
-      expiry: testExpiry,
-    },
-    {
-      mobileNumber: '98456342334',
-      smsCode: '0011',
-      expiry: testExpiry,
-    },
-    {
-      mobileNumber: '86475287583',
-      smsCode: '4545',
-      expiry: now - 1,
-    },
-  ];
+const smsSeeding = async () => {
   const smsSeeds = [
     {
-      ...smsSeedsRaw[0],
-      smsToken: await token.encrypt(smsSeedsRaw[0]),
+      _id: '78905671243',
+      expiry: testExpiry,
     },
     {
-      ...smsSeedsRaw[1],
-      smsToken: await token.encrypt(smsSeedsRaw[1]),
+      _id: '78456342334',
+      expiry: testExpiry,
     },
     {
-      ...smsSeedsRaw[2],
-      smsToken: await token.encrypt(smsSeedsRaw[2]),
+      _id: '76475287583',
+      expiry: now - 1,
+    },
+    {
+      _id: '70000000001',
+      expiry: 1,
     },
   ];
-
+  try {
+    const validatePromises = smsSeeds.map(seed => smsSchema.validate(seed, { convert: false }));
+    await Promise.all(validatePromises);
+  } catch (error) {
+    log('validate smsSeeds error', error);
+    return null;
+  }
   try {
     await couch.db.destroy(dbname);
   } catch (error) {
     log(`${dbname} does not exist`);
   }
-  await couch.db.create(dbname);
-  const validatePromises = smsSeeds.map(seed => smsSchema.validate(seed));
-  await Promise.all(validatePromises);
-  const smsdb = couch.use(dbname);
-  await smsdb.createIndex({
-    index: { fields: ['smsToken'] },
-    name: 'smsToken_index',
-  });
-  const insertPromises = smsSeeds.map(smsdb.insert);
-  await Promise.all(insertPromises);
-  log('sms seeded');
+  try {
+    await couch.db.create(dbname);
+    const smsdb = couch.use(dbname);
+    await smsdb.createIndex({
+      index: { fields: ['expiry'] },
+      name: 'expiry_index',
+    });
+    const insertPromises = smsSeeds.map(smsdb.insert);
+    await Promise.all(insertPromises);
+    log(`${dbname} successfully seeded`);
+  } catch (error) {
+    log(`${dbname} seeding error`, error);
+  }
   return smsSeeds;
-}
+};
 module.exports = smsSeeding;

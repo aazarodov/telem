@@ -2,12 +2,12 @@
   "name": "telem",
   "version": "0.0.1",
   "description": "telem",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js",
-    "nodemon:test": "nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js index.js || true'",
-    "node": "node ./src/server/index.js",
-    "nodemon": "nodemon ./src/server/index.js",
+    "nodemon:test": "nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js app.js || true'",
+    "node": "node ./src/server/app.js",
+    "nodemon": "nodemon ./src/server/app.js",
     "start": "pm2 start",
     "restart": "pm2 reload all || pm2 start",
     "stop": "pm2 stop all"
@@ -26,14 +26,13 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.2",
-    "crypto-promise": "^2.1.0",
-    "joi": "^14.0.4",
+    "joi": "^14.3.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "koa-router-mount": "^1.0.0",
     "logger-file-fun-line": "^1.0.0",
-    "nano": "^7.1.0",
-    "node-fetch": "^2.3.0"
+    "nano": "^7.1.1",
+    "node-fetch": "^2.3.0",
+    "uuid": "^3.3.2"
   }
 }

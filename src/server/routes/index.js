@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  '/': async (ctx) => {
+  get: async (ctx) => {
     ctx.body = {
       status: 'success',
       message: 'index',

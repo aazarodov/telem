@@ -1,7 +1,7 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const { encrypt, decrypt } = require('../utils/token');
+const { encrypt, decrypt } = require('../utils/crypto');
 const unixtimestamp = require('../utils/unixtimestamp');
 
 

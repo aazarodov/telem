@@ -1,6 +1,6 @@
 variables:
  DEPLOY_DIR: "/home/user/node/telem"
- DEPLOY_APP: "./src/server/index.js"
+ DEPLOY_APP: "./src/server/app.js"
 
 stages:
   - test

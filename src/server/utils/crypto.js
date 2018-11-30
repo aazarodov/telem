@@ -2,12 +2,38 @@
 
 const crypto = require('crypto');
 const log = require('logger-file-fun-line');
-const { cipherKey } = require('../../../secrets');
+const { cipherKey, salt } = require('../../../secrets');
 
 const algorithm = 'aes-256-cbc';
 const keyBuffer = Buffer.from(cipherKey, 'base64');
 
 module.exports = {
+  hashSync(str) {
+    const hash = crypto.createHash('sha256');
+    hash.update(`${str}${salt}`);
+    return hash.digest('base64');
+  },
+  async hash(str) {
+    const hash = crypto.createHash('sha256');
+    return new Promise((resolve) => {
+      let hashBuffer;
+      hash.on('readable', () => {
+        const chunk = hash.read();
+        if (chunk) {
+          if (Buffer.isBuffer(hashBuffer)) {
+            hashBuffer = Buffer.concat([hashBuffer, chunk]);
+          } else {
+            hashBuffer = chunk;
+          }
+        }
+      });
+      hash.on('end', () => {
+        resolve(hashBuffer.toString('base64'));
+      });
+      hash.write(`${str}${salt}`, 'utf8');
+      hash.end();
+    });
+  },
   encryptSync(obj) {
     const data = JSON.stringify(obj);
     const nonce = crypto.randomBytes(16);

@@ -5,15 +5,15 @@ process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
-const server = require('../src/server/index');
+const server = require('../src/server/app');
 const patients = require('../src/server/db/queries/patients');
-const patientSeeding = require('../src/server/db/seeds/patients');
+const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
 
 const should = chai.should();
 chai.use(chaiHttp);
 
-before(async () => patientSeeding());
+before(async () => ramSeeding());
 
 const postedPatientMobileNumber = '449835674532';
 const postedPatient = {
@@ -23,7 +23,7 @@ const postedPatient = {
   firstName: 'Михаил',
   patronymic: 'Афанасьевич',
   sex: 'Мужской',
-  birthDate: '1891-05-03',
+  birthDate: '1891-05-03T00:00:00',
   registerToken: '+WhgTLE+3E7hiKE1FAX/wm+pYP56KKIwEAta73DQ/p2dHatcbPhQQaz5YFivMfVib21mqpLNuVEyygsbBnGi4JTrAarIDNZJRvFRu8Z5ZH8=',
 };
 
@@ -49,7 +49,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('validate error');
       res.body.error.message.should.eql('"Someting" is not allowed');
     });
-    it('should register a new patient wtih "Активен" status', async () => {
+    it('should register a new patient wtih "Новый" status', async () => {
       const today = new Date();
       const res = await chai.request(server)
         .post('/auth/register')
@@ -60,10 +60,10 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('new patient created');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByPhone(postedPatientMobileNumber);
-      foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
-      foundPatient.email.should.eql(foundPatient.email);
-      foundPatient.status.presentation.should.eql('Активен');
+      const foundPatient = await patients.getByMobileNumber(postedPatientMobileNumber);
+      foundPatient._id.should.eql(res.body.data.id);
+      foundPatient.contactInformation[1].emailAddress.should.eql(postedPatient.email);
+      foundPatient.status.presentation.should.eql('Новый');
       foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
     });
   });
@@ -104,9 +104,9 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('stored patient updated without data mismatch');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByPhone('76005993445');
-      foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
-      foundPatient.patronymic.should.eql('Андреевна');
+      const foundPatient = await patients.getByMobileNumber('76005993445');
+      foundPatient._id.should.eql(res.body.data.id);
+      foundPatient.middleName.should.eql('Андреевна');
       foundPatient.status.presentation.should.eql('Не активирован');
       foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
     });
@@ -132,8 +132,8 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('stored patient updated with data mismatch');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByPhone('18765432109');
-      foundPatient._id.should.eql(res.body.data.id); // eslint-disable-line no-underscore-dangle
+      const foundPatient = await patients.getByMobileNumber('18765432109');
+      foundPatient._id.should.eql(res.body.data.id);
       foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
       foundPatient.status.presentation.should.eql('Не активирован');
       foundPatient.note.should.eql(`Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('1940-05-21')}"}`);

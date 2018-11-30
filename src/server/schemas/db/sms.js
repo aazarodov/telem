@@ -3,9 +3,6 @@
 const Joi = require('joi');
 
 module.exports = Joi.object().keys({
-  smsToken: Joi.string().min(16).required(),
-  mobileNumber: Joi.string().min(3).max(255).required(),
-  smsCode: Joi.string().alphanum().lowercase().length(4)
-    .required(),
-  expiry: Joi.date().timestamp('unix').required(),
+  _id: Joi.string().alphanum().min(3).max(16).required(),
+  expiry: Joi.number().integer().positive().required(),
 });
