@@ -11,7 +11,8 @@ module.exports = {
     const { login, password } = ctx.request.body;
     const foundPatient = await patients.login(login, password);
     if (foundPatient) {
-      if (foundPatient.status.presentation === 'Активен') {
+      if (foundPatient.status.presentation === 'Активен'
+        || foundPatient.status.presentation === 'Новый') {
         const { surname, firstName, patronymic } = foundPatient;
         ctx.body = {
           status: 'success',
