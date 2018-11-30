@@ -20,7 +20,6 @@ let preperePatientHandle = null;
 
 const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
   if (typeof preperePatientHandle === 'function') return preperePatientHandle(postedPatient, newStatus, changeStatusOnly);
-  log('new preperePatientHandle');
   const sex = {
     Мужской: { name: 'Мужской', presentation: 'Мужской', type: 'enm.typesOfSex' },
     Женский: { name: 'Женский', presentation: 'Женский', type: 'enm.typesOfSex' },
@@ -91,7 +90,6 @@ module.exports = {
     return response.docs.length > 0 ? response.docs[0] : null;
   },
   async login(login, password) {
-    log(login, await hash(password));
     const response = await patientsdb.find({
       selector: {
         class_name: className,
@@ -116,30 +114,6 @@ module.exports = {
         ],
       },
     });
-    log(JSON.stringify({
-      selector: {
-        class_name: className,
-        password: await hash(password),
-        $or: [
-          {
-            contactInformation: {
-              $elemMatch: {
-                'kind.presentation': 'Телефон',
-                phoneNumber: login,
-              },
-            },
-          },
-          {
-            contactInformation: {
-              $elemMatch: {
-                'kind.presentation': 'E-mail',
-                emailAddress: login,
-              },
-            },
-          },
-        ],
-      },
-    }));
     return response.docs.length > 0 ? response.docs[0] : null;
   },
   async insertNew(postedPatient) {
