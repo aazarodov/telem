@@ -45,7 +45,7 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
       birthDate: dateTime(post.birthDate),
       status: patientStatus[status],
       note: `Дата создания: ${dateTime()}`,
-      password: await hash(post.passwd),
+      password: await hash(post.password),
       contactInformation: [
         {
           ...contactInformation['Телефон'],
@@ -90,11 +90,12 @@ module.exports = {
     if (response.docs.length > 1) log(`More then one patient witn mobileNumber: ${mobileNumber}`);
     return response.docs.length > 0 ? response.docs[0] : null;
   },
-  async login(login, passwd) {
+  async login(login, password) {
+    log(login, await hash(password));
     const response = await patientsdb.find({
       selector: {
         class_name: className,
-        password: await hash(passwd),
+        password: await hash(password),
         $or: [
           {
             contactInformation: {
@@ -115,6 +116,30 @@ module.exports = {
         ],
       },
     });
+    log(JSON.stringify({
+      selector: {
+        class_name: className,
+        password: await hash(password),
+        $or: [
+          {
+            contactInformation: {
+              $elemMatch: {
+                'kind.presentation': 'Телефон',
+                phoneNumber: login,
+              },
+            },
+          },
+          {
+            contactInformation: {
+              $elemMatch: {
+                'kind.presentation': 'E-mail',
+                emailAddress: login,
+              },
+            },
+          },
+        ],
+      },
+    }));
     return response.docs.length > 0 ? response.docs[0] : null;
   },
   async insertNew(postedPatient) {
