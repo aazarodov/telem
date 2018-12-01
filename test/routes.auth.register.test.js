@@ -7,13 +7,13 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const patients = require('../src/server/db/queries/patients');
-const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
+// const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
 
 const should = chai.should();
 chai.use(chaiHttp);
 
-before(async () => ramSeeding());
+// before(async () => ramSeeding());
 
 const postedPatientMobileNumber = '449835674532';
 const postedPatient = {
