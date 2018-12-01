@@ -12,7 +12,13 @@ const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const should = chai.should();
 chai.use(chaiHttp);
 
-before(async () => ramSeeding());
+before(async () => {
+  try {
+    await ramSeeding();
+  } catch (error) {
+    log(error);
+  }
+});
 
 const postedPatientWtihPhone = {
   login: '79876543210',
