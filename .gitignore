@@ -1,3 +1,4 @@
 .DS_Store
+exec.js
 .pm2/
 node_modules/

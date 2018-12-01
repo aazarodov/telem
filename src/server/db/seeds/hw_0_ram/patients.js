@@ -33,21 +33,25 @@ const patientSeeding = async () => {
           ...contactInformation['Телефон'],
           presentation: '+79876543210',
           phoneNumber: '79876543210',
+          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, '79876543210'),
         },
         {
           ...contactInformation['Факт. адрес'],
           presentation: 'г. Москва, ул. Пушкина, д. Колотушкина',
           country: 'РОССИЯ',
+          fieldValues: contactInformation['Факт. адрес'].fieldValues.replace(/REPLACEME/g, 'г. Москва, ул. Пушкина, д. Колотушкина'),
         },
         {
           ...contactInformation['E-mail'],
           presentation: 'alex@mail.ru',
           emailAddress: 'alex@mail.ru',
+          fieldValues: contactInformation['E-mail'].fieldValues.replace(/REPLACEME/g, 'alex@mail.ru'),
         },
         {
           ...contactInformation['Телефон представителя'],
           presentation: '+78876543210',
           phoneNumber: '78876543210',
+          fieldValues: contactInformation['Телефон представителя'].fieldValues.replace(/REPLACEME/g, '78876543210'),
         },
       ],
       class_name: className,
@@ -66,13 +70,16 @@ const patientSeeding = async () => {
       contactInformation: [
         {
           ...contactInformation['Телефон'],
-          presentation: '+18765432109',
-          phoneNumber: '18765432109',
+          presentation: '+78765432109',
+          phoneNumber: '78765432109',
+          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, '78765432109'),
+
         },
         {
           ...contactInformation['E-mail'],
           presentation: 'yosif@gmail.com',
           emailAddress: 'yosif@gmail.com',
+          fieldValues: contactInformation['E-mail'].fieldValues.replace(/REPLACEME/g, 'yosif@gmail.com'),
         },
       ],
       class_name: className,
@@ -93,11 +100,13 @@ const patientSeeding = async () => {
           ...contactInformation['Телефон'],
           presentation: '+76005993445',
           phoneNumber: '76005993445',
+          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, '76005993445'),
         },
         {
           ...contactInformation['E-mail'],
           presentation: 'ann@yahoo.com',
           emailAddress: 'ann@yahoo.com',
+          fieldValues: contactInformation['E-mail'].fieldValues.replace(/REPLACEME/g, 'ann@yahoo.com'),
         },
       ],
       class_name: className,

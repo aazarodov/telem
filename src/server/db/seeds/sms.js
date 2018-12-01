@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_ENV = 'test';
+
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const { smsExpiry } = require('../../../../secrets');

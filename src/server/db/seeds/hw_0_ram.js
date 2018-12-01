@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_ENV = 'test';
+
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const patientStatuses = require('./hw_0_ram/patientStatuses');
@@ -53,4 +55,7 @@ const ramSeeding = async () => {
   }
   log(`${dbname} patients successfully seeded`);
 };
+
+if (require.main === module) ramSeeding();
+
 module.exports = ramSeeding;

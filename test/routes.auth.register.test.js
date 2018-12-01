@@ -124,7 +124,7 @@ describe('POST auth/register', () => {
           patronymic: 'Александрович',
           sex: 'Мужской',
           birthDate: '1940-05-21',
-          registerToken: 'HCK3hgTm6jKOpYHItHxYcWSqCt+bCpjaBX39tu45MfsHOFdGodEYba/yh8iaOaIPHbeBxLV6a9i79xhVOoU6hQlxMvfw2VKaxucmtA2hGxM=',
+          registerToken: 'JmY83YjuUCw8091eTq24BVWHlw/p8tEC8mXPnovLt4eAgLkhR24no7eQ+e2CbU6cuwP+zvttBP/dnIAt9PzA8J7yMBbQZJxUeiYVkN3eng4=',
         });
       res.status.should.equal(200);
       res.type.should.equal('application/json');
@@ -132,7 +132,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('stored patient updated with data mismatch');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByMobileNumber('18765432109');
+      const foundPatient = await patients.getByMobileNumber('78765432109');
       foundPatient._id.should.eql(res.body.data.id);
       foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
       foundPatient.status.presentation.should.eql('Не активирован');

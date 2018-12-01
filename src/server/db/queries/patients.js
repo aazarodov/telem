@@ -50,11 +50,13 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
           ...contactInformation['Телефон'],
           presentation: `+${post.mobileNumber}`,
           phoneNumber: post.mobileNumber,
+          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, post.mobileNumber),
         },
         {
           ...contactInformation['E-mail'],
           presentation: post.email,
           emailAddress: post.email,
+          fieldValues: contactInformation['E-mail'].fieldValues.replace(/REPLACEME/g, post.email),
         },
       ],
       class_name: className,
