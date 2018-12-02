@@ -124,7 +124,7 @@ module.exports = {
     return patientsdb.insert(newPatient);
   },
   async updateClean(_id, _rev, postedPatient) {
-    const updPatient = await preperePatient(postedPatient, 'Не активирован');
+    const updPatient = await preperePatient(postedPatient, 'Активен');
     await patientSchema.validate(updPatient);
     return patientsdb.insert({ ...updPatient, _id, _rev });
   },

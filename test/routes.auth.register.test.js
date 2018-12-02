@@ -107,7 +107,7 @@ describe('POST auth/register', () => {
       const foundPatient = await patients.getByMobileNumber('76005993445');
       foundPatient._id.should.eql(res.body.data.id);
       foundPatient.middleName.should.eql('Андреевна');
-      foundPatient.status.presentation.should.eql('Не активирован');
+      foundPatient.status.presentation.should.eql('Активен');
       foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
     });
   });
