@@ -8,7 +8,7 @@ const unixtimestamp = require('../../utils/unixtimestamp');
 
 module.exports = {
   post: async (ctx) => {
-    const { login, password } = ctx.request.body;
+    const { login, password } = ctx.state.data;
     const foundPatient = await patients.login(login, password);
     if (foundPatient) {
       if (foundPatient.status.presentation === 'Активен'

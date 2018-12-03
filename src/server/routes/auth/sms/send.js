@@ -23,7 +23,7 @@ const smsGatewaySend = async (mobileNumber, smsCode) => {
 
 module.exports = {
   post: async (ctx) => {
-    const { mobileNumber } = ctx.request.body;
+    const { mobileNumber } = ctx.state.data;
     if (await sms.existMobileNumber(mobileNumber)) {
       ctx.status = 400;
       ctx.body = {

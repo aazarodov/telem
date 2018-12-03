@@ -31,7 +31,7 @@ module.exports = Joi.object().keys({
     type: Joi.string().valid('cat.patientStatuses').required(),
   }),
   note: Joi.string().allow('').max(2048),
-  password: Joi.string().length(44).required(),
+  password: Joi.string().allow('').length(44).required(),
   contactInformation: Joi.array().items(
     Joi.object().keys({
       type: {

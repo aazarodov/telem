@@ -14,7 +14,7 @@ const now = unixtimestamp();
 const testExpiry = now + smsExpiry;
 
 const smsSeeding = async () => {
-  const smsSeeds = [
+  let smsSeeds = [
     {
       _id: '78905671243',
       expiry: testExpiry,
@@ -33,8 +33,8 @@ const smsSeeding = async () => {
     },
   ];
   try {
-    const validatePromises = smsSeeds.map(seed => smsSchema.validate(seed, { convert: false }));
-    await Promise.all(validatePromises);
+    const validatePromises = smsSeeds.map(seed => smsSchema.validate(seed));
+    smsSeeds = await Promise.all(validatePromises);
   } catch (error) {
     log('validate smsSeeds error', error);
     return null;

@@ -6,7 +6,6 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
-// const patients = require('../src/server/db/queries/patients');
 const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 
 const should = chai.should();

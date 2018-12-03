@@ -118,7 +118,7 @@ describe('POST auth/register', () => {
         .post('/auth/register')
         .send({
           email: 'yosif@gmail.com',
-          password: 'new_password_not_detect_as_mismatch',
+          password: 'new_password',
           surname: 'Бродский',
           firstName: 'Иосиф',
           patronymic: 'Александрович',

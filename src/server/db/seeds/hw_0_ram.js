@@ -27,9 +27,9 @@ const ramSeeding = async () => {
     name: 'class_name_password_index',
   });
   try {
-    const patientStatusSeeds = await patientStatuses();
+    let patientStatusSeeds = await patientStatuses();
     const insertPromises = patientStatusSeeds.map(db.insert);
-    await Promise.all(insertPromises);
+    patientStatusSeeds = await Promise.all(insertPromises);
   } catch (error) {
     log(`${dbname} patientStatus seeding error`, error);
     return;
@@ -37,18 +37,18 @@ const ramSeeding = async () => {
   log(`${dbname} patientStatus successfully seeded`);
 
   try {
-    const contactInformationSeeds = await contactInformation();
+    let contactInformationSeeds = await contactInformation();
     const insertPromises = contactInformationSeeds.map(db.insert);
-    await Promise.all(insertPromises);
+    contactInformationSeeds = await Promise.all(insertPromises);
   } catch (error) {
     log(`${dbname} contactInformation seeding error`, error);
     return;
   }
   log(`${dbname} contactInformation successfully seeded`);
   try {
-    const patientsSeeds = await patients();
+    let patientsSeeds = await patients();
     const insertPromises = patientsSeeds.map(db.insert);
-    await Promise.all(insertPromises);
+    patientsSeeds = await Promise.all(insertPromises);
   } catch (error) {
     log(`${dbname} patients seeding error`, error);
     return;

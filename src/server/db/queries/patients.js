@@ -128,6 +128,9 @@ module.exports = {
     await patientSchema.validate(updPatient);
     return patientsdb.insert({ ...updPatient, _id, _rev });
   },
+  async resetPassword(foundPatient, password) {
+    return patientsdb.insert({ ...foundPatient, password: await hash(password) });
+  },
   async updateDataMismatch(foundPatient, patientDataMismatch) {
     const updPatient = await preperePatient({
       ...foundPatient,

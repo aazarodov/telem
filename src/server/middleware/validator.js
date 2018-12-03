@@ -22,7 +22,8 @@ module.exports = (dir) => {
       await next();
     } else {
       try {
-        await schemas[ctx.path][method].validate(ctx.request.body);
+        const data = method === 'get' ? ctx.request.query : ctx.request.body;
+        ctx.state.data = await schemas[ctx.path][method].validate(data);
         ctx.state.validate = true;
         await next();
       } catch (error) {

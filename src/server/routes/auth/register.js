@@ -2,13 +2,13 @@
 
 const log = require('logger-file-fun-line');
 const patients = require('../../db/queries/patients');
-const { decrypt } = require('../../utils/crypto');
+const { decrypt, hash } = require('../../utils/crypto');
 const unixtimestamp = require('../../utils/unixtimestamp');
 const dateTime = require('../../utils/dateTimeFor1C');
 
 module.exports = {
   post: async (ctx) => {
-    const postedPatient = ctx.request.body;
+    const postedPatient = ctx.state.data;
     let tokenData;
     try {
       tokenData = await decrypt(postedPatient.registerToken);
@@ -72,6 +72,9 @@ module.exports = {
       }
       if (foundPatient.sex && postedPatient.sex !== foundPatient.sex.name) {
         patientDataMismatch.sex = postedPatient.sex;
+      }
+      if (!foundPatient.password) {
+        foundPatient.password = await hash(postedPatient.password);
       }
       if (Object.keys(patientDataMismatch).length === 0) {
         const updPatient = await patients.updateClean(

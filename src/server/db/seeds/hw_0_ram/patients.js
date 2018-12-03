@@ -64,7 +64,7 @@ const patientSeeding = async () => {
       middleName: 'Александрович',
       sex: sex['Мужской'],
       birthDate: '1940-05-24T00:00:00',
-      status: patientStatus['Не создан'],
+      status: patientStatus['Не активирован'],
       note: '',
       password: await hash('qwertyu'),
       contactInformation: [
@@ -94,7 +94,7 @@ const patientSeeding = async () => {
       birthDate: '1889-06-23T00:00:00',
       status: patientStatus['Не создан'],
       note: '',
-      password: await hash('34%45w40(UF(H(#H#(RH#(bf3u'),
+      password: '', // await hash('qwertyu'),
       contactInformation: [
         {
           ...contactInformation['Телефон'],

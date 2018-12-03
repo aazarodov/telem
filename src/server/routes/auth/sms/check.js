@@ -10,7 +10,7 @@ module.exports = {
     const {
       smsToken,
       smsCode,
-    } = ctx.request.body;
+    } = ctx.state.data;
     let tokenData;
     try {
       tokenData = await decrypt(smsToken);
