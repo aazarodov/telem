@@ -4,7 +4,7 @@
   "description": "telem",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha --timeout 15000 ./test/**/*.test.js",
+    "test": "./node_modules/mocha/bin/_mocha --timeout 15001 ./test/**/*.test.js",
     "nodemon:test": "nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js app.js || true'",
     "node": "node ./src/server/app.js",
     "nodemon": "nodemon ./src/server/app.js",
