@@ -8,12 +8,14 @@ module.exports = (app, dir, prefix = '') => {
   list.forEach((file) => {
     // eslint-disable-next-line global-require, import/no-dynamic-require
     const controller = require(file);
-    const path = file.slice(dir.length, -3);
+    const route = process.platform === 'win32'
+      ? file.slice(dir.length, -3).replace(/\\/g, '/') // throw 'bluescreen.jpg'
+      : file.slice(dir.length, -3);
     const router = new Router();
     if (prefix) router.prefix(prefix);
     Object.keys(controller).forEach((method) => {
-      if (path === '/index') router[method]('/', controller[method]);
-      else router[method](path, controller[method]);
+      if (route === '/index') router[method]('/', controller[method]);
+      else router[method](route, controller[method]);
     });
     app.use(router.routes());
   });

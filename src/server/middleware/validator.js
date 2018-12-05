@@ -1,15 +1,16 @@
 'use strict';
 
-const log = require('logger-file-fun-line');
 const { deepReaddirSync } = require('../utils/deepReaddir');
 
 module.exports = (dir) => {
   const schemas = {};
   const list = deepReaddirSync(dir);
   list.forEach((file) => {
-    const validatorName = file.slice(dir.length, -3);
+    const route = process.platform === 'win32'
+      ? file.slice(dir.length, -3).replace(/\\/g, '/') // throw 'bluescreen.jpg'
+      : file.slice(dir.length, -3);
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    schemas[validatorName] = require(file);
+    schemas[route] = require(file);
   });
   return async (ctx, next) => {
     const method = ctx.method.toLowerCase();
