@@ -114,5 +114,5 @@ module.exports = Joi.object().keys({
       phoneNumberWithoutCodes: Joi.string().valid('').required(),
     }),
   ),
-  class_name: Joi.string().valid('cat.patients').required(),
+  class_name: Joi.string().valid(className).required(),
 });

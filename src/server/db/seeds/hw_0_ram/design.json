@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "_design/indexes",
+    "language": "query",
+    "views": {
+      "class_name-password": {
+        "map": {
+          "fields": {
+            "class_name": "asc",
+            "password": "asc"
+          },
+          "partial_filter_selector": {}
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "class_name",
+              "password"
+            ]
+          }
+        }
+      },
+      "class_name": {
+        "map": {
+          "fields": {
+            "class_name": "asc"
+          },
+          "partial_filter_selector": {}
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "class_name"
+            ]
+          }
+        }
+      },
+      "class_name-patient.ref": {
+        "map": {
+          "fields": {
+            "class_name": "asc",
+            "patient.ref": "asc"
+          },
+          "partial_filter_selector": {
+            "class_name": "doc.laboratoryAnalyzes"
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "class_name",
+              "patient.ref"
+            ]
+          }
+        }
+      }
+    }
+  }
+]

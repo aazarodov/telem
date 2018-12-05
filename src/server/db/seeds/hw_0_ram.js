@@ -2,13 +2,18 @@
 
 process.env.NODE_ENV = 'test';
 
+const path = require('path');
+const fs = require('fs');
+const util = require('util');
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
-const patientStatuses = require('./hw_0_ram/patientStatuses');
-const contactInformation = require('./hw_0_ram/contactInformation');
-const patients = require('./hw_0_ram/patients');
+const { deepReaddir } = require('../../utils/deepReaddir');
+
+const readFile = util.promisify(fs.readFile);
 
 const dbname = 'test_hw_0_ram';
+const jsonDir = path.join(__dirname, 'hw_0_ram');
+const schemasDir = path.join(__dirname, '../../schemas/db/hw_0_ram');
 
 const ramSeeding = async () => {
   try {
@@ -18,42 +23,62 @@ const ramSeeding = async () => {
   }
   await couch.db.create(dbname);
   const db = couch.use(dbname);
-  await db.createIndex({
-    index: { fields: ['class_name'] },
-    name: 'class_name_index',
-  });
-  await db.createIndex({
-    index: { fields: ['class_name', 'password'] },
-    name: 'class_name_password_index',
-  });
+  const schemas = {};
   try {
-    let patientStatusSeeds = await patientStatuses();
-    const insertPromises = patientStatusSeeds.map(db.insert);
-    patientStatusSeeds = await Promise.all(insertPromises);
+    const list = await deepReaddir(schemasDir);
+    list.forEach((file) => {
+      const fileParse = path.parse(file);
+      try {
+        const validatorName = fileParse.name;
+        // eslint-disable-next-line global-require, import/no-dynamic-require
+        schemas[validatorName] = require(file);
+      } catch (error) {
+        log(`${fileParse.base} validator require error`);
+      }
+    });
   } catch (error) {
-    log(`${dbname} patientStatus seeding error`, error);
+    log(error);
     return;
   }
-  log(`${dbname} patientStatus successfully seeded`);
-
+  const bulk = {};
+  bulk.docs = [];
   try {
-    let contactInformationSeeds = await contactInformation();
-    const insertPromises = contactInformationSeeds.map(db.insert);
-    contactInformationSeeds = await Promise.all(insertPromises);
+    const list = await deepReaddir(jsonDir, '.json');
+    const seedsPromises = list.map(async (file) => {
+      const fileParse = path.parse(file);
+      let seeds;
+      try {
+        seeds = JSON.parse(await readFile(file));
+      } catch (error) {
+        log(`${fileParse.base} JSON read error`);
+        throw error;
+      }
+      try {
+        if (schemas[fileParse.name]) {
+          const validatePromises = seeds.map(seed => schemas[fileParse.name].validate(seed));
+          seeds = await Promise.all(validatePromises);
+          bulk.docs.push(...seeds);
+          log(`${fileParse.name} validated successful`);
+        } else {
+          bulk.docs.push(...seeds);
+          log(`${fileParse.name} add without validation`);
+        }
+      } catch (error) {
+        log(`${fileParse.name} validate error`);
+        throw error;
+      }
+    });
+    await Promise.all(seedsPromises);
   } catch (error) {
-    log(`${dbname} contactInformation seeding error`, error);
+    log(error);
     return;
   }
-  log(`${dbname} contactInformation successfully seeded`);
   try {
-    let patientsSeeds = await patients();
-    const insertPromises = patientsSeeds.map(db.insert);
-    patientsSeeds = await Promise.all(insertPromises);
+    await db.bulk(bulk);
   } catch (error) {
-    log(`${dbname} patients seeding error`, error);
-    return;
+    log(`${dbname} bulk error`, error);
   }
-  log(`${dbname} patients successfully seeded`);
+  log(`${dbname} successfully seeded`);
 };
 
 if (require.main === module) ramSeeding();

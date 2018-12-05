@@ -1,0 +1,736 @@
+[
+  {
+    "_id": "doc.laboratoryAnalyzes|14dd1aba-e8c2-11e8-bdf7-001e679abfc4",
+    "date": "2018-11-15T13:34:51",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c0190-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0006",
+    "barcode": "2113377291",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "АЛТ",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
+          "presentation": "Биохимический метод",
+          "type": "cat.analysisMethods"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-11-30T04:32:25 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|32742b02-f4f1-11e8-8101-f41614cd568a",
+    "date": "2018-12-01T01:42:21",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c4fb0-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Иосиф Александрович Бродский",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0001",
+    "barcode": "2173635850",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "АЛТ",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
+          "presentation": "Биохимический метод",
+          "type": "cat.analysisMethods"
+        },
+        "norma": "min: 2 max: 41 (Ед/л)"
+      },
+      {
+        "analysis": {
+          "ref": "8a1b4c77-ddf2-11de-b21e-00140b0496c2",
+          "presentation": "АФП",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd77-f5cf-11de-acac-001517b46888",
+          "presentation": "Метод твердофазного хемилюминесцентного иммуноанализа",
+          "type": "cat.analysisMethods"
+        },
+        "norma": "min: 0 max: 10 (МЕ/мл)"
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-02T09:39:51 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|96e67006-f5ad-11e8-8101-f41614cd568a",
+    "date": "2018-12-02T00:10:55",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c0190-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0002",
+    "barcode": "2143948002",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "АЛТ",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
+          "presentation": "Биохимический метод",
+          "type": "cat.analysisMethods"
+        },
+        "norma": "min: 2 max: 41 (Ед/л)"
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-02T09:39:51 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|b7602d63-f417-11e8-8101-f41614cd568a",
+    "date": "2018-11-29T23:45:34",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c4fb0-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Иосиф Александрович Бродский",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0009",
+    "barcode": "2110068434",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "АЛТ",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
+          "presentation": "Биохимический метод",
+          "type": "cat.analysisMethods"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-11-30T04:32:25 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|e886977b-e726-11e8-bdf7-001e679abfc4",
+    "date": "2018-11-13T12:31:34",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c76c0-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Ахматова Анна",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0005",
+    "barcode": "2111751612",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "14128a50-9935-11df-93df-001517b46888",
+          "presentation": "Гематокрит",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-11-30T04:32:25 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|f0ee3112-e45e-11e8-bdf7-001e679abfc4",
+    "date": "2018-11-09T23:35:06",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "e29c0190-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0002",
+    "barcode": "2148762354",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": true,
+        "analysisMethod": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d388-ff73-11de-94de-001517b46888",
+          "presentation": "Цвет",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d38a-ff73-11de-94de-001517b46888",
+          "presentation": "Удельный вес",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d38d-ff73-11de-94de-001517b46888",
+          "presentation": "pH",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3a1-ff73-11de-94de-001517b46888",
+          "presentation": "Белок",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3a5-ff73-11de-94de-001517b46888",
+          "presentation": "глюкоза",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3a9-ff73-11de-94de-001517b46888",
+          "presentation": "кетоновые тела",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3a7-ff73-11de-94de-001517b46888",
+          "presentation": "нитриты",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3b1-ff73-11de-94de-001517b46888",
+          "presentation": "билирубин",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3b3-ff73-11de-94de-001517b46888",
+          "presentation": "уробилиноген",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3b5-ff73-11de-94de-001517b46888",
+          "presentation": "эпителиальные клетки",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3b7-ff73-11de-94de-001517b46888",
+          "presentation": "лейкоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3b9-ff73-11de-94de-001517b46888",
+          "presentation": "эритроциты неизмененные",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3bb-ff73-11de-94de-001517b46888",
+          "presentation": "эритроциты измененные",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3bd-ff73-11de-94de-001517b46888",
+          "presentation": "цилиндры",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "dda6d3bf-ff73-11de-94de-001517b46888",
+          "presentation": "клетки почечного эпителия",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a24b4223-ff7a-11de-94de-001517b46888",
+          "presentation": "соли",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a24b4225-ff7a-11de-94de-001517b46888",
+          "presentation": "слизь",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a24b4227-ff7a-11de-94de-001517b46888",
+          "presentation": "бактерии",
+          "type": "cat.analyzesAndServices"
+        },
+        "set": {
+          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
+          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
+          "presentation": "моча",
+          "type": "cat.bioMaterials"
+        },
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-11-30T04:32:25 +0300",
+      "e1cib": true
+    }
+  }
+]

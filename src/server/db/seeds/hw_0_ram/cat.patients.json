@@ -1,0 +1,231 @@
+[    
+  {
+    "_id": "cat.patients|e29c0190-f87f-11e8-8476-2fcec2888318",
+    "name": "Пушкин Александр Сергеевич",
+    "lastName": "Пушкин",
+    "firstName": "Александр",
+    "middleName": "Сергеевич",
+    "sex": {
+      "name": "Мужской",
+      "presentation": "Мужской",
+      "type": "enm.typesOfSex"
+    },
+    "birthDate": "1799-06-06T00:00:00",
+    "status": {
+      "ref": "e25582b0-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Активен",
+      "type": "cat.patientStatuses"
+    },
+    "note": "Дата создания 2018-10-24T00:00:00",
+    "password": "d6FOrPiS4fFIZiJ4HGIiOwawxARdSsC+rs4MTMPReDU=",
+    "contactInformation": [
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc90-f87f-11e8-8476-2fcec2888318",
+          "presentation": "Телефон",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "+79876543210",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+79876543210\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"79876543210\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "79876543210",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Адрес",
+          "presentation": "Адрес",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc91-f87f-11e8-8476-2fcec2888318",
+          "presentation": "Факт. адрес",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "г. Москва, ул. Пушкина, д. Колотушкина",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"г. Москва, ул. Пушкина, д. Колотушкина\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><Адрес_по_документу>г. Москва, ул. Пушкина, д. Колотушкина</Адрес_по_документу><ОКТМО>0</ОКТМО><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>\"",
+        "country": "РОССИЯ",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "АдресЭлектроннойПочты",
+          "presentation": "Адрес электронной почты",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc92-f87f-11e8-8476-2fcec2888318",
+          "presentation": "E-mail",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "alex@mail.ru",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"alex@mail.ru\"><Комментарий/><Состав xsi:type=\"ЭлектроннаяПочта\" Значение=\"alex@mail.ru\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "alex@mail.ru",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc93-f87f-11e8-8476-2fcec2888318",
+          "presentation": "Телефон представителя",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "+78876543210",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+78876543210\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"78876543210\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "78876543210",
+        "phoneNumberWithoutCodes": ""
+      }
+    ],
+    "class_name": "cat.patients"
+  },
+  {
+    "_id": "cat.patients|e29c4fb0-f87f-11e8-8476-2fcec2888318",
+    "name": "Иосиф Александрович Бродский",
+    "lastName": "Бродский",
+    "firstName": "Иосиф",
+    "middleName": "Александрович",
+    "sex": {
+      "name": "Мужской",
+      "presentation": "Мужской",
+      "type": "enm.typesOfSex"
+    },
+    "birthDate": "1940-05-24T00:00:00",
+    "status": {
+      "ref": "e25582b2-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Не активирован",
+      "type": "cat.patientStatuses"
+    },
+    "note": "",
+    "password": "mP2KIZwDNIeMTu5ksfbgvZBXdHk3UeNZttmrXSP0O/M=",
+    "contactInformation": [
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc90-f87f-11e8-8476-2fcec2888318",
+          "presentation": "Телефон",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "+78765432109",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+78765432109\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"78765432109\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "78765432109",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "АдресЭлектроннойПочты",
+          "presentation": "Адрес электронной почты",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc92-f87f-11e8-8476-2fcec2888318",
+          "presentation": "E-mail",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "yosif@gmail.com",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"yosif@gmail.com\"><Комментарий/><Состав xsi:type=\"ЭлектроннаяПочта\" Значение=\"yosif@gmail.com\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "yosif@gmail.com",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      }
+    ],
+    "class_name": "cat.patients"
+  },
+  {
+    "_id": "cat.patients|e29c76c0-f87f-11e8-8476-2fcec2888318",
+    "name": "Ахматова Анна",
+    "lastName": "Ахматова",
+    "firstName": "Анна",
+    "middleName": "",
+    "sex": {
+      "name": "Женский",
+      "presentation": "Женский",
+      "type": "enm.typesOfSex"
+    },
+    "birthDate": "1889-06-23T00:00:00",
+    "status": {
+      "ref": "e255a9c1-f87f-11e8-8476-2fcec2888318",
+      "presentation": "Не создан",
+      "type": "cat.patientStatuses"
+    },
+    "note": "",
+    "password": "",
+    "contactInformation": [
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc90-f87f-11e8-8476-2fcec2888318",
+          "presentation": "Телефон",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "+76005993445",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+76005993445\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"76005993445\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "76005993445",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "АдресЭлектроннойПочты",
+          "presentation": "Адрес электронной почты",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "e268bc92-f87f-11e8-8476-2fcec2888318",
+          "presentation": "E-mail",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "ann@yahoo.com",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"ann@yahoo.com\"><Комментарий/><Состав xsi:type=\"ЭлектроннаяПочта\" Значение=\"ann@yahoo.com\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "ann@yahoo.com",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      }
+    ],
+    "class_name": "cat.patients"
+  }
+]

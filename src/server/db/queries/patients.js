@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
-const patientSchema = require('../../schemas/db/patient');
+const patientSchema = require('../../schemas/db/hw_0_ram/cat.patients');
 const patientStatusFetch = require('./patientStatusFetch');
 const contactInformationFetch = require('./contactInformationFetch');
 const { hash } = require('../../utils/crypto');

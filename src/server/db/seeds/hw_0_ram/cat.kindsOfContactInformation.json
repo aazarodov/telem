@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "cat.kindsOfContactInformation|e268bc90-f87f-11e8-8476-2fcec2888318",
+    "name": "Телефон",
+    "type": {
+      "name": "Телефон",
+      "presentation": "Телефон",
+      "type": "enm.typesOfContactInformation"
+    },
+    "class_name": "cat.kindsOfContactInformation"
+  },
+  {
+    "_id": "cat.kindsOfContactInformation|e268bc91-f87f-11e8-8476-2fcec2888318",
+    "name": "Факт. адрес",
+    "type": {
+      "name": "Адрес",
+      "presentation": "Адрес",
+      "type": "enm.typesOfContactInformation"
+    },
+    "class_name": "cat.kindsOfContactInformation"
+  },
+  {
+    "_id": "cat.kindsOfContactInformation|e268bc92-f87f-11e8-8476-2fcec2888318",
+    "name": "E-mail",
+    "type": {
+      "name": "АдресЭлектроннойПочты",
+      "presentation": "Адрес электронной почты",
+      "type": "enm.typesOfContactInformation"
+    },
+    "class_name": "cat.kindsOfContactInformation"
+  },
+  {
+    "_id": "cat.kindsOfContactInformation|e268bc93-f87f-11e8-8476-2fcec2888318",
+    "name": "Телефон представителя",
+    "type": {
+      "name": "Телефон",
+      "presentation": "Телефон",
+      "type": "enm.typesOfContactInformation"
+    },
+    "class_name": "cat.kindsOfContactInformation"
+  }
+]

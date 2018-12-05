@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "cat.patientStatuses|e25582b0-f87f-11e8-8476-2fcec2888318",
+    "name": "Активен",
+    "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|e25582b1-f87f-11e8-8476-2fcec2888318",
+    "name": "Заблокирован",
+    "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|e25582b2-f87f-11e8-8476-2fcec2888318",
+    "name": "Не активирован",
+    "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|e255a9c0-f87f-11e8-8476-2fcec2888318",
+    "name": "Удален",
+    "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|e255a9c1-f87f-11e8-8476-2fcec2888318",
+    "name": "Не создан",
+    "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|e255a9c2-f87f-11e8-8476-2fcec2888318",
+    "name": "Новый",
+    "class_name": "cat.patientStatuses"
+  }
+]

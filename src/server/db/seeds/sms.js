@@ -5,7 +5,7 @@ process.env.NODE_ENV = 'test';
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const { smsExpiry } = require('../../../../secrets');
-const smsSchema = require('../../schemas/db/sms');
+const smsSchema = require('../../schemas/db/sms/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
 
 

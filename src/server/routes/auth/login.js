@@ -13,16 +13,22 @@ module.exports = {
     if (foundPatient) {
       if (foundPatient.status.presentation === 'Активен'
         || foundPatient.status.presentation === 'Новый') {
-        const { surname, firstName, patronymic } = foundPatient;
+        const { lastName, firstName, middleName } = foundPatient;
+        const pid = foundPatient._id;
+        const expiry = unixtimestamp() + accessExpiry;
+        ctx.cookies.set(
+          'pat', // Patient Access Token
+          await encrypt({ pid, expiry }),
+          {
+            expires: new Date(expiry * 1000),
+            httpOnly: true,
+          },
+        );
         ctx.body = {
           status: 'success',
           message: 'login successful',
           data: {
-            accessToken: await encrypt({
-              pid: foundPatient._id,
-              expiry: unixtimestamp() + accessExpiry,
-            }),
-            patient: { surname, firstName, patronymic },
+            patient: { lastName, firstName, middleName },
           },
         };
       } else {

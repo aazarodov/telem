@@ -2,12 +2,16 @@
 
 const log = require('logger-file-fun-line');
 
+const logout = (ctx) => {
+  ctx.cookies.set('pat');
+  ctx.status = 200;
+  ctx.body = {
+    status: 'success',
+    message: 'logout successful',
+  };
+};
+
 module.exports = {
-  post: async (ctx) => {
-    ctx.status = 200;
-    ctx.body = {
-      status: 'success',
-      message: 'logout successful',
-    };
-  },
+  get: logout,
+  post: logout,
 };

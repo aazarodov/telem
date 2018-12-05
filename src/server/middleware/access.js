@@ -11,14 +11,13 @@ module.exports = () => async (ctx, next) => {
     await next();
     return;
   }
-  const accessToken = ctx.request.body.accessToken
-    ? ctx.request.body.accessToken : ctx.query.accessToken;
+  const accessToken = ctx.cookies.get('pat');
   if (!accessToken) {
     ctx.status = 400;
     ctx.body = {
       status: 'error',
-      message: 'accessToken absent',
-      error: { query: ctx.query, body: ctx.request.body },
+      message: 'access deny',
+      error: 'accessToken absent',
     };
     return;
   }
@@ -29,8 +28,8 @@ module.exports = () => async (ctx, next) => {
     ctx.status = 400;
     ctx.body = {
       status: 'error',
-      message: 'accessToken incorrect',
-      error: { query: ctx.query, body: ctx.request.body, error },
+      message: 'access deny',
+      error: 'accessToken incorrect',
     };
     return;
   }
@@ -38,13 +37,21 @@ module.exports = () => async (ctx, next) => {
     ctx.status = 400;
     ctx.body = {
       status: 'error',
-      message: 'accessToken expired',
-      error: { query: ctx.query, body: ctx.request.body, expiry: tokenData.expiry },
+      message: 'access deny',
+      error: 'accessToken expired',
     };
     return;
   }
   ctx.state.access = tokenData;
   await next();
-  const newTokenData = { ...ctx.state.access, expiry: unixtimestamp() };
-  ctx.body.accessToken = await encrypt(newTokenData);
+  const expiry = unixtimestamp();
+  const newTokenData = { ...ctx.state.access, expiry };
+  ctx.cookies.set(
+    'pat', // Patient Access Token
+    await encrypt(newTokenData),
+    {
+      expires: new Date(expiry * 1000),
+      httpOnly: true,
+    },
+  );
 };

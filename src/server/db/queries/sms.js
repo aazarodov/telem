@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
-const smsSchema = require('../../schemas/db/sms');
+const smsSchema = require('../../schemas/db/sms/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
 const { smsExpiry } = require('../../../../secrets');
 

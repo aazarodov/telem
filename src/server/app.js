@@ -15,8 +15,8 @@ const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
 app.use(cors());
 app.use(bodyParser());
 app.use(access());
-app.use(validator(path.join(__dirname, '/schemas/routes')));
-mountRoutes(app, path.join(__dirname, '/routes'));
+app.use(validator(path.join(__dirname, 'schemas/routes')));
+mountRoutes(app, path.join(__dirname, 'routes'));
 
 const server = app.listen(PORT, () => {
   log(`Server start on port: ${PORT}`);

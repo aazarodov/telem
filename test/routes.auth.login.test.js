@@ -58,21 +58,29 @@ const postedPatientWtihNoActiveStatus = {
 };
 
 describe('POST auth/login', () => {
-  let accessToken;
   describe('correct login', () => {
-    it('should return accessToken when login is phone number', async () => {
-      const res = await chai.request(server)
-        .post('/auth/login')
-        .send(postedPatientWtihPhone);
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
+    it('should return access cookie when login is phone number', async () => {
+      const agent = chai.request.agent(server);
+      {
+        const res = await agent
+          .post('/auth/login')
+          .send(postedPatientWtihPhone);
+        res.status.should.equal(200);
+        res.type.should.equal('application/json');
+        res.body.status.should.eql('success');
+        res.body.message.should.eql('login successful');
+        res.should.have.cookie('pat');
+        res.body.data.patient.firstName.should.eql('Александр');
+      }
+      const res = await agent
+        .get('/whoami');
+      res.status.should.eql(200);
+      res.type.should.eql('application/json');
       res.body.status.should.eql('success');
-      res.body.message.should.eql('login successful');
-      should.exist(res.body.data.accessToken);
-      res.body.data.patient.firstName.should.eql('Александр');
-      accessToken = res.body.data.accessToken; // eslint-disable-line prefer-destructuring
+      res.body.message.should.eql('You are Пушкин Александр Сергеевич');
+      agent.close();
     });
-    it('should return accessToken when login is email', async () => {
+    it('should return access cookie when login is email', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientWtihMail);
@@ -80,19 +88,8 @@ describe('POST auth/login', () => {
       res.type.should.equal('application/json');
       res.body.status.should.eql('success');
       res.body.message.should.eql('login successful');
-      should.exist(res.body.data.accessToken);
+      res.should.have.cookie('pat');
       res.body.data.patient.firstName.should.eql('Александр');
-    });
-  });
-  describe('POST /whoami', () => {
-    it('should return name', async () => {
-      const res = await chai.request(server)
-        .post('/whoami')
-        .send({ accessToken });
-      res.status.should.eql(200);
-      res.type.should.eql('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('You are Пушкин Александр Сергеевич');
     });
   });
   describe('incorrect login or password', () => {
