@@ -12,7 +12,7 @@ const mountRoutes = require('./utils/koa-router-mount');
 const app = new Koa();
 const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
 
-app.use(cors());
+app.use(cors({ credentials: true }));
 app.use(bodyParser());
 app.use(access());
 app.use(validator(path.join(__dirname, 'schemas/routes')));

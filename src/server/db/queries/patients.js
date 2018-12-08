@@ -14,7 +14,7 @@ const dbname = `${prefix}hw_0_ram`;
 const patientsdb = couch.use(dbname);
 const className = 'cat.patients';
 
-// indexes: class_name, [class_name, password] TODO phoneNumber emailAddress
+// indexes: class_name, class_name-password TODO phoneNumber emailAddress
 
 let preperePatientHandle = null;
 
