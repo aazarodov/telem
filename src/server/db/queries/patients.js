@@ -14,7 +14,7 @@ const dbname = `${prefix}hw_0_ram`;
 const patientsdb = couch.use(dbname);
 const className = 'cat.patients';
 
-// indexes: class_name, class_name-password TODO phoneNumber emailAddress
+// indexes: class_name, views: patientLoginPassword
 
 let preperePatientHandle = null;
 
@@ -77,46 +77,18 @@ module.exports = {
     }
   },
   async getByMobileNumber(mobileNumber) {
-    const response = await patientsdb.find({
-      selector: {
-        class_name: className,
-        contactInformation: {
-          $elemMatch: {
-            'kind.presentation': 'Телефон',
-            phoneNumber: mobileNumber,
-          },
-        },
-      },
+    const response = await patientsdb.view('views', 'patientLoginPassword', {
+      startkey: [mobileNumber],
+      endkey: [mobileNumber, {}],
     });
-    if (response.docs.length > 1) log(`More then one patient witn mobileNumber: ${mobileNumber}`);
-    return response.docs.length > 0 ? response.docs[0] : null;
+    if (response.rows.length > 1) log(`More then one patient witn mobileNumber: ${mobileNumber}`);
+    return response.rows.length > 0 ? response.rows[0].value : null;
   },
   async login(login, password) {
-    const response = await patientsdb.find({
-      selector: {
-        class_name: className,
-        password: await hash(password),
-        $or: [
-          {
-            contactInformation: {
-              $elemMatch: {
-                'kind.presentation': 'Телефон',
-                phoneNumber: login,
-              },
-            },
-          },
-          {
-            contactInformation: {
-              $elemMatch: {
-                'kind.presentation': 'E-mail',
-                emailAddress: login,
-              },
-            },
-          },
-        ],
-      },
+    const response = await patientsdb.view('views', 'patientLoginPassword', {
+      key: [login, await hash(password)],
     });
-    return response.docs.length > 0 ? response.docs[0] : null;
+    return response.rows.length > 0 ? response.rows[0].value : null;
   },
   async insertNew(postedPatient) {
     const newPatient = await preperePatient(postedPatient);

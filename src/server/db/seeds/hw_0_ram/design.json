@@ -3,24 +3,6 @@
     "_id": "_design/indexes",
     "language": "query",
     "views": {
-      "class_name-password": {
-        "map": {
-          "fields": {
-            "class_name": "asc",
-            "password": "asc"
-          },
-          "partial_filter_selector": {}
-        },
-        "reduce": "_count",
-        "options": {
-          "def": {
-            "fields": [
-              "class_name",
-              "password"
-            ]
-          }
-        }
-      },
       "class_name": {
         "map": {
           "fields": {
@@ -37,7 +19,7 @@
           }
         }
       },
-      "class_name-patient.ref": {
+      "class_name,patient.ref": {
         "map": {
           "fields": {
             "class_name": "asc",
@@ -58,5 +40,18 @@
         }
       }
     }
+  },
+  {
+    "_id": "_design/views",
+    "views": {
+      "patientLoginPassword": {
+        "map": "function(doc) {\n  if (doc.class_name === 'cat.patients') {\n    doc.contactInformation.forEach(function(contact) {\n      if(contact.kind.presentation === 'Телефон') emit([contact.phoneNumber, doc.password], doc);\n      if(contact.kind.presentation === 'E-mail') emit([contact.emailAddress, doc.password], doc);\n    });\n  }\n}"
+      },
+      "statusesOfAnalysis": {
+        "map": "function (doc) {\n  if(doc.class_name === 'ireg.statusesOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID], {stringGUID: doc.stringGUID, period: doc.period, status: doc.status.name});\n  }\n}",
+        "reduce": "function (keys, values, rereduce) {\n  var latestDoc = {};\n  latestDoc.period = \"0000-00-00T00:00:00\";\n  values.forEach(function(doc){\n    if(doc.period > latestDoc.period) {\n      latestDoc = doc;\n    }\n  });\n  return latestDoc;\n}"
+      }
+    },
+    "language": "javascript"
   }
 ]

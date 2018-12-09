@@ -4,6 +4,6 @@ const Joi = require('joi');
 
 module.exports = {
   get: Joi.object().keys({
-    _id: Joi.string().uuid({ version: 'uuidv1' }),
+    _id: Joi.string().required(),
   }),
 };

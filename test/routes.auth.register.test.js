@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 
 // before(async () => ramSeeding());
 
-const postedPatientMobileNumber = '449835674532';
+const postedPatientMobileNumber = '74445674532';
 const postedPatient = {
   email: 'michel@supermail.io',
   password: 'buzzword123',
@@ -24,7 +24,7 @@ const postedPatient = {
   patronymic: 'Афанасьевич',
   sex: 'Мужской',
   birthDate: '1891-05-03T00:00:00',
-  registerToken: '+WhgTLE+3E7hiKE1FAX/wm+pYP56KKIwEAta73DQ/p2dHatcbPhQQaz5YFivMfVib21mqpLNuVEyygsbBnGi4JTrAarIDNZJRvFRu8Z5ZH8=',
+  registerToken: 'CGFou8/6lU942e6TzdHXGOKpj4xB/XhW5LKsns1Qq5Ze2NmAzW+2OO/YNsHPmk0eKslCWKUkGE+asgYP6sl21uJbsZ4QXnAdeLIvkeRPVsY=',
 };
 
 describe('POST auth/register', () => {

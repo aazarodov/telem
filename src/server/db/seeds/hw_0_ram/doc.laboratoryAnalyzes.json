@@ -1,7 +1,584 @@
 [
   {
-    "_id": "doc.laboratoryAnalyzes|14dd1aba-e8c2-11e8-bdf7-001e679abfc4",
-    "date": "2018-11-15T13:34:51",
+    "_id": "doc.laboratoryAnalyzes|72105075-e997-11e8-bdf7-001e679abfc4",
+    "date": "2018-11-16T15:02:10",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "804760d8-a5de-11e4-b8d9-001e679abfc4",
+      "presentation": "Попова Алена Александровна",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0007",
+    "barcode": "2149004496",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "0e4cd0a7-001b-11df-94de-001517b46888",
+          "presentation": "ДНК Gardnerella vaginalis",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef4255a1-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия цервикального канала",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "4a8535fb-d894-429d-8946-559dc5bb84af",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: Не обнаружено",
+        "groupOfNorm": {
+          "ref": "68e4d315-04fa-11df-94de-001517b46888",
+          "presentation": "Детектор ПЦР флуоресцентный Джин-4 (Обн /не обн (выбор))",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed7f-f5d8-11de-acac-001517b46888",
+          "presentation": "отделяемое влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "8d223c3e-95f4-4180-a3e3-8e6b617f5543",
+        "isSet": true,
+        "analysisMethod": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "",
+        "groupOfNorm": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "08b93eb9-6611-11e0-928a-001517b46888",
+          "presentation": "ДНК Gardnerella vaginalis",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "9031016a-db5d-48e7-8548-61fbab132207",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: Не превышает концентрацию ДНК Lactobacillus",
+        "groupOfNorm": {
+          "ref": "08b93ec8-6611-11e0-928a-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "08b93ebb-6611-11e0-928a-001517b46888",
+          "presentation": "ДНК Atopobium vaginae",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "9f3d333d-81cb-4521-bdb4-6b2d4cbd33d6",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: Не превышает концентрацию ДНК Lactobacillus",
+        "groupOfNorm": {
+          "ref": "08b93ec6-6611-11e0-928a-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "08b93ebd-6611-11e0-928a-001517b46888",
+          "presentation": "ДНК Lactobacillus sp.",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "cc84d6b8-b4e7-4f8c-bd97-a60a96272c75",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: Не менее концентрации ДНК Bacteria",
+        "groupOfNorm": {
+          "ref": "08b93ec9-6611-11e0-928a-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "08b93ebf-6611-11e0-928a-001517b46888",
+          "presentation": "ДНК Bacteria (общее количество бактерий)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "e6c722c5-61e1-48c5-9d05-0a7a5ef0811a",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: >=10*6",
+        "groupOfNorm": {
+          "ref": "08b93ec7-6611-11e0-928a-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "f6ebcc96-c320-11e2-907a-001517b46888",
+          "presentation": "Расшифровка",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "3a86d83a-d053-44b2-ba58-64b3ed89c614",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: ",
+        "groupOfNorm": {
+          "ref": "f6ebcca3-c320-11e2-907a-001517b46888",
+          "presentation": "Rotor Gene (Расшифровка флороценоза)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "f6ebcc98-c320-11e2-907a-001517b46888",
+          "presentation": "Заключение",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "d95731ca-1697-4c96-8523-acb4be19591c",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: ",
+        "groupOfNorm": {
+          "ref": "f6ebccab-c320-11e2-907a-001517b46888",
+          "presentation": "Rotor Gene (Заключение флороценоза)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "35d14359-820c-11e0-a3fd-001517b46888",
+          "presentation": "ДНК Ureaplasma urealiticum",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "7b1eec6e-d442-45f6-8d47-ea8ab2ecdf91",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: -",
+        "groupOfNorm": {
+          "ref": "35d14366-820c-11e0-a3fd-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "35d1435b-820c-11e0-a3fd-001517b46888",
+          "presentation": "ДНК Mycoplasma hominis",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "73eb887c-5ba5-4ef3-8a95-9b95c23ba2e8",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: -",
+        "groupOfNorm": {
+          "ref": "35d14365-820c-11e0-a3fd-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "8df80d07-d6ae-11e2-87f8-001517b46888",
+          "presentation": "ДНК Ureaplasma parvum",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "33aada57-3440-4af5-ade5-7d48f9648256",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: -",
+        "groupOfNorm": {
+          "ref": "8df80d0a-d6ae-11e2-87f8-001517b46888",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "0a7197bf-6b36-11e4-9646-001e679abfc4",
+          "presentation": "грибы рода Candida ДНК C.albicans",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "398e0073-4eea-4c59-8dc5-31748b674fd0",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: ",
+        "groupOfNorm": {
+          "ref": "0a7197ca-6b36-11e4-9646-001e679abfc4",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "0a7197c1-6b36-11e4-9646-001e679abfc4",
+          "presentation": "грибы рода Candida ДНК C.glabrata",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "5e720d34-809a-4e98-b844-28ce9fd177b7",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: ",
+        "groupOfNorm": {
+          "ref": "0a7197c9-6b36-11e4-9646-001e679abfc4",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "0a7197c3-6b36-11e4-9646-001e679abfc4",
+          "presentation": "грибы рода Candida ДНК C.krusei",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Флороценоз-стандарт 8 показателей",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "ef42559f-f90a-11de-a519-001517b46888",
+          "presentation": "соскоб эпителия стенки влагалища",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "3b146376-4297-405d-89ca-0f5cfadc0ba9",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: ",
+        "groupOfNorm": {
+          "ref": "0a7197c8-6b36-11e4-9646-001e679abfc4",
+          "presentation": "Rotor Gene (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-08T07:46:46 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|906d8dd0-fa66-11e8-8101-f41614cd568a",
+    "date": "2018-12-08T00:25:06",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "0dbb9401-1abe-11e8-98f1-001e679abfc4",
+      "presentation": "Абабкова Наталья Александровна",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0005",
+    "barcode": "2171506355",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "0e4cd08f-001b-11df-94de-001517b46888",
+          "presentation": "ДНК Chlamidia trachomatis",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "d7abba12-e1e9-4159-bb3b-64e457ee4d6f",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c6ca2b20-83cc-11e0-a3fd-001517b46888",
+          "presentation": "Метод ПЦР с детекцией в режиме \"реального времени\"",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: Не обнаружено",
+        "groupOfNorm": {
+          "ref": "68e4d313-04fa-11df-94de-001517b46888",
+          "presentation": "Детектор ПЦР флуоресцентный Джин-4 (Обн /не обн (выбор))",
+          "type": "cat.groupsOfNorms"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-08T10:01:21 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|b0f7e608-fa66-11e8-8101-f41614cd568a",
+    "date": "2018-12-08T00:26:00",
     "note": "",
     "documentLink": "",
     "patient": {
@@ -15,13 +592,18 @@
       "type": "enm.typesOfSex"
     },
     "oneTimeContractNumber": "Ц-0006",
-    "barcode": "2113377291",
+    "barcode": "2143896550",
     "analyzes": [
       {
         "analysis": {
-          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "АЛТ",
+          "ref": "5eba1d8f-98b5-11e4-b8d9-001e679abfc4",
+          "presentation": "ХГЧ (беременность)",
           "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
         },
         "set": {
           "ref": "00000000-0000-0000-0000-000000000000",
@@ -33,153 +615,36 @@
           "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "bd18cc2b-c6ed-46ac-876a-da644a204b08",
         "isSet": false,
         "analysisMethod": {
-          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
-          "presentation": "Биохимический метод",
+          "ref": "10c44278-4776-11e3-a19b-001517b46888",
+          "presentation": "Электрохемилюминисценция ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 10 (мЕд/мл)",
+        "groupOfNorm": {
+          "ref": "98bca76f-9fcb-11e4-b8d9-001e679abfc4",
+          "presentation": "Cobas e 601 (Число с 5 знаками: мЕд/мл)",
+          "type": "cat.groupsOfNorms"
         }
       }
     ],
     "class_name": "doc.laboratoryAnalyzes",
     "timestamp": {
       "user": "Администратор",
-      "moment": "2018-11-30T04:32:25 +0300",
+      "moment": "2018-12-08T10:01:22 +0300",
       "e1cib": true
     }
   },
   {
-    "_id": "doc.laboratoryAnalyzes|32742b02-f4f1-11e8-8101-f41614cd568a",
-    "date": "2018-12-01T01:42:21",
-    "note": "",
-    "documentLink": "",
-    "patient": {
-      "ref": "e29c4fb0-f87f-11e8-8476-2fcec2888318",
-      "presentation": "Иосиф Александрович Бродский",
-      "type": "cat.patients"
-    },
-    "sex": {
-      "name": "",
-      "presentation": "",
-      "type": "enm.typesOfSex"
-    },
-    "oneTimeContractNumber": "Ц-0001",
-    "barcode": "2173635850",
-    "analyzes": [
-      {
-        "analysis": {
-          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "АЛТ",
-          "type": "cat.analyzesAndServices"
-        },
-        "set": {
-          "ref": "00000000-0000-0000-0000-000000000000",
-          "presentation": "",
-          "type": "cat.analyzesAndServices"
-        },
-        "bioMaterial": {
-          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
-          "presentation": "кровь",
-          "type": "cat.bioMaterials"
-        },
-        "isSet": false,
-        "analysisMethod": {
-          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
-          "presentation": "Биохимический метод",
-          "type": "cat.analysisMethods"
-        },
-        "norma": "min: 2 max: 41 (Ед/л)"
-      },
-      {
-        "analysis": {
-          "ref": "8a1b4c77-ddf2-11de-b21e-00140b0496c2",
-          "presentation": "АФП",
-          "type": "cat.analyzesAndServices"
-        },
-        "set": {
-          "ref": "00000000-0000-0000-0000-000000000000",
-          "presentation": "",
-          "type": "cat.analyzesAndServices"
-        },
-        "bioMaterial": {
-          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
-          "presentation": "кровь",
-          "type": "cat.bioMaterials"
-        },
-        "isSet": false,
-        "analysisMethod": {
-          "ref": "c3cfbd77-f5cf-11de-acac-001517b46888",
-          "presentation": "Метод твердофазного хемилюминесцентного иммуноанализа",
-          "type": "cat.analysisMethods"
-        },
-        "norma": "min: 0 max: 10 (МЕ/мл)"
-      }
-    ],
-    "class_name": "doc.laboratoryAnalyzes",
-    "timestamp": {
-      "user": "Администратор",
-      "moment": "2018-12-02T09:39:51 +0300",
-      "e1cib": true
-    }
-  },
-  {
-    "_id": "doc.laboratoryAnalyzes|96e67006-f5ad-11e8-8101-f41614cd568a",
-    "date": "2018-12-02T00:10:55",
+    "_id": "doc.laboratoryAnalyzes|c4630aad-fb17-11e8-8101-f41614cd568a",
+    "date": "2018-12-08T21:33:34",
     "note": "",
     "documentLink": "",
     "patient": {
       "ref": "e29c0190-f87f-11e8-8476-2fcec2888318",
       "presentation": "Пушкин Александр Сергеевич",
-      "type": "cat.patients"
-    },
-    "sex": {
-      "name": "",
-      "presentation": "",
-      "type": "enm.typesOfSex"
-    },
-    "oneTimeContractNumber": "Ц-0002",
-    "barcode": "2143948002",
-    "analyzes": [
-      {
-        "analysis": {
-          "ref": "f7940441-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "АЛТ",
-          "type": "cat.analyzesAndServices"
-        },
-        "set": {
-          "ref": "00000000-0000-0000-0000-000000000000",
-          "presentation": "",
-          "type": "cat.analyzesAndServices"
-        },
-        "bioMaterial": {
-          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
-          "presentation": "кровь",
-          "type": "cat.bioMaterials"
-        },
-        "isSet": false,
-        "analysisMethod": {
-          "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
-          "presentation": "Биохимический метод",
-          "type": "cat.analysisMethods"
-        },
-        "norma": "min: 2 max: 41 (Ед/л)"
-      }
-    ],
-    "class_name": "doc.laboratoryAnalyzes",
-    "timestamp": {
-      "user": "Администратор",
-      "moment": "2018-12-02T09:39:51 +0300",
-      "e1cib": true
-    }
-  },
-  {
-    "_id": "doc.laboratoryAnalyzes|b7602d63-f417-11e8-8101-f41614cd568a",
-    "date": "2018-11-29T23:45:34",
-    "note": "",
-    "documentLink": "",
-    "patient": {
-      "ref": "e29c4fb0-f87f-11e8-8476-2fcec2888318",
-      "presentation": "Иосиф Александрович Бродский",
       "type": "cat.patients"
     },
     "sex": {
@@ -188,7 +653,7 @@
       "type": "enm.typesOfSex"
     },
     "oneTimeContractNumber": "Ц-0009",
-    "barcode": "2110068434",
+    "barcode": "2193542582",
     "analyzes": [
       {
         "analysis": {
@@ -196,6 +661,11 @@
           "presentation": "АЛТ",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
           "ref": "00000000-0000-0000-0000-000000000000",
           "presentation": "",
@@ -206,73 +676,31 @@
           "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "a0628034-9e42-47d6-99ad-5dcac2a550a0",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd79-f5cf-11de-acac-001517b46888",
           "presentation": "Биохимический метод",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 2 max: 41 (Ед/л)",
+        "groupOfNorm": {
+          "ref": "3ec2561f-83bc-11e6-a0c2-001e679abfc4",
+          "presentation": "Taurus (Число с 1 знаком: Ед/л)",
+          "type": "cat.groupsOfNorms"
         }
       }
     ],
     "class_name": "doc.laboratoryAnalyzes",
     "timestamp": {
       "user": "Администратор",
-      "moment": "2018-11-30T04:32:25 +0300",
+      "moment": "2018-12-08T10:01:22 +0300",
       "e1cib": true
     }
   },
   {
-    "_id": "doc.laboratoryAnalyzes|e886977b-e726-11e8-bdf7-001e679abfc4",
-    "date": "2018-11-13T12:31:34",
-    "note": "",
-    "documentLink": "",
-    "patient": {
-      "ref": "e29c76c0-f87f-11e8-8476-2fcec2888318",
-      "presentation": "Ахматова Анна",
-      "type": "cat.patients"
-    },
-    "sex": {
-      "name": "",
-      "presentation": "",
-      "type": "enm.typesOfSex"
-    },
-    "oneTimeContractNumber": "Ц-0005",
-    "barcode": "2111751612",
-    "analyzes": [
-      {
-        "analysis": {
-          "ref": "14128a50-9935-11df-93df-001517b46888",
-          "presentation": "Гематокрит",
-          "type": "cat.analyzesAndServices"
-        },
-        "set": {
-          "ref": "00000000-0000-0000-0000-000000000000",
-          "presentation": "",
-          "type": "cat.analyzesAndServices"
-        },
-        "bioMaterial": {
-          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
-          "presentation": "кровь",
-          "type": "cat.bioMaterials"
-        },
-        "isSet": false,
-        "analysisMethod": {
-          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
-          "presentation": "Клинический анализ",
-          "type": "cat.analysisMethods"
-        }
-      }
-    ],
-    "class_name": "doc.laboratoryAnalyzes",
-    "timestamp": {
-      "user": "Администратор",
-      "moment": "2018-11-30T04:32:25 +0300",
-      "e1cib": true
-    }
-  },
-  {
-    "_id": "doc.laboratoryAnalyzes|f0ee3112-e45e-11e8-bdf7-001e679abfc4",
-    "date": "2018-11-09T23:35:06",
+    "_id": "doc.laboratoryAnalyzes|cb65b94d-fb11-11e8-8101-f41614cd568a",
+    "date": "2018-12-08T20:50:48",
     "note": "",
     "documentLink": "",
     "patient": {
@@ -285,14 +713,19 @@
       "presentation": "",
       "type": "enm.typesOfSex"
     },
-    "oneTimeContractNumber": "Ц-0002",
-    "barcode": "2148762354",
+    "oneTimeContractNumber": "Ц-0008",
+    "barcode": "2151408121",
     "analyzes": [
       {
         "analysis": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
         },
         "set": {
           "ref": "00000000-0000-0000-0000-000000000000",
@@ -300,436 +733,1560 @@
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "214db111-66d0-43d8-aeaa-5ef580709df5",
         "isSet": true,
         "analysisMethod": {
           "ref": "00000000-0000-0000-0000-000000000000",
           "presentation": "",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "",
+        "groupOfNorm": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d388-ff73-11de-94de-001517b46888",
-          "presentation": "Цвет",
+          "ref": "1b964074-05b7-11df-94de-001517b46888",
+          "presentation": "Лейкоциты (МЕК Вологда, Вельск, Котлас)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "7723bb22-40fa-4efc-b61f-238377692f5c",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 4 max: 9 (*10*9/л)",
+        "groupOfNorm": {
+          "ref": "002858ac-0977-11df-8574-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: *10*9/л)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d38a-ff73-11de-94de-001517b46888",
-          "presentation": "Удельный вес",
+          "ref": "a1de9280-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Количество эритроцитов (RBC)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "77ac824b-6721-487d-a8f9-9ce98ea9ebb0",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 3,8 max: 5,3 (*10*12/л)",
+        "groupOfNorm": {
+          "ref": "4fabaae5-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число 2 знаками: *10*12/л)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d38d-ff73-11de-94de-001517b46888",
-          "presentation": "pH",
+          "ref": "1b964072-05b7-11df-94de-001517b46888",
+          "presentation": "Гемоглобин (HGB) (МЕК Вологда, Вельск, Котлас)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "5b56abef-41a6-48e4-b854-6dc2ddc087e7",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 110 max: 170 (г/л)",
+        "groupOfNorm": {
+          "ref": "002858ab-0977-11df-8574-001517b46888",
+          "presentation": "MEK-8222K (число: г/л)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3a1-ff73-11de-94de-001517b46888",
-          "presentation": "Белок",
+          "ref": "a1de9284-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Гематокрит (НСТ)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "5c1aef1b-1b31-48b4-adc1-6e667a132f23",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 36 max: 56 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae6-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с тремя знаками: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3a5-ff73-11de-94de-001517b46888",
-          "presentation": "глюкоза",
+          "ref": "a1de928c-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Тромбоциты (PLT)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "b3c96831-d40d-4856-a4df-fe201a0c6c84",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 120 max: 380 (*10*9/л)",
+        "groupOfNorm": {
+          "ref": "4fabaafd-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: *10*9/л)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3a9-ff73-11de-94de-001517b46888",
-          "presentation": "кетоновые тела",
+          "ref": "a1de9286-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средний объем эритроцита (MCV)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "409f7176-32eb-452c-97ed-ed03fa789688",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 80 max: 100 (фл)",
+        "groupOfNorm": {
+          "ref": "4fabaaeb-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: фл)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3a7-ff73-11de-94de-001517b46888",
-          "presentation": "нитриты",
+          "ref": "a1de9288-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Среднее содержание гемоглобина в эритроцитах (MCH)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "1b700182-0978-4e1e-8809-932cd5f41593",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 28 max: 36 (пг)",
+        "groupOfNorm": {
+          "ref": "4fabaaee-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: пг)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3b1-ff73-11de-94de-001517b46888",
-          "presentation": "билирубин",
+          "ref": "a1de928a-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средняя концентрация гемоглобина в эритроците (MCHC)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "42c32637-360d-4cea-95ec-5eef3eb476c2",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 300 max: 380 (г/л)",
+        "groupOfNorm": {
+          "ref": "4fabaaea-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: г/л)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3b3-ff73-11de-94de-001517b46888",
-          "presentation": "уробилиноген",
+          "ref": "a950a37d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Ширина распределения тромбоцитов по обьему (PDW)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "6b9cb0ec-a145-43b5-b42d-bc4b08bb32dd",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 10 max: 20 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae9-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3b5-ff73-11de-94de-001517b46888",
-          "presentation": "эпителиальные клетки",
+          "ref": "a950a37f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Тромбокрит (PCT)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "b1c5c5c4-acc1-4be6-9d33-c15c62b4ccec",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0,1 max: 1 (%)",
+        "groupOfNorm": {
+          "ref": "4fabab00-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3b7-ff73-11de-94de-001517b46888",
-          "presentation": "лейкоциты",
+          "ref": "a950a385-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Средний объем тромбоцитов (MPV)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "6b7aed11-2227-4c41-8c5e-312b65dca004",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 7,4 max: 10,4",
+        "groupOfNorm": {
+          "ref": "4fabaaed-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: )",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3b9-ff73-11de-94de-001517b46888",
-          "presentation": "эритроциты неизмененные",
+          "ref": "bbb9946d-3f7e-11e4-9b57-001517b46888",
+          "presentation": "Ширина распределения эритроцитов по обьему (RDW-CV)",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "068a3e29-984b-4514-b57e-9e91b0b03623",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 10,6 max: 15,7 (%)",
+        "groupOfNorm": {
+          "ref": "bbb99470-3f7e-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3bb-ff73-11de-94de-001517b46888",
-          "presentation": "эритроциты измененные",
+          "ref": "e21e76d7-6b7a-11e4-9646-001e679abfc4",
+          "presentation": "Незрелые клетки",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "331328ac-01dd-4e86-a55f-3d3e75e515b2",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 0 (%)",
+        "groupOfNorm": {
+          "ref": "3b7b879e-6dd5-11e4-9646-001e679abfc4",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3bd-ff73-11de-94de-001517b46888",
-          "presentation": "цилиндры",
+          "ref": "a950a39d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Палочкоядерные нейтрофилы",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "df842735-d314-4085-b724-9a6fd445332b",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 7 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaf7-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "dda6d3bf-ff73-11de-94de-001517b46888",
-          "presentation": "клетки почечного эпителия",
+          "ref": "a950a3a1-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Сегментоядерные нейтрофилы",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "d1784288-bc5c-46cf-b9c8-cb1617684f29",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 42 max: 78 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaef-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "a24b4223-ff7a-11de-94de-001517b46888",
-          "presentation": "соли",
+          "ref": "a950a397-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Эозинофилы",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "af433362-d248-4eeb-9d85-9e64fd459207",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0,5 max: 6 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae7-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "a24b4225-ff7a-11de-94de-001517b46888",
-          "presentation": "слизь",
+          "ref": "a950a395-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Базофилы",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "96c00880-7be8-4aab-87ab-7e144e34f36a",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 2 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaff-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
         }
       },
       {
         "analysis": {
-          "ref": "a24b4227-ff7a-11de-94de-001517b46888",
-          "presentation": "бактерии",
+          "ref": "a950a391-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Моноциты",
           "type": "cat.analyzesAndServices"
         },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
         "set": {
-          "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
-          "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас)",
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
           "type": "cat.analyzesAndServices"
         },
         "bioMaterial": {
-          "ref": "2355ed78-f5d8-11de-acac-001517b46888",
-          "presentation": "моча",
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
           "type": "cat.bioMaterials"
         },
+        "stringGUID": "6062d270-d258-4676-8733-52d44d95db64",
         "isSet": false,
         "analysisMethod": {
           "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
           "presentation": "Клинический анализ",
           "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 9 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaafb-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a38f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Лимфоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "8abc454d-a5a9-456a-8d36-22336f4883d5",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 19 max: 37 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaafc-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "48d49e47-a05a-11e1-85ec-001517b46888",
+          "presentation": "Скорость оседания эритроцитов",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "3a9bb29b-2e61-4cec-b598-d19693be1e1a",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 2 max: 20 (мм/час)",
+        "groupOfNorm": {
+          "ref": "01e12d9d-c68b-11e2-907a-001517b46888",
+          "presentation": "VACUETTE (Число с 1 знаком: мм/час)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "33cc463f-3eb4-11e4-9b57-001517b46888",
+          "presentation": "Морфология эритроцитов",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "d6be8901-2a14-4058-93c3-9cb529a01ae0",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: -",
+        "groupOfNorm": {
+          "ref": "33cc4644-3eb4-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
         }
       }
     ],
     "class_name": "doc.laboratoryAnalyzes",
     "timestamp": {
       "user": "Администратор",
-      "moment": "2018-11-30T04:32:25 +0300",
+      "moment": "2018-12-08T10:01:22 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.laboratoryAnalyzes|d24ce670-fa66-11e8-8101-f41614cd568a",
+    "date": "2018-12-08T00:26:56",
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "52a7f740-9828-11e8-bdf7-001e679abfc4",
+      "presentation": "Петров Петр Петрович",
+      "type": "cat.patients"
+    },
+    "sex": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.typesOfSex"
+    },
+    "oneTimeContractNumber": "Ц-0007",
+    "barcode": "2141243454",
+    "analyzes": [
+      {
+        "analysis": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "7907b3b2-aab7-49b8-8de5-d288a6c4043b",
+        "isSet": true,
+        "analysisMethod": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "",
+        "groupOfNorm": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "1b964074-05b7-11df-94de-001517b46888",
+          "presentation": "Лейкоциты (МЕК Вологда, Вельск, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "8b4e07ff-175b-4862-a8fd-cfb5b0d58364",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 4 max: 9 (*10*9/л)",
+        "groupOfNorm": {
+          "ref": "002858ac-0977-11df-8574-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: *10*9/л)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de9280-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Количество эритроцитов (RBC)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "9644c2a9-6188-46ae-84b4-23de1417fccd",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 3,8 max: 5,3 (*10*12/л)",
+        "groupOfNorm": {
+          "ref": "4fabaae5-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число 2 знаками: *10*12/л)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "1b964072-05b7-11df-94de-001517b46888",
+          "presentation": "Гемоглобин (HGB) (МЕК Вологда, Вельск, Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "a26b0082-bdf8-486f-9bd5-bd52f588e742",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 110 max: 170 (г/л)",
+        "groupOfNorm": {
+          "ref": "002858ab-0977-11df-8574-001517b46888",
+          "presentation": "MEK-8222K (число: г/л)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de9284-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Гематокрит (НСТ)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "57928f4b-6b41-4de8-a048-3b961815558c",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 36 max: 56 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae6-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с тремя знаками: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de928c-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Тромбоциты (PLT)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "172ae1d1-81a3-4fa8-9285-8dd92cf1d6f7",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 120 max: 380 (*10*9/л)",
+        "groupOfNorm": {
+          "ref": "4fabaafd-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: *10*9/л)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de9286-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средний объем эритроцита (MCV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "aed66098-4a73-4c82-b344-54424ee07b45",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 80 max: 100 (фл)",
+        "groupOfNorm": {
+          "ref": "4fabaaeb-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: фл)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de9288-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Среднее содержание гемоглобина в эритроцитах (MCH)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "6a1d9fd9-784d-4f39-9d07-6d562365e4e4",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 28 max: 36 (пг)",
+        "groupOfNorm": {
+          "ref": "4fabaaee-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: пг)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a1de928a-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средняя концентрация гемоглобина в эритроците (MCHC)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "b6b69146-78fa-428c-b9cf-d6d3934b6b53",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 300 max: 380 (г/л)",
+        "groupOfNorm": {
+          "ref": "4fabaaea-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: г/л)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a37d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Ширина распределения тромбоцитов по обьему (PDW)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "5fd98a33-8ead-40ed-9beb-6c6a6103032a",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 10 max: 20 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae9-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a37f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Тромбокрит (PCT)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "cb9d7c10-9d12-4bf2-a26e-676951191285",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0,1 max: 1 (%)",
+        "groupOfNorm": {
+          "ref": "4fabab00-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a385-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Средний объем тромбоцитов (MPV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "9d79b9b6-8d82-4071-8894-280dd7be72a6",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 7,4 max: 10,4",
+        "groupOfNorm": {
+          "ref": "4fabaaed-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: )",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "bbb9946d-3f7e-11e4-9b57-001517b46888",
+          "presentation": "Ширина распределения эритроцитов по обьему (RDW-CV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "9c8f7f2f-53c9-45a8-93bb-9ea8c977b23c",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 10,6 max: 15,7 (%)",
+        "groupOfNorm": {
+          "ref": "bbb99470-3f7e-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "e21e76d7-6b7a-11e4-9646-001e679abfc4",
+          "presentation": "Незрелые клетки",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "8b0e713a-fc80-4e45-baaa-1d32d95a0492",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 0 (%)",
+        "groupOfNorm": {
+          "ref": "3b7b879e-6dd5-11e4-9646-001e679abfc4",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a39d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Палочкоядерные нейтрофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "99c7529f-e538-42c5-9928-86ca15fcccf2",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 7 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaf7-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a3a1-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Сегментоядерные нейтрофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "7c947121-6bac-4647-8860-cdc602265b1f",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 42 max: 78 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaef-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (число: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a397-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Эозинофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "8ca885c7-b7a9-4c24-9e71-807c1d24d29b",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0,5 max: 6 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaae7-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a395-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Базофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "5a52637e-ef68-4abf-8a6b-fe5efde73343",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 2 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaaff-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a391-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Моноциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "774bb279-ea75-4fb3-b53a-c6f218f86098",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 0 max: 9 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaafb-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "a950a38f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Лимфоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "406ea3b0-8907-4430-97f6-a7eebbf465f1",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 19 max: 37 (%)",
+        "groupOfNorm": {
+          "ref": "4fabaafc-3dd8-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Число с 1 знаком: %)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "48d49e47-a05a-11e1-85ec-001517b46888",
+          "presentation": "Скорость оседания эритроцитов",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "7e442b31-ac71-423c-b1e5-65619d6cfb27",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "min: 2 max: 20 (мм/час)",
+        "groupOfNorm": {
+          "ref": "01e12d9d-c68b-11e2-907a-001517b46888",
+          "presentation": "VACUETTE (Число с 1 знаком: мм/час)",
+          "type": "cat.groupsOfNorms"
+        }
+      },
+      {
+        "analysis": {
+          "ref": "33cc463f-3eb4-11e4-9b57-001517b46888",
+          "presentation": "Морфология эритроцитов",
+          "type": "cat.analyzesAndServices"
+        },
+        "measureUnit": {
+          "ref": "00000000-0000-0000-0000-000000000000",
+          "presentation": "",
+          "type": "cat.measureUnits"
+        },
+        "set": {
+          "ref": "a950a3a5-3dd2-11e4-9b57-001517b46888",
+          "presentation": "ОАК для МЕК (дети с 12 лет и взрослые)(Вологда, Вельск.Котлас)",
+          "type": "cat.analyzesAndServices"
+        },
+        "bioMaterial": {
+          "ref": "2355ed79-f5d8-11de-acac-001517b46888",
+          "presentation": "кровь",
+          "type": "cat.bioMaterials"
+        },
+        "stringGUID": "a5f57d99-6a1a-4265-8183-eb7639e001e6",
+        "isSet": false,
+        "analysisMethod": {
+          "ref": "c3cfbd7a-f5cf-11de-acac-001517b46888",
+          "presentation": "Клинический анализ",
+          "type": "cat.analysisMethods"
+        },
+        "normativ": "норма: -",
+        "groupOfNorm": {
+          "ref": "33cc4644-3eb4-11e4-9b57-001517b46888",
+          "presentation": "MEK-8222K (Строка 1000 симв.)",
+          "type": "cat.groupsOfNorms"
+        }
+      }
+    ],
+    "class_name": "doc.laboratoryAnalyzes",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-08T10:01:22 +0300",
       "e1cib": true
     }
   }
