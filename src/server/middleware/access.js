@@ -2,6 +2,8 @@
 
 const log = require('logger-file-fun-line');
 const { encrypt, decrypt } = require('../utils/crypto');
+const { accessExpiry } = require('../../../secrets');
+
 const unixtimestamp = require('../utils/unixtimestamp');
 
 
@@ -44,7 +46,7 @@ module.exports = () => async (ctx, next) => {
   }
   ctx.state.access = tokenData;
   await next();
-  const expiry = unixtimestamp();
+  const expiry = unixtimestamp() + accessExpiry;
   const newTokenData = { ...ctx.state.access, expiry };
   ctx.cookies.set(
     'pat', // Patient Access Token
