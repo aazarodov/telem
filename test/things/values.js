@@ -13,6 +13,7 @@ module.exports = {
   p01Password: '1234567',
   newPassword: 'newPasswordABC123!@#',
   neverExpiry: 33071673600000,
+  alwaysExpired: 1544808748,
   patient01Id: 'cat.patients|00000000-0000-1000-8000-000000000001',
   patient02Id: 'cat.patients|00000000-0000-1000-8000-000000000002',
   patient03Id: 'cat.patients|00000000-0000-1000-8000-000000000003',

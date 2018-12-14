@@ -7,7 +7,6 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const { encrypt, encryptSync } = require('../src/server/utils/crypto');
-const unixtimestamp = require('../src/server/utils/unixtimestamp');
 const patients = require('../src/server/db/queries/patients');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
 
@@ -16,9 +15,8 @@ const {
   p02phoneNumber,
   p03phoneNumber,
   p04phoneNumber,
-  p01Password,
-  newPassword,
   neverExpiry,
+  alwaysExpired,
 } = require('./things/values');
 
 const should = chai.should();
@@ -165,7 +163,7 @@ describe('POST auth/register', () => {
         .post('/auth/register')
         .send({
           ...postedPatient,
-          registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: unixtimestamp - 1 }),
+          registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: alwaysExpired }),
         });
       res.status.should.equal(400);
       res.type.should.equal('application/json');

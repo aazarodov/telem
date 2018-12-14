@@ -12,5 +12,7 @@ module.exports = {
     sex: Joi.any().valid(['Мужской', 'Женский']).required(),
     birthDate: Joi.date().required(),
     registerToken: Joi.string().min(16).required(),
+    agreementOfSendingOtherInformation: Joi.bool(),
+    agreementOfSendingResults: Joi.bool(),
   }),
 };
