@@ -9,6 +9,7 @@ module.exports = {
   p01phoneNumber: '79876543210',
   p02phoneNumber: '78765432109',
   p03phoneNumber: '76005993445',
+  p04phoneNumber: '70000000040',
   p01Password: '1234567',
   newPassword: 'newPasswordABC123!@#',
   neverExpiry: 33071673600000,

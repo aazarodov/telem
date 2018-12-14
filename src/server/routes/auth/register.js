@@ -32,10 +32,10 @@ module.exports = {
       return;
     }
     delete postedPatient.registerToken;
-    postedPatient.mobileNumber = tokenData.mobileNumber;
+    postedPatient.phoneNumber = tokenData.phoneNumber;
     let foundPatient;
     try {
-      foundPatient = await patients.getByMobileNumber(postedPatient.mobileNumber);
+      foundPatient = await patients.getByphoneNumber(postedPatient.phoneNumber);
       if (!foundPatient) {
         const newPatient = await patients.insertNew(postedPatient);
         ctx.status = 201;
@@ -58,14 +58,14 @@ module.exports = {
       }
       const patientDataMismatch = {};
       postedPatient.birthDate = dateTime(postedPatient.birthDate);
-      if (foundPatient.lastName && postedPatient.surname !== foundPatient.lastName) {
-        patientDataMismatch.lastName = postedPatient.surname;
+      if (foundPatient.lastName && postedPatient.lastName !== foundPatient.lastName) {
+        patientDataMismatch.lastName = postedPatient.lastName;
       }
       if (foundPatient.firstName && postedPatient.firstName !== foundPatient.firstName) {
         patientDataMismatch.firstName = postedPatient.firstName;
       }
-      if (foundPatient.middleName && postedPatient.patronymic !== foundPatient.middleName) {
-        patientDataMismatch.middleName = postedPatient.patronymic;
+      if (foundPatient.middleName && postedPatient.middleName !== foundPatient.middleName) {
+        patientDataMismatch.middleName = postedPatient.middleName;
       }
       if (foundPatient.birthDate && postedPatient.birthDate !== foundPatient.birthDate) {
         patientDataMismatch.birthDate = postedPatient.birthDate;

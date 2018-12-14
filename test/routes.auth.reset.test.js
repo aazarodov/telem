@@ -28,7 +28,7 @@ describe('POST auth/reset', () => {
         .post('/auth/reset')
         .send({
           password: newPassword,
-          registerToken: await encrypt({ mobileNumber: p01phoneNumber, expiry: neverExpiry }),
+          registerToken: await encrypt({ phoneNumber: p01phoneNumber, expiry: neverExpiry }),
         });
       test(res, 'reset password successful');
     });
@@ -49,7 +49,7 @@ describe('POST auth/reset', () => {
         .post('/auth/reset')
         .send({
           password: p01Password,
-          registerToken: await encrypt({ mobileNumber: p01phoneNumber, expiry: neverExpiry }),
+          registerToken: await encrypt({ phoneNumber: p01phoneNumber, expiry: neverExpiry }),
         });
       test(res, 'reset password successful');
     });
@@ -70,7 +70,7 @@ describe('POST auth/reset', () => {
         .post('/auth/reset')
         .send({
           password: newPassword,
-          registerToken: await encrypt({ mobileNumber: p02phoneNumber, expiry: neverExpiry }),
+          registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: neverExpiry }),
         });
       test(res, 400, 'patient not activeted');
     });

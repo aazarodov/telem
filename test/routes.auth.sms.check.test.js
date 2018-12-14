@@ -27,11 +27,11 @@ before(async () => {
   const now = unixtimestamp();
   const expiry = now + smsExpiry;
   smsTokensAndCodes.allCorrect = {
-    smsToken: await encrypt({ mobileNumber: phoneNumber01, smsCode: '1111', expiry }),
+    smsToken: await encrypt({ phoneNumber: phoneNumber01, smsCode: '1111', expiry }),
     smsCode: '1111',
   };
   smsTokensAndCodes.wrongCode = {
-    smsToken: await encrypt({ mobileNumber: phoneNumber02, smsCode: '2222', expiry }),
+    smsToken: await encrypt({ phoneNumber: phoneNumber02, smsCode: '2222', expiry }),
     smsCode: '0000',
   };
   smsTokensAndCodes.wrongSign = {
@@ -39,7 +39,7 @@ before(async () => {
     smsCode: '3333',
   };
   smsTokensAndCodes.expired = {
-    smsToken: await encrypt({ mobileNumber: phoneNumber05New, smsCode: '4444', expiry: (now - 1) }),
+    smsToken: await encrypt({ phoneNumber: phoneNumber05New, smsCode: '4444', expiry: (now - 1) }),
     smsCode: '4444',
   };
 });
@@ -53,10 +53,10 @@ describe('POST auth/sms/check', () => {
       test(res, 'smsCode correct', {
         dataKeys: ['registerToken', 'expiry'],
         dataNotKeys: ['smsCode'],
-        data: { mobileNumber: phoneNumber01 },
+        data: { phoneNumber: phoneNumber01 },
       });
       const tokenData = await decrypt(res.body.data.registerToken);
-      tokenData.should.have.property('mobileNumber', res.body.data.mobileNumber);
+      tokenData.should.have.property('phoneNumber', res.body.data.phoneNumber);
       tokenData.should.have.property('expiry', res.body.data.expiry);
     });
   });

@@ -30,10 +30,10 @@ module.exports = {
       return;
     }
     const { password } = ctx.state.data;
-    const { mobileNumber } = tokenData;
+    const { phoneNumber } = tokenData;
     let foundPatient;
     try {
-      foundPatient = await patients.getByMobileNumber(mobileNumber);
+      foundPatient = await patients.getByphoneNumber(phoneNumber);
       if (foundPatient) {
         if (foundPatient.status.presentation === 'Активен'
           || foundPatient.status.presentation === 'Новый') {
@@ -54,8 +54,8 @@ module.exports = {
         ctx.status = 404;
         ctx.body = {
           status: 'error',
-          message: 'patient with this mobileNumber not found',
-          error: 'patient with this mobileNumber not found',
+          message: 'patient with this phoneNumber not found',
+          error: 'patient with this phoneNumber not found',
         };
       }
     } catch (error) {

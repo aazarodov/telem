@@ -7,8 +7,8 @@ const unixtimestamp = require('../../../utils/unixtimestamp');
 const { encrypt } = require('../../../utils/crypto');
 const { smsGatewayBaseUrl, smsExpiry } = require('../../../../../secrets');
 
-const smsGatewaySend = async (mobileNumber, smsCode) => {
-  const smsGatewaySendUrl = `${smsGatewayBaseUrl}${mobileNumber}&text=${smsCode}`;
+const smsGatewaySend = async (phoneNumber, smsCode) => {
+  const smsGatewaySendUrl = `${smsGatewayBaseUrl}${phoneNumber}&text=${smsCode}`;
   log(smsGatewaySendUrl);
   const smsGatewayResponse = await fetch(smsGatewaySendUrl);
   const smsGatewayResponseText = await smsGatewayResponse.text();
@@ -23,37 +23,37 @@ const smsGatewaySend = async (mobileNumber, smsCode) => {
 
 module.exports = {
   post: async (ctx) => {
-    const { mobileNumber } = ctx.state.data;
-    if (await sms.existMobileNumber(mobileNumber)) {
+    const { phoneNumber } = ctx.state.data;
+    if (await sms.existphoneNumber(phoneNumber)) {
       ctx.status = 400;
       ctx.body = {
         status: 'error',
-        message: 'sms already sent to this mobileNumber',
-        error: { mobileNumber },
+        message: 'sms already sent to this phoneNumber',
+        error: { phoneNumber },
       };
       sms.removeExpiredSmsDocs(); // w/o await
       return;
     }
     const smsCode = String(Math.floor(Math.random() * (10000 - 1000)) + 1000);
     if (process.env.NODE_ENV !== 'test') {
-      if (await smsGatewaySend(mobileNumber, smsCode) !== 'ok') {
+      if (await smsGatewaySend(phoneNumber, smsCode) !== 'ok') {
         log('sms send error');
         ctx.status = 400;
         ctx.body = {
           status: 'error',
           message: 'sms send error',
-          error: { error: 'gateway error, wrong mobileNumber', mobileNumber },
+          error: { error: 'gateway error, wrong phoneNumber', phoneNumber },
         };
         sms.removeExpiredSmsDocs(); // w/o await
         return;
       }
     }
     const expiry = unixtimestamp() + smsExpiry;
-    const smsToken = await encrypt({ mobileNumber, smsCode, expiry });
-    await sms.addSmsDoc({ _id: String(mobileNumber), expiry: Number(expiry) });
+    const smsToken = await encrypt({ phoneNumber, smsCode, expiry });
+    await sms.addSmsDoc({ _id: String(phoneNumber), expiry: Number(expiry) });
     const data = {
       smsToken,
-      mobileNumber,
+      phoneNumber,
       expiry,
     };
     ctx.body = {

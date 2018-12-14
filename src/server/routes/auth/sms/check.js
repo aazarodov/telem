@@ -38,7 +38,7 @@ module.exports = {
       ctx.body = {
         status: 'error',
         message: 'smsCode incorrect',
-        error: { mobileNumber: tokenData.mobileNumber, smsCode },
+        error: { phoneNumber: tokenData.phoneNumber, smsCode },
       };
       return;
     }
@@ -46,9 +46,9 @@ module.exports = {
       status: 'success',
       message: 'smsCode correct',
       data: {
-        mobileNumber: tokenData.mobileNumber,
+        phoneNumber: tokenData.phoneNumber,
         registerToken: await encrypt({
-          mobileNumber: tokenData.mobileNumber,
+          phoneNumber: tokenData.phoneNumber,
           expiry: now + registerExpiry,
         }),
         expiry: now + registerExpiry,

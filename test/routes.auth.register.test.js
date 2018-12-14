@@ -6,25 +6,33 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
+const { encrypt, encryptSync } = require('../src/server/utils/crypto');
+const unixtimestamp = require('../src/server/utils/unixtimestamp');
 const patients = require('../src/server/db/queries/patients');
-// const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
+
+const {
+  p01phoneNumber,
+  p02phoneNumber,
+  p03phoneNumber,
+  p04phoneNumber,
+  p01Password,
+  newPassword,
+  neverExpiry,
+} = require('./things/values');
 
 const should = chai.should();
 chai.use(chaiHttp);
 
-// before(async () => ramSeeding());
-
-const postedPatientMobileNumber = '74445674532';
 const postedPatient = {
   email: 'michel@supermail.io',
   password: 'buzzword123',
-  surname: 'Булгаков',
+  lastName: 'Булгаков',
   firstName: 'Михаил',
-  patronymic: 'Афанасьевич',
+  middleName: 'Афанасьевич',
   sex: 'Мужской',
   birthDate: '1891-05-03T00:00:00',
-  registerToken: 'CGFou8/6lU942e6TzdHXGOKpj4xB/XhW5LKsns1Qq5Ze2NmAzW+2OO/YNsHPmk0eKslCWKUkGE+asgYP6sl21uJbsZ4QXnAdeLIvkeRPVsY=',
+  registerToken: encryptSync({ phoneNumber: p04phoneNumber, expiry: neverExpiry }),
 };
 
 describe('POST auth/register', () => {
@@ -60,7 +68,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('new patient created');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByMobileNumber(postedPatientMobileNumber);
+      const foundPatient = await patients.getByphoneNumber(p04phoneNumber);
       foundPatient._id.should.eql(res.body.data.id);
       foundPatient.contactInformation[1].emailAddress.should.eql(postedPatient.email);
       foundPatient.status.presentation.should.eql('Новый');
@@ -73,8 +81,7 @@ describe('POST auth/register', () => {
         .post('/auth/register')
         .send({
           ...postedPatient,
-          // mobileNumber: '79876543210',
-          registerToken: 'OItCwkoq3j7ROvkzRgT25LF30jewUB6Iv1bNsq00Mw/5LMkG6JvuR2u2opRqcxWviW8FDnb6iSNstMMEkhcQcqn0FglkwtYT2MP/C4fzrZw=',
+          registerToken: await encrypt({ phoneNumber: p01phoneNumber, expiry: neverExpiry }),
         });
       res.status.should.equal(400);
       res.type.should.equal('application/json');
@@ -83,20 +90,19 @@ describe('POST auth/register', () => {
     });
   });
   describe('existed patient without data mismatch', () => {
-    it('should add patronymic to patient data without mismatch', async () => {
+    it('should add middleName to patient data without mismatch', async () => {
       const today = new Date();
       const res = await chai.request(server)
         .post('/auth/register')
         .send({
-          // mobileNumber: '76005993445',
           email: 'ann@yahoo.com',
           password: 'new_password_not_detect_as_mismatch',
-          surname: 'Ахматова',
+          lastName: 'Ахматова',
           firstName: 'Анна',
-          patronymic: 'Андреевна',
+          middleName: 'Андреевна',
           sex: 'Женский',
           birthDate: '1889-06-23',
-          registerToken: 'crVw64nc++3ccLJSs7WVZowPbvI9gMmuE2byfTQsGdkhyQAvFCODVn+IqIrc0aAabOS14nZ8cLGDg5FXJLSAKEbEj80X2ejLO2FRSLFtH00=',
+          registerToken: await encrypt({ phoneNumber: p03phoneNumber, expiry: neverExpiry }),
         });
       res.status.should.equal(200);
       res.type.should.equal('application/json');
@@ -104,7 +110,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('stored patient updated without data mismatch');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByMobileNumber('76005993445');
+      const foundPatient = await patients.getByphoneNumber(p03phoneNumber);
       foundPatient._id.should.eql(res.body.data.id);
       foundPatient.middleName.should.eql('Андреевна');
       foundPatient.status.presentation.should.eql('Активен');
@@ -119,12 +125,12 @@ describe('POST auth/register', () => {
         .send({
           email: 'yosif@gmail.com',
           password: 'new_password',
-          surname: 'Бродский',
+          lastName: 'Бродский',
           firstName: 'Иосиф',
-          patronymic: 'Александрович',
+          middleName: 'Александрович',
           sex: 'Мужской',
           birthDate: '1940-05-21',
-          registerToken: 'JmY83YjuUCw8091eTq24BVWHlw/p8tEC8mXPnovLt4eAgLkhR24no7eQ+e2CbU6cuwP+zvttBP/dnIAt9PzA8J7yMBbQZJxUeiYVkN3eng4=',
+          registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: neverExpiry }),
         });
       res.status.should.equal(200);
       res.type.should.equal('application/json');
@@ -132,7 +138,7 @@ describe('POST auth/register', () => {
       res.body.message.should.eql('stored patient updated with data mismatch');
       res.body.data.ok.should.eql(true);
       should.exist(res.body.data.id);
-      const foundPatient = await patients.getByMobileNumber('78765432109');
+      const foundPatient = await patients.getByphoneNumber(p02phoneNumber);
       foundPatient._id.should.eql(res.body.data.id);
       foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
       foundPatient.status.presentation.should.eql('Не активирован');
@@ -159,7 +165,7 @@ describe('POST auth/register', () => {
         .post('/auth/register')
         .send({
           ...postedPatient,
-          registerToken: 'B0iq9jyb4xDWxHcUpaLwLslnfWS+tYCtwTHcTLGtvLHE/GWtLgF1kbHjPtXsW1KpQOgADusfurHIo/AKix6Mjn0m7pv8EFYVHG1uMI1aujU=',
+          registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: unixtimestamp - 1 }),
         });
       res.status.should.equal(400);
       res.type.should.equal('application/json');

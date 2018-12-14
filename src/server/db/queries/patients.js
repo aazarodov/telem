@@ -36,10 +36,10 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
     }
     return {
       _id: id(),
-      name: `${post.surname} ${post.firstName} ${post.patronymic}`,
-      lastName: post.surname,
+      name: `${post.lastName} ${post.firstName} ${post.middleName}`,
+      lastName: post.lastName,
       firstName: post.firstName,
-      middleName: post.patronymic,
+      middleName: post.middleName,
       sex: sex[post.sex],
       birthDate: dateTime(post.birthDate),
       status: patientStatus[status],
@@ -48,9 +48,9 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
       contactInformation: [
         {
           ...contactInformation['Телефон'],
-          presentation: `+${post.mobileNumber}`,
-          phoneNumber: post.mobileNumber,
-          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, post.mobileNumber),
+          presentation: `+${post.phoneNumber}`,
+          phoneNumber: post.phoneNumber,
+          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, post.phoneNumber),
         },
         {
           ...contactInformation['E-mail'],
@@ -76,12 +76,12 @@ module.exports = {
       throw error;
     }
   },
-  async getByMobileNumber(mobileNumber) {
+  async getByphoneNumber(phoneNumber) {
     const response = await patientsdb.view('views', 'patientLoginPassword', {
-      startkey: [mobileNumber],
-      endkey: [mobileNumber, {}],
+      startkey: [phoneNumber],
+      endkey: [phoneNumber, {}],
     });
-    if (response.rows.length > 1) log(`More then one patient witn mobileNumber: ${mobileNumber}`);
+    if (response.rows.length > 1) log(`More then one patient witn phoneNumber: ${phoneNumber}`);
     return response.rows.length > 0 ? response.rows[0].value : null;
   },
   async login(login, password) {

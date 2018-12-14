@@ -15,9 +15,9 @@ const smsdb = couch.use(dbname);
 let removeExpiredSmsDocsTimestamp = 0;
 
 module.exports = {
-  async existMobileNumber(mobileNumber) {
+  async existphoneNumber(phoneNumber) {
     try {
-      const smsDoc = await smsdb.get(mobileNumber);
+      const smsDoc = await smsdb.get(phoneNumber);
       if (smsDoc.expiry < unixtimestamp()) {
         await smsdb.destroy(smsDoc._id, smsDoc._rev);
         return false;
