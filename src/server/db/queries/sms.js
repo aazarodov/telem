@@ -44,7 +44,6 @@ module.exports = {
       if (response.docs.length > 0) {
         response.docs.forEach((doc) => { bulkDocs.docs.push({ ...doc, _deleted: true }); });
         await smsdb.bulk(bulkDocs);
-        log(`smsDocs deleted by expire: ${response.docs.length}.`);
       }
     } catch (error) {
       log('removeExpiredSmsDocs error', error);

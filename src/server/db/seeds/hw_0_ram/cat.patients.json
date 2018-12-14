@@ -1,6 +1,6 @@
 [    
   {
-    "_id": "cat.patients|e29c0190-f87f-11e8-8476-2fcec2888318",
+    "_id": "cat.patients|00000000-0000-1000-8000-000000000001",
     "name": "Пушкин Александр Сергеевич",
     "lastName": "Пушкин",
     "firstName": "Александр",
@@ -103,7 +103,7 @@
     "class_name": "cat.patients"
   },
   {
-    "_id": "cat.patients|e29c4fb0-f87f-11e8-8476-2fcec2888318",
+    "_id": "cat.patients|00000000-0000-1000-8000-000000000002",
     "name": "Иосиф Александрович Бродский",
     "lastName": "Бродский",
     "firstName": "Иосиф",
@@ -166,7 +166,7 @@
     "class_name": "cat.patients"
   },
   {
-    "_id": "cat.patients|e29c76c0-f87f-11e8-8476-2fcec2888318",
+    "_id": "cat.patients|00000000-0000-1000-8000-000000000003",
     "name": "Ахматова Анна",
     "lastName": "Ахматова",
     "firstName": "Анна",

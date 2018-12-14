@@ -7,23 +7,20 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const smsSeeding = require('../src/server/db/seeds/sms');
+const { test, setDef } = require('./things/utils');
+const {
+  phoneNumber01,
+  phoneNumber03Expired,
+  phoneNumber05New,
+} = require('./things/values');
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
-const postedMobileNumbers = {};
+setDef({ authCookieTest: false });
 
 before(async () => {
-  const smsSeeds = await smsSeeding();
-  postedMobileNumbers.newNumber = {
-    mobileNumber: '79543543543',
-  };
-  postedMobileNumbers.duplicateNumber = {
-    mobileNumber: smsSeeds[0]._id,
-  };
-  postedMobileNumbers.expiredDuplicateNumber = {
-    mobileNumber: smsSeeds[2]._id,
-  };
+  await smsSeeding();
 });
 
 describe('POST auth/sms/send', () => {
@@ -31,52 +28,36 @@ describe('POST auth/sms/send', () => {
     it('should return smsToken', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/send')
-        .send(postedMobileNumbers.newNumber);
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('sms successfully sent');
-      should.exist(res.body.data.smsToken);
-      should.exist(res.body.data.mobileNumber);
-      should.exist(res.body.data.expiry);
-      should.exist(res.body.data.smsCode);
+        .send({ mobileNumber: phoneNumber05New });
+      test(res, 'sms successfully sent', {
+        dataKeys: ['smsToken', 'mobileNumber', 'expiry'],
+        dataNotKeys: ['smsCode'],
+      });
     });
     it('should return error with repeated newNumber', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/send')
-        .send(postedMobileNumbers.duplicateNumber);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('sms already sent to this mobileNumber');
-      should.not.exist(res.body.data);
+        .send({ mobileNumber: phoneNumber05New });
+      test(res, 400, 'sms already sent to this mobileNumber');
     });
   });
   describe('duplicate mobileNumber', () => {
     it('should return error with duplicateNumber', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/send')
-        .send(postedMobileNumbers.duplicateNumber);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('sms already sent to this mobileNumber');
-      should.not.exist(res.body.data);
+        .send({ mobileNumber: phoneNumber01 });
+      test(res, 400, 'sms already sent to this mobileNumber');
     });
   });
   describe('expired duplicate mobileNumber', () => {
     it('should return smsToken', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/send')
-        .send(postedMobileNumbers.expiredDuplicateNumber);
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('sms successfully sent');
-      should.exist(res.body.data.smsToken);
-      should.exist(res.body.data.mobileNumber);
-      should.exist(res.body.data.expiry);
-      should.exist(res.body.data.smsCode);
+        .send({ mobileNumber: phoneNumber03Expired });
+      test(res, 'sms successfully sent', {
+        dataKeys: ['smsToken', 'mobileNumber', 'expiry'],
+        dataNotKeys: ['smsCode'],
+      });
     });
   });
 });

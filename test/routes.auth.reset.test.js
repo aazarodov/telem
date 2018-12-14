@@ -6,12 +6,20 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
-// const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
+const { encrypt } = require('../src/server/utils/crypto');
+const { test, setDef } = require('./things/utils');
+const {
+  p01phoneNumber,
+  p02phoneNumber,
+  p01Password,
+  newPassword,
+  neverExpiry,
+} = require('./things/values');
 
 chai.should();
 chai.use(chaiHttp);
 
-// before(async () => ramSeeding());
+setDef({ authCookieTest: false });
 
 describe('POST auth/reset', () => {
   describe('reset password', () => {
@@ -19,39 +27,31 @@ describe('POST auth/reset', () => {
       const res = await chai.request(server)
         .post('/auth/reset')
         .send({
-          password: 'nMnd9t3thg3hnifne', // mobileNumber: '79876543210',
-          registerToken: 'OItCwkoq3j7ROvkzRgT25LF30jewUB6Iv1bNsq00Mw/5LMkG6JvuR2u2opRqcxWviW8FDnb6iSNstMMEkhcQcqn0FglkwtYT2MP/C4fzrZw=',
+          password: newPassword,
+          registerToken: await encrypt({ mobileNumber: p01phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('reset password successful');
+      test(res, 'reset password successful');
     });
     it('should login with new password', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send({
-          login: '79876543210',
-          password: 'nMnd9t3thg3hnifne',
+          login: p01phoneNumber,
+          password: newPassword,
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('login successful');
-      res.should.have.cookie('pat');
-      res.body.data.patient.firstName.should.eql('Александр');
+      test(res, 'login successful', { dataKeys: ['patient'], authCookieTest: true });
+      res.body.data.patient.should.have.property('lastName', 'Пушкин');
+      res.body.data.patient.should.have.property('firstName', 'Александр');
+      res.body.data.patient.should.have.property('middleName', 'Сергеевич');
     });
     it('should reset password back', async () => {
       const res = await chai.request(server)
         .post('/auth/reset')
         .send({
-          password: '1234567', // mobileNumber: '79876543210',
-          registerToken: 'OItCwkoq3j7ROvkzRgT25LF30jewUB6Iv1bNsq00Mw/5LMkG6JvuR2u2opRqcxWviW8FDnb6iSNstMMEkhcQcqn0FglkwtYT2MP/C4fzrZw=',
+          password: p01Password,
+          registerToken: await encrypt({ mobileNumber: p01phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('reset password successful');
+      test(res, 'reset password successful');
     });
     it('should login with old password', async () => {
       const res = await chai.request(server)
@@ -60,24 +60,19 @@ describe('POST auth/reset', () => {
           login: '79876543210',
           password: '1234567',
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('login successful');
-      res.should.have.cookie('pat');
-      res.body.data.patient.firstName.should.eql('Александр');
+      test(res, 'login successful', { dataKeys: ['patient'], authCookieTest: true });
+      res.body.data.patient.should.have.property('lastName', 'Пушкин');
+      res.body.data.patient.should.have.property('firstName', 'Александр');
+      res.body.data.patient.should.have.property('middleName', 'Сергеевич');
     });
     it('should trow error when "Не активирован" status', async () => {
       const res = await chai.request(server)
         .post('/auth/reset')
         .send({
-          password: '123456guBIGBEiu',
-          registerToken: 'JmY83YjuUCw8091eTq24BVWHlw/p8tEC8mXPnovLt4eAgLkhR24no7eQ+e2CbU6cuwP+zvttBP/dnIAt9PzA8J7yMBbQZJxUeiYVkN3eng4=',
+          password: newPassword,
+          registerToken: await encrypt({ mobileNumber: p02phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('patient not activeted');
+      test(res, 400, 'patient not activeted');
     });
   });
 });

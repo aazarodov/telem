@@ -14,7 +14,7 @@ module.exports = () => async (ctx, next) => {
   }
   const accessToken = ctx.cookies.get('pat');
   if (!accessToken) {
-    ctx.status = 400;
+    ctx.status = 403;
     ctx.body = {
       status: 'error',
       message: 'access deny',
@@ -26,7 +26,7 @@ module.exports = () => async (ctx, next) => {
   try {
     tokenData = await decrypt(accessToken);
   } catch (error) {
-    ctx.status = 400;
+    ctx.status = 403;
     ctx.body = {
       status: 'error',
       message: 'access deny',
@@ -35,7 +35,7 @@ module.exports = () => async (ctx, next) => {
     return;
   }
   if (!tokenData.expiry || tokenData.expiry <= unixtimestamp()) {
-    ctx.status = 400;
+    ctx.status = 403;
     ctx.body = {
       status: 'error',
       message: 'access deny',

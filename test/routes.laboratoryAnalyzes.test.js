@@ -7,6 +7,8 @@ const chaiHttp = require('chai-http');
 const chaiThings = require('chai-things');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
+// const { patient01Cookie, p01laboratoryAnalyzesId } = require('./things/values');
+// const { test } = require('./things/utils');
 
 chai.should();
 chai.use(chaiThings);
@@ -18,8 +20,8 @@ const postedPatientWtihPhone = {
 };
 
 describe('GET laboratoryAnalyzes', () => {
-  describe('GET /laboratoryAnalyzes as Пушкин', () => {
-    it('should return array laboratoryAnalyzes on data.docs field', async () => {
+  describe('GET /laboratoryAnalyzes as patient01', () => {
+    it('should return array of laboratoryAnalyzes on data.docs field', async () => {
       const agent = chai.request.agent(server);
       {
         const res = await agent
@@ -34,20 +36,20 @@ describe('GET laboratoryAnalyzes', () => {
       }
       const res = await agent
         .get('/laboratoryAnalyzes');
+      agent.close();
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
       res.body.data.docs.should.all.have.property('oneTimeContractNumber');
       res.body.data.docs.should.all.have.property('date');
       res.body.data.docs.should.all.have.property('analyzes');
-      agent.close();
     });
   });
   describe('GET /laboratoryAnalyzes without access', () => {
     it('should return access deny, accessToken absent', async () => {
       const res = await chai.request(server)
         .get('/laboratoryAnalyzes');
-      res.status.should.eql(400);
+      res.status.should.eql(403);
       res.type.should.eql('application/json');
       res.body.status.should.eql('error');
       res.body.message.should.eql('access deny');
@@ -57,7 +59,7 @@ describe('GET laboratoryAnalyzes', () => {
       const res = await chai.request(server)
         .get('/laboratoryAnalyzes')
         .set('Cookie', 'pat=some_fake_access_token');
-      res.status.should.eql(400);
+      res.status.should.eql(403);
       res.type.should.eql('application/json');
       res.body.status.should.eql('error');
       res.body.message.should.eql('access deny');
@@ -67,7 +69,7 @@ describe('GET laboratoryAnalyzes', () => {
       const res = await chai.request(server)
         .get('/laboratoryAnalyzes')
         .set('Cookie', 'pat=ru4rwoicpxHvbVAcX18bichWxVJ+YB+rIEkXCvkafhyMkAJLT6lWeJyz/kO7Fk4XIK/6uARUorOxC14sI4K8xA==');
-      res.status.should.eql(400);
+      res.status.should.eql(403);
       res.type.should.eql('application/json');
       res.body.status.should.eql('error');
       res.body.message.should.eql('access deny');

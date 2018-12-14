@@ -20,13 +20,11 @@ module.exports = (dir) => {
       || !schemas[ctx.path][method]
     ) {
       ctx.state.validate = false;
-      await next();
     } else {
       try {
-        const data = method === 'get' ? ctx.request.query : ctx.request.body;
+        const data = method === 'post' ? ctx.request.body : ctx.request.query;
         ctx.state.data = await schemas[ctx.path][method].validate(data);
         ctx.state.validate = true;
-        await next();
       } catch (error) {
         ctx.status = 400;
         ctx.body = {
@@ -34,7 +32,9 @@ module.exports = (dir) => {
           message: 'validate error',
           error: { message: error.message, body: ctx.request.body },
         };
+        return;
       }
     }
+    await next();
   };
 };

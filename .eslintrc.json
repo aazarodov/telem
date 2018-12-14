@@ -9,6 +9,7 @@
     "rules": {
     "no-unused-vars": ["error", { "varsIgnorePattern": "log" }],
     "no-underscore-dangle": "off",
-    "newline-per-chained-call": "off"
+    "newline-per-chained-call": "off",
+    "no-nested-ternary": "off"
     }
 }

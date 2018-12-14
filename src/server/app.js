@@ -5,6 +5,7 @@ const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const path = require('path');
 const log = require('logger-file-fun-line');
+const catcher = require('./middleware/catcher');
 const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
@@ -12,6 +13,7 @@ const mountRoutes = require('./utils/koa-router-mount');
 const app = new Koa();
 const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
 
+app.use(catcher());
 app.use(cors({ credentials: true }));
 app.use(bodyParser());
 app.use(access());

@@ -56,7 +56,6 @@ module.exports = {
       mobileNumber,
       expiry,
     };
-    if (process.env.NODE_ENV === 'test') data.smsCode = smsCode;
     ctx.body = {
       status: 'success',
       message: 'sms successfully sent',

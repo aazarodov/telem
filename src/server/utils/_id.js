@@ -2,4 +2,4 @@
 
 const uuid = require('uuid/v1');
 
-module.exports = prefix => () => `${prefix}|${uuid()}`;
+module.exports = prefix => (prefix ? () => `${prefix}|${uuid()}` : uuid);

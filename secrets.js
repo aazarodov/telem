@@ -9,4 +9,6 @@ module.exports = {
   smsExpiry: 900,
   accessExpiry: 3600, // 3600 = 1 hour
   registerExpiry: 900, // 900 =  15 min, 1 year = 31556926
+  fileMaxLength: 10485760, // 10485760 = 10MB
+  fileMaxCount: 5,
 };

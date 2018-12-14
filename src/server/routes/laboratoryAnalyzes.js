@@ -13,6 +13,7 @@ module.exports = {
       );
       ctx.body = {
         status: 'success',
+        message: 'laboratoryAnalyzes list',
         data: response,
       };
     } catch (error) {

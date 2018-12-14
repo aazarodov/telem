@@ -7,28 +7,34 @@ const couch = require('../connection');
 const { smsExpiry } = require('../../../../secrets');
 const smsSchema = require('../../schemas/db/sms/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
+const {
+  phoneNumber01,
+  phoneNumber02,
+  phoneNumber03Expired,
+  phoneNumber04Expired,
+} = require('../../../../test/things/values');
 
 
 const dbname = 'test_sms';
 const now = unixtimestamp();
-const testExpiry = now + smsExpiry;
+const expiry = now + smsExpiry;
 
 const smsSeeding = async () => {
   let smsSeeds = [
     {
-      _id: '78905671243',
-      expiry: testExpiry,
+      _id: phoneNumber01,
+      expiry,
     },
     {
-      _id: '78456342334',
-      expiry: testExpiry,
+      _id: phoneNumber02,
+      expiry,
     },
     {
-      _id: '76475287583',
+      _id: phoneNumber03Expired,
       expiry: now - 1,
     },
     {
-      _id: '70000000001',
+      _id: phoneNumber04Expired,
       expiry: 1,
     },
   ];
@@ -49,7 +55,8 @@ const smsSeeding = async () => {
     const smsdb = couch.use(dbname);
     await smsdb.createIndex({
       index: { fields: ['expiry'] },
-      name: 'expiry_index',
+      ddoc: 'indexes',
+      name: 'expiry',
     });
     const insertPromises = smsSeeds.map(smsdb.insert);
     await Promise.all(insertPromises);
@@ -59,4 +66,7 @@ const smsSeeding = async () => {
   }
   return smsSeeds;
 };
+
+if (require.main === module) smsSeeding();
+
 module.exports = smsSeeding;

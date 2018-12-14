@@ -12,6 +12,7 @@ module.exports = {
       );
       ctx.body = {
         status: 'success',
+        message: 'statusesOfAnalysis list',
         data: response,
       };
     } catch (error) {

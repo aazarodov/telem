@@ -9,85 +9,79 @@ const server = require('../src/server/app');
 const { encrypt, decrypt } = require('../src/server/utils/crypto');
 const { smsExpiry } = require('../secrets');
 const unixtimestamp = require('../src/server/utils/unixtimestamp');
+const { test, setDef } = require('./things/utils');
+const {
+  phoneNumber01,
+  phoneNumber02,
+  phoneNumber05New,
+} = require('./things/values');
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
-const postedSmsTokens = {};
+setDef({ authCookieTest: false });
+
+const smsTokensAndCodes = {};
 
 before(async () => {
   const now = unixtimestamp();
   const expiry = now + smsExpiry;
-  postedSmsTokens.allCorrect = {
-    smsToken: await encrypt({ mobileNumber: '7987654321', smsCode: '1111', expiry }),
+  smsTokensAndCodes.allCorrect = {
+    smsToken: await encrypt({ mobileNumber: phoneNumber01, smsCode: '1111', expiry }),
     smsCode: '1111',
   };
-  postedSmsTokens.wrongCode = {
-    smsToken: await encrypt({ mobileNumber: '79008007612', smsCode: '2222', expiry }),
+  smsTokensAndCodes.wrongCode = {
+    smsToken: await encrypt({ mobileNumber: phoneNumber02, smsCode: '2222', expiry }),
     smsCode: '0000',
   };
-  postedSmsTokens.wrongSign = {
+  smsTokensAndCodes.wrongSign = {
     smsToken: '8Q+DgA3//lN21FPwcofaT/s7GHInlpS8Ok+RbWUfj7A',
     smsCode: '3333',
   };
-  postedSmsTokens.expired = {
-    smsToken: await encrypt({ mobileNumber: '7987654321', smsCode: '4444', expiry: (now - 1) }),
+  smsTokensAndCodes.expired = {
+    smsToken: await encrypt({ mobileNumber: phoneNumber05New, smsCode: '4444', expiry: (now - 1) }),
     smsCode: '4444',
   };
 });
 
 describe('POST auth/sms/check', () => {
-  describe('postedSmsTokens.allCorrect', () => {
+  describe('smsTokensAndCodes.allCorrect', () => {
     it('should return registerToken', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/check')
-        .send(postedSmsTokens.allCorrect);
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('smsCode correct');
-      should.exist(res.body.data.registerToken);
-      should.exist(res.body.data.mobileNumber);
-      should.exist(res.body.data.expiry);
+        .send(smsTokensAndCodes.allCorrect);
+      test(res, 'smsCode correct', {
+        dataKeys: ['registerToken', 'expiry'],
+        dataNotKeys: ['smsCode'],
+        data: { mobileNumber: phoneNumber01 },
+      });
       const tokenData = await decrypt(res.body.data.registerToken);
-      tokenData.mobileNumber.should.equal(res.body.data.mobileNumber);
-      tokenData.expiry.should.equal(res.body.data.expiry);
+      tokenData.should.have.property('mobileNumber', res.body.data.mobileNumber);
+      tokenData.should.have.property('expiry', res.body.data.expiry);
     });
   });
-  describe('postedSmsTokens.wrongCode', () => {
+  describe('smsTokensAndCodes.wrongCode', () => {
     it('should return smsCode incorrect', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/check')
-        .send(postedSmsTokens.wrongCode);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('smsCode incorrect');
-      should.not.exist(res.body.data);
+        .send(smsTokensAndCodes.wrongCode);
+      test(res, 400, 'smsCode incorrect');
     });
   });
-  describe('postedSmsTokens.wrongSign', () => {
+  describe('smsTokensAndCodes.wrongSign', () => {
     it('should return smsToken incorrect', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/check')
-        .send(postedSmsTokens.wrongSign);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('smsToken incorrect');
-      should.not.exist(res.body.data);
+        .send(smsTokensAndCodes.wrongSign);
+      test(res, 400, 'smsToken incorrect');
     });
   });
-  describe('postedSmsTokens.expared', () => {
+  describe('smsTokensAndCodes.expared', () => {
     it('should return smsToken expired', async () => {
       const res = await chai.request(server)
         .post('/auth/sms/check')
-        .send(postedSmsTokens.expired);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('smsToken expired');
-      should.not.exist(res.body.data);
+        .send(smsTokensAndCodes.expired);
+      test(res, 400, 'smsToken expired');
     });
   });
 });
