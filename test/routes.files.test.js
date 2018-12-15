@@ -29,7 +29,7 @@ const fileName = path.join(__dirname, 'things', '1.png');
 let createdFileId;
 
 describe('PUT/POST/GET/DELETE files', () => {
-  describe('PUT /files as Пушкин', () => {
+  describe('PUT /files as patient01', () => {
     it('should return _id _rev', async () => {
       const ostream = fs.createReadStream(fileName);
       const req = chai.request(server)
@@ -98,7 +98,7 @@ describe('PUT/POST/GET/DELETE files', () => {
       res.body.data.docs.should.all.have.property('type');
     });
   });
-  describe('GET /files png as Пушкин', () => {
+  describe('GET /files png as patient01', () => {
     it('should return png file', async () => {
       const res = await chai.request(server)
         .get('/files')

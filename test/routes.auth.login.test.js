@@ -116,8 +116,8 @@ describe('POST auth/login', () => {
       test(res, 400, 'validate error', { authCookieShould: false });
     });
   });
-  describe('patient with statis not equal "Активен" or "Новый"', () => {
-    it('should return error statis "Не активирован"', async () => {
+  describe('patient with status not equal "Активен" or "Новый"', () => {
+    it('should return error with message "patient not activeted"', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientWtihNoActivetedStatus);
