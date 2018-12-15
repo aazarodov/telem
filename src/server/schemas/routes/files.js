@@ -18,12 +18,10 @@ module.exports = {
   ]),
   post: Joi.object().keys({
     _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
-    _rev: Joi.string().max(255).required(),
     name: Joi.string().max(255),
     comment: Joi.string().max(255),
   }),
   delete: Joi.object().keys({
     _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
-    _rev: Joi.string().max(255).required(),
   }),
 };

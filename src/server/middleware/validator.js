@@ -1,8 +1,13 @@
 'use strict';
 
+const log = require('logger-file-fun-line');
 const { deepReaddirSync } = require('../utils/deepReaddir');
 
 module.exports = (dir) => {
+  const methods = {
+    bodyDeny: ['get', 'head', 'options'],
+    bodyAllow: ['post', 'put', 'patch', 'delete'],
+  };
   const schemas = {};
   const list = deepReaddirSync(dir);
   list.forEach((file) => {
@@ -22,7 +27,12 @@ module.exports = (dir) => {
       ctx.state.validate = false;
     } else {
       try {
-        const data = method === 'post' ? ctx.request.body : ctx.request.query;
+        let data = {};
+        if (methods.bodyAllow.indexOf(method) !== -1 && Object.keys(ctx.request.body).length) {
+          data = ctx.request.body;
+        } else {
+          data = ctx.request.query;
+        }
         ctx.state.data = await schemas[ctx.path][method].validate(data);
         ctx.state.validate = true;
       } catch (error) {

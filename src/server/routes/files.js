@@ -4,6 +4,7 @@ const log = require('logger-file-fun-line');
 const files = require('../db/queries/files');
 const { fileMaxLength, fileMaxCount } = require('../../../secrets');
 
+const has = Object.prototype.hasOwnProperty;
 
 module.exports = {
   put: async (ctx) => {
@@ -64,7 +65,6 @@ module.exports = {
         message: 'file uploaded',
         data: {
           _id: res.id,
-          _rev: res.rev,
         },
       };
     } catch (error) {
@@ -95,7 +95,6 @@ module.exports = {
           ctx.state.data.limit,
           ctx.state.data.bookmark,
         );
-        ctx.status = 200;
         ctx.body = {
           status: 'success',
           message: 'file list',
@@ -108,6 +107,37 @@ module.exports = {
       ctx.body = {
         status: 'error',
         message: 'couchdb error',
+      };
+    }
+  },
+  post: async (ctx) => {
+    const res = await files.update(ctx.state.data, ctx.state.access.pid);
+    if (has.call(res, '_id')) {
+      ctx.body = {
+        status: 'success',
+        message: 'file updated',
+        data: res,
+      };
+    } else {
+      ctx.status = 404;
+      ctx.body = {
+        status: 'error',
+        message: 'file not found',
+      };
+    }
+  },
+  delete: async (ctx) => {
+    const res = await files.delete(ctx.state.data._id, ctx.state.access.pid);
+    if (has.call(res, 'ok')) {
+      ctx.body = {
+        status: 'success',
+        message: 'file deleted',
+      };
+    } else {
+      ctx.status = 404;
+      ctx.body = {
+        status: 'error',
+        message: 'file not found',
       };
     }
   },

@@ -13,7 +13,8 @@ const filesSeeding = require('../src/server/db/seeds/files');
 const test = require('./things/test')();
 const {
   patient01Cookie,
-  p02FileId,
+  p01File01Id,
+  p02File01Id,
   notExistId,
 } = require('./things/values');
 
@@ -30,7 +31,7 @@ let createdFileId;
 
 describe('PUT/POST/GET/DELETE files', () => {
   describe('PUT /files as patient01', () => {
-    it('should return _id _rev', async () => {
+    it('should return _id', async () => {
       const ostream = fs.createReadStream(fileName);
       const req = chai.request(server)
         .put('/files')
@@ -43,7 +44,7 @@ describe('PUT/POST/GET/DELETE files', () => {
           .on('response', response => resolve(response))
           .on('error', error => reject(error));
       });
-      test(res, 201, 'file uploaded', { dataKeys: ['_id', '_rev'] });
+      test(res, 201, 'file uploaded', { dataKeys: ['_id'] });
       createdFileId = res.body.data._id;
     });
     it('should return 423 when file count limit', async () => {
@@ -91,11 +92,11 @@ describe('PUT/POST/GET/DELETE files', () => {
       test(res, 'file list', { dataKeys: ['docs', 'bookmark'] });
       res.body.data.docs.length.should.eql(2);
       res.body.data.docs.should.all.have.property('_id');
-      res.body.data.docs.should.all.have.property('_rev');
       res.body.data.docs.should.all.have.property('name');
       res.body.data.docs.should.all.have.property('comment');
-      res.body.data.docs.should.all.have.property('length');
+      res.body.data.docs.should.all.have.property('date');
       res.body.data.docs.should.all.have.property('type');
+      res.body.data.docs.should.all.have.property('length');
     });
   });
   describe('GET /files png as patient01', () => {
@@ -113,7 +114,7 @@ describe('PUT/POST/GET/DELETE files', () => {
     it('should return 404 error when not own', async () => {
       const res = await chai.request(server)
         .get('/files')
-        .query({ _id: p02FileId })
+        .query({ _id: p02File01Id })
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 404, 'file not found');
     });
@@ -127,6 +128,80 @@ describe('PUT/POST/GET/DELETE files', () => {
       } catch (error) {
         should.fail(error);
       }
+    });
+  });
+  describe('POST /files name and comment as patient01', () => {
+    it('should successfully change comment', async () => {
+      const res = await chai.request(server)
+        .post('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p01File01Id,
+          comment: 'New_comment',
+        });
+      test(res, 'file updated');
+      res.body.data.should.have.property('_id');
+      res.body.data.should.have.property('name');
+      res.body.data.should.have.property('comment', 'New_comment');
+      res.body.data.should.have.property('date');
+      res.body.data.should.have.property('type');
+      res.body.data.should.have.property('length');
+    });
+    it('should return 404 error when not own', async () => {
+      const res = await chai.request(server)
+        .post('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p02File01Id,
+        });
+      test(res, 404, 'file not found');
+    });
+    it('should return 404 error when not exist', async () => {
+      const res = await chai.request(server)
+        .post('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: notExistId,
+        });
+      test(res, 404, 'file not found');
+    });
+  });
+  describe('DELETE /files name and comment as patient01', () => {
+    it('should delete file p01File01Id', async () => {
+      const res = await chai.request(server)
+        .del('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p01File01Id,
+        });
+      test(res, 'file deleted');
+    });
+    it('should return 404 when already deleted', async () => {
+      const res = await chai.request(server)
+        .del('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p01File01Id,
+        });
+      test(res, 404, 'file not found');
+    });
+    it('should return 404 error when not own', async () => {
+      const res = await chai.request(server)
+        .del('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p02File01Id,
+        });
+      test(res, 404, 'file not found');
+    });
+    it('should return 404 error when not exist', async () => {
+      const res = await chai.request(server)
+        .del('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: notExistId,
+        });
+      test(res, 404, 'file not found');
     });
   });
 });

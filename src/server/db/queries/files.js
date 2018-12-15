@@ -10,6 +10,7 @@ const dbname = prefix('files');
 const db = couch.use(dbname);
 
 // indexes: owner
+// ddoc updates inplace, delete
 
 module.exports = {
   async create(newFileDoc, ostream) {
@@ -51,7 +52,6 @@ module.exports = {
       },
       fields: [
         '_id',
-        '_rev',
         'name',
         'comment',
         'date',
@@ -66,5 +66,11 @@ module.exports = {
     const filesCount = await db.view('indexes', 'owner', { key: [owner] });
     if (filesCount.rows.length === 0) return 0;
     return filesCount.rows[0].value;
+  },
+  async update(updDoc, owner) {
+    return db.atomic('ddoc', 'inplace', updDoc._id, { ...updDoc, _owner: owner });
+  },
+  async delete(_id, owner) {
+    return db.atomic('ddoc', 'delete', _id, { _owner: owner });
   },
 };

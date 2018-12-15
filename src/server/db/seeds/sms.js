@@ -57,8 +57,7 @@ const smsSeeding = async () => {
       ddoc: 'indexes',
       name: 'expiry',
     });
-    const insertPromises = smsSeeds.map(smsdb.insert);
-    await Promise.all(insertPromises);
+    await smsdb.bulk({ docs: smsSeeds });
     log(`${dbname} successfully seeded`);
   } catch (error) {
     log(`${dbname} seeding error`, error);
