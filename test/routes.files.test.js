@@ -10,20 +10,19 @@ const path = require('path');
 const fs = require('fs');
 const server = require('../src/server/app');
 const filesSeeding = require('../src/server/db/seeds/files');
-const { patient01Cookie, p02FileId, notExistId } = require('./things/values');
-const { test } = require('./things/utils');
+const test = require('./things/test')();
+const {
+  patient01Cookie,
+  p02FileId,
+  notExistId,
+} = require('./things/values');
+
 
 const should = chai.should();
 chai.use(chaiThings);
 chai.use(chaiHttp);
 
-before(async () => {
-  try {
-    await filesSeeding();
-  } catch (error) {
-    log(error);
-  }
-});
+before(async () => filesSeeding());
 
 const fileName = path.join(__dirname, 'things', '1.png');
 
@@ -83,7 +82,7 @@ describe('PUT/POST/GET/DELETE files', () => {
       test(res, 413, 'Content-Length too large');
     });
   });
-  describe('GET /files list as Пушкин', () => {
+  describe('GET /files list as patient01', () => {
     it('should return list of files', async () => {
       const res = await chai.request(server)
         .get('/files')

@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 describe('routes : index', () => {
   describe('GET /', () => {
-    it('should return json and vary Origin', async () => {
+    it('should return json', async () => {
       const res = await chai.request(server)
         .get('/');
       res.status.should.eql(200);

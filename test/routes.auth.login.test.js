@@ -7,26 +7,29 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
+const test = require('./things/test')();
+const {
+  p01phoneNumber,
+  p01emailAddress,
+  p01Password,
+  p02phoneNumber,
+  p02Password,
 
-const should = chai.should();
+} = require('./things/values');
+
+chai.should();
 chai.use(chaiHttp);
 
-before(async () => {
-  try {
-    await ramSeeding();
-  } catch (error) {
-    log(error);
-  }
-});
+before(async () => ramSeeding());
 
 const postedPatientWtihPhone = {
-  login: '79876543210',
-  password: '1234567',
+  login: p01phoneNumber,
+  password: p01Password,
 };
 
 const postedPatientWtihMail = {
   ...postedPatientWtihPhone,
-  login: 'alex@mail.ru',
+  login: p01emailAddress,
 };
 
 const postedPatientIncorrectLogin = {
@@ -40,11 +43,11 @@ const postedPatientIncorrectpassword = {
 };
 
 const postedPatientIncorrectSchema1 = {
-  login: '79876543210',
+  login: p01phoneNumber,
 };
 
 const postedPatientIncorrectSchema2 = {
-  password: '1234567',
+  password: p01Password,
 };
 
 const postedPatientIncorrectSchema3 = {
@@ -52,9 +55,9 @@ const postedPatientIncorrectSchema3 = {
   not_existed_field: 'hello there!',
 };
 
-const postedPatientWtihNoActiveStatus = {
-  login: '78765432109',
-  password: 'qwertyu',
+const postedPatientWtihNoActivetedStatus = {
+  login: p02phoneNumber,
+  password: p02Password,
 };
 
 describe('POST auth/login', () => {
@@ -65,31 +68,18 @@ describe('POST auth/login', () => {
         const res = await agent
           .post('/auth/login')
           .send(postedPatientWtihPhone);
-        res.status.should.equal(200);
-        res.type.should.equal('application/json');
-        res.body.status.should.eql('success');
-        res.body.message.should.eql('login successful');
-        res.should.have.cookie('pat');
-        res.body.data.patient.firstName.should.eql('Александр');
+        test(res, 'login successful');
       }
       const res = await agent
         .get('/whoami');
-      res.status.should.eql(200);
-      res.type.should.eql('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('You are Пушкин Александр Сергеевич');
+      test(res, 'You are Пушкин Александр Сергеевич');
       agent.close();
     });
     it('should return access cookie when login is email', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientWtihMail);
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('login successful');
-      res.should.have.cookie('pat');
-      res.body.data.patient.firstName.should.eql('Александр');
+      test(res, 'login successful');
     });
   });
   describe('incorrect login or password', () => {
@@ -97,21 +87,13 @@ describe('POST auth/login', () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectLogin);
-      res.status.should.equal(404);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('patient with this login and password not found');
-      should.not.exist(res.body.data);
+      test(res, 404, 'patient with this login and password not found', { authCookieShould: false });
     });
     it('should return error if password not found', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectpassword);
-      res.status.should.equal(404);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('patient with this login and password not found');
-      should.not.exist(res.body.data);
+      test(res, 404, 'patient with this login and password not found', { authCookieShould: false });
     });
   });
   describe('incorrect login schema', () => {
@@ -119,43 +101,27 @@ describe('POST auth/login', () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectSchema1);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('validate error');
-      should.not.exist(res.body.data);
+      test(res, 400, 'validate error', { authCookieShould: false });
     });
     it('should return error if login field is absent', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectSchema2);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('validate error');
-      should.not.exist(res.body.data);
+      test(res, 400, 'validate error', { authCookieShould: false });
     });
     it('should return error if extra field are present', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectSchema3);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('validate error');
-      should.not.exist(res.body.data);
+      test(res, 400, 'validate error', { authCookieShould: false });
     });
   });
-  describe('patient with statis not equal "Активен" ', () => {
-    it('should return error statis !== "Активен"', async () => {
+  describe('patient with statis not equal "Активен" or "Новый"', () => {
+    it('should return error statis "Не активирован"', async () => {
       const res = await chai.request(server)
         .post('/auth/login')
-        .send(postedPatientWtihNoActiveStatus);
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('patient not activeted');
-      should.not.exist(res.body.data);
+        .send(postedPatientWtihNoActivetedStatus);
+      test(res, 400, 'patient not activeted', { authCookieShould: false });
     });
   });
 });

@@ -9,7 +9,7 @@ const server = require('../src/server/app');
 const { encrypt, decrypt } = require('../src/server/utils/crypto');
 const { smsExpiry } = require('../secrets');
 const unixtimestamp = require('../src/server/utils/unixtimestamp');
-const { test, setDef } = require('./things/utils');
+const test = require('./things/test')({ authCookieShould: false });
 const {
   phoneNumber01,
   phoneNumber02,
@@ -18,8 +18,6 @@ const {
 
 chai.should();
 chai.use(chaiHttp);
-
-setDef({ authCookieTest: false });
 
 const smsTokensAndCodes = {};
 

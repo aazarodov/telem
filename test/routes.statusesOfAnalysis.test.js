@@ -7,8 +7,11 @@ const chaiHttp = require('chai-http');
 const chaiThings = require('chai-things');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
-const { patient01Cookie, p01laboratoryAnalyzesId } = require('./things/values');
-const { test } = require('./things/utils');
+const test = require('./things/test')();
+const {
+  patient01Cookie,
+  p01laboratoryAnalyzesId,
+} = require('./things/values');
 
 chai.should();
 chai.use(chaiThings);

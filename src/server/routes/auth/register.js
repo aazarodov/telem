@@ -37,17 +37,17 @@ module.exports = {
     try {
       foundPatient = await patients.getByphoneNumber(postedPatient.phoneNumber);
       if (!foundPatient) {
-        const newPatient = await patients.insertNew(postedPatient);
+        await patients.insertNew(postedPatient);
         ctx.status = 201;
         ctx.body = {
           status: 'success',
           message: 'new patient created',
-          data: newPatient,
         };
         return;
       }
       if (foundPatient.status.presentation === 'Активен'
         || foundPatient.status.presentation === 'Новый') {
+        // || foundPatient.status.presentation === 'Не активирован') {
         ctx.status = 400;
         ctx.body = {
           status: 'error',
@@ -77,7 +77,7 @@ module.exports = {
         foundPatient.password = await hash(postedPatient.password);
       }
       if (Object.keys(patientDataMismatch).length === 0) {
-        const updPatient = await patients.updateClean(
+        await patients.updateClean(
           foundPatient._id,
           foundPatient._rev,
           postedPatient,
@@ -86,16 +86,14 @@ module.exports = {
         ctx.body = {
           status: 'success',
           message: 'stored patient updated without data mismatch',
-          data: updPatient,
         };
         return;
       }
-      const updPatient = await patients.updateDataMismatch(foundPatient, patientDataMismatch);
+      await patients.updateDataMismatch(foundPatient, patientDataMismatch);
       ctx.status = 200;
       ctx.body = {
         status: 'success',
         message: 'stored patient updated with data mismatch',
-        data: updPatient,
       };
     } catch (error) {
       log(error);

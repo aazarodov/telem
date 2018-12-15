@@ -7,7 +7,7 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const smsSeeding = require('../src/server/db/seeds/sms');
-const { test, setDef } = require('./things/utils');
+const test = require('./things/test')({ authCookieShould: false });
 const {
   phoneNumber01,
   phoneNumber03Expired,
@@ -17,11 +17,7 @@ const {
 chai.should();
 chai.use(chaiHttp);
 
-setDef({ authCookieTest: false });
-
-before(async () => {
-  await smsSeeding();
-});
+before(async () => smsSeeding());
 
 describe('POST auth/sms/send', () => {
   describe('new phoneNumber', () => {

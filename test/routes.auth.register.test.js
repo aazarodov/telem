@@ -6,25 +6,34 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
+// const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const { encrypt, encryptSync } = require('../src/server/utils/crypto');
 const patients = require('../src/server/db/queries/patients');
 const dateTime = require('../src/server/utils/dateTimeFor1C');
-
+const test = require('./things/test')({ authCookieShould: false });
 const {
   p01phoneNumber,
   p02phoneNumber,
   p03phoneNumber,
   p04phoneNumber,
+  p02emailAddress,
+  p03emailAddress,
+  p04emailAddress,
+  p02Password,
+  p03NewPassword,
+  p04Password,
   neverExpiry,
   alwaysExpired,
 } = require('./things/values');
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
+// before(async () => ramSeeding());
+
 const postedPatient = {
-  email: 'michel@supermail.io',
-  password: 'buzzword123',
+  email: p04emailAddress,
+  password: p04Password,
   lastName: 'Булгаков',
   firstName: 'Михаил',
   middleName: 'Афанасьевич',
@@ -39,38 +48,19 @@ describe('POST auth/register', () => {
       const res = await chai.request(server)
         .post('/auth/register')
         .send({ ...postedPatient, password: 'short' });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('validate error');
-      res.body.error.message.should.eql('child "password" fails because ["password" length must be at least 6 characters long]');
-    });
-    it('should throw error if schema mismatch', async () => {
-      const res = await chai.request(server)
-        .post('/auth/register')
-        .send({ ...postedPatient, Someting: 'thing' });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('validate error');
-      res.body.error.message.should.eql('"Someting" is not allowed');
+      test(res, 400, 'validate error');
     });
     it('should register a new patient wtih "Новый" status', async () => {
       const today = new Date();
       const res = await chai.request(server)
         .post('/auth/register')
         .send(postedPatient);
-      res.status.should.equal(201);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('new patient created');
-      res.body.data.ok.should.eql(true);
-      should.exist(res.body.data.id);
-      const foundPatient = await patients.getByphoneNumber(p04phoneNumber);
-      foundPatient._id.should.eql(res.body.data.id);
-      foundPatient.contactInformation[1].emailAddress.should.eql(postedPatient.email);
-      foundPatient.status.presentation.should.eql('Новый');
-      foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
+      test(res, 201, 'new patient created');
+      const foundPatient = await patients.login(p04phoneNumber, p04Password);
+      foundPatient.should.have.property('name', 'Булгаков Михаил Афанасьевич');
+      foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p04emailAddress);
+      foundPatient.should.have.nested.property('status.presentation', 'Новый');
+      foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)}`);
     });
   });
   describe('existed patient with "Активен" status', () => {
@@ -81,10 +71,7 @@ describe('POST auth/register', () => {
           ...postedPatient,
           registerToken: await encrypt({ phoneNumber: p01phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('patient with this phone number already exist');
+      test(res, 400, 'patient with this phone number already exist');
     });
   });
   describe('existed patient without data mismatch', () => {
@@ -93,8 +80,8 @@ describe('POST auth/register', () => {
       const res = await chai.request(server)
         .post('/auth/register')
         .send({
-          email: 'ann@yahoo.com',
-          password: 'new_password_not_detect_as_mismatch',
+          email: p03emailAddress,
+          password: p03NewPassword,
           lastName: 'Ахматова',
           firstName: 'Анна',
           middleName: 'Андреевна',
@@ -102,17 +89,12 @@ describe('POST auth/register', () => {
           birthDate: '1889-06-23',
           registerToken: await encrypt({ phoneNumber: p03phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('stored patient updated without data mismatch');
-      res.body.data.ok.should.eql(true);
-      should.exist(res.body.data.id);
-      const foundPatient = await patients.getByphoneNumber(p03phoneNumber);
-      foundPatient._id.should.eql(res.body.data.id);
-      foundPatient.middleName.should.eql('Андреевна');
-      foundPatient.status.presentation.should.eql('Активен');
-      foundPatient.note.should.eql(`Дата создания: ${dateTime(today)}`);
+      test(res, 200, 'stored patient updated without data mismatch');
+      const foundPatient = await patients.login(p03phoneNumber, p03NewPassword);
+      foundPatient.should.have.property('name', 'Ахматова Анна Андреевна');
+      foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p03emailAddress);
+      foundPatient.should.have.nested.property('status.presentation', 'Активен');
+      foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)}`);
     });
   });
   describe('existed patient with data mismatch', () => {
@@ -121,26 +103,22 @@ describe('POST auth/register', () => {
       const res = await chai.request(server)
         .post('/auth/register')
         .send({
-          email: 'yosif@gmail.com',
+          email: p02emailAddress,
           password: 'new_password',
           lastName: 'Бродский',
           firstName: 'Иосиф',
           middleName: 'Александрович',
           sex: 'Мужской',
-          birthDate: '1940-05-21',
+          birthDate: '3000-05-21',
           registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: neverExpiry }),
         });
-      res.status.should.equal(200);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('stored patient updated with data mismatch');
-      res.body.data.ok.should.eql(true);
-      should.exist(res.body.data.id);
-      const foundPatient = await patients.getByphoneNumber(p02phoneNumber);
-      foundPatient._id.should.eql(res.body.data.id);
-      foundPatient.birthDate.should.eql('1940-05-24T00:00:00');
-      foundPatient.status.presentation.should.eql('Не активирован');
-      foundPatient.note.should.eql(`Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('1940-05-21')}"}`);
+      test(res, 200, 'stored patient updated with data mismatch');
+      const foundPatient = await patients.login(p02phoneNumber, p02Password);
+      foundPatient.should.have.property('name', 'Бродский Иосиф Александрович');
+      foundPatient.should.have.property('birthDate', '1940-05-24T00:00:00');
+      foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p02emailAddress);
+      foundPatient.should.have.nested.property('status.presentation', 'Не активирован');
+      foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('3000-05-21')}"}`);
     });
   });
   describe('registerToken incorrect', () => {
@@ -151,10 +129,7 @@ describe('POST auth/register', () => {
           ...postedPatient,
           registerToken: '89af27c05703b61defb01dc3559a50dd1b6a31ed124285b5fbf9db5e9f657887',
         });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('registerToken incorrect');
+      test(res, 400, 'registerToken incorrect');
     });
   });
   describe('registerToken expired', () => {
@@ -165,10 +140,7 @@ describe('POST auth/register', () => {
           ...postedPatient,
           registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: alwaysExpired }),
         });
-      res.status.should.equal(400);
-      res.type.should.equal('application/json');
-      res.body.status.should.eql('error');
-      res.body.message.should.eql('registerToken expired');
+      test(res, 400, 'registerToken expired');
     });
   });
 });

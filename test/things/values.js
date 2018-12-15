@@ -6,12 +6,18 @@ module.exports = {
   phoneNumber03Expired: '7900000003',
   phoneNumber04Expired: '7900000004',
   phoneNumber05New: '7900000005',
-  p01phoneNumber: '79876543210',
-  p02phoneNumber: '78765432109',
-  p03phoneNumber: '76005993445',
-  p04phoneNumber: '70000000040',
+  p01phoneNumber: '79876543210', // Пушкин А.С. Активен, основной пациент для тестов
+  p02phoneNumber: '78765432109', // Бродский И.А. Не активирован, для тестов register и login
+  p03phoneNumber: '76005993445', // Ахматова А.А. Не создан, для тестов register и login
+  p04phoneNumber: '70000000040', // Булгаков М.А. Появляется в базе после успешной регистрации
+  p01emailAddress: 'alex@mail.ru',
+  p02emailAddress: 'yosif@gmail.com',
+  p03emailAddress: 'ann@yahoo.com',
+  p04emailAddress: 'michel@supermail.io',
   p01Password: '1234567',
-  newPassword: 'newPasswordABC123!@#',
+  p02Password: 'qwertyu',
+  p03NewPassword: 'uuDDmm00aa__',
+  p04Password: 'buzzword123',
   neverExpiry: 33071673600000,
   alwaysExpired: 1544808748,
   patient01Id: 'cat.patients|00000000-0000-1000-8000-000000000001',

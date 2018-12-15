@@ -7,22 +7,26 @@ chai.should();
 
 const has = Object.prototype.hasOwnProperty;
 
-const def = {
+const defs = {
   code: 200,
   message: 'set message',
   type: 'application/json',
   successStatus: 'success',
   errorStatus: 'error',
   authCookieName: 'pat',
-  authCookieTest: true,
+  authCookieShould: true,
   bodyTest: true,
   dataKeys: [],
   dataNotKeys: [],
   data: {},
 };
 
-module.exports = {
-  test(res, ...args) {
+module.exports = (defaults = {}) => {
+  const def = {
+    ...defs,
+    ...defaults,
+  };
+  return (res, ...args) => {
     const code = args.find(arg => typeof arg === 'number') || def.code;
     const message = args.find(arg => typeof arg === 'string') || def.message;
     const opts = args.find(arg => typeof arg === 'object') || {};
@@ -31,7 +35,7 @@ module.exports = {
     const {
       type,
       authCookieName,
-      authCookieTest,
+      authCookieShould,
       bodyTest,
       dataKeys,
       dataNotKeys,
@@ -42,7 +46,8 @@ module.exports = {
     };
     res.status.should.eql(code);
     res.type.should.eql(type);
-    if (authCookieTest) res.should.have.cookie(authCookieName);
+    if (authCookieShould) res.should.have.cookie(authCookieName);
+    if (!authCookieShould) res.should.not.have.cookie(authCookieName);
     if (!bodyTest) return;
     res.body.should.have.property('status', status);
     res.body.should.have.property('message', message);
@@ -61,10 +66,5 @@ module.exports = {
     Object.keys(data).forEach((key) => {
       res.body.data.should.have.property(key, data[key]);
     });
-  },
-  setDef(opts = {}) {
-    Object.keys(opts).forEach((key) => {
-      def[key] = opts[key];
-    });
-  },
+  };
 };

@@ -7,19 +7,18 @@ const chaiHttp = require('chai-http');
 const log = require('logger-file-fun-line');
 const server = require('../src/server/app');
 const { encrypt } = require('../src/server/utils/crypto');
-const { test, setDef } = require('./things/utils');
+const test = require('./things/test')({ authCookieShould: false });
 const {
   p01phoneNumber,
   p02phoneNumber,
   p01Password,
-  newPassword,
   neverExpiry,
 } = require('./things/values');
 
 chai.should();
 chai.use(chaiHttp);
 
-setDef({ authCookieTest: false });
+const newPassword = 'newPasswordABC123!@#';
 
 describe('POST auth/reset', () => {
   describe('reset password', () => {
@@ -39,7 +38,7 @@ describe('POST auth/reset', () => {
           login: p01phoneNumber,
           password: newPassword,
         });
-      test(res, 'login successful', { dataKeys: ['patient'], authCookieTest: true });
+      test(res, 'login successful', { dataKeys: ['patient'], authCookieShould: true });
       res.body.data.patient.should.have.property('lastName', 'Пушкин');
       res.body.data.patient.should.have.property('firstName', 'Александр');
       res.body.data.patient.should.have.property('middleName', 'Сергеевич');
@@ -60,7 +59,7 @@ describe('POST auth/reset', () => {
           login: '79876543210',
           password: '1234567',
         });
-      test(res, 'login successful', { dataKeys: ['patient'], authCookieTest: true });
+      test(res, 'login successful', { dataKeys: ['patient'], authCookieShould: true });
       res.body.data.patient.should.have.property('lastName', 'Пушкин');
       res.body.data.patient.should.have.property('firstName', 'Александр');
       res.body.data.patient.should.have.property('middleName', 'Сергеевич');
