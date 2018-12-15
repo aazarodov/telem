@@ -2,9 +2,9 @@
 
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
+const prefix = require('../../utils/prefix');
 
-const prefix = process.env.NODE_ENV === 'test' ? 'test_' : '';
-const dbname = `${prefix}hw_0_ram`;
+const dbname = prefix('hw_0_ram');
 const className = 'cat.patientStatuses';
 
 // indexes: class_name

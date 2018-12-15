@@ -7,7 +7,7 @@ module.exports = (dir) => {
   const list = deepReaddirSync(dir);
   list.forEach((file) => {
     const route = process.platform === 'win32'
-      ? file.slice(dir.length, -3).replace(/\\/g, '/') // throw 'bluescreen.jpg'
+      ? file.slice(dir.length, -3).replace(/\\/g, '/')
       : file.slice(dir.length, -3);
     // eslint-disable-next-line global-require, import/no-dynamic-require
     schemas[route] = require(file);

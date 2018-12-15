@@ -10,8 +10,10 @@ const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
 
-const app = new Koa();
+if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
 const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
+
+const app = new Koa();
 
 app.use(catcher());
 app.use(cors({ credentials: true }));
@@ -21,7 +23,7 @@ app.use(validator(path.join(__dirname, 'schemas/routes')));
 mountRoutes(app, path.join(__dirname, 'routes'));
 
 const server = app.listen(PORT, () => {
-  log(`Server start on port: ${PORT}`);
+  log(`Start server on ${process.env.NODE_ENV} mode, port: ${PORT}`);
   if (typeof process.send === 'function') process.send('ready');
 });
 

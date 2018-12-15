@@ -5,9 +5,9 @@ const couch = require('../connection');
 const smsSchema = require('../../schemas/db/sms/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
 const { smsExpiry } = require('../../../../secrets');
+const prefix = require('../../utils/prefix');
 
-const prefix = process.env.NODE_ENV === 'test' ? 'test_' : '';
-const dbname = `${prefix}sms`;
+const dbname = prefix('sms');
 const smsdb = couch.use(dbname);
 
 // indexes: expiry

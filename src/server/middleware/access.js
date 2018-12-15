@@ -48,7 +48,7 @@ module.exports = () => async (ctx, next) => {
   const expiry = unixtimestamp() + accessExpiry;
   const newTokenData = { ...ctx.state.access, expiry };
   ctx.cookies.set(
-    'pat', // Patient Access Token
+    'pat',
     await encrypt(newTokenData),
     {
       expires: new Date(expiry * 1000),

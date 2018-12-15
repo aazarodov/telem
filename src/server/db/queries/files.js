@@ -4,9 +4,9 @@ const log = require('logger-file-fun-line');
 const couch = require('../../db/connection');
 const filesSchema = require('../../schemas/db/files/files');
 const id = require('../../utils/_id')();
+const prefix = require('../../utils/prefix');
 
-const prefix = process.env.NODE_ENV === 'test' ? 'test_' : '';
-const dbname = `${prefix}files`;
+const dbname = prefix('files');
 const db = couch.use(dbname);
 
 // indexes: owner

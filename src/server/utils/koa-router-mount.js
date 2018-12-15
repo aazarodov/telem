@@ -9,7 +9,7 @@ module.exports = (app, dir, prefix = '') => {
     // eslint-disable-next-line global-require, import/no-dynamic-require
     const controller = require(file);
     const route = process.platform === 'win32'
-      ? file.slice(dir.length, -3).replace(/\\/g, '/') // throw 'bluescreen.jpg'
+      ? file.slice(dir.length, -3).replace(/\\/g, '/')
       : file.slice(dir.length, -3);
     const router = new Router();
     if (prefix) router.prefix(prefix);

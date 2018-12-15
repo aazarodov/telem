@@ -1,15 +1,13 @@
 'use strict';
 
-process.env.NODE_ENV = 'test';
-
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const filesSchema = require('../../schemas/db/files/files');
-const { patient01Id, patient02Id, p02FileId } = require('../../../../test/things/values');
 const id = require('../../utils/_id')();
+const prefix = require('../../utils/prefix');
+const { patient01Id, patient02Id, p02FileId } = require('../../../../test/things/values');
 
-
-const dbname = 'test_files';
+const dbname = prefix('files');
 
 const filesSeeding = async () => {
   let filesSeeds = [

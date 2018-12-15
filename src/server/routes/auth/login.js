@@ -17,7 +17,7 @@ module.exports = {
         const pid = foundPatient._id;
         const expiry = unixtimestamp() + accessExpiry;
         ctx.cookies.set(
-          'pat', // Patient Access Token
+          'pat',
           await encrypt({ pid, expiry }),
           {
             expires: new Date(expiry * 1000),

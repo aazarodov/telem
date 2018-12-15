@@ -1,17 +1,16 @@
 'use strict';
 
-process.env.NODE_ENV = 'test';
-
 const path = require('path');
 const fs = require('fs');
 const util = require('util');
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const { deepReaddir } = require('../../utils/deepReaddir');
+const prefix = require('../../utils/prefix');
+
+const dbname = prefix('hw_0_ram');
 
 const readFile = util.promisify(fs.readFile);
-
-const dbname = 'test_hw_0_ram';
 const jsonDir = path.join(__dirname, 'hw_0_ram');
 const schemasDir = path.join(__dirname, '../../schemas/db/hw_0_ram');
 

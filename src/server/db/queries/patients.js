@@ -8,9 +8,9 @@ const contactInformationFetch = require('./contactInformationFetch');
 const { hash } = require('../../utils/crypto');
 const dateTime = require('../../utils/dateTimeFor1C');
 const id = require('../../utils/_id')('cat.patients');
+const prefix = require('../../utils/prefix');
 
-const prefix = process.env.NODE_ENV === 'test' ? 'test_' : '';
-const dbname = `${prefix}hw_0_ram`;
+const dbname = prefix('hw_0_ram');
 const patientsdb = couch.use(dbname);
 const className = 'cat.patients';
 

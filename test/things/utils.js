@@ -21,8 +21,6 @@ const def = {
   data: {},
 };
 
-// ...args.find((arg) => typeof arg === 'string');
-
 module.exports = {
   test(res, ...args) {
     const code = args.find(arg => typeof arg === 'number') || def.code;

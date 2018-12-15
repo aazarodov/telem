@@ -1,12 +1,12 @@
 'use strict';
 
-process.env.NODE_ENV = 'test';
-
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const { smsExpiry } = require('../../../../secrets');
 const smsSchema = require('../../schemas/db/sms/sms');
 const unixtimestamp = require('../../utils/unixtimestamp');
+const prefix = require('../../utils/prefix');
+
 const {
   phoneNumber01,
   phoneNumber02,
@@ -14,8 +14,7 @@ const {
   phoneNumber04Expired,
 } = require('../../../../test/things/values');
 
-
-const dbname = 'test_sms';
+const dbname = prefix('sms');
 const now = unixtimestamp();
 const expiry = now + smsExpiry;
 
