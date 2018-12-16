@@ -78,7 +78,7 @@ describe('PUT/GET/POST/DELETE files', () => {
         .put('/files')
         .query({ name: '1px.png', comment: 'This is png file' })
         .set('Cookie', `pat=${patient01Cookie}`)
-        .set('Content-Type', 'image/png')
+        .set('Content-Type', 'image/png');
       test(res, 411, 'Content-Length required');
     });
     it('should return 413 when Content-Length too large', async () => {
