@@ -29,7 +29,7 @@ const fileName = path.join(__dirname, 'things', '1.png');
 
 let createdFileId;
 
-describe('PUT/POST/GET/DELETE files', () => {
+describe('PUT/GET/POST/DELETE files', () => {
   describe('PUT /files as patient01', () => {
     it('should return _id', async () => {
       const ostream = fs.createReadStream(fileName);
