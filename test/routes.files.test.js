@@ -73,6 +73,14 @@ describe('PUT/GET/POST/DELETE files', () => {
         .set('Content-Length', 82);
       test(res, 415, 'Content-Type required');
     });
+    it('should return 411 when Content-Length omitted', async () => {
+      const res = await chai.request(server)
+        .put('/files')
+        .query({ name: '1px.png', comment: 'This is png file' })
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .set('Content-Type', 'image/png')
+      test(res, 411, 'Content-Length required');
+    });
     it('should return 413 when Content-Length too large', async () => {
       const res = await chai.request(server)
         .put('/files')
@@ -147,12 +155,22 @@ describe('PUT/GET/POST/DELETE files', () => {
       res.body.data.should.have.property('type');
       res.body.data.should.have.property('length');
     });
+    it('should return 400 validate error when not name or comment', async () => {
+      const res = await chai.request(server)
+        .post('/files')
+        .set('Cookie', `pat=${patient01Cookie}`)
+        .send({
+          _id: p01File01Id,
+        });
+      test(res, 400, 'validate error');
+    });
     it('should return 404 error when not own', async () => {
       const res = await chai.request(server)
         .post('/files')
         .set('Cookie', `pat=${patient01Cookie}`)
         .send({
           _id: p02File01Id,
+          comment: 'New_comment',
         });
       test(res, 404, 'file not found');
     });
@@ -162,6 +180,7 @@ describe('PUT/GET/POST/DELETE files', () => {
         .set('Cookie', `pat=${patient01Cookie}`)
         .send({
           _id: notExistId,
+          name: 'New_name',
         });
       test(res, 404, 'file not found');
     });

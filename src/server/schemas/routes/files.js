@@ -20,7 +20,7 @@ module.exports = {
     _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
     name: Joi.string().max(255),
     comment: Joi.string().max(255),
-  }),
+  }).or('name', 'comment'),
   delete: Joi.object().keys({
     _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
   }),
