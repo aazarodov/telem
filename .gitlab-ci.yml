@@ -21,7 +21,6 @@ deploy:
  stage: deploy
  script:
   - cd $DEPLOY_DIR
-  - whoami
   - git clean -ffd
   - git reset --hard
   - git fetch origin
