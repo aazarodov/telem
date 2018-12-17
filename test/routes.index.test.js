@@ -19,7 +19,7 @@ describe('routes : index', () => {
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
-      res.body.message.should.eql('index');
+      res.body.message.should.eql('test index');
     });
   });
 });

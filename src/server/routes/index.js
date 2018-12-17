@@ -4,7 +4,7 @@ module.exports = {
   get: async (ctx) => {
     ctx.body = {
       status: 'success',
-      message: 'index',
+      message: `${process.env.NODE_ENV} index`,
     };
   },
 };
