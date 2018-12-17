@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/_mocha --exit --timeout 20000 ./test/**/*.test.js",
-    "nodemon:test": "nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js app.js || true'",
-    "node": "node ./src/server/app.js",
-    "nodemon": "nodemon ./src/server/app.js",
+    "nodemon:test": "NODE_ENV=test nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js app.js || true'",
+    "node": "NODE_ENV=test node ./src/server/app.js",
+    "nodemon": "NODE_ENV=test nodemon ./src/server/app.js",
     "start": "pm2 start",
     "restart": "pm2 reload all || pm2 start",
     "stop": "pm2 stop all"

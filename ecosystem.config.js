@@ -8,19 +8,14 @@ module.exports = {
     output: './.pm2/logs/out.log',
     error: './.pm2/logs/error.log',
     // log: './.pm2/logs/outerr.log',
-    instances: 2,
+    instances: 3,
     autorestart: true,
     watch: false,
     kill_timeout: 2000,
     listen_timeout: 2000,
     // max_memory_restart: '400M',
     env: {
-      NODE_ENV: 'production',
-      PORT: '80',
-    },
-    env_development: {
-      NODE_ENV: 'development',
-      PORT: '80',
+      NODE_ENV: 'multiple',
     },
   }],
 };

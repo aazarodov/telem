@@ -10,8 +10,27 @@ const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
 
-if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
-const PORT = process.env.NODE_ENV === 'test' ? '9999' : process.env.PORT || 80;
+if (process.env.NODE_ENV === 'multiple') {
+  if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
+  if (process.env.NODE_APP_INSTANCE === '1') process.env.NODE_ENV = 'dev1';
+  if (process.env.NODE_APP_INSTANCE === '2') process.env.NODE_ENV = 'dev2';
+}
+
+let PORT;
+switch (process.env.NODE_ENV) {
+  case 'production': PORT = 80;
+    break;
+  case 'dev1': PORT = 8081;
+    break;
+  case 'dev2': PORT = 8082;
+    break;
+  case 'test': PORT = 9999;
+    break;
+  default:
+    log(`unsupported NODE_ENV ${process.env.NODE_ENV} - exit`);
+    process.exit(1);
+    break;
+}
 
 const app = new Koa();
 
