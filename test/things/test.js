@@ -58,13 +58,13 @@ module.exports = (defaults = {}) => {
     if (dataKeys.length === 0 && dataNotKeys.length === 0 && Object.keys(data).length === 0) return;
     res.body.should.have.property('data');
     dataKeys.forEach((key) => {
-      res.body.data.should.have.property(key);
+      res.body.data.should.have.nested.property(key);
     });
     dataNotKeys.forEach((key) => {
-      res.body.data.should.not.have.property(key);
+      res.body.data.should.not.have.nested.property(key);
     });
     Object.keys(data).forEach((key) => {
-      res.body.data.should.have.property(key, data[key]);
+      res.body.data.should.have.nested.property(key, data[key]);
     });
   };
 };

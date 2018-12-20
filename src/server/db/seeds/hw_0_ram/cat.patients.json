@@ -11,13 +11,25 @@
       "type": "enm.typesOfSex"
     },
     "birthDate": "1799-06-06T00:00:00",
+    "groupOfBlood": {
+      "name": "IIпол",
+      "presentation": "A(II) Rh+",
+      "type": "enm.groupsOfBlood"
+    },
+    "groupOfHealthy": {
+      "ref": "ff78917c-934e-11e8-bdf7-001e679abfc4",
+      "presentation": "Основная",
+      "type": "cat.groupsOfHealthy"
+    },
+    "agreementOfSendingOtherInformation": true,
+    "agreementOfSendingResults": true,
     "status": {
       "ref": "e25582b0-f87f-11e8-8476-2fcec2888318",
       "presentation": "Активен",
       "type": "cat.patientStatuses"
     },
     "note": "Дата создания 2018-10-24T00:00:00",
-    "password": "d6FOrPiS4fFIZiJ4HGIiOwawxARdSsC+rs4MTMPReDU=",
+    "password": "4JDouhWjss8+7A1mxYQShvbTyMG21anV79r2Yl4GSNU=",
     "contactInformation": [
       {
         "type": {
@@ -30,13 +42,13 @@
           "presentation": "Телефон",
           "type": "cat.kindsOfContactInformation"
         },
-        "presentation": "+79876543210",
-        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+79876543210\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"79876543210\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "presentation": "+7900000010",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+7900000010\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"7900000010\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
         "country": "",
         "region": "",
         "city": "",
         "emailAddress": "",
-        "phoneNumber": "79876543210",
+        "phoneNumber": "7900000010",
         "phoneNumberWithoutCodes": ""
       },
       {
@@ -114,13 +126,25 @@
       "type": "enm.typesOfSex"
     },
     "birthDate": "1940-05-24T00:00:00",
+    "groupOfBlood": {
+      "name": "IIIпол",
+      "presentation": "B(III) Rh+",
+      "type": "enm.groupsOfBlood"
+    },
+    "groupOfHealthy": {
+      "ref": "ff78917c-934e-11e8-bdf7-001e679abfc4",
+      "presentation": "Основная",
+      "type": "cat.groupsOfHealthy"
+    },
+    "agreementOfSendingOtherInformation": false,
+    "agreementOfSendingResults": true,
     "status": {
       "ref": "e25582b2-f87f-11e8-8476-2fcec2888318",
       "presentation": "Не активирован",
       "type": "cat.patientStatuses"
     },
     "note": "",
-    "password": "mP2KIZwDNIeMTu5ksfbgvZBXdHk3UeNZttmrXSP0O/M=",
+    "password": "JW/G0i9GtKV6svYMyayVDEvypwbEhm/kQZ0im11HrIE=",
     "contactInformation": [
       {
         "type": {
@@ -133,13 +157,13 @@
           "presentation": "Телефон",
           "type": "cat.kindsOfContactInformation"
         },
-        "presentation": "+78765432109",
-        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+78765432109\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"78765432109\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "presentation": "+7900000020",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+7900000020\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"7900000020\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
         "country": "",
         "region": "",
         "city": "",
         "emailAddress": "",
-        "phoneNumber": "78765432109",
+        "phoneNumber": "7900000020",
         "phoneNumberWithoutCodes": ""
       },
       {
@@ -196,13 +220,13 @@
           "presentation": "Телефон",
           "type": "cat.kindsOfContactInformation"
         },
-        "presentation": "+76005993445",
-        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+76005993445\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"76005993445\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "presentation": "+7900000030",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"+7900000030\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"7900000030\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
         "country": "",
         "region": "",
         "city": "",
         "emailAddress": "",
-        "phoneNumber": "76005993445",
+        "phoneNumber": "7900000030",
         "phoneNumberWithoutCodes": ""
       },
       {

@@ -1,20 +1,18 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const laboratoryAnalyzes = require('../db/queries/laboratoryAnalyzes');
+const patients = require('../db/queries/patients');
 
 module.exports = {
   get: async (ctx) => {
     try {
-      const response = await laboratoryAnalyzes(
-        ctx.state.access.pid,
-        ctx.state.data.limit,
-        ctx.state.data.bookmark,
-      );
+      const patient = await patients.getById(ctx.state.access.pid);
+      delete patient._id;
+      delete patient._rev;
       ctx.body = {
         status: 'success',
-        message: 'laboratoryAnalyzes list',
-        data: response,
+        message: 'patient info',
+        data: patient,
       };
     } catch (error) {
       log(error);

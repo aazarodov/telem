@@ -18,6 +18,18 @@ module.exports = Joi.object().keys({
     type: Joi.string().valid('enm.typesOfSex').required(),
   }),
   birthDate: Joi.string().length(19).required(),
+  groupOfBlood: Joi.object().keys({
+    name: Joi.string().max(255).required(),
+    presentation: Joi.string().max(255).required(),
+    type: Joi.string().valid('enm.groupsOfBlood').required(),
+  }),
+  groupOfHealthy: Joi.object().keys({
+    ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
+    presentation: Joi.string().max(255).required(),
+    type: Joi.string().valid('cat.groupsOfHealthy').required(),
+  }),
+  agreementOfSendingOtherInformation: Joi.bool(),
+  agreementOfSendingResults: Joi.bool(),
   status: Joi.object().keys({
     ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
     presentation: Joi.string().valid([

@@ -11,7 +11,7 @@ const id = require('../../utils/_id')('cat.patients');
 const prefix = require('../../utils/prefix');
 
 const dbname = prefix('hw_0_ram');
-const patientsdb = couch.use(dbname);
+const db = couch.use(dbname);
 const className = 'cat.patients';
 
 // indexes: class_name, views: patientLoginPassword
@@ -69,7 +69,7 @@ module.exports = {
 
   async getById(_id) {
     try {
-      const doc = await patientsdb.get(_id);
+      const doc = await db.get(_id);
       return doc;
     } catch (error) {
       if (error.error === 'not_found') return null;
@@ -77,7 +77,7 @@ module.exports = {
     }
   },
   async getByphoneNumber(phoneNumber) {
-    const response = await patientsdb.view('views', 'patientLoginPassword', {
+    const response = await db.view('ddoc', 'patientLoginPassword', {
       startkey: [phoneNumber],
       endkey: [phoneNumber, {}],
     });
@@ -85,7 +85,7 @@ module.exports = {
     return response.rows.length > 0 ? response.rows[0].value : null;
   },
   async login(login, password) {
-    const response = await patientsdb.view('views', 'patientLoginPassword', {
+    const response = await db.view('ddoc', 'patientLoginPassword', {
       key: [login, await hash(password)],
     });
     return response.rows.length > 0 ? response.rows[0].value : null;
@@ -93,21 +93,24 @@ module.exports = {
   async insertNew(postedPatient) {
     const newPatient = await preperePatient(postedPatient);
     await patientSchema.validate(newPatient);
-    return patientsdb.insert(newPatient);
+    return db.insert(newPatient);
   },
   async updateClean(_id, _rev, postedPatient) {
     const updPatient = await preperePatient(postedPatient, 'Активен');
     await patientSchema.validate(updPatient);
-    return patientsdb.insert({ ...updPatient, _id, _rev });
+    return db.insert({ ...updPatient, _id, _rev });
   },
   async resetPassword(foundPatient, password) {
-    return patientsdb.insert({ ...foundPatient, password: await hash(password) });
+    return db.insert({ ...foundPatient, password: await hash(password) });
   },
   async updateDataMismatch(foundPatient, patientDataMismatch) {
     const updPatient = await preperePatient({
       ...foundPatient,
       note: `Дата создания: ${dateTime()} Несовпадающие данные: ${JSON.stringify(patientDataMismatch)}`,
     }, 'Не активирован', true);
-    return patientsdb.insert(updPatient);
+    return db.insert(updPatient);
+  },
+  async updateAgreements(_id, agreements) {
+    return db.atomic('ddoc', 'updateAgreements', _id, agreements);
   },
 };

@@ -56,8 +56,8 @@ describe('POST auth/reset', () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send({
-          login: '79876543210',
-          password: '1234567',
+          login: p01phoneNumber,
+          password: p01Password,
         });
       test(res, 'login successful', { dataKeys: ['patient'], authCookieShould: true });
       res.body.data.patient.should.have.property('lastName', 'Пушкин');

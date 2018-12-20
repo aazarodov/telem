@@ -4,24 +4,19 @@ const log = require('logger-file-fun-line');
 const patients = require('../db/queries/patients');
 
 const whoami = async (ctx) => {
-  if (!ctx.state.access) {
-    ctx.status = 400;
-    ctx.body = {
-      status: 'error',
-      message: 'access error',
-    };
-    return;
-  }
-  if (ctx.state.access.pid) {
+  try {
     const patient = await patients.getById(ctx.state.access.pid);
     ctx.body = {
       status: 'success',
       message: `You are ${patient.name}`,
     };
-  } else {
+  } catch (error) {
+    log(error);
+    ctx.status = 500;
     ctx.body = {
-      status: 'success',
-      message: 'You are unknown',
+      status: 'error',
+      message: 'couchdb error',
+      error: error.message,
     };
   }
 };

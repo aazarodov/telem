@@ -9,7 +9,7 @@ const dbname = prefix('hw_0_ram');
 
 // views: statusesOfAnalysis
 
-const statusesOfAnalysisFetch = async (pid, _id) => {
+const statusesOfAnalysis = async (pid, _id) => {
   const db = couch.use(dbname);
   const trimedLabAnalysesId = trimId(_id);
 
@@ -21,7 +21,7 @@ const statusesOfAnalysisFetch = async (pid, _id) => {
     throw error;
   }
 
-  const response = await db.view('views', 'statusesOfAnalysis', {
+  const response = await db.view('ddoc', 'statusesOfAnalysis', {
     startkey: [trimedLabAnalysesId],
     endkey: [trimedLabAnalysesId, {}],
     group: true,
@@ -49,4 +49,4 @@ const statusesOfAnalysisFetch = async (pid, _id) => {
   return res;
 };
 
-module.exports = statusesOfAnalysisFetch;
+module.exports = statusesOfAnalysis;

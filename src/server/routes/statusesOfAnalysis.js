@@ -1,12 +1,12 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const statusesOfAnalysisFetch = require('../db/queries/statusesOfAnalysisFetch');
+const statusesOfAnalysis = require('../db/queries/statusesOfAnalysis');
 
 module.exports = {
   get: async (ctx) => {
     try {
-      const response = await statusesOfAnalysisFetch(
+      const response = await statusesOfAnalysis(
         ctx.state.access.pid,
         ctx.state.data._id,
       );

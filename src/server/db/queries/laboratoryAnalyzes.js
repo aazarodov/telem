@@ -10,7 +10,7 @@ const className = 'doc.laboratoryAnalyzes';
 
 // indexes: class_name,patient.ref
 
-const laboratoryAnalyzesFetch = async (pid, limit, bookmark) => {
+const laboratoryAnalyzes = async (pid, limit, bookmark) => {
   const db = couch.use(dbname);
   const response = await db.find({
     selector: {
@@ -24,4 +24,4 @@ const laboratoryAnalyzesFetch = async (pid, limit, bookmark) => {
   return response;
 };
 
-module.exports = laboratoryAnalyzesFetch;
+module.exports = laboratoryAnalyzes;

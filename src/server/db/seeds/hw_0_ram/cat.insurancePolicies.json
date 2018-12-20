@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "cat.insurancePolicies|9dd9ba7d-fe31-11e8-8101-f41614cd568a",
+    "ownerOfObject": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "name": "Полис ОМС СОГАЗ №123, серия: АА",
+    "dateOfStartInsurance": "2018-12-12T00:00:00",
+    "dateofEndInsurance": "2019-12-12T00:00:00",
+    "noActive": false,
+    "insuranceCompany": {
+      "ref": "40ff95b8-9f9e-11e8-bdf7-001e679abfc4",
+      "presentation": "СОГАЗ",
+      "type": "cat.counterparties"
+    },
+    "kindOfInsurance": {
+      "name": "ОМС",
+      "presentation": "ОМС",
+      "type": "enm.kindsOfInsurance"
+    },
+    "class_name": "cat.insurancePolicies",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-12T09:21:33 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "cat.insurancePolicies|bd0a5d91-fe31-11e8-8101-f41614cd568a",
+    "ownerOfObject": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "name": "Полис СОГАЗ №345, серия: В, действует до 12.07.2019",
+    "dateOfStartInsurance": "2018-12-12T00:00:00",
+    "dateofEndInsurance": "2019-07-12T00:00:00",
+    "noActive": false,
+    "insuranceCompany": {
+      "ref": "40ff95b8-9f9e-11e8-bdf7-001e679abfc4",
+      "presentation": "СОГАЗ",
+      "type": "cat.counterparties"
+    },
+    "kindOfInsurance": {
+      "name": "",
+      "presentation": "",
+      "type": "enm.kindsOfInsurance"
+    },
+    "class_name": "cat.insurancePolicies",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2018-12-12T09:21:33 +0300",
+      "e1cib": true
+    }
+  }
+]
