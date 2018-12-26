@@ -39,6 +39,9 @@ const statusesOfAnalysis = async (pid, _id) => {
           class_name: 'ireg.resultsOfAnalysis',
           stringGUID: row.value.stringGUID,
         },
+        sort: [{ period: 'desc' }],
+        use_index: ['indexes', 'class_name,stringGUID,period'],
+        limit: 1,
       });
       if (result.docs[0]) {
         res[row.value.stringGUID].result = result.docs[0].result;

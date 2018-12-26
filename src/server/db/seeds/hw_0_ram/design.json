@@ -19,6 +19,28 @@
           }
         }
       },
+      "class_name,stringGUID,period": {
+        "map": {
+          "fields": {
+            "class_name": "desc",
+            "stringGUID": "desc",
+            "period": "desc"
+          },
+          "partial_filter_selector": {
+            "class_name": "ireg.resultsOfAnalysis"
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "class_name",
+              "stringGUID",
+              "period"
+            ]
+          }
+        }
+      },
       "class_name,patient.ref": {
         "map": {
           "fields": {
