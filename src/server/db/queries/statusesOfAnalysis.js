@@ -44,7 +44,11 @@ const statusesOfAnalysis = async (pid, _id) => {
         limit: 1,
       });
       if (result.docs[0]) {
-        res[row.value.stringGUID].result = result.docs[0].result;
+        if (result.docs[0].result.presentation) {
+          res[row.value.stringGUID].result = result.docs[0].result.presentation;
+        } else {
+          res[row.value.stringGUID].result = result.docs[0].result;
+        }
       }
     }
   });
