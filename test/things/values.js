@@ -32,4 +32,5 @@ module.exports = {
   p01File04Id: '00000000-0000-1000-8000-000000000140',
   p02File01Id: '00000000-0000-1000-8000-000000000210',
   p01laboratoryAnalyzesId: 'doc.laboratoryAnalyzes|a235c23a-049d-11e9-8101-f41614cd568a',
+  p01barcode: '2122808974',
 };
