@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  server: '127.0.0.1:9999',
   phoneNumber01: '7900000001',
   phoneNumber02: '7900000002',
   phoneNumber03Expired: '7900000003',
@@ -30,5 +31,5 @@ module.exports = {
   p01File03Id: '00000000-0000-1000-8000-000000000130',
   p01File04Id: '00000000-0000-1000-8000-000000000140',
   p02File01Id: '00000000-0000-1000-8000-000000000210',
-  p01laboratoryAnalyzesId: 'doc.laboratoryAnalyzes|cb65b94d-fb11-11e8-8101-f41614cd568a',
+  p01laboratoryAnalyzesId: 'doc.laboratoryAnalyzes|a235c23a-049d-11e9-8101-f41614cd568a',
 };

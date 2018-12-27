@@ -89,9 +89,9 @@
       "patientLoginPassword": {
         "map": "function(doc) {\n  if (doc.class_name === 'cat.patients') {\n    doc.contactInformation.forEach(function(contact) {\n      if(contact.kind.presentation === 'Телефон') emit([contact.phoneNumber, doc.password], doc);\n      if(contact.kind.presentation === 'E-mail') emit([contact.emailAddress, doc.password], doc);\n    });\n  }\n}"
       },
-      "statusesOfAnalysis": {
-        "map": "function (doc) {\n  if(doc.class_name === 'ireg.statusesOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID], {stringGUID: doc.stringGUID, period: doc.period, status: doc.status.name});\n  }\n}",
-        "reduce": "function (keys, values, rereduce) {\n  var latestDoc = {};\n  latestDoc.period = \"0000-00-00T00:00:00\";\n  values.forEach(function(doc){\n    if(doc.period > latestDoc.period) {\n      latestDoc = doc;\n    }\n  });\n  return latestDoc;\n}"
+      "statusesOfAnalysisAndResults": {
+        "map": "function(doc) {\n  if (doc.class_name === 'ireg.statusesOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 0], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      status: doc.status.name,\n    });\n  } else if (doc.class_name === 'ireg.resultsOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 1], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      result: doc.result.presentation ? doc.result.presentation : doc.result,\n    });\n  }\n}",
+        "reduce": "function(keys, values, rereduce) {\n  var latestDoc = {};\n  latestDoc.period = \"0000-00-00T00:00:00\";\n  values.forEach(function(doc){\n    if(doc.period > latestDoc.period) {\n      latestDoc = doc;\n    }\n  });\n  return latestDoc;\n}"
       }
     },
     "updates": {

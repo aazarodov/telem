@@ -1,6 +1,7 @@
 'use strict';
 
 const Router = require('koa-router');
+const log = require('logger-file-fun-line');
 const { deepReaddirSync } = require('../utils/deepReaddir');
 
 module.exports = (app, dir, prefix = '') => {
@@ -14,8 +15,7 @@ module.exports = (app, dir, prefix = '') => {
     const router = new Router();
     if (prefix) router.prefix(prefix);
     Object.keys(controller).forEach((method) => {
-      if (route === '/index') router[method]('/', controller[method]);
-      else router[method](route, controller[method]);
+      router[method](route.replace(/\/index$/, '/'), controller[method]);
     });
     app.use(router.routes());
   });

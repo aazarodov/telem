@@ -9,8 +9,9 @@ const unixtimestamp = require('../utils/unixtimestamp');
 module.exports = () => async (ctx, next) => {
   if (
     ctx.path === '/'
-    || ctx.path.indexOf('/auth/') === 0
-    || ctx.path.indexOf('/dev/') === 0
+    || ctx.path === '/p/'
+    || ctx.path.indexOf('/p/auth/') === 0
+    || ctx.path.indexOf('/p/dev/') === 0
   ) {
     ctx.state.access = null;
     await next();

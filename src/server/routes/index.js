@@ -2,9 +2,10 @@
 
 module.exports = {
   get: async (ctx) => {
+    ctx.status = 404;
     ctx.body = {
-      status: 'success',
-      message: `${process.env.NODE_ENV} index`,
+      status: 'error',
+      message: 'use subdomain d, doc, doctor OR p, pat, patient',
     };
   },
 };

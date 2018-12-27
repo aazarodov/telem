@@ -7,7 +7,7 @@ const prefix = require('../../utils/prefix');
 
 const dbname = prefix('hw_0_ram');
 
-// views: statusesOfAnalysis
+// views: statusesOfAnalysisAndResults
 
 const statusesOfAnalysis = async (pid, _id) => {
   const db = couch.use(dbname);
@@ -20,39 +20,23 @@ const statusesOfAnalysis = async (pid, _id) => {
     if (error.error === 'not_found') return null;
     throw error;
   }
-
-  const response = await db.view('ddoc', 'statusesOfAnalysis', {
+  const response = await db.view('ddoc', 'statusesOfAnalysisAndResults', {
     startkey: [trimedLabAnalysesId],
     endkey: [trimedLabAnalysesId, {}],
     group: true,
   });
   if (!response.rows.length) return null;
   const res = {};
-  const findPromises = response.rows.map(async (row) => {
-    res[row.value.stringGUID] = {
-      status: row.value.status,
-      period: row.value.period,
-    };
-    if (row.value.status === 'Готов') {
-      const result = await db.find({
-        selector: {
-          class_name: 'ireg.resultsOfAnalysis',
-          stringGUID: row.value.stringGUID,
-        },
-        sort: [{ period: 'desc' }],
-        use_index: ['indexes', 'class_name,stringGUID,period'],
-        limit: 1,
-      });
-      if (result.docs[0]) {
-        if (result.docs[0].result.presentation) {
-          res[row.value.stringGUID].result = result.docs[0].result.presentation;
-        } else {
-          res[row.value.stringGUID].result = result.docs[0].result;
-        }
-      }
+  response.rows.forEach((row) => {
+    if (row.key[2] === 0) {
+      res[row.value.stringGUID] = {
+        status: row.value.status,
+        period: row.value.period,
+      };
+    } else if (res[row.value.stringGUID] && res[row.value.stringGUID].status === 'Готов') {
+      res[row.value.stringGUID].result = row.value.result;
     }
   });
-  await Promise.all(findPromises);
   return res;
 };
 

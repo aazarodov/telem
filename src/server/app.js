@@ -6,6 +6,7 @@ const bodyParser = require('koa-bodyparser');
 const path = require('path');
 const log = require('logger-file-fun-line');
 const catcher = require('./middleware/catcher');
+const subdomain = require('./middleware/subdomain');
 const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
@@ -35,6 +36,7 @@ switch (process.env.NODE_ENV) {
 const app = new Koa();
 
 app.use(catcher());
+app.use(subdomain());
 app.use(cors({ credentials: true }));
 app.use(bodyParser());
 app.use(access());
