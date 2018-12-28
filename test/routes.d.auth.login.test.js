@@ -28,7 +28,9 @@ describe('POST doctor /auth/login', () => {
           .post('/auth/login')
           .set('host', 'doctor.telem.ml')
           .send({ login: d01Login, password: d01Password });
-        test(res, 'login successful');
+        test(res, 'login successful', { dataKeys: ['doctor'] });
+        res.body.data.doctor.should.have.property('name', 'Валентин Феликсович Войно-Ясенецкий');
+        res.body.data.doctor.should.have.property('specialization', 'Хирург');
       }
       const res = await agent
         .get('/whoami')
