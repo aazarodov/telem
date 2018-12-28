@@ -25,7 +25,7 @@ module.exports = {
         status: 'success',
         message: 'login successful',
         data: {
-          doctor: { name: foundDoctor.name, specialization: foundDoctor.specialization },
+          doctor: { name: foundDoctor.name, specialization: foundDoctor.specialization.presentation },
         },
       };
     } else {
