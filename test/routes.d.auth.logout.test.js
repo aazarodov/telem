@@ -8,28 +8,28 @@ const chaiHttp = require('chai-http');
 const test = require('./things/test')();
 const {
   server,
-  patient01Cookie,
+  doctor01Cookie,
 } = require('./things/values');
 
 chai.should();
 chai.use(chaiHttp);
 
-describe('correct patient logout', () => {
-  describe('POST patient auth/logout', () => {
+describe('correct doctor logout', () => {
+  describe('POST doctor auth/logout', () => {
     it('should remove access cookie when POST', async () => {
       const res = await chai.request(server)
         .post('/auth/logout')
         .set('host', 'doctor.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
+        .set('Cookie', `dat=${doctor01Cookie}`);
       test(res, 'logout successful', { authCookieShould: false });
     });
   });
-  describe('GET patient auth/logout', () => {
+  describe('GET doctor auth/logout', () => {
     it('should remove access cookie when GET', async () => {
       const res = await chai.request(server)
         .get('/auth/logout')
         .set('host', 'doctor.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
+        .set('Cookie', `dat=${doctor01Cookie}`);
       test(res, 'logout successful', { authCookieShould: false });
     });
   });

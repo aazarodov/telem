@@ -28,8 +28,8 @@ module.exports = Joi.object().keys({
     presentation: Joi.string().max(255).required(),
     type: Joi.string().valid('cat.groupsOfHealthy').required(),
   }),
-  agreementOfSendingOtherInformation: Joi.bool(),
-  agreementOfSendingResults: Joi.bool(),
+  agreementOfSendingOtherInformation: Joi.bool().required(),
+  agreementOfSendingResults: Joi.bool().required(),
   status: Joi.object().keys({
     ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
     presentation: Joi.string().valid([

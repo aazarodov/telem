@@ -18,7 +18,7 @@ module.exports = {
         const expiry = unixtimestamp() + accessExpiry;
         ctx.cookies.set(
           'pat',
-          await encrypt({ pid, expiry }),
+          await encrypt({ pid, expiry, type: 'patient' }),
           {
             expires: new Date(expiry * 1000),
             httpOnly: true,

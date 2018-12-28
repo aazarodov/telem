@@ -9,8 +9,9 @@ const { encrypt } = require('../src/server/utils/crypto');
 const test = require('./things/test')();
 const {
   server,
-  patient01Id,
-  patient02Id,
+  doctor01Id,
+  doctor02Id,
+  doctor01Cookie,
   patient01Cookie,
   neverExpiry,
   alwaysExpired,
@@ -19,46 +20,38 @@ const {
 chai.should();
 chai.use(chaiHttp);
 
-describe('test accessToken using /whoami', () => {
-  describe('GET /whoami', () => {
+describe('test doctor accessToken using /whoami', () => {
+  describe('GET doctor /whoami', () => {
     it('should return access deny, accessToken absent', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'patient.telem.ml');
+        .set('host', 'doctor.telem.ml');
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken absent');
     });
     it('should return access deny, accessToken incorrect', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'pat.telem.ml')
-        .set('Cookie', 'pat=some_fake_access_token');
+        .set('host', 'doctor.telem.ml')
+        .set('Cookie', 'dat=some_fake_access_token');
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken incorrect');
     });
     it('should return access deny, accessToken expired', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'p.telem.ml')
-        .set('Cookie', `pat=${await encrypt({ pid: patient01Id, expiry: alwaysExpired })}`);
+        .set('host', 'doctor.telem.ml')
+        .set('Cookie', `dat=${await encrypt({ did: doctor01Id, expiry: alwaysExpired, type: 'doctor' })}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken expired');
     });
     it('should return access deny, accessToken absent', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'd.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
+        .set('host', 'doctor.telem.ml')
+        .set('Cookie', `pat=${doctor01Cookie}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken absent');
-    });
-    it('should return access deny, accessToken wrong type', async () => {
-      const res = await chai.request(server)
-        .get('/whoami')
-        .set('host', 'doc.telem.ml')
-        .set('Cookie', `dat=${patient01Cookie}`);
-      test(res, 403, 'access deny', { authCookieShould: false });
-      res.body.should.have.property('error', 'accessToken wrong type');
     });
     it('should return access deny, accessToken wrong type', async () => {
       const res = await chai.request(server)
@@ -68,32 +61,32 @@ describe('test accessToken using /whoami', () => {
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken wrong type');
     });
-    it('should return success with patient01Cookie', async () => {
+    it('should return success with doctor01Cookie', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'p.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'You are Пушкин Александр Сергеевич');
+        .set('host', 'doctor.telem.ml')
+        .set('Cookie', `dat=${doctor01Cookie}`);
+      test(res, 'You are Валентин Феликсович Войно-Ясенецкий');
     });
     it('should return success with patient01Cookie', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'pat.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'You are Пушкин Александр Сергеевич');
+        .set('host', 'doc.telem.ml')
+        .set('Cookie', `dat=${doctor01Cookie}`);
+      test(res, 'You are Валентин Феликсович Войно-Ясенецкий');
     });
-    it('should return success with patient02Id', async () => {
+    it('should return success with doctor02Id', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'patient.telem.ml')
-        .set('Cookie', `pat=${await encrypt({ pid: patient02Id, expiry: neverExpiry, type: 'patient' })}`);
-      test(res, 'You are Бродский Иосиф Александрович');
+        .set('host', 'd.telem.ml')
+        .set('Cookie', `dat=${await encrypt({ did: doctor02Id, expiry: neverExpiry, type: 'doctor' })}`);
+      test(res, 'You are Фёдоров Святослав Николаевич');
     });
     it('should return error 404 when subdomain qwerty', async () => {
       const res = await chai.request(server)
         .get('/whoami')
         .set('host', 'qwerty.telem.ml')
-        .set('Cookie', `pat=${patient01Cookie}`);
+        .set('Cookie', `dat=${doctor02Id}`);
       test(res, 404, { authCookieShould: false, bodyTest: false });
     });
   });

@@ -14,40 +14,32 @@ chai.use(chaiHttp);
 
 describe('routes : index', () => {
   describe('GET /', () => {
-    it('should return test patient index without domain', async () => {
-      const res = await chai.request(server)
-        .get('/');
-      res.status.should.eql(200);
-      res.type.should.eql('application/json');
-      res.body.status.should.eql('success');
-      res.body.message.should.eql('test patient index');
-    });
-    it('should return test patient index with p domain', async () => {
+    it('should return test doctor index with d domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'p.telem.ml');
+        .set('host', 'd.telem.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
-      res.body.message.should.eql('test patient index');
+      res.body.message.should.eql('test doctor index');
     });
-    it('should return test patient index with pat domain', async () => {
+    it('should return test doctor index with doc domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'pat.telem.ml');
+        .set('host', 'doc.telem.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
-      res.body.message.should.eql('test patient index');
+      res.body.message.should.eql('test doctor index');
     });
-    it('should return test patient index with patient domain', async () => {
+    it('should return test doctor index with doctor domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'patient.telem.ml');
+        .set('host', 'doctor.telem.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
-      res.body.message.should.eql('test patient index');
+      res.body.message.should.eql('test doctor index');
     });
   });
 });

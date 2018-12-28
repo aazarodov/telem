@@ -7,6 +7,7 @@ const { sendPDFUrl, sendPDFToken } = require('../../../../secrets');
 module.exports = {
   post: async (ctx) => {
     // TODO test access to barcode
+    // bool patients.barcodeTest(_id, barcode)
     try {
       const response = await fetch(sendPDFUrl, {
         method: 'POST',

@@ -136,7 +136,7 @@
       "presentation": "Основная",
       "type": "cat.groupsOfHealthy"
     },
-    "agreementOfSendingOtherInformation": false,
+    "agreementOfSendingOtherInformation": true,
     "agreementOfSendingResults": true,
     "status": {
       "ref": "e25582b2-f87f-11e8-8476-2fcec2888318",
@@ -201,6 +201,8 @@
       "type": "enm.typesOfSex"
     },
     "birthDate": "1889-06-23T00:00:00",
+    "agreementOfSendingOtherInformation": true,
+    "agreementOfSendingResults": true,
     "status": {
       "ref": "e255a9c1-f87f-11e8-8476-2fcec2888318",
       "presentation": "Не создан",

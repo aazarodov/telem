@@ -42,6 +42,8 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
       middleName: post.middleName,
       sex: sex[post.sex],
       birthDate: dateTime(post.birthDate),
+      agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
+      agreementOfSendingResults: post.agreementOfSendingResults,
       status: patientStatus[status],
       note: `Дата создания: ${dateTime()}`,
       password: await hash(post.password),
@@ -70,6 +72,9 @@ module.exports = {
   async getById(_id) {
     try {
       const doc = await db.get(_id);
+      if (doc.class_name !== className) {
+        throw new Error(`getById class_name === ${doc.class_name}, expect ${className}`);
+      }
       return doc;
     } catch (error) {
       if (error.error === 'not_found') return null;
@@ -104,10 +109,14 @@ module.exports = {
     return db.insert({ ...foundPatient, password: await hash(password) });
   },
   async updateDataMismatch(foundPatient, patientDataMismatch) {
-    const updPatient = await preperePatient({
-      ...foundPatient,
-      note: `Дата создания: ${dateTime()} Несовпадающие данные: ${JSON.stringify(patientDataMismatch)}`,
-    }, 'Не активирован', true);
+    const updPatient = await preperePatient(
+      {
+        ...foundPatient,
+        note: `Дата создания: ${dateTime()} Несовпадающие данные: ${JSON.stringify(patientDataMismatch)}`,
+      },
+      'Не активирован',
+      true,
+    );
     return db.insert(updPatient);
   },
   async updateAgreements(_id, agreements) {

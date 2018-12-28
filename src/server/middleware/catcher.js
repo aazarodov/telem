@@ -11,6 +11,7 @@ module.exports = () => async (ctx, next) => {
     ctx.body = {
       status: 'error',
       message: 'Internal Server Error',
+      error,
     };
   }
 };

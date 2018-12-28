@@ -36,7 +36,7 @@ const postedPatientIncorrectLogin = {
 
 const postedPatientIncorrectpassword = {
   ...postedPatientWtihPhone,
-  password: 'not_existed_passwd',
+  password: 'not_existed_password',
 };
 
 const postedPatientIncorrectSchema1 = {
@@ -90,6 +90,12 @@ describe('POST auth/login', () => {
       const res = await chai.request(server)
         .post('/auth/login')
         .send(postedPatientIncorrectpassword);
+      test(res, 404, 'patient with this login and password not found', { authCookieShould: false });
+    });
+    it('should return error if login and password not match', async () => {
+      const res = await chai.request(server)
+        .post('/auth/login')
+        .send({ login: p01phoneNumber, password: p02Password });
       test(res, 404, 'patient with this login and password not found', { authCookieShould: false });
     });
   });

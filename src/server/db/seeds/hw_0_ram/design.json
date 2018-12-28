@@ -92,6 +92,9 @@
       "statusesOfAnalysisAndResults": {
         "map": "function(doc) {\n  if (doc.class_name === 'ireg.statusesOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 0], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      status: doc.status.name,\n    });\n  } else if (doc.class_name === 'ireg.resultsOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 1], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      result: doc.result.presentation ? doc.result.presentation : doc.result,\n    });\n  }\n}",
         "reduce": "function(keys, values, rereduce) {\n  var latestDoc = {};\n  latestDoc.period = \"0000-00-00T00:00:00\";\n  values.forEach(function(doc){\n    if(doc.period > latestDoc.period) {\n      latestDoc = doc;\n    }\n  });\n  return latestDoc;\n}"
+      },
+      "doctorLoginPassword": {
+        "map": "function(doc) {\n  if (doc.class_name === 'cat.doctors' && doc.noActive === false) {\n    emit([doc.login, doc.password], doc);\n  }\n}"
       }
     },
     "updates": {

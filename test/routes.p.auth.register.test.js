@@ -36,6 +36,8 @@ const postedPatient = {
   middleName: 'Афанасьевич',
   sex: 'Мужской',
   birthDate: '1891-05-03T00:00:00',
+  agreementOfSendingOtherInformation: false,
+  agreementOfSendingResults: false,
   registerToken: encryptSync({ phoneNumber: p04phoneNumber, expiry: neverExpiry }),
 };
 
@@ -55,6 +57,8 @@ describe('POST auth/register', () => {
       test(res, 201, 'new patient created');
       const foundPatient = await patients.login(p04phoneNumber, p04Password);
       foundPatient.should.have.property('name', 'Булгаков Михаил Афанасьевич');
+      foundPatient.should.have.property('agreementOfSendingOtherInformation', false);
+      foundPatient.should.have.property('agreementOfSendingResults', false);
       foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p04emailAddress);
       foundPatient.should.have.nested.property('status.presentation', 'Новый');
       foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)}`);
@@ -84,11 +88,15 @@ describe('POST auth/register', () => {
           middleName: 'Андреевна',
           sex: 'Женский',
           birthDate: '1889-06-23',
+          agreementOfSendingOtherInformation: false,
+          agreementOfSendingResults: false,
           registerToken: await encrypt({ phoneNumber: p03phoneNumber, expiry: neverExpiry }),
         });
       test(res, 200, 'stored patient updated without data mismatch');
       const foundPatient = await patients.login(p03phoneNumber, p03NewPassword);
       foundPatient.should.have.property('name', 'Ахматова Анна Андреевна');
+      foundPatient.should.have.property('agreementOfSendingOtherInformation', false);
+      foundPatient.should.have.property('agreementOfSendingResults', false);
       foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p03emailAddress);
       foundPatient.should.have.nested.property('status.presentation', 'Активен');
       foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)}`);
@@ -107,11 +115,15 @@ describe('POST auth/register', () => {
           middleName: 'Александрович',
           sex: 'Мужской',
           birthDate: '3000-05-21',
+          agreementOfSendingOtherInformation: false,
+          agreementOfSendingResults: false,
           registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: neverExpiry }),
         });
       test(res, 200, 'stored patient updated with data mismatch');
       const foundPatient = await patients.login(p02phoneNumber, p02Password);
       foundPatient.should.have.property('name', 'Бродский Иосиф Александрович');
+      foundPatient.should.have.property('agreementOfSendingOtherInformation', true);
+      foundPatient.should.have.property('agreementOfSendingResults', true);
       foundPatient.should.have.property('birthDate', '1940-05-24T00:00:00');
       foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p02emailAddress);
       foundPatient.should.have.nested.property('status.presentation', 'Не активирован');

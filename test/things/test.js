@@ -13,12 +13,21 @@ const defs = {
   type: 'application/json',
   successStatus: 'success',
   errorStatus: 'error',
-  authCookieName: 'pat',
+  authCookieNamePatient: 'pat',
+  authCookieNameDoctor: 'dat',
   authCookieShould: true,
   bodyTest: true,
   dataKeys: [],
   dataNotKeys: [],
   data: {},
+};
+
+const authCookieNameByHost = (host) => {
+  const sub = host ? host.split('.').reverse()[2] : 'p';
+  if (sub === 'doctor' || sub === 'doc' || sub === 'd') {
+    return defs.authCookieNameDoctor;
+  }
+  return defs.authCookieNamePatient;
 };
 
 module.exports = (defaults = {}) => {
@@ -32,9 +41,9 @@ module.exports = (defaults = {}) => {
     const opts = args.find(arg => typeof arg === 'object') || {};
     const status = has.call(opts, 'status') ? opts.status : code < 400 ? def.successStatus : def.errorStatus;
     const dataShouldNotExist = has.call(opts, 'dataShouldNotExist') ? opts.dataShouldNotExist : code >= 400;
+    const authCookieName = has.call(opts, 'authCookieName') ? opts.authCookieName : authCookieNameByHost(res.request.header.host);
     const {
       type,
-      authCookieName,
       authCookieShould,
       bodyTest,
       dataKeys,

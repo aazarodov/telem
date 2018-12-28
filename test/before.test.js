@@ -14,6 +14,7 @@ chai.use(chaiHttp);
 let localServer;
 
 before(async () => {
+  // TODO take localServer to separate file, add support default host
   localServer = chai.request(server).keepOpen();
   await ramSeeding();
   await smsSeeding();

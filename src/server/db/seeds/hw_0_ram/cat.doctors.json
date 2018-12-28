@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000010",
+    "name": "Валентин Феликсович Войно-Ясенецкий",
+    "noActive": false,
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat."
+    },
+    "login": "luke",
+    "password": "4JDouhWjss8+7A1mxYQShvbTyMG21anV79r2Yl4GSNU=",
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000020",
+    "name": "Фёдоров Святослав Николаевич",
+    "noActive": false,
+    "specialization": {
+      "ref": "4856c431-59d3-11e4-b9ac-001e679abfc4",
+      "presentation": "Офтальмолог",
+      "type": "cat."
+    },
+    "login": "fedorov",
+    "password": "JW/G0i9GtKV6svYMyayVDEvypwbEhm/kQZ0im11HrIE=",
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000030",
+    "name": "Бокерия Леонид Антонович",
+    "noActive": false,
+    "specialization": {
+      "ref": "55eba090-dd9f-11de-9112-001bfcfe4479",
+      "presentation": "Кардиолог",
+      "type": "cat."
+    },
+    "login": "leo",
+    "password": "wuRup7VnxGqp7kl+4Cuf4PKFLY6N50/ia5nBozzq6RE=",
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000040",
+    "name": "Пупкин Василий Уволенный",
+    "noActive": true,
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat."
+    },
+    "login": "pupkin",
+    "password": "nPSlvx7LHwTpB0CyZW3stJaPCQqU36sZxVT17DRtRcg=",
+    "class_name": "cat.doctors"
+  }
+]

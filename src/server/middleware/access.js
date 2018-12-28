@@ -7,17 +7,22 @@ const unixtimestamp = require('../utils/unixtimestamp');
 
 
 module.exports = () => async (ctx, next) => {
+  ctx.state.access = {};
   if (
     ctx.path === '/'
     || ctx.path === '/p/'
+    || ctx.path === '/d/'
     || ctx.path.indexOf('/p/auth/') === 0
     || ctx.path.indexOf('/p/dev/') === 0
+    || ctx.path.indexOf('/d/auth/') === 0
+    || ctx.path.indexOf('/d/dev/') === 0
   ) {
-    ctx.state.access = null;
     await next();
     return;
   }
-  const accessToken = ctx.cookies.get('pat');
+  const accessType = ctx.path.indexOf('/p/') === 0 ? 'patient' : 'doctor';
+  const cookieName = accessType === 'patient' ? 'pat' : 'dat';
+  const accessToken = ctx.cookies.get(cookieName);
   if (!accessToken) {
     ctx.status = 403;
     ctx.body = {
@@ -48,12 +53,25 @@ module.exports = () => async (ctx, next) => {
     };
     return;
   }
-  ctx.state.access = tokenData;
+  if (tokenData.type !== accessType) {
+    ctx.status = 403;
+    ctx.body = {
+      status: 'error',
+      message: 'access deny',
+      error: 'accessToken wrong type',
+    };
+    return;
+  }
+  if (accessType === 'patient') {
+    ctx.state.access.pid = tokenData.pid;
+  } else {
+    ctx.state.access.did = tokenData.did;
+  }
   await next();
   const expiry = unixtimestamp() + accessExpiry;
-  const newTokenData = { ...ctx.state.access, expiry };
+  const newTokenData = { ...tokenData, expiry };
   ctx.cookies.set(
-    'pat',
+    cookieName,
     await encrypt(newTokenData),
     {
       expires: new Date(expiry * 1000),
