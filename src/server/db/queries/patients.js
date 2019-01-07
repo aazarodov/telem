@@ -3,7 +3,7 @@
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const patientSchema = require('../../schemas/db/hw_0_ram/cat.patients');
-const patientStatusFetch = require('./patientStatusFetch');
+const classNameFetch = require('./classNameFetch');
 const contactInformationFetch = require('./contactInformationFetch');
 const { hash } = require('../../utils/crypto');
 const dateTime = require('../../utils/dateTimeFor1C');
@@ -17,6 +17,7 @@ const className = 'cat.patients';
 // indexes: class_name, views: patientLoginPassword
 
 let preperePatientHandle = null;
+let prepereCityHandle = null;
 
 const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
   if (typeof preperePatientHandle === 'function') return preperePatientHandle(postedPatient, newStatus, changeStatusOnly);
@@ -24,14 +25,14 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
     Мужской: { name: 'Мужской', presentation: 'Мужской', type: 'enm.typesOfSex' },
     Женский: { name: 'Женский', presentation: 'Женский', type: 'enm.typesOfSex' },
   };
-  const patientStatus = await patientStatusFetch();
+  const patientStatuses = await classNameFetch('cat.patientStatuses');
   const contactInformation = await contactInformationFetch();
 
   preperePatientHandle = async (post, status = 'Новый', changeStatusOnlyFlag = false) => {
     if (changeStatusOnlyFlag) {
       return {
         ...post,
-        status: patientStatus[status],
+        status: patientStatuses[status],
       };
     }
     return {
@@ -44,7 +45,7 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
       birthDate: dateTime(post.birthDate),
       agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
       agreementOfSendingResults: post.agreementOfSendingResults,
-      status: patientStatus[status],
+      status: patientStatuses[status],
       note: `Дата создания: ${dateTime()}`,
       password: await hash(post.password),
       contactInformation: [
@@ -65,6 +66,13 @@ const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
     };
   };
   return preperePatientHandle(postedPatient, newStatus, changeStatusOnly);
+};
+
+const prepereCity = async (cityName) => {
+  if (typeof prepereCityHandle === 'function') return prepereCityHandle(cityName);
+  const cities = await classNameFetch('cat.cities');
+  prepereCityHandle = cName => cities[cName];
+  return prepereCityHandle(cityName);
 };
 
 module.exports = {
@@ -120,6 +128,11 @@ module.exports = {
     return db.insert(updPatient);
   },
   async updateAgreements(_id, agreements) {
-    return db.atomic('ddoc', 'updateAgreements', _id, agreements);
+    return db.atomic('ddoc', 'updatePatient', _id, agreements);
+  },
+  async updateCity(_id, cityName) {
+    const city = await prepereCity(cityName);
+    if (!city) return { error: 'city not found' };
+    return db.atomic('ddoc', 'updatePatient', _id, { city });
   },
 };

@@ -41,9 +41,14 @@ module.exports = Joi.object().keys({
       'Новый',
     ]).required(),
     type: Joi.string().valid('cat.patientStatuses').required(),
-  }),
+  }).required(),
   note: Joi.string().allow('').max(2048),
   password: Joi.string().allow('').length(44).required(),
+  city: Joi.object().keys({
+    ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
+    presentation: Joi.string().required(),
+    type: Joi.string().valid('cat.cities').required(),
+  }),
   contactInformation: Joi.array().items(
     Joi.object().keys({
       type: {

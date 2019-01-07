@@ -3,28 +3,29 @@
 const log = require('logger-file-fun-line');
 const couch = require('../connection');
 const prefix = require('../../utils/prefix');
+const trimId = require('../../utils/trimId');
 
 const dbname = prefix('hw_0_ram');
-const className = 'cat.patientStatuses';
 
 // indexes: class_name
 
-const patientStatusesFetch = async () => {
+const classNameFetch = async (className) => {
   const db = couch.use(dbname);
-  const patientStatus = {};
+  const docs = {};
   const response = await db.find({
     selector: {
       class_name: className,
     },
+    limit: Number.MAX_SAFE_INTEGER,
   });
   response.docs.forEach((doc) => {
-    patientStatus[doc.name] = {
-      ref: doc._id.slice(className.length + 1),
+    docs[doc.name] = {
+      ref: trimId(doc._id),
       presentation: doc.name,
       type: className,
     };
   });
-  return patientStatus;
+  return docs;
 };
 
-module.exports = patientStatusesFetch;
+module.exports = classNameFetch;

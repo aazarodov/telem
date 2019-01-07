@@ -98,7 +98,7 @@
       }
     },
     "updates": {
-      "updateAgreements": "function(doc, req) {\n  var allowedKeys = ['agreementOfSendingOtherInformation', 'agreementOfSendingResults'];\n  if (!doc) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  var isChanged = false;\n  Object.keys(body).forEach(function(key) {\n    if (allowedKeys.indexOf(key) !== -1 && doc[key] !== body[key]) {\n      isChanged = true;\n      doc[key] = body[key];\n    }\n  });\n  if (!isChanged) return [null, '{ \"ok\": true }'];\n  return [doc, '{ \"ok\": true }'];\n}"
+      "updatePatient": "function(doc, req) {\n  var allowedKeys = ['city', 'agreementOfSendingOtherInformation', 'agreementOfSendingResults'];\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  var isChanged = false;\n  Object.keys(body).forEach(function(key) {\n    if (allowedKeys.indexOf(key) !== -1 && doc[key] !== body[key]) {\n      isChanged = true;\n      doc[key] = body[key];\n    }\n  });\n  if (!isChanged) return [null, '{ \"ok\": true }'];\n  return [doc, '{ \"ok\": true }'];\n}"
     },
     "language": "javascript"
   }

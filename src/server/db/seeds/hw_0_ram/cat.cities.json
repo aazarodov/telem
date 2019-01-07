@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "cat.cities|38593dd7-ce2c-11e6-81e6-001e679abfc4",
+    "name": "Вологда",
+    "class_name": "cat.cities"
+  },
+  {
+    "_id": "cat.cities|38593dd8-ce2c-11e6-81e6-001e679abfc4",
+    "name": "Череповец",
+    "class_name": "cat.cities"
+  },
+  {
+    "_id": "cat.cities|38593dd9-ce2c-11e6-81e6-001e679abfc4",
+    "name": "Шексна",
+    "class_name": "cat.cities"
+  },
+  {
+    "_id": "cat.cities|38593ddb-ce2c-11e6-81e6-001e679abfc4",
+    "name": "Вельск",
+    "class_name": "cat.cities"
+  },
+  {
+    "_id": "cat.cities|38593ddc-ce2c-11e6-81e6-001e679abfc4",
+    "name": "Котлас",
+    "class_name": "cat.cities"
+  }
+]

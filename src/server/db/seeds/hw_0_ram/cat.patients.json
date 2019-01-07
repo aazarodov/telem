@@ -30,6 +30,11 @@
     },
     "note": "Дата создания 2018-10-24T00:00:00",
     "password": "4JDouhWjss8+7A1mxYQShvbTyMG21anV79r2Yl4GSNU=",
+    "city": {
+      "ref": "38593dd7-ce2c-11e6-81e6-001e679abfc4",
+      "presentation": "Вологда",
+      "type": "cat.cities"
+    },
     "contactInformation": [
       {
         "type": {
@@ -145,6 +150,11 @@
     },
     "note": "",
     "password": "JW/G0i9GtKV6svYMyayVDEvypwbEhm/kQZ0im11HrIE=",
+    "city": {
+      "ref": "38593ddb-ce2c-11e6-81e6-001e679abfc4",
+      "presentation": "Вельск",
+      "type": "cat.cities"
+    },
     "contactInformation": [
       {
         "type": {
@@ -210,6 +220,11 @@
     },
     "note": "",
     "password": "",
+    "city": {
+      "ref": "38593dd7-ce2c-11e6-81e6-001e679abfc4",
+      "presentation": "Вологда",
+      "type": "cat.cities"
+    },
     "contactInformation": [
       {
         "type": {
