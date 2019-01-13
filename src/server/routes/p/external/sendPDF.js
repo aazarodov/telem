@@ -2,12 +2,11 @@
 
 const log = require('logger-file-fun-line');
 const fetch = require('node-fetch');
-const { sendPDFUrl, PDFToken } = require('../../../../secrets');
+const { sendPDFUrl, PDFToken } = require('../../../../../secrets');
+const dateTimeFor1C = require('../../../utils/dateTimeFor1C');
 
 module.exports = {
   post: async (ctx) => {
-    // TODO test access to barcode
-    // bool patients.barcodeTest(_id, barcode)
     try {
       const response = await fetch(sendPDFUrl, {
         method: 'POST',
@@ -15,7 +14,9 @@ module.exports = {
         body: JSON.stringify({
           token: PDFToken,
           barcode: ctx.state.data.barcode,
-          email: ctx.state.data.email ? ctx.state.data.email : '',
+          email: ctx.state.data.email,
+          lastName: ctx.state.data.lastName,
+          birthDate: dateTimeFor1C(ctx.state.data.birthDate),
         }),
       });
       const responseText = await response.text();

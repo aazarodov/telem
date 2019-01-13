@@ -16,6 +16,7 @@ module.exports = () => async (ctx, next) => {
     || ctx.path.indexOf('/p/dev/') === 0
     || ctx.path.indexOf('/d/auth/') === 0
     || ctx.path.indexOf('/d/dev/') === 0
+    || ctx.path.indexOf('/p/external/') === 0
   ) {
     await next();
     return;

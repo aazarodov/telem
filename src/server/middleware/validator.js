@@ -40,7 +40,7 @@ module.exports = (dir) => {
         ctx.body = {
           status: 'error',
           message: 'validate error',
-          error: { message: error.message, body: ctx.request.body },
+          error: { message: error.message },
         };
         return;
       }
