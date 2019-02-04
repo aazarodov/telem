@@ -32,6 +32,7 @@ describe('GET laboratoryAnalyzes', () => {
       res.body.data.docs.should.all.have.property('_rev');
       res.body.data.docs.should.all.have.property('date');
       res.body.data.docs.should.all.have.property('barcode');
+      res.body.data.docs.should.all.have.property('recipient');
       res.body.data.docs.should.all.have.property('oneTimeContractNumber');
       res.body.data.docs.should.all.have.property('analyzes');
       res.body.data.docs.should.all.have.property('PDFAvailable');
@@ -51,7 +52,7 @@ describe('GET laboratoryAnalyzes', () => {
         data: {
           _id: p01laboratoryAnalyzesId,
         },
-        dataKeys: ['_rev', 'date', 'barcode', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
+        dataKeys: ['_rev', 'date', 'barcode', 'recipient', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
       });
       res.body.data.analyzes.should.all.have.property('analysis');
       res.body.data.analyzes.should.all.have.property('normativ');
@@ -69,7 +70,7 @@ describe('GET laboratoryAnalyzes', () => {
         data: {
           _id: p02laboratoryAnalyzesId,
         },
-        dataKeys: ['_rev', 'date', 'barcode', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
+        dataKeys: ['_rev', 'date', 'barcode', 'recipient', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
       });
       res.body.data.analyzes.should.all.have.property('analysis');
       res.body.data.analyzes.should.all.have.property('normativ');
