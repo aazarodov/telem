@@ -1,20 +1,5 @@
 'use strict';
 
-let PORT;
-switch (process.env.NODE_ENV) {
-  case 'production': PORT = 80;
-    break;
-  case 'dev1': PORT = 8081;
-    break;
-  case 'dev2': PORT = 8082;
-    break;
-  case 'test': PORT = 9999;
-    break;
-  default:
-    process.exit(1);
-    break;
-}
-
 if (process.env.NODE_ENV === 'multiple') {
   if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
   if (process.env.NODE_APP_INSTANCE === '1') process.env.NODE_ENV = 'dev1';
@@ -31,6 +16,21 @@ const subdomain = require('./middleware/subdomain');
 const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
+
+let PORT;
+switch (process.env.NODE_ENV) {
+  case 'production': PORT = 80;
+    break;
+  case 'dev1': PORT = 8081;
+    break;
+  case 'dev2': PORT = 8082;
+    break;
+  case 'test': PORT = 9999;
+    break;
+  default:
+    process.exit(1);
+    break;
+}
 
 const app = new Koa();
 
