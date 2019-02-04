@@ -49,6 +49,7 @@ module.exports = Joi.object().keys({
     presentation: Joi.string().required(),
     type: Joi.string().valid('cat.cities').required(),
   }),
+  family: Joi.array(),
   contactInformation: Joi.array().items(
     Joi.object().keys({
       type: {

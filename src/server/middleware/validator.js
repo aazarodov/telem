@@ -2,6 +2,8 @@
 
 const log = require('logger-file-fun-line');
 const { deepReaddirSync } = require('../utils/deepReaddir');
+const { boundPID } = require('../db/queries/family');
+const trimId = require('../utils/trimId');
 
 module.exports = (dir) => {
   const methods = {
@@ -32,6 +34,21 @@ module.exports = (dir) => {
           data = ctx.request.body;
         } else {
           data = ctx.request.query;
+        }
+        if (ctx.state.access.pid && data.pid) {
+          if (await boundPID(ctx.state.access.pid, data.pid)) {
+            ctx.state.access.pidOrigin = ctx.state.access.pid;
+            ctx.state.access.pid = `cat.patients|${trimId(data.pid)}`;
+            delete data.pid;
+          } else {
+            ctx.status = 403;
+            ctx.body = {
+              status: 'error',
+              message: 'pid access deny',
+              error: 'access to this pid deny',
+            };
+            return;
+          }
         }
         ctx.state.data = await schemas[ctx.path][method].validate(data);
         ctx.state.validate = true;

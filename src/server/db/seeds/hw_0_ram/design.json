@@ -19,37 +19,13 @@
           }
         }
       },
-      "class_name,stringGUID,period": {
-        "map": {
-          "fields": {
-            "class_name": "desc",
-            "stringGUID": "desc",
-            "period": "desc"
-          },
-          "partial_filter_selector": {
-            "class_name": "ireg.resultsOfAnalysis"
-          }
-        },
-        "reduce": "_count",
-        "options": {
-          "def": {
-            "fields": [
-              "class_name",
-              "stringGUID",
-              "period"
-            ]
-          }
-        }
-      },
       "class_name,patient.ref": {
         "map": {
           "fields": {
             "class_name": "asc",
             "patient.ref": "asc"
           },
-          "partial_filter_selector": {
-            "class_name": "doc.laboratoryAnalyzes"
-          }
+          "partial_filter_selector": {}
         },
         "reduce": "_count",
         "options": {
@@ -89,16 +65,18 @@
       "patientLoginPassword": {
         "map": "function(doc) {\n  if (doc.class_name === 'cat.patients') {\n    doc.contactInformation.forEach(function(contact) {\n      if(contact.kind.presentation === 'Телефон') emit([contact.phoneNumber, doc.password], doc);\n      if(contact.kind.presentation === 'E-mail') emit([contact.emailAddress, doc.password], doc);\n    });\n  }\n}"
       },
-      "statusesOfAnalysisAndResults": {
-        "map": "function(doc) {\n  if (doc.class_name === 'ireg.statusesOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 0], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      status: doc.status.name,\n    });\n  } else if (doc.class_name === 'ireg.resultsOfAnalysis') {\n    emit([doc.document.ref, doc.stringGUID, 1], {\n      stringGUID: doc.stringGUID,\n      period: doc.period,\n      result: doc.result.presentation ? doc.result.presentation : doc.result,\n    });\n  }\n}",
-        "reduce": "function(keys, values, rereduce) {\n  var latestDoc = {};\n  latestDoc.period = \"0000-00-00T00:00:00\";\n  values.forEach(function(doc){\n    if(doc.period > latestDoc.period) {\n      latestDoc = doc;\n    }\n  });\n  return latestDoc;\n}"
-      },
       "doctorLoginPassword": {
         "map": "function(doc) {\n  if (doc.class_name === 'cat.doctors' && doc.noActive === false) {\n    emit([doc.login, doc.password], doc);\n  }\n}"
+      },
+      "boundPID": {
+        "map": "function(doc) {\n  const revRelation = {\n    Ребенок: { name: 'Родитель', presentation: 'Родитель', type: 'enm.typeOfRelations' },\n    Родитель: { name: 'Ребенок', presentation: 'Ребенок', type: 'enm.typeOfRelations' },\n    Супруг: { name: 'Супруг', presentation: 'Супруг', type: 'enm.typeOfRelations' },\n    Другая: { name: 'Другая', presentation: 'Другая', type: 'enm.typeOfRelations' },\n  };\n  if (doc.class_name === 'cat.patients' && Array.isArray(doc.family)) {\n    const trimedId = doc._id.slice(-36);\n    doc.family.forEach(function(val) {\n      emit([val.patient.ref.slice(-36), trimedId], {\n        relation: revRelation[val.relation.name],\n        patient: {\n          ref: trimedId,\n          presentation: doc.name,\n          type: doc.class_name,\n        },\n        general: val.general,\n        access: val.access,\n      });\n    });\n  }\n}"
       }
     },
     "updates": {
-      "updatePatient": "function(doc, req) {\n  var allowedKeys = ['city', 'agreementOfSendingOtherInformation', 'agreementOfSendingResults'];\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  var isChanged = false;\n  Object.keys(body).forEach(function(key) {\n    if (allowedKeys.indexOf(key) !== -1 && doc[key] !== body[key]) {\n      isChanged = true;\n      doc[key] = body[key];\n    }\n  });\n  if (!isChanged) return [null, '{ \"ok\": true }'];\n  return [doc, '{ \"ok\": true }'];\n}"
+      "updatePatient": "function(doc, req) {\n  var allowedKeys = ['city', 'agreementOfSendingOtherInformation', 'agreementOfSendingResults'];\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  var isChanged = false;\n  Object.keys(body).forEach(function(key) {\n    if (allowedKeys.indexOf(key) !== -1 && doc[key] !== body[key]) {\n      isChanged = true;\n      doc[key] = body[key];\n    }\n  });\n  if (!isChanged) return [null, '{ \"ok\": true }'];\n  return [doc, '{ \"ok\": true }'];\n}",
+      "addAccess": "function(doc, req) {\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  if (!doc.family || !Array.isArray(doc.family) || doc.family.length === 0) {\n    body.general = true;\n    doc.family = [body];\n  } else {\n    var find = false;\n    const len = doc.family.length;\n    var i = 0;\n    while (i < len) {\n      if (doc.family[i].patient.ref === body.patient.ref) {\n        find = true;\n        break;\n      }\n      i++;\n    }\n    if (!find) {\n      body.general = false;\n      doc.family.push(body);\n    } else {\n      return [null, '{ \"ok\": true }'];\n    }\n  }\n  return [doc, '{ \"ok\": true }'];\n}",
+      "delAccess": "function(doc, req) {\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  if (!doc.family || !Array.isArray(doc.family) || doc.family.length === 0) {\n    return [null, '{ \"ok\": false, \"reason\": \"not_found\" }'];\n  }\n  const len = doc.family.length;\n  var i = 0;\n  while (i < len) {\n    if (doc.family[i].patient.ref == body.ref) {\n      // if (doc.family[i].general === false)\n      doc.family.splice(i, 1);\n      return [doc, '{ \"ok\": true }'];\n    }\n    i++;\n  }\n  return [null, '{ \"ok\": false, \"reason\": \"not_found\" }'];\n}",
+      "updAccess": "function(doc, req) {\n  if (!doc || doc.class_name !== 'cat.patients') return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed doc',\n      'reason': 'no document to update'\n    }\n  }];\n  if (!req.body) return [null, {\n    'code': 200,\n    'json': {\n      'error': 'missed body',\n      'reason': 'no request body to update'\n    }\n  }];\n  var body = JSON.parse(req.body);\n  if (!doc.family || !Array.isArray(doc.family) || doc.family.length === 0) {\n    return [null, '{ \"ok\": false, \"reason\": \"not_found\" }'];\n  }\n  const len = doc.family.length;\n  var i = 0;\n  var isChanged = false;\n  while (i < len) {\n    if (doc.family[i].patient.ref == body.ref) {\n      if (body.relation) {\n        doc.family[i].relation.name = body.relation;\n        doc.family[i].relation.presentation = body.relation;\n        isChanged = true;\n      }\n      if (body.access) {\n        doc.family[i].access = body.access;\n        isChanged = true;\n      }\n      if (isChanged) {\n        return [doc, '{ \"ok\": true }'];\n      }\n      return [null, '{ \"ok\": true }'];\n    }\n\n    i++;\n  }\n  return [null, '{ \"ok\": false, \"reason\": \"not_found\" }'];\n}"
     },
     "language": "javascript"
   }

@@ -1,0 +1,679 @@
+[
+  {
+    "_id": "ireg.approvedResults|1b51b72d-049e-11e9-8101-f41614cd568a¶00000000-0000-1000-8000-000000000001",
+    "document": {
+      "ref": "1b51b72d-049e-11e9-8101-f41614cd568a",
+      "presentation": "Лабораторное исследование 000000000039 от 21.12.2018 0:27:53",
+      "type": "doc.laboratoryAnalyzes"
+    },
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "records": [
+      {
+        "approvalDateResult": "2019-01-29T19:00:13",
+        "result": 200,
+        "analysis": {
+          "ref": "8a1b4c72-ddf2-11de-b21e-00140b0496c2",
+          "presentation": "Витамин В12",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "4b39a330-a350-40ae-95a8-1e38ec05753c"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:13",
+        "result": 70,
+        "analysis": {
+          "ref": "d7c53ada-a652-11e1-b2ab-001517b46888",
+          "presentation": "25-ОН витамин D (25-гидроксикальциферол)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "4d0f9c38-684c-4f19-a839-862f7d07db37"
+      }
+    ],
+    "class_name": "ireg.approvedResults",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-01-29T07:00:13 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "ireg.approvedResults|57e212b5-049e-11e9-8101-f41614cd568a¶00000000-0000-1000-8000-000000000001",
+    "document": {
+      "ref": "57e212b5-049e-11e9-8101-f41614cd568a",
+      "presentation": "Лабораторное исследование 000000000040 от 21.12.2018 0:29:34",
+      "type": "doc.laboratoryAnalyzes"
+    },
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "records": [
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": {
+          "ref": "237946e6-ee69-11e0-b24a-001517b46888",
+          "presentation": "Бесцветная",
+          "type": "cat.propertyValues"
+        },
+        "analysis": {
+          "ref": "dda6d388-ff73-11de-94de-001517b46888",
+          "presentation": "Цвет",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "9a22a32b-0034-49d3-951d-1ad5752049b4"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": 1040,
+        "analysis": {
+          "ref": "dda6d38a-ff73-11de-94de-001517b46888",
+          "presentation": "Удельный вес",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "0f361be5-720f-40c6-8a91-e42a6fc2461c"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": 5,
+        "analysis": {
+          "ref": "dda6d38d-ff73-11de-94de-001517b46888",
+          "presentation": "pH",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "2dee7ca6-6392-4a8e-93d2-296b76f7d23c"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": 1,
+        "analysis": {
+          "ref": "dda6d3a1-ff73-11de-94de-001517b46888",
+          "presentation": "Белок количественно (норма до 0,120 г/л)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "decbacf0-fe75-48d8-a20b-4b5378b40dd5"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": "6",
+        "analysis": {
+          "ref": "dda6d3a5-ff73-11de-94de-001517b46888",
+          "presentation": "глюкоза",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "4b90d642-e2a2-4be7-ae00-9f7cd4bd03fb"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": "1",
+        "analysis": {
+          "ref": "dda6d3a7-ff73-11de-94de-001517b46888",
+          "presentation": "нитриты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "04571424-06e1-4ec8-b2bb-a7dd6ce8748f"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": "3",
+        "analysis": {
+          "ref": "dda6d3a9-ff73-11de-94de-001517b46888",
+          "presentation": "кетоновые тела",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "d3a22605-c781-4444-9b83-273f1ec546dc"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": "1",
+        "analysis": {
+          "ref": "dda6d3b1-ff73-11de-94de-001517b46888",
+          "presentation": "билирубин",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "6f46fcdb-bc41-4a56-838e-881b2ecdf853"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:24",
+        "result": "1",
+        "analysis": {
+          "ref": "dda6d3b3-ff73-11de-94de-001517b46888",
+          "presentation": "уробилиноген",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "6135fbeb-6080-40f4-9053-c24ae061f9b2"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "5",
+        "analysis": {
+          "ref": "dda6d3b5-ff73-11de-94de-001517b46888",
+          "presentation": "эпителиальные клетки",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "e7e98676-0edb-4076-ace0-aa8820f32e10"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "5",
+        "analysis": {
+          "ref": "dda6d3b7-ff73-11de-94de-001517b46888",
+          "presentation": "лейкоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "e4b48fd7-924e-4952-b5f4-45917152e85b"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "0",
+        "analysis": {
+          "ref": "dda6d3b9-ff73-11de-94de-001517b46888",
+          "presentation": "эритроциты неизмененные",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "e5a74de1-2aa0-45ee-8980-ff24fc1a38b4"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "0",
+        "analysis": {
+          "ref": "dda6d3bb-ff73-11de-94de-001517b46888",
+          "presentation": "эритроциты измененные",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "6844c7ed-95eb-4395-95d4-2ed3205a6beb"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "не обнаружено",
+        "analysis": {
+          "ref": "dda6d3bd-ff73-11de-94de-001517b46888",
+          "presentation": "цилиндры",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "533566a7-8437-4135-9a76-4b89fa5e57d0"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "не обнаружено",
+        "analysis": {
+          "ref": "dda6d3bf-ff73-11de-94de-001517b46888",
+          "presentation": "клетки почечного эпителия",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "c395c908-324f-49ee-890c-2598c816f1c3"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": {
+          "ref": "12320c7c-bbb4-11e3-ac82-001517b46888",
+          "presentation": "не обнаружены",
+          "type": "cat.propertyValues"
+        },
+        "analysis": {
+          "ref": "a24b4223-ff7a-11de-94de-001517b46888",
+          "presentation": "соли",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "eab7761f-3913-4c92-b460-dfb4b0e6e83a"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "не обнаружена",
+        "analysis": {
+          "ref": "a24b4225-ff7a-11de-94de-001517b46888",
+          "presentation": "слизь",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "bc63b67c-eb04-4690-b8e3-de23ec217019"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "не обнаружены",
+        "analysis": {
+          "ref": "a24b4227-ff7a-11de-94de-001517b46888",
+          "presentation": "бактерии",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "42c55f56-abc2-42ff-b10b-e761c8575d89"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "1",
+        "analysis": {
+          "ref": "ec7abb69-dde7-11de-b21e-00140b0496c2",
+          "presentation": "Toxoplasma gondii Ig G",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "dad5191d-d5af-4f0f-8366-2c6588f05ccb"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": "2",
+        "analysis": {
+          "ref": "ec7abb72-dde7-11de-b21e-00140b0496c2",
+          "presentation": "Mycoplasma pneumoniae Ig G",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "3bee1209-9832-482c-8d31-03d0ee23394d"
+      },
+      {
+        "approvalDateResult": "2019-01-29T19:00:25",
+        "result": 100,
+        "analysis": {
+          "ref": "8a1b4c64-ddf2-11de-b21e-00140b0496c2",
+          "presentation": "Кортизол",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "a87aab5e-dfe7-499e-aa97-8784b6c2d7ec"
+      }
+    ],
+    "class_name": "ireg.approvedResults",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-01-29T07:00:25 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "ireg.approvedResults|a235c23a-049d-11e9-8101-f41614cd568a¶00000000-0000-1000-8000-000000000001",
+    "document": {
+      "ref": "a235c23a-049d-11e9-8101-f41614cd568a",
+      "presentation": "Лабораторное исследование 000000000036 от 21.12.2018 0:24:29",
+      "type": "doc.laboratoryAnalyzes"
+    },
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "records": [
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 6,
+        "analysis": {
+          "ref": "48d49e47-a05a-11e1-85ec-001517b46888",
+          "presentation": "Скорость оседания эритроцитов (по Вестергрену)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "1973d345-bcac-4dfa-a1cd-94f4684587fc"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:48",
+        "result": 110,
+        "analysis": {
+          "ref": "1b964072-05b7-11df-94de-001517b46888",
+          "presentation": "Гемоглобин (HGB)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "52a927f7-6b1b-487d-a8fa-a83c6db966cd"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:48",
+        "result": 5,
+        "analysis": {
+          "ref": "1b964074-05b7-11df-94de-001517b46888",
+          "presentation": "Количество лейкоцитов (WBC)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "df44caf1-bdb7-446d-8492-fffed7f7cf00"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:48",
+        "result": 7,
+        "analysis": {
+          "ref": "a1de9280-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Количество эритроцитов (RBC)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "6bb133d2-99b2-4c56-a3c8-4aa450bd6495"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 38,
+        "analysis": {
+          "ref": "a1de9284-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Гематокрит (НСТ)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "8f874881-adb0-459d-b1a4-bef11f6c788c"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 85,
+        "analysis": {
+          "ref": "a1de9286-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средний объем эритроцита (MCV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "553c59cc-6da5-4363-b4c4-3f085c4a7cb9"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 30,
+        "analysis": {
+          "ref": "a1de9288-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Среднее содержание гемоглобина в эритроцитах (MCH)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "032403a0-5e32-4b7d-814f-388103bfdaa5"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 350,
+        "analysis": {
+          "ref": "a1de928a-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Средняя концентрация гемоглобина в эритроците (MCHC)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "cb75eebf-aea8-4088-b2c8-7686e2497f3b"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 125,
+        "analysis": {
+          "ref": "a1de928c-3dc1-11e4-9b57-001517b46888",
+          "presentation": "Тромбоциты (PLT)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "f3bb08ce-5f99-4250-94b6-311e61a2cfb2"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 5,
+        "analysis": {
+          "ref": "a950a37d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Ширина распределения тромбоцитов по обьему (PDW)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "95886bff-6c3e-4f8f-989d-a60512879923"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 1,
+        "analysis": {
+          "ref": "a950a37f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Тромбокрит (PCT)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "3b9fc07b-7163-464e-9219-bd96ad43741d"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 7,
+        "analysis": {
+          "ref": "a950a385-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Средний объем тромбоцитов (MPV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "b88a5c0b-9a67-4bc1-8fba-b9a53b3f5d1a"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 20,
+        "analysis": {
+          "ref": "a950a38f-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Лимфоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "dc991a30-3bf8-4903-8474-31052c5a22b8"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 8,
+        "analysis": {
+          "ref": "a950a391-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Моноциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "5dd6f569-230c-4d24-b02d-1f6d5a9ed9fc"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 1,
+        "analysis": {
+          "ref": "a950a395-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Базофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "8d08c775-2bb1-43f3-b0cd-7a23857ddf3b"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 5,
+        "analysis": {
+          "ref": "a950a397-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Эозинофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "cfbce74f-3163-4eb5-ae91-47d7ed703132"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 4,
+        "analysis": {
+          "ref": "a950a39d-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Палочкоядерные нейтрофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "b93116e7-24fd-4811-9dfb-8c3ef1f73bcf"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 47,
+        "analysis": {
+          "ref": "a950a3a1-3dd2-11e4-9b57-001517b46888",
+          "presentation": "Сегментоядерные нейтрофилы",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "0ca43f7c-5c25-41e7-82a7-e1069191fdf6"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": "-",
+        "analysis": {
+          "ref": "33cc463f-3eb4-11e4-9b57-001517b46888",
+          "presentation": "Морфология эритроцитов",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "f86735e2-fdca-48a8-a8cd-abafe5da665e"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 15,
+        "analysis": {
+          "ref": "bbb9946d-3f7e-11e4-9b57-001517b46888",
+          "presentation": "Относительная ширина распределения эритроцитов по объему, коэффициент вариации (RDW-CV)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "3169a874-670e-40ac-a8ad-2bc042d5231d"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": "4",
+        "analysis": {
+          "ref": "ec7abb69-dde7-11de-b21e-00140b0496c2",
+          "presentation": "Toxoplasma gondii Ig G",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "9b2dc50c-7a15-466e-b974-8833a726fb9f"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": "1",
+        "analysis": {
+          "ref": "ec7abb72-dde7-11de-b21e-00140b0496c2",
+          "presentation": "Mycoplasma pneumoniae Ig G",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "3d0e17e1-053f-4b5d-8c5f-605cbd4f0d5d"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 9,
+        "analysis": {
+          "ref": "5eba1d8f-98b5-11e4-b8d9-001e679abfc4",
+          "presentation": "ХГЧ ",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "b49d3757-f3f1-43ba-adda-1fb2d9836228"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 0,
+        "analysis": {
+          "ref": "5a7820bc-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Бластные клетки",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "7306bdc0-87a5-40cc-b1d9-6490e37183fb"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 1,
+        "analysis": {
+          "ref": "5a7820be-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Миелоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "5dedfa1c-0489-4971-a793-ca84adf6c176"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 1,
+        "analysis": {
+          "ref": "5a7820c0-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Метамиелоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "647c91c8-d28f-4b88-959c-5b9f4d8c5b01"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 0,
+        "analysis": {
+          "ref": "5a7820c2-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Атипичные лимфоциты",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "8f25ad90-44b9-41dc-97ed-7f975f7b42ad"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": 1,
+        "analysis": {
+          "ref": "5a7820c4-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Плазматические клетки",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "fb61b126-9419-4e87-9297-6f0baade8891"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:41:49",
+        "result": {
+          "ref": "cf03cfc6-adc7-11e8-bdf7-001e679abfc4",
+          "presentation": "СОЭ в пересчете по гематокриту",
+          "type": "cat.propertyValues"
+        },
+        "analysis": {
+          "ref": "5a7820c6-8b23-11e8-bdf7-001e679abfc4",
+          "presentation": "Комментарий",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "d184ce5f-2c92-4d5c-b684-2cbe90cf07bd"
+      }
+    ],
+    "class_name": "ireg.approvedResults",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-01-29T12:41:49 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "ireg.approvedResults|e06296d0-049d-11e9-8101-f41614cd568a¶00000000-0000-1000-8000-000000000001",
+    "document": {
+      "ref": "e06296d0-049d-11e9-8101-f41614cd568a",
+      "presentation": "Лабораторное исследование 000000000037 от 21.12.2018 0:26:14",
+      "type": "doc.laboratoryAnalyzes"
+    },
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "records": [
+      {
+        "approvalDateResult": "2019-01-29T18:59:28",
+        "result": 45,
+        "analysis": {
+          "ref": "8a1b4c66-ddf2-11de-b21e-00140b0496c2",
+          "presentation": "ДГЭА-S",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "947ad40d-f9c2-40e7-a94c-e9595e4b65a0"
+      },
+      {
+        "approvalDateResult": "2019-01-29T18:59:28",
+        "result": 5,
+        "analysis": {
+          "ref": "8a1b4c77-ddf2-11de-b21e-00140b0496c2",
+          "presentation": "АФП",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "862c4506-314b-41ab-89c8-347f4de83ea9"
+      }
+    ],
+    "class_name": "ireg.approvedResults",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-01-29T06:59:28 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "ireg.approvedResults|f6eeb127-049d-11e9-8101-f41614cd568a¶00000000-0000-1000-8000-000000000002",
+    "document": {
+      "ref": "f6eeb127-049d-11e9-8101-f41614cd568a",
+      "presentation": "Лабораторное исследование 000000000038 от 21.12.2018 0:26:52",
+      "type": "doc.laboratoryAnalyzes"
+    },
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000002",
+      "presentation": "Бродский Иосиф Александрович",
+      "type": "cat.patients"
+    },
+    "records": [
+      {
+        "approvalDateResult": "0001-01-01T00:00:00",
+        "result": "обнаружены",
+        "analysis": {
+          "ref": "29767011-7de2-11df-8368-001517b46888",
+          "presentation": "Микробиологическое исследование соскоба с кожи  на дрожжевые грибы(рода Candida) и плесневые грибы.",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "582c9132-00f7-46e0-8da8-362c645e3896"
+      },
+      {
+        "approvalDateResult": "2019-01-29T12:30:09",
+        "result": "не обнаружены!",
+        "analysis": {
+          "ref": "fcc6430a-004f-11df-94de-001517b46888",
+          "presentation": "Микробиологическое  исследование отделяемого из ушей  на дрожжевые грибы(рода Candida) и плесневые грибы (ухо левое)",
+          "type": "cat.analyzesAndServices"
+        },
+        "stringGUID": "13ee1329-80ff-4686-bd24-ade0498ef901"
+      }
+    ],
+    "class_name": "ireg.approvedResults",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-01-29T07:01:30 +0300",
+      "e1cib": true
+    }
+  }
+]

@@ -76,7 +76,6 @@ const prepereCity = async (cityName) => {
 };
 
 module.exports = {
-
   async getById(_id) {
     try {
       const doc = await db.get(_id);

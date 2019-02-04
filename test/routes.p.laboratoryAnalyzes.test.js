@@ -11,6 +11,9 @@ const {
   server,
   patient01Cookie,
   p01laboratoryAnalyzesId,
+  patient02Id,
+  p02laboratoryAnalyzesId,
+  patient03Id,
 } = require('./things/values');
 
 
@@ -31,6 +34,11 @@ describe('GET laboratoryAnalyzes', () => {
       res.body.data.docs.should.all.have.property('barcode');
       res.body.data.docs.should.all.have.property('oneTimeContractNumber');
       res.body.data.docs.should.all.have.property('analyzes');
+      res.body.data.docs.should.all.have.property('PDFAvailable');
+      res.body.data.docs[0].analyzes.should.all.have.property('analysis');
+      res.body.data.docs[0].analyzes.should.all.have.property('normativ');
+      res.body.data.docs[0].analyzes.should.all.have.property('result');
+      res.body.data.docs[0].analyzes.should.all.have.property('approvalDateResult');
     });
   });
   describe('GET /laboratoryAnalyzes doc as patient01', () => {
@@ -43,8 +51,39 @@ describe('GET laboratoryAnalyzes', () => {
         data: {
           _id: p01laboratoryAnalyzesId,
         },
-        dataKeys: ['_rev', 'date', 'barcode', 'oneTimeContractNumber', 'analyzes'],
+        dataKeys: ['_rev', 'date', 'barcode', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
       });
+      res.body.data.analyzes.should.all.have.property('analysis');
+      res.body.data.analyzes.should.all.have.property('normativ');
+      res.body.data.analyzes[1].should.have.property('result');
+      res.body.data.analyzes[1].should.have.property('approvalDateResult');
+    });
+  });
+  describe('GET /laboratoryAnalyzes doc patient02 as patient01', () => {
+    it('should return laboratoryAnalysis patient02 on data field', async () => {
+      const res = await chai.request(server)
+        .get('/laboratoryAnalyzes')
+        .query({ _id: p02laboratoryAnalyzesId, pid: patient02Id })
+        .set('Cookie', `pat=${patient01Cookie}`);
+      test(res, 'laboratoryAnalysis doc', {
+        data: {
+          _id: p02laboratoryAnalyzesId,
+        },
+        dataKeys: ['_rev', 'date', 'barcode', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
+      });
+      res.body.data.analyzes.should.all.have.property('analysis');
+      res.body.data.analyzes.should.all.have.property('normativ');
+      res.body.data.analyzes[0].should.have.property('result');
+      res.body.data.analyzes[0].should.have.property('approvalDateResult');
+    });
+  });
+  describe('GET /laboratoryAnalyzes doc patient03 as patient01', () => {
+    it('should return access deny', async () => {
+      const res = await chai.request(server)
+        .get('/laboratoryAnalyzes')
+        .query({ _id: p01laboratoryAnalyzesId, pid: patient03Id })
+        .set('Cookie', `pat=${patient01Cookie}`);
+      test(res, 403, 'pid access deny');
     });
   });
 });

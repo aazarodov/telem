@@ -1,20 +1,18 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const statusesOfAnalysis = require('../../db/queries/statusesOfAnalysis');
+const { insertNew } = require('../../../db/queries/family');
 
 module.exports = {
-  get: async (ctx) => {
+  post: async (ctx) => {
     try {
-      const response = await statusesOfAnalysis(
-        ctx.state.access.pid,
-        ctx.state.data._id,
-      );
+      await insertNew(ctx.state.access.pid, ctx.state.data);
+      ctx.status = 201;
       ctx.body = {
         status: 'success',
-        message: 'statusesOfAnalysis list',
-        data: response,
+        message: 'new bound patient created',
       };
+      return;
     } catch (error) {
       log(error);
       ctx.status = 500;

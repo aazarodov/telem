@@ -16,6 +16,11 @@
     },
     "oneTimeContractNumber": "Ц-0013",
     "barcode": "2147407517",
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {
@@ -98,7 +103,7 @@
   {
     "_id": "doc.laboratoryAnalyzes|57e212b5-049e-11e9-8101-f41614cd568a",
     "date": "2018-12-21T00:29:34",
-    "note": "alex.stommer@yandex.ru",
+    "note": "",
     "documentLink": "",
     "patient": {
       "ref": "00000000-0000-1000-8000-000000000001",
@@ -112,6 +117,11 @@
     },
     "oneTimeContractNumber": "Ц-0014",
     "barcode": "2180762476",
+    "recipient": {
+      "ref": "00000000-0000-1000-8000-000000000002",
+      "presentation": "Бродский Иосиф Александрович",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {
@@ -803,6 +813,11 @@
     },
     "oneTimeContractNumber": "Ц-0007",
     "barcode": "2149004496",
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {
@@ -1319,6 +1334,11 @@
     },
     "oneTimeContractNumber": "Ц-0010",
     "barcode": "2122808974",
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {
@@ -2290,6 +2310,11 @@
     },
     "oneTimeContractNumber": "Ц-0011",
     "barcode": "2148180574",
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {
@@ -2386,6 +2411,11 @@
     },
     "oneTimeContractNumber": "Ц-0012",
     "barcode": "2118926018",
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
     "analyzes": [
       {
         "analysis": {

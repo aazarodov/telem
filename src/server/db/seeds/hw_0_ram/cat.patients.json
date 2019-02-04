@@ -1,4 +1,4 @@
-[    
+[
   {
     "_id": "cat.patients|00000000-0000-1000-8000-000000000001",
     "name": "Пушкин Александр Сергеевич",
@@ -155,6 +155,36 @@
       "presentation": "Вельск",
       "type": "cat.cities"
     },
+    "family": [
+      {
+        "relation": {
+          "name": "Другая",
+          "presentation": "Другая",
+          "type": "enm.typeOfRelations"
+        },
+        "patient": {
+          "ref": "00000000-0000-1000-8000-000000000001",
+          "presentation": "Пушкин Александр Сергеевич",
+          "type": "cat.patients"
+        },
+        "general": false,
+        "access": true
+      },
+      {
+        "relation": {
+          "name": "Другая",
+          "presentation": "Другая",
+          "type": "enm.typeOfRelations"
+        },
+        "patient": {
+          "ref": "00000000-0000-1000-8000-000000000003",
+          "presentation": "Ахматова Анна",
+          "type": "cat.patients"
+        },
+        "general": false,
+        "access": false
+      }
+    ],
     "contactInformation": [
       {
         "type": {
