@@ -1,22 +1,5 @@
 'use strict';
 
-const Koa = require('koa');
-const cors = require('@koa/cors');
-const bodyParser = require('koa-bodyparser');
-const path = require('path');
-const log = require('logger-file-fun-line');
-const catcher = require('./middleware/catcher');
-const subdomain = require('./middleware/subdomain');
-const access = require('./middleware/access');
-const validator = require('./middleware/validator');
-const mountRoutes = require('./utils/koa-router-mount');
-
-if (process.env.NODE_ENV === 'multiple') {
-  if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
-  if (process.env.NODE_APP_INSTANCE === '1') process.env.NODE_ENV = 'dev1';
-  if (process.env.NODE_APP_INSTANCE === '2') process.env.NODE_ENV = 'dev2';
-}
-
 let PORT;
 switch (process.env.NODE_ENV) {
   case 'production': PORT = 80;
@@ -28,10 +11,26 @@ switch (process.env.NODE_ENV) {
   case 'test': PORT = 9999;
     break;
   default:
-    log(`unsupported NODE_ENV ${process.env.NODE_ENV} - exit`);
     process.exit(1);
     break;
 }
+
+if (process.env.NODE_ENV === 'multiple') {
+  if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
+  if (process.env.NODE_APP_INSTANCE === '1') process.env.NODE_ENV = 'dev1';
+  if (process.env.NODE_APP_INSTANCE === '2') process.env.NODE_ENV = 'dev2';
+}
+
+const Koa = require('koa');
+const cors = require('@koa/cors');
+const bodyParser = require('koa-bodyparser');
+const path = require('path');
+const log = require('logger-file-fun-line');
+const catcher = require('./middleware/catcher');
+const subdomain = require('./middleware/subdomain');
+const access = require('./middleware/access');
+const validator = require('./middleware/validator');
+const mountRoutes = require('./utils/koa-router-mount');
 
 const app = new Koa();
 
