@@ -23,7 +23,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "8a1b4c72-ddf2-11de-b21e-00140b0496c2",
           "presentation": "Витамин В12",
           "type": "cat.analyzesAndServices"
@@ -58,7 +58,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "d7c53ada-a652-11e1-b2ab-001517b46888",
           "presentation": "25-ОН витамин D (25-гидроксикальциферол)",
           "type": "cat.analyzesAndServices"
@@ -124,7 +124,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "f7940417-ddf4-11de-b21e-00140b0496c2",
           "presentation": "Общий анализ мочи (Uriscan, Вологда, Котлас",
           "type": "cat.analyzesAndServices"
@@ -159,7 +159,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d388-ff73-11de-94de-001517b46888",
           "presentation": "Цвет",
           "type": "cat.analyzesAndServices"
@@ -194,7 +194,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d38a-ff73-11de-94de-001517b46888",
           "presentation": "Удельный вес",
           "type": "cat.analyzesAndServices"
@@ -229,7 +229,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d38d-ff73-11de-94de-001517b46888",
           "presentation": "pH",
           "type": "cat.analyzesAndServices"
@@ -264,7 +264,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3a1-ff73-11de-94de-001517b46888",
           "presentation": "Белок количественно (норма до 0,120 г/л)",
           "type": "cat.analyzesAndServices"
@@ -299,7 +299,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3a5-ff73-11de-94de-001517b46888",
           "presentation": "глюкоза",
           "type": "cat.analyzesAndServices"
@@ -334,7 +334,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3a9-ff73-11de-94de-001517b46888",
           "presentation": "кетоновые тела",
           "type": "cat.analyzesAndServices"
@@ -369,7 +369,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3a7-ff73-11de-94de-001517b46888",
           "presentation": "нитриты",
           "type": "cat.analyzesAndServices"
@@ -404,7 +404,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3b1-ff73-11de-94de-001517b46888",
           "presentation": "билирубин",
           "type": "cat.analyzesAndServices"
@@ -439,7 +439,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3b3-ff73-11de-94de-001517b46888",
           "presentation": "уробилиноген",
           "type": "cat.analyzesAndServices"
@@ -474,7 +474,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3b5-ff73-11de-94de-001517b46888",
           "presentation": "эпителиальные клетки",
           "type": "cat.analyzesAndServices"
@@ -509,7 +509,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3b7-ff73-11de-94de-001517b46888",
           "presentation": "лейкоциты",
           "type": "cat.analyzesAndServices"
@@ -544,7 +544,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3b9-ff73-11de-94de-001517b46888",
           "presentation": "эритроциты неизмененные",
           "type": "cat.analyzesAndServices"
@@ -579,7 +579,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3bb-ff73-11de-94de-001517b46888",
           "presentation": "эритроциты измененные",
           "type": "cat.analyzesAndServices"
@@ -614,7 +614,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3bd-ff73-11de-94de-001517b46888",
           "presentation": "цилиндры",
           "type": "cat.analyzesAndServices"
@@ -649,7 +649,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "dda6d3bf-ff73-11de-94de-001517b46888",
           "presentation": "клетки почечного эпителия",
           "type": "cat.analyzesAndServices"
@@ -684,7 +684,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a24b4223-ff7a-11de-94de-001517b46888",
           "presentation": "соли",
           "type": "cat.analyzesAndServices"
@@ -719,7 +719,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a24b4225-ff7a-11de-94de-001517b46888",
           "presentation": "слизь",
           "type": "cat.analyzesAndServices"
@@ -754,7 +754,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a24b4227-ff7a-11de-94de-001517b46888",
           "presentation": "бактерии",
           "type": "cat.analyzesAndServices"
@@ -820,7 +820,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "0e4cd0a7-001b-11df-94de-001517b46888",
           "presentation": "ДНК гарднереллы вагиналис (Gardnerella vaginalis)",
           "type": "cat.analyzesAndServices"
@@ -855,7 +855,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "c6ca2b21-83cc-11e0-a3fd-001517b46888",
           "presentation": "Флороценоз-стандарт 8 показателей",
           "type": "cat.analyzesAndServices"
@@ -890,7 +890,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "08b93eb9-6611-11e0-928a-001517b46888",
           "presentation": "ДНК Gardnerella vaginalis",
           "type": "cat.analyzesAndServices"
@@ -925,7 +925,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "08b93ebb-6611-11e0-928a-001517b46888",
           "presentation": "ДНК Atopobium vaginae",
           "type": "cat.analyzesAndServices"
@@ -960,7 +960,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "08b93ebd-6611-11e0-928a-001517b46888",
           "presentation": "ДНК Lactobacillus spp.",
           "type": "cat.analyzesAndServices"
@@ -995,7 +995,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "08b93ebf-6611-11e0-928a-001517b46888",
           "presentation": "ДНК Bacteria - общее количество бактерий",
           "type": "cat.analyzesAndServices"
@@ -1030,7 +1030,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "f6ebcc96-c320-11e2-907a-001517b46888",
           "presentation": "Расшифровка результата",
           "type": "cat.analyzesAndServices"
@@ -1065,7 +1065,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "f6ebcc98-c320-11e2-907a-001517b46888",
           "presentation": "Заключение по результатам исследования",
           "type": "cat.analyzesAndServices"
@@ -1100,7 +1100,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "35d14359-820c-11e0-a3fd-001517b46888",
           "presentation": "ДНК Ureaplasma urealyticum",
           "type": "cat.analyzesAndServices"
@@ -1135,7 +1135,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "35d1435b-820c-11e0-a3fd-001517b46888",
           "presentation": "ДНК Mycoplasma hominis",
           "type": "cat.analyzesAndServices"
@@ -1170,7 +1170,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "8df80d07-d6ae-11e2-87f8-001517b46888",
           "presentation": "ДНК Ureaplasma parvum",
           "type": "cat.analyzesAndServices"
@@ -1205,7 +1205,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "0a7197bf-6b36-11e4-9646-001e679abfc4",
           "presentation": "грибы рода Candida ДНК C.albicans",
           "type": "cat.analyzesAndServices"
@@ -1240,7 +1240,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "0a7197c1-6b36-11e4-9646-001e679abfc4",
           "presentation": "грибы рода Candida ДНК C.glabrata",
           "type": "cat.analyzesAndServices"
@@ -1275,7 +1275,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "0a7197c3-6b36-11e4-9646-001e679abfc4",
           "presentation": "грибы рода Candida ДНК C.krusei",
           "type": "cat.analyzesAndServices"
@@ -1341,7 +1341,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "1cb561f5-652f-11e4-9646-001e679abfc4",
           "presentation": "Общий (клинический) анализ крови развернутый",
           "type": "cat.analyzesAndServices"
@@ -1376,7 +1376,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "1b964074-05b7-11df-94de-001517b46888",
           "presentation": "Количество лейкоцитов (WBC)",
           "type": "cat.analyzesAndServices"
@@ -1411,7 +1411,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de9280-3dc1-11e4-9b57-001517b46888",
           "presentation": "Количество эритроцитов (RBC)",
           "type": "cat.analyzesAndServices"
@@ -1446,7 +1446,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "1b964072-05b7-11df-94de-001517b46888",
           "presentation": "Гемоглобин (HGB)",
           "type": "cat.analyzesAndServices"
@@ -1481,7 +1481,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de9284-3dc1-11e4-9b57-001517b46888",
           "presentation": "Гематокрит (НСТ)",
           "type": "cat.analyzesAndServices"
@@ -1516,7 +1516,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de928c-3dc1-11e4-9b57-001517b46888",
           "presentation": "Тромбоциты (PLT)",
           "type": "cat.analyzesAndServices"
@@ -1551,7 +1551,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de9286-3dc1-11e4-9b57-001517b46888",
           "presentation": "Средний объем эритроцита (MCV)",
           "type": "cat.analyzesAndServices"
@@ -1586,7 +1586,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de9288-3dc1-11e4-9b57-001517b46888",
           "presentation": "Среднее содержание гемоглобина в эритроцитах (MCH)",
           "type": "cat.analyzesAndServices"
@@ -1621,7 +1621,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a1de928a-3dc1-11e4-9b57-001517b46888",
           "presentation": "Средняя концентрация гемоглобина в эритроците (MCHC)",
           "type": "cat.analyzesAndServices"
@@ -1656,7 +1656,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "bbb9946d-3f7e-11e4-9b57-001517b46888",
           "presentation": "Относительная ширина распределения эритроцитов по объему, коэффициент вариации (RDW-CV)",
           "type": "cat.analyzesAndServices"
@@ -1691,7 +1691,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a37f-3dd2-11e4-9b57-001517b46888",
           "presentation": "Тромбокрит (PCT)",
           "type": "cat.analyzesAndServices"
@@ -1726,7 +1726,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a385-3dd2-11e4-9b57-001517b46888",
           "presentation": "Средний объем тромбоцитов (MPV)",
           "type": "cat.analyzesAndServices"
@@ -1761,7 +1761,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a37d-3dd2-11e4-9b57-001517b46888",
           "presentation": "Ширина распределения тромбоцитов по обьему (PDW)",
           "type": "cat.analyzesAndServices"
@@ -1796,7 +1796,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820bc-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Бластные клетки",
           "type": "cat.analyzesAndServices"
@@ -1831,7 +1831,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820be-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Миелоциты",
           "type": "cat.analyzesAndServices"
@@ -1866,7 +1866,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820c0-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Метамиелоциты",
           "type": "cat.analyzesAndServices"
@@ -1901,7 +1901,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a39d-3dd2-11e4-9b57-001517b46888",
           "presentation": "Палочкоядерные нейтрофилы",
           "type": "cat.analyzesAndServices"
@@ -1936,7 +1936,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a3a1-3dd2-11e4-9b57-001517b46888",
           "presentation": "Сегментоядерные нейтрофилы",
           "type": "cat.analyzesAndServices"
@@ -1971,7 +1971,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a397-3dd2-11e4-9b57-001517b46888",
           "presentation": "Эозинофилы",
           "type": "cat.analyzesAndServices"
@@ -2006,7 +2006,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a395-3dd2-11e4-9b57-001517b46888",
           "presentation": "Базофилы",
           "type": "cat.analyzesAndServices"
@@ -2041,7 +2041,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a391-3dd2-11e4-9b57-001517b46888",
           "presentation": "Моноциты",
           "type": "cat.analyzesAndServices"
@@ -2076,7 +2076,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "a950a38f-3dd2-11e4-9b57-001517b46888",
           "presentation": "Лимфоциты",
           "type": "cat.analyzesAndServices"
@@ -2111,7 +2111,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820c2-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Атипичные лимфоциты",
           "type": "cat.analyzesAndServices"
@@ -2146,7 +2146,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820c4-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Плазматические клетки",
           "type": "cat.analyzesAndServices"
@@ -2181,7 +2181,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "5a7820c6-8b23-11e8-bdf7-001e679abfc4",
           "presentation": "Комментарий",
           "type": "cat.analyzesAndServices"
@@ -2216,7 +2216,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "33cc463f-3eb4-11e4-9b57-001517b46888",
           "presentation": "Морфология эритроцитов",
           "type": "cat.analyzesAndServices"
@@ -2251,7 +2251,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "48d49e47-a05a-11e1-85ec-001517b46888",
           "presentation": "Скорость оседания эритроцитов (по Вестергрену)",
           "type": "cat.analyzesAndServices"
@@ -2317,7 +2317,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "8a1b4c77-ddf2-11de-b21e-00140b0496c2",
           "presentation": "АФП",
           "type": "cat.analyzesAndServices"
@@ -2352,7 +2352,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "8a1b4c66-ddf2-11de-b21e-00140b0496c2",
           "presentation": "ДГЭА-S",
           "type": "cat.analyzesAndServices"
@@ -2418,7 +2418,7 @@
     },
     "analyzes": [
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "fcc6430a-004f-11df-94de-001517b46888",
           "presentation": "Микробиологическое  исследование отделяемого из ушей  на дрожжевые грибы(рода Candida) и плесневые грибы (ухо левое)",
           "type": "cat.analyzesAndServices"
@@ -2453,7 +2453,7 @@
         }
       },
       {
-        "analysis": {
+        "analyzesAndServices": {
           "ref": "29767011-7de2-11df-8368-001517b46888",
           "presentation": "Микробиологическое исследование соскоба с кожи  на дрожжевые грибы(рода Candida) и плесневые грибы.",
           "type": "cat.analyzesAndServices"

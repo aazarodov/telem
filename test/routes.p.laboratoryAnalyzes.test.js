@@ -36,7 +36,7 @@ describe('GET laboratoryAnalyzes', () => {
       res.body.data.docs.should.all.have.property('oneTimeContractNumber');
       res.body.data.docs.should.all.have.property('analyzes');
       res.body.data.docs.should.all.have.property('PDFAvailable');
-      res.body.data.docs[0].analyzes.should.all.have.property('analysis');
+      res.body.data.docs[0].analyzes.should.all.have.property('analyzesAndServices');
       res.body.data.docs[0].analyzes.should.all.have.property('normativ');
       res.body.data.docs[0].analyzes.should.all.have.property('result');
       res.body.data.docs[0].analyzes.should.all.have.property('approvalDateResult');
@@ -54,7 +54,7 @@ describe('GET laboratoryAnalyzes', () => {
         },
         dataKeys: ['_rev', 'date', 'barcode', 'recipient', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
       });
-      res.body.data.analyzes.should.all.have.property('analysis');
+      res.body.data.analyzes.should.all.have.property('analyzesAndServices');
       res.body.data.analyzes.should.all.have.property('normativ');
       res.body.data.analyzes[1].should.have.property('result');
       res.body.data.analyzes[1].should.have.property('approvalDateResult');
@@ -72,7 +72,7 @@ describe('GET laboratoryAnalyzes', () => {
         },
         dataKeys: ['_rev', 'date', 'barcode', 'recipient', 'oneTimeContractNumber', 'analyzes', 'PDFAvailable'],
       });
-      res.body.data.analyzes.should.all.have.property('analysis');
+      res.body.data.analyzes.should.all.have.property('analyzesAndServices');
       res.body.data.analyzes.should.all.have.property('normativ');
       res.body.data.analyzes[0].should.have.property('result');
       res.body.data.analyzes[0].should.have.property('approvalDateResult');
