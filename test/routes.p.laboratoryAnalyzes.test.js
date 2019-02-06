@@ -36,6 +36,7 @@ describe('GET laboratoryAnalyzes', () => {
       res.body.data.docs.should.all.have.property('oneTimeContractNumber');
       res.body.data.docs.should.all.have.property('analyzes');
       res.body.data.docs.should.all.have.property('PDFAvailable');
+      res.body.data.docs[0].should.have.property('PDFAvailable', true);
       res.body.data.docs[0].analyzes.should.all.have.property('analyzesAndServices');
       res.body.data.docs[0].analyzes.should.all.have.property('normativ');
       res.body.data.docs[0].analyzes.should.all.have.property('result');
