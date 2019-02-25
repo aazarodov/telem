@@ -9,7 +9,7 @@
     "node": "NODE_ENV=test node ./src/server/app.js",
     "nodemon": "NODE_ENV=test nodemon ./src/server/app.js",
     "start": "pm2 start",
-    "restart": "pm2 delete all || pm2 start",
+    "restart": "pm2 reload all || pm2 delete all ; pm2 start",
     "stop": "pm2 stop all"
   },
   "repository": {
