@@ -134,4 +134,7 @@ module.exports = {
     if (!city) return { error: 'city not found' };
     return db.atomic('ddoc', 'updatePatient', _id, { city });
   },
+  async updateAvatar(_id, avatar) {
+    return db.atomic('ddoc', 'updatePatient', _id, { avatar });
+  },
 };

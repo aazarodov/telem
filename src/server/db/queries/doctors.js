@@ -30,4 +30,12 @@ module.exports = {
     });
     return response.rows.length > 0 ? response.rows[0].value : null;
   },
+  async getByLogin(login) {
+    const response = await db.view('ddoc', 'doctorLoginPassword', {
+      startkey: [login],
+      endkey: [login, {}],
+    });
+    if (response.rows.length > 1) log(`More then one doctor witn login: ${login}`);
+    return response.rows.length > 0 ? response.rows[0].value : null;
+  },
 };

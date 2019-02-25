@@ -35,6 +35,7 @@
       "presentation": "Вологда",
       "type": "cat.cities"
     },
+    "avatar": "",
     "contactInformation": [
       {
         "type": {
@@ -155,6 +156,7 @@
       "presentation": "Вельск",
       "type": "cat.cities"
     },
+    "avatar": "00000000-0000-1000-8000-000000000210",
     "family": [
       {
         "relation": {

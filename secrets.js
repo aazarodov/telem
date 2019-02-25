@@ -9,6 +9,7 @@ module.exports = {
   sendPDFUrl: 'http://mit.paas1c.ru/celdi_unf_tRmXuGCedXGN/hs/celdiApi/sendPDF',
   getPDFUrl: 'http://mit.paas1c.ru/celdi_unf_tRmXuGCedXGN/hs/celdiApi/getPDF',
   PDFToken: 'KuyqPZWC4XHRjkYCAngC1tovWog8c0MjXkrJCJ9SpyFJ1iOGAm82W7oz1fMaWvcc',
+  oneSKey: 'oMj2pvds6Vg3TtEOM3mxXZn7xl3vyPQAH1Za7FWYYpOyVM17KABxlCHK7lM6Mzx2',
   smsExpiry: 900,
   accessExpiry: 3600, // 3600 = 1 hour
   registerExpiry: 900, // 900 =  15 min, 1 year = 31556926
