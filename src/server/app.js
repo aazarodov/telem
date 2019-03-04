@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 if (process.env.NODE_ENV === 'multiple') {
   if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
