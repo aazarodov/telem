@@ -19,7 +19,7 @@ describe('correct patient logout', () => {
     it('should remove access cookie when POST', async () => {
       const res = await chai.request(server)
         .post('/auth/logout')
-        .set('host', 'doctor.telem.ml')
+        .set('host', 'doctor.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'logout successful', { authCookieShould: false });
     });
@@ -28,7 +28,7 @@ describe('correct patient logout', () => {
     it('should remove access cookie when GET', async () => {
       const res = await chai.request(server)
         .get('/auth/logout')
-        .set('host', 'doctor.telem.ml')
+        .set('host', 'doctor.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'logout successful', { authCookieShould: false });
     });

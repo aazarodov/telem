@@ -80,7 +80,7 @@ module.exports = {
     try {
       const doc = await db.get(_id);
       if (doc.class_name !== className) {
-        throw new Error(`getById class_name === ${doc.class_name}, expect ${className}`);
+        return null;
       }
       return doc;
     } catch (error) {

@@ -24,14 +24,14 @@ describe('test accessToken using /whoami', () => {
     it('should return access deny, accessToken absent', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'patient.telem.ml');
+        .set('host', 'patient.telmed.ml');
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken absent');
     });
     it('should return access deny, accessToken incorrect', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'pat.telem.ml')
+        .set('host', 'pat.telmed.ml')
         .set('Cookie', 'pat=some_fake_access_token');
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken incorrect');
@@ -39,7 +39,7 @@ describe('test accessToken using /whoami', () => {
     it('should return access deny, accessToken expired', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'p.telem.ml')
+        .set('host', 'p.telmed.ml')
         .set('Cookie', `pat=${await encrypt({ pid: patient01Id, expiry: alwaysExpired })}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken expired');
@@ -47,7 +47,7 @@ describe('test accessToken using /whoami', () => {
     it('should return access deny, accessToken absent', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'd.telem.ml')
+        .set('host', 'd.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken absent');
@@ -55,7 +55,7 @@ describe('test accessToken using /whoami', () => {
     it('should return access deny, accessToken wrong type', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'doc.telem.ml')
+        .set('host', 'doc.telmed.ml')
         .set('Cookie', `dat=${patient01Cookie}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken wrong type');
@@ -63,7 +63,7 @@ describe('test accessToken using /whoami', () => {
     it('should return access deny, accessToken wrong type', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'doctor.telem.ml')
+        .set('host', 'doctor.telmed.ml')
         .set('Cookie', `dat=${patient01Cookie}`);
       test(res, 403, 'access deny', { authCookieShould: false });
       res.body.should.have.property('error', 'accessToken wrong type');
@@ -71,28 +71,28 @@ describe('test accessToken using /whoami', () => {
     it('should return success with patient01Cookie', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'p.telem.ml')
+        .set('host', 'p.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'You are Пушкин Александр Сергеевич');
     });
     it('should return success with patient01Cookie', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'pat.telem.ml')
+        .set('host', 'pat.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'You are Пушкин Александр Сергеевич');
     });
     it('should return success with patient02Id', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'patient.telem.ml')
+        .set('host', 'patient.telmed.ml')
         .set('Cookie', `pat=${await encrypt({ pid: patient02Id, expiry: neverExpiry, type: 'patient' })}`);
       test(res, 'You are Бродский Иосиф Александрович');
     });
     it('should return error 404 when subdomain qwerty', async () => {
       const res = await chai.request(server)
         .get('/whoami')
-        .set('host', 'qwerty.telem.ml')
+        .set('host', 'qwerty.telmed.ml')
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 404, { authCookieShould: false, bodyTest: false });
     });

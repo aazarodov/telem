@@ -9,6 +9,9 @@ module.exports = {
       const patient = await patients.getById(ctx.state.access.pid);
       delete patient._id;
       delete patient._rev;
+      delete patient.password;
+      delete patient.note;
+      delete patient.status;
       ctx.body = {
         status: 'success',
         message: 'patient info',

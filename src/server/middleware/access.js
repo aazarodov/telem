@@ -63,6 +63,15 @@ module.exports = () => async (ctx, next) => {
     };
     return;
   }
+  if (ctx.path.indexOf('/d/support/') === 0 && tokenData.group !== 'operator') {
+    ctx.status = 403;
+    ctx.body = {
+      status: 'error',
+      message: 'access deny',
+      error: 'accessToken wrong doctor group',
+    };
+    return;
+  }
   if (accessType === 'patient') {
     ctx.state.access.pid = tokenData.pid;
   } else {

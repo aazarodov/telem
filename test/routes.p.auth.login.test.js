@@ -13,10 +13,9 @@ const {
   p01Password,
   p02phoneNumber,
   p02Password,
-
 } = require('./things/values');
 
-chai.should();
+const { expect } = chai;
 chai.use(chaiHttp);
 
 const postedPatientWtihPhone = {
@@ -77,6 +76,14 @@ describe('POST auth/login', () => {
         .post('/auth/login')
         .send(postedPatientWtihMail);
       test(res, 'login successful');
+    });
+    it('should return return neverExpiry cookie', async () => {
+      const res = await chai.request(server)
+        .post('/auth/login')
+        .send({ ...postedPatientWtihMail, remember: true });
+      test(res, 'login successful');
+      const cookieStr = res.header['set-cookie'][0];
+      expect(cookieStr.substr(cookieStr.indexOf('expires=') + 8, 29)).to.be.eq('Thu, 01 Jan 3018 00:00:00 GMT');
     });
   });
   describe('incorrect login or password', () => {

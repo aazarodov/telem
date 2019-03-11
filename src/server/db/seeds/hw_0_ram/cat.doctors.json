@@ -6,10 +6,17 @@
     "specialization": {
       "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
       "presentation": "Хирург",
-      "type": "cat."
+      "type": "cat.specializations"
     },
     "login": "luke",
     "password": "4JDouhWjss8+7A1mxYQShvbTyMG21anV79r2Yl4GSNU=",
+    "childDoctor": false,
+    "groupOfMis": {
+      "name": "Врачи",
+      "presentation": "Врачи",
+      "type": "enm.typesGroupOfMis"
+    },
+    "adultDoctor": true,
     "class_name": "cat.doctors"
   },
   {
@@ -23,6 +30,13 @@
     },
     "login": "fedorov",
     "password": "JW/G0i9GtKV6svYMyayVDEvypwbEhm/kQZ0im11HrIE=",
+    "childDoctor": true,
+    "groupOfMis": {
+      "name": "Врачи",
+      "presentation": "Врачи",
+      "type": "enm.typesGroupOfMis"
+    },
+    "adultDoctor": true,
     "class_name": "cat.doctors"
   },
   {
@@ -36,6 +50,13 @@
     },
     "login": "leo",
     "password": "wuRup7VnxGqp7kl+4Cuf4PKFLY6N50/ia5nBozzq6RE=",
+    "childDoctor": true,
+    "groupOfMis": {
+      "name": "Врачи",
+      "presentation": "Врачи",
+      "type": "enm.typesGroupOfMis"
+    },
+    "adultDoctor": false,
     "class_name": "cat.doctors"
   },
   {
@@ -49,6 +70,53 @@
     },
     "login": "pupkin",
     "password": "nPSlvx7LHwTpB0CyZW3stJaPCQqU36sZxVT17DRtRcg=",
+    "childDoctor": true,
+    "groupOfMis": {
+      "name": "Врачи",
+      "presentation": "Врачи",
+      "type": "enm.typesGroupOfMis"
+    },
+    "adultDoctor": false,
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000050",
+    "name": "Лавин Аврил Рамона",
+    "noActive": false,
+    "specialization": {
+      "ref": "55eba094-dd9f-11de-9112-001bfcfe4479",
+      "presentation": "Медицинская сестра",
+      "type": "cat.specializations"
+    },
+    "login": "avril",
+    "password": "qXIbaIC4hVuK4U+nZzykJbKcdiafDqnNLGcjcNRdDf0=",
+    "childDoctor": false,
+    "adultDoctor": false,
+    "groupOfMis": {
+      "name": "Операторы",
+      "presentation": "Операторы",
+      "type": "enm.typesGroupOfMis"
+    },
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000060",
+    "name": "Блэк Томас Джейкоб",
+    "noActive": false,
+    "specialization": {
+      "ref": "55eba091-dd9f-11de-9112-001bfcfe4479",
+      "presentation": "Администратор - кассир",
+      "type": "cat.specializations"
+    },
+    "login": "jack",
+    "password": "UYGoxRAFfLD7XCj2b0ZVb1mHtY+lhyidyg2ZFq+UoAI=",
+    "childDoctor": false,
+    "adultDoctor": false,
+    "groupOfMis": {
+      "name": "Операторы",
+      "presentation": "Операторы",
+      "type": "enm.typesGroupOfMis"
+    },
     "class_name": "cat.doctors"
   }
 ]

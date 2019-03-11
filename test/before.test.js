@@ -9,6 +9,7 @@ const server = require('../src/server/app');
 const ramSeeding = require('../src/server/db/seeds/hw_0_ram');
 const smsSeeding = require('../src/server/db/seeds/sms');
 const filesSeeding = require('../src/server/db/seeds/files');
+const chatsSeeding = require('../src/server/db/seeds/chats');
 
 chai.use(chaiHttp);
 let localServer;
@@ -19,6 +20,9 @@ before(async () => {
   await ramSeeding();
   await smsSeeding();
   await filesSeeding();
+  await chatsSeeding();
 });
 
-after(() => { localServer.close(); });
+after(() => {
+  localServer.close();
+});

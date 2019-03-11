@@ -3,12 +3,12 @@
 const log = require('logger-file-fun-line');
 const doctors = require('../../../db/queries/doctors');
 const { encrypt } = require('../../../utils/crypto');
-const { accessExpiry, oneSKey } = require('../../../../../secrets');
+const { accessExpiry, neverExpiry, oneSKey } = require('../../../../../secrets');
 const unixtimestamp = require('../../../utils/unixtimestamp');
 
 module.exports = {
   post: async (ctx) => {
-    const { login, key } = ctx.state.data;
+    const { login, key, remember } = ctx.state.data;
     if (key !== oneSKey) {
       ctx.status = 403;
       ctx.body = {
@@ -20,10 +20,13 @@ module.exports = {
     const foundDoctor = await doctors.getByLogin(login);
     if (foundDoctor) {
       const did = foundDoctor._id;
-      const expiry = unixtimestamp() + accessExpiry;
+      const expiry = remember ? neverExpiry : unixtimestamp() + accessExpiry;
+      const group = foundDoctor.groupOfMis.name === 'Операторы' ? 'operator' : 'doctor';
       ctx.cookies.set(
         'dat',
-        await encrypt({ did, expiry, type: 'doctor' }),
+        await encrypt({
+          did, expiry, type: 'doctor', group,
+        }),
         {
           expires: new Date(expiry * 1000),
           httpOnly: true,
@@ -36,6 +39,10 @@ module.exports = {
           doctor: {
             name: foundDoctor.name,
             specialization: foundDoctor.specialization.presentation,
+            group,
+            childDoctor: foundDoctor.childDoctor,
+            adultDoctor: foundDoctor.adultDoctor,
+
           },
         },
       };

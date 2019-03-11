@@ -19,7 +19,7 @@ module.exports = {
   p02Password: 'qwerty',
   p03NewPassword: 'asdfgh',
   p04Password: 'buzzword123',
-  neverExpiry: 33071673600000,
+  neverExpiry: 33071673600,
   alwaysExpired: 1544808748,
   patient01Id: 'cat.patients|00000000-0000-1000-8000-000000000001',
   patient02Id: 'cat.patients|00000000-0000-1000-8000-000000000002',
@@ -38,13 +38,31 @@ module.exports = {
   doctor02Id: 'cat.doctors|00000000-0000-1000-8000-000000000020',
   doctor03Id: 'cat.doctors|00000000-0000-1000-8000-000000000030',
   doctor04Id: 'cat.doctors|00000000-0000-1000-8000-000000000040',
+  doctor05Id: 'cat.doctors|00000000-0000-1000-8000-000000000050',
+  doctor06Id: 'cat.doctors|00000000-0000-1000-8000-000000000060',
   d01Login: 'luke', // Хирург
   d02Login: 'fedorov', // Офтальмолог
   d03Login: 'leo', // Кардиолог
   d04Login: 'pupkin', // Уволенный хигрург
+  d05Login: 'avril', // Оператор
+  d06Login: 'jack', // Оператор
   d01Password: '123456',
   d02Password: 'qwerty',
   d03Password: 'asdfgh',
   d04Password: 'zxcvbn',
-  doctor01Cookie: 'vH9WnTcyKIgLe20hQGXIdj1RxOw/6N9OV+quhA0QxWYXlHK0hD38/Cn1Dkf2dspdgd0++zKIAyk1s6XGfnskc2O4TSVVmpJzqoNYygNWIn8VWBqfoZgslGVUQFjDW4nOk2wmSwCLCM+Zitt4ls8FZDdTvo1dn0/kS7aTH+NQtAk=',
+  d05Password: 'complicated',
+  d06Password: 'tenacious',
+  p01SupportChat01Id: '00000000-0000-1000-8000-000000001001', // open not taken
+  p01SupportChat02Id: '00000000-0000-1000-8000-000000001002', // open taken op5
+  p01SupportChat03Id: '00000000-0000-1000-8000-000000001003', // open taken op6
+  p01SupportChat04Id: '00000000-0000-1000-8000-000000001004', // closed op5
+  p02SupportChat01Id: '00000000-0000-1000-8000-000000002001', // open not taken
+  p02SupportChat02Id: '00000000-0000-1000-8000-000000002002', // open taken op5
+  p02SupportChat03Id: '00000000-0000-1000-8000-000000002003', // closed op6
+  supportTitle01Id: '00000000-0000-1000-8000-000000010001',
+  supportTitle02Id: '00000000-0000-1000-8000-000000010002',
+  supportTitle03Id: '00000000-0000-1000-8000-000000010003',
+  supportTitle04Id: '00000000-0000-1000-8000-000000010004',
+  doctor01Cookie: 'D7j5UNKCSLxxL3rLb7X8VfpzhfwP4sWLIGaSVpJ7KnNsQpp5gI6U5BRQPl5rGYJpFRAwJNmILgvlQWdkaaN5e7ew3K86xgjxzym0ck9BlxwJxN4rZ0Mm1D6HpSSMlC7sGAafm31iDa0VrmtQm4AOO2SMQp0BaagveKF7ST9p7397fIG85v6Wad9AO6TT5G7z',
+  doctor05Cookie: 'NKI4p+wuL2zYYZQYubZryLyzr2TETgcIB0ttrpufqw3BO5vKh+W2vEzF4XbEmpVfRe5tUtNMGdL+7RBv3IyTEpN5wmMaDkzsz6i/CDIzDnhIToGbzYkrKUnS7l2CuyqkkvEVFSKUrsFWtfP/HTE1f/OX8CTf0ij7EsAS52w59nfOdbHrXjjwOk1nHSJZ/5lM',
 };

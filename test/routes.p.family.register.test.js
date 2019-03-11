@@ -67,18 +67,14 @@ describe('POST family/register', () => {
         data: {
           ...patient01Bound01,
           birthDate: '1990-09-01T00:00:00',
-          password: '',
           class_name: 'cat.patients',
         },
-        dataKeys: ['sex', 'status', 'family'],
-        dataNotKeys: ['_id', '_rev', 'id', 'rev'],
+        dataKeys: ['sex', 'family'],
+        dataNotKeys: ['_id', '_rev', 'id', 'rev', 'status', 'password', 'note'],
       });
       res.body.data.sex.should.have.property('name', 'Мужской');
       res.body.data.sex.should.have.property('presentation', 'Мужской');
       res.body.data.sex.should.have.property('type', 'enm.typesOfSex');
-      res.body.data.status.should.have.property('ref');
-      res.body.data.status.should.have.property('presentation', 'Новый');
-      res.body.data.status.should.have.property('type', 'cat.patientStatuses');
       res.body.data.family[0].should.have.nested.property('relation.name', 'Родитель');
       res.body.data.family[0].should.have.nested.property('relation.presentation', 'Родитель');
       res.body.data.family[0].should.have.nested.property('relation.type', 'enm.typeOfRelations');

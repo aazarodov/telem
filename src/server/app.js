@@ -7,6 +7,7 @@ if (process.env.NODE_ENV === 'multiple') {
 }
 
 const Koa = require('koa');
+const webSocket = require('ws');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
 const path = require('path');
@@ -16,6 +17,8 @@ const subdomain = require('./middleware/subdomain');
 const access = require('./middleware/access');
 const validator = require('./middleware/validator');
 const mountRoutes = require('./utils/koa-router-mount');
+const { verifyClient, handleProtocols } = require('./websoket/handshake');
+const rpc = require('./websoket/rpc');
 
 let PORT;
 switch (process.env.NODE_ENV) {
@@ -45,6 +48,20 @@ mountRoutes(app, path.join(__dirname, 'routes'));
 const server = app.listen(PORT, () => {
   log(`Start server on ${process.env.NODE_ENV} mode, port: ${PORT}`);
   if (typeof process.send === 'function') process.send('ready');
+});
+
+const wss = new webSocket.Server({
+  server,
+  verifyClient,
+  handleProtocols,
+});
+
+wss.on('connection', (ws, req) => {
+  rpc(ws, req);
+});
+
+server.on('close', () => {
+  wss.close();
 });
 
 process.on('SIGINT', () => {

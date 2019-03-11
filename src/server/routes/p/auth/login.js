@@ -3,19 +3,19 @@
 const log = require('logger-file-fun-line');
 const patients = require('../../../db/queries/patients');
 const { encrypt } = require('../../../utils/crypto');
-const { accessExpiry } = require('../../../../../secrets');
+const { accessExpiry, neverExpiry } = require('../../../../../secrets');
 const unixtimestamp = require('../../../utils/unixtimestamp');
 
 module.exports = {
   post: async (ctx) => {
-    const { login, password } = ctx.state.data;
+    const { login, password, remember } = ctx.state.data;
     const foundPatient = await patients.login(login, password);
     if (foundPatient) {
       if (foundPatient.status.presentation === 'Активен'
         || foundPatient.status.presentation === 'Новый') {
         const { lastName, firstName, middleName } = foundPatient;
         const pid = foundPatient._id;
-        const expiry = unixtimestamp() + accessExpiry;
+        const expiry = remember ? neverExpiry : unixtimestamp() + accessExpiry;
         ctx.cookies.set(
           'pat',
           await encrypt({ pid, expiry, type: 'patient' }),

@@ -37,7 +37,7 @@ describe('GET patient', () => {
           agreementOfSendingResults: true,
         },
         dataKeys: ['contactInformation'],
-        dataNotKeys: ['_id', '_rev', 'id', 'rev'],
+        dataNotKeys: ['_id', '_rev', 'id', 'rev', 'password', 'note', 'status'],
       });
       // Тут вид контактной информации Телефон, Телефон представителя, E-mail, Адрес
       res.body.data.contactInformation.should.all.have.nested.property('kind.presentation');

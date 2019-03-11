@@ -25,7 +25,7 @@ describe('routes : index', () => {
     it('should return test patient index with p domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'p.telem.ml');
+        .set('host', 'p.telmed.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
@@ -34,7 +34,7 @@ describe('routes : index', () => {
     it('should return test patient index with pat domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'pat.telem.ml');
+        .set('host', 'pat.telmed.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
@@ -43,7 +43,7 @@ describe('routes : index', () => {
     it('should return test patient index with patient domain', async () => {
       const res = await chai.request(server)
         .get('/')
-        .set('host', 'patient.telem.ml');
+        .set('host', 'patient.telmed.ml');
       res.status.should.eql(200);
       res.type.should.eql('application/json');
       res.body.status.should.eql('success');
