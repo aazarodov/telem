@@ -21,7 +21,4 @@ module.exports = {
       text: Joi.string().max(4096).required(),
     }).required(),
   }),
-  post: Joi.object().keys({ // close chat by patient
-    _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
-  }),
 };

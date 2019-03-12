@@ -48,39 +48,6 @@ module.exports = {
       };
     }
   },
-  post: async (ctx) => {
-    try {
-      const res = await supportChats.closeByOperator(ctx.state.data._id, ctx.state.access.did);
-      if (res.ok) {
-        ctx.status = 200;
-        ctx.body = {
-          status: 'success',
-          message: 'supportChat closed',
-        };
-      } else if (res.reason === 'already closed') {
-        ctx.status = 400;
-        ctx.body = {
-          status: 'error',
-          message: 'supportChat already closed',
-          debug: res.reason,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'supportChat not found',
-          debug: res.reason,
-        };
-      }
-    } catch (error) {
-      log(error);
-      ctx.status = 500;
-      ctx.body = {
-        status: 'error',
-        message: 'couchdb error',
-      };
-    }
-  },
   put: async (ctx) => {
     try {
       const res = await supportChats.take(ctx.state.data._id, ctx.state.access.did);

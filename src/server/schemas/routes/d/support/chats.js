@@ -18,7 +18,4 @@ module.exports = {
   put: Joi.object().keys({ // take new chat
     _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
   }),
-  post: Joi.object().keys({ // close chat by operator
-    _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
-  }),
 };

@@ -13,7 +13,7 @@ const supportTitles = [];
 
 // indexes: type, supportChat,pid, supportChat,did,closeDate,title, supportUnread,
 // supportMessage,chatId
-// ddoc: closeSupportChatByPatient, closeSupportChatByOperator, takeSupportChat
+// ddoc: takeSupportChat
 
 module.exports = {
   async supportTitles() {
@@ -112,12 +112,6 @@ module.exports = {
     });
     const createdMessage = await db.insert(messageDoc);
     return { createdChat, createdMessage };
-  },
-  async closeByPatient(_id, pid) {
-    return db.atomic('ddoc', 'closeSupportChatByPatient', _id, { pid });
-  },
-  async closeByOperator(_id, did) {
-    return db.atomic('ddoc', 'closeSupportChatByOperator', _id, { did });
   },
   async take(_id, did) {
     return db.atomic('ddoc', 'takeSupportChat', _id, { did });

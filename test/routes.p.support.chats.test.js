@@ -127,47 +127,4 @@ describe('GET supportChats', () => {
       (new Date(res.body.data.openDate)).getTime().should.be.closeTo(sendDate.getTime(), 5000);
     });
   });
-  describe('POST /support/chats as patient01', () => {
-    it('should return supportChat closed', async () => {
-      {
-        const res = await chai.request(server)
-          .post('/support/chats')
-          .set('Cookie', `pat=${patient01Cookie}`)
-          .send({
-            _id: p01SupportChat01Id,
-          });
-        test(res, 'supportChat closed');
-      }
-      const res = await chai.request(server)
-        .get('/support/chats')
-        .query({ _id: p01SupportChat01Id })
-        .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'supportChat doc', {
-        data: {
-          _id: p01SupportChat01Id,
-        },
-        dataKeys: ['closeDate', 'meta'],
-      });
-      (new Date(res.body.data.closeDate)).getTime().should.be.closeTo((new Date()).getTime(), 5000);
-      res.body.data.meta.should.have.property('closedBy', 'patient');
-    });
-    it('should return error 400', async () => {
-      const res = await chai.request(server)
-        .post('/support/chats')
-        .set('Cookie', `pat=${patient01Cookie}`)
-        .send({
-          _id: p01SupportChat01Id,
-        });
-      test(res, 400, 'supportChat already closed');
-    });
-    it('should return error 400', async () => {
-      const res = await chai.request(server)
-        .post('/support/chats')
-        .set('Cookie', `pat=${patient01Cookie}`)
-        .send({
-          _id: p02SupportChat01Id,
-        });
-      test(res, 404, 'supportChat not found');
-    });
-  });
 });

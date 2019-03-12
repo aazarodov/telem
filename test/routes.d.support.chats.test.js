@@ -81,53 +81,6 @@ describe('GET supportChats', () => {
       });
     });
   });
-  describe('POST /support/chats as doctor05', () => {
-    // it('should return supportChat closed', async () => {
-    //   {
-    //     const res = await chai.request(server)
-    //       .post('/support/chats')
-    //       .set('host', 'doctor.telmed.ml')
-    //       .set('Cookie', `dat=${doctor05Cookie}`)
-    //       .send({
-    //         _id: p01SupportChat02Id,
-    //       });
-    //     test(res, 'supportChat closed');
-    //   }
-    //   const res = await chai.request(server)
-    //     .get('/support/chats')
-    //     .set('host', 'doctor.telmed.ml')
-    //     .query({ _id: p01SupportChat02Id })
-    //     .set('Cookie', `dat=${doctor05Cookie}`);
-    //   test(res, 'supportChat doc', {
-    //     data: {
-    //       _id: p01SupportChat02Id,
-    //     },
-    //     dataKeys: ['closeDate', 'meta'],
-    //   });
-    //   (new Date(res.body.data.closeDate)).getTime().should.be.closeTo((new Date()).getTime(), 5000);
-    //   res.body.data.meta.should.have.property('closedBy', 'operator');
-    // });
-    it('should return error 400', async () => {
-      const res = await chai.request(server)
-        .post('/support/chats')
-        .set('host', 'doctor.telmed.ml')
-        .set('Cookie', `dat=${doctor05Cookie}`)
-        .send({
-          _id: p01SupportChat02Id,
-        });
-      test(res, 400, 'supportChat already closed');
-    });
-    it('should return error 404', async () => {
-      const res = await chai.request(server)
-        .post('/support/chats')
-        .set('host', 'doctor.telmed.ml')
-        .set('Cookie', `dat=${doctor05Cookie}`)
-        .send({
-          _id: p01SupportChat03Id,
-        });
-      test(res, 404, 'supportChat not found');
-    });
-  });
   describe('PUT /support/chats as doctor05', () => {
     it('should return supportChat taken', async () => {
       {
