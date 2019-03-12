@@ -25,7 +25,7 @@ const relation = {
 const prepereFamilyPatient = async (pid) => {
   const doc = await db.get(pid);
   if (doc.class_name !== className) {
-    throw new Error(`prepereFamilyPatient class_name === ${doc.class_name}, expect ${className}`);
+    return null;
   }
   return {
     ref: trimId(pid),
