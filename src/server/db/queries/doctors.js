@@ -18,6 +18,13 @@ module.exports = {
       if (doc.class_name !== className) {
         return null;
       }
+      if (doc.meta) {
+        try {
+          doc.meta = JSON.parse(doc.meta);
+        } catch (er) {
+          doc.meta = '';
+        }
+      }
       return doc;
     } catch (error) {
       if (error.error === 'not_found') return null;
@@ -28,7 +35,16 @@ module.exports = {
     const response = await db.view('ddoc', 'doctorLoginPassword', {
       key: [login, await hash(password)],
     });
-    return response.rows.length > 0 ? response.rows[0].value : null;
+    if (response.rows.length === 0) return null;
+    const doc = response.rows[0].value;
+    if (doc.meta) {
+      try {
+        doc.meta = JSON.parse(doc.meta);
+      } catch (er) {
+        doc.meta = '';
+      }
+    }
+    return doc;
   },
   async getByLogin(login) {
     const response = await db.view('ddoc', 'doctorLoginPassword', {
@@ -36,6 +52,15 @@ module.exports = {
       endkey: [login, {}],
     });
     if (response.rows.length > 1) log(`More then one doctor witn login: ${login}`);
-    return response.rows.length > 0 ? response.rows[0].value : null;
+    if (response.rows.length === 0) return null;
+    const doc = response.rows[0].value;
+    if (doc.meta) {
+      try {
+        doc.meta = JSON.parse(doc.meta);
+      } catch (er) {
+        doc.meta = '';
+      }
+    }
+    return doc;
   },
 };

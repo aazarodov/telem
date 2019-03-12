@@ -82,6 +82,13 @@ module.exports = {
       if (doc.class_name !== className) {
         return null;
       }
+      if (doc.meta) {
+        try {
+          doc.meta = JSON.parse(doc.meta);
+        } catch (er) {
+          doc.meta = '';
+        }
+      }
       return doc;
     } catch (error) {
       if (error.error === 'not_found') return null;
@@ -94,13 +101,31 @@ module.exports = {
       endkey: [phoneNumber, {}],
     });
     if (response.rows.length > 1) log(`More then one patient witn phoneNumber: ${phoneNumber}`);
-    return response.rows.length > 0 ? response.rows[0].value : null;
+    if (response.rows.length === 0) return null;
+    const doc = response.rows[0].value;
+    if (doc.meta) {
+      try {
+        doc.meta = JSON.parse(doc.meta);
+      } catch (er) {
+        doc.meta = '';
+      }
+    }
+    return doc;
   },
   async login(login, password) {
     const response = await db.view('ddoc', 'patientLoginPassword', {
       key: [login, await hash(password)],
     });
-    return response.rows.length > 0 ? response.rows[0].value : null;
+    if (response.rows.length === 0) return null;
+    const doc = response.rows[0].value;
+    if (doc.meta) {
+      try {
+        doc.meta = JSON.parse(doc.meta);
+      } catch (er) {
+        doc.meta = '';
+      }
+    }
+    return doc;
   },
   async insertNew(postedPatient) {
     const newPatient = await preperePatient(postedPatient);

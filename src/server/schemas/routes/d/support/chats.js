@@ -8,7 +8,12 @@ module.exports = {
       _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
     }),
     Joi.object().keys({
-      titles: Joi.array().min(1).items(Joi.string().max(255).required()).required(),
+      titles: Joi.array().items(Joi.string().valid([
+        'Запись на прием',
+        'Лабораторные анализы',
+        'Медицинские услуги',
+        'Другие вопросы',
+      ]).required()).required(),
       new: Joi.bool().required(),
       closed: Joi.bool().required(),
       limit: Joi.number().positive().default(100),

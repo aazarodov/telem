@@ -10,6 +10,7 @@ const {
   server,
   d01Login,
   d04Login,
+  d05Login,
 } = require('./things/values');
 const {
   oneSKey,
@@ -33,11 +34,18 @@ describe('POST doctor /auth/loginByKey', () => {
         res.body.data.doctor.should.have.property('group', 'doctor');
         res.body.data.doctor.should.have.property('childDoctor');
         res.body.data.doctor.should.have.property('adultDoctor');
+        res.body.data.doctor.should.have.property('meta');
       }
       const res = await agent
         .get('/whoami')
         .set('host', 'doctor.telmed.ml');
       test(res, 'You are Валентин Феликсович Войно-Ясенецкий');
+      res.body.data.doctor.should.have.property('name', 'Валентин Феликсович Войно-Ясенецкий');
+      res.body.data.doctor.should.have.property('specialization', 'Хирург');
+      res.body.data.doctor.should.have.property('group', 'doctor');
+      res.body.data.doctor.should.have.property('childDoctor');
+      res.body.data.doctor.should.have.property('adultDoctor');
+      res.body.data.doctor.should.have.property('meta');
       agent.close();
     });
     it('should return return neverExpiry cookie', async () => {
@@ -48,6 +56,39 @@ describe('POST doctor /auth/loginByKey', () => {
       test(res, 'login successful');
       const cookieStr = res.header['set-cookie'][0];
       expect(cookieStr.substr(cookieStr.indexOf('expires=') + 8, 29)).to.be.eq('Thu, 01 Jan 3018 00:00:00 GMT');
+    });
+    it('should return meta', async () => {
+      const agent = chai.request.agent(server);
+      {
+        const res = await agent
+          .post('/auth/loginByKey')
+          .set('host', 'doctor.telmed.ml')
+          .send({ login: d05Login, key: oneSKey });
+        test(res, 'login successful', { dataKeys: ['doctor'] });
+        res.body.data.doctor.should.have.property('name', 'Лавин Аврил Рамона');
+        res.body.data.doctor.should.have.property('specialization', 'Медицинская сестра');
+        res.body.data.doctor.should.have.property('group', 'operator');
+        res.body.data.doctor.should.have.property('childDoctor');
+        res.body.data.doctor.should.have.property('adultDoctor');
+        res.body.data.doctor.should.have.property('meta');
+        res.body.data.doctor.meta.should.have.property('supportTitles');
+        res.body.data.doctor.meta.supportTitles.should.have.property(0, 'Запись на прием');
+        res.body.data.doctor.meta.supportTitles.should.have.property(1, 'Медицинские услуги');
+      }
+      const res = await agent
+        .get('/whoami')
+        .set('host', 'doctor.telmed.ml');
+      test(res, 'You are Лавин Аврил Рамона');
+      res.body.data.doctor.should.have.property('name', 'Лавин Аврил Рамона');
+      res.body.data.doctor.should.have.property('specialization', 'Медицинская сестра');
+      res.body.data.doctor.should.have.property('group', 'operator');
+      res.body.data.doctor.should.have.property('childDoctor');
+      res.body.data.doctor.should.have.property('adultDoctor');
+      res.body.data.doctor.should.have.property('meta');
+      res.body.data.doctor.meta.should.have.property('supportTitles');
+      res.body.data.doctor.meta.supportTitles.should.have.property(0, 'Запись на прием');
+      res.body.data.doctor.meta.supportTitles.should.have.property(1, 'Медицинские услуги');
+      agent.close();
     });
   });
   describe('incorrect login or key', () => {

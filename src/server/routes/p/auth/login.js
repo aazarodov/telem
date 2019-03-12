@@ -28,7 +28,11 @@ module.exports = {
           status: 'success',
           message: 'login successful',
           data: {
-            patient: { lastName, firstName, middleName },
+            patient: {
+              lastName,
+              firstName,
+              middleName,
+            },
           },
         };
       } else {

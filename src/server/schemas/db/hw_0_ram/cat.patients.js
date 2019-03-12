@@ -50,6 +50,7 @@ module.exports = Joi.object().keys({
     type: Joi.string().valid('cat.cities').required(),
   }),
   avatar: Joi.string().allow('').uuid({ version: 'uuidv1' }),
+  meta: Joi.string(),
   family: Joi.array(),
   contactInformation: Joi.array().items(
     Joi.object().keys({

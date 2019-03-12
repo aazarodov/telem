@@ -16,6 +16,7 @@
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "",
     "adultDoctor": true,
     "class_name": "cat.doctors"
   },
@@ -36,6 +37,7 @@
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "",
     "adultDoctor": true,
     "class_name": "cat.doctors"
   },
@@ -56,6 +58,7 @@
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "",
     "adultDoctor": false,
     "class_name": "cat.doctors"
   },
@@ -76,6 +79,7 @@
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "",
     "adultDoctor": false,
     "class_name": "cat.doctors"
   },
@@ -97,6 +101,7 @@
       "presentation": "Операторы",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "{\"supportTitles\":[\"Запись на прием\",\"Медицинские услуги\"]}",
     "class_name": "cat.doctors"
   },
   {
@@ -117,6 +122,7 @@
       "presentation": "Операторы",
       "type": "enm.typesGroupOfMis"
     },
+    "meta": "",
     "class_name": "cat.doctors"
   }
 ]

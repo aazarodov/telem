@@ -42,7 +42,7 @@ module.exports = {
             group,
             childDoctor: foundDoctor.childDoctor,
             adultDoctor: foundDoctor.adultDoctor,
-
+            meta: foundDoctor.meta,
           },
         },
       };
