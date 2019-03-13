@@ -13,7 +13,7 @@ const supportTitles = [];
 
 // indexes: type, supportChat,pid, supportChat,did,closeDate,title, supportUnread,
 // supportMessage,chatId
-// ddoc: takeSupportChat
+// ddoc: takeSupportChat updMessageStatus closeSupportChat
 
 module.exports = {
   async supportTitles() {

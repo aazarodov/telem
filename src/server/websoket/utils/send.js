@@ -28,7 +28,7 @@ module.exports = {
     };
     ws.send(JSON.stringify(msg));
   },
-  async cb(id, error, result) { // clients, userId, wsId
+  async cb(id, error, result) {
     if (typeof callbacks[id] === 'function') {
       await callbacks[id](error, result);
       delete callbacks[id];

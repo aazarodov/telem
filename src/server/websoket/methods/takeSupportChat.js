@@ -11,7 +11,7 @@ module.exports = async (clients, userId, wsId, data) => {
     return ['only operator can take supportChat', null];
   }
   let res;
-  try { // supportChat taken
+  try {
     res = await supportChats.take(userId, data._id);
     if (!res.ok) {
       return [res.reason, null];

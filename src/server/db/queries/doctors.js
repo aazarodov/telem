@@ -9,7 +9,7 @@ const dbname = prefix('hw_0_ram');
 const db = couch.use(dbname);
 const className = 'cat.doctors';
 
-// indexes: class_name, views: doctorLoginPassword
+// indexes: class_name, views: doctorLoginPassword, update updateDoctorMeta
 
 module.exports = {
   async getById(_id) {

@@ -26,7 +26,6 @@ module.exports = (ws, req) => {
   const wsId = clients[userId].ws.push(ws) - 1;
 
   const handleMessage = async (msgStr) => {
-    // log(msgStr);
     let msg;
     let data;
     try {
