@@ -32,7 +32,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "logger-file-fun-line": "^1.0.0",
-    "nano": "^7.1.1",
+    "nano": "^8.0.0",
     "node-fetch": "^2.3.0",
     "uuid": "^3.3.2",
     "ws": "^6.2.0"

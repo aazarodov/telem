@@ -23,14 +23,13 @@ module.exports = {
         null,
         newDoc.type,
         { rev: createdDoc.rev },
-        (err, res) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(res);
-          }
-        },
       );
+      is.once('error', (err) => {
+        reject(err);
+      });
+      is.once('end', () => {
+        resolve(createdDoc);
+      });
       ostream.pipe(is);
     });
     return addedAtt;
