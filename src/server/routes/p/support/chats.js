@@ -46,49 +46,4 @@ module.exports = {
       };
     }
   },
-  put: async (ctx) => {
-    const chatRaw = {
-      _id: '',
-      type: 'supportChat',
-      pid: ctx.state.access.pid,
-      did: '',
-      title: ctx.state.data.title,
-      meta: ctx.state.data.meta,
-      openDate: new Date(),
-      closeDate: '',
-    };
-
-    const messageRaw = {
-      _id: '',
-      type: 'supportMessage',
-      chatId: '',
-      from: ctx.state.access.pid,
-      to: '',
-      sendDate: ctx.state.data.firstMessage.sendDate,
-      receivedDate: new Date(),
-      deliveredDate: '',
-      readDate: '',
-      meta: ctx.state.data.firstMessage.meta,
-      text: ctx.state.data.firstMessage.text,
-    };
-
-    try {
-      const res = await supportChats.create(chatRaw, messageRaw);
-      ctx.status = 201;
-      ctx.body = {
-        status: 'success',
-        message: 'supportChat created',
-        data: {
-          _id: res.createdChat.id,
-        },
-      };
-    } catch (error) {
-      log(error);
-      ctx.status = 500;
-      ctx.body = {
-        status: 'error',
-        message: 'couchdb error',
-      };
-    }
-  },
 };

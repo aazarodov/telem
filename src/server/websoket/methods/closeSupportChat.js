@@ -5,8 +5,8 @@ const send = require('../utils/send');
 const supportChats = require('../../db/queries/supportChats');
 
 module.exports = async (clients, userId, wsId, data) => {
-  if (clients[userId].group === 'doctor') {
-    return ['supportChats for operator only', null];
+  if (clients[userId].accessType !== 'patient' && clients[userId].group !== 'operator') {
+    return ['supportChats for patient and operator only', null];
   }
   let result;
   try {

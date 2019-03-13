@@ -202,7 +202,7 @@ describe('WebSocket closeSupportChat', () => {
         _id: p01SupportChat01Id,
       }, (error, result) => {
         if (error) {
-          expect(error).to.be.eq('supportChats for operator only');
+          expect(error).to.be.eq('supportChats for patient and operator only');
           done();
           return;
         }

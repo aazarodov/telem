@@ -63,4 +63,7 @@ module.exports = {
     }
     return doc;
   },
+  async updateMeta(_id, data) {
+    return db.atomic('ddoc', 'updateDoctorMeta', _id, data);
+  },
 };

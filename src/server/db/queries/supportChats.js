@@ -111,7 +111,9 @@ module.exports = {
       chatId: createdChat.id,
     });
     const createdMessage = await db.insert(messageDoc);
-    return { createdChat, createdMessage };
+    chatDoc._id = createdChat.id;
+    messageDoc._id = createdMessage.id;
+    return { ok: true, chatDoc, messageDoc };
   },
   async take(_id, did) {
     return db.atomic('ddoc', 'takeSupportChat', _id, { did });
