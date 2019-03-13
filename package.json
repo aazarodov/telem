@@ -4,7 +4,7 @@
   "description": "telem",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha --exit --timeout 20000 ./test/**/*.test.js",
+    "test": "./node_modules/mocha/bin/_mocha --exit ./test/*.test.js",
     "nodemon:test": "NODE_ENV=test nodemon --watch . --exec 'node ./node_modules/mocha/bin/_mocha ./test/**/*.test.js app.js || true'",
     "node": "NODE_ENV=test node ./src/server/app.js",
     "nodemon": "NODE_ENV=test nodemon ./src/server/app.js",
@@ -23,10 +23,10 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "chai-things": "^0.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^6.0.2"
   },
   "dependencies": {
-    "@koa/cors": "^2.2.3",
+    "@koa/cors": "^3.0.0",
     "joi": "^14.3.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",

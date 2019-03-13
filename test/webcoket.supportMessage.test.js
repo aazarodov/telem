@@ -19,6 +19,19 @@ const {
   doctor05Id,
 } = require('./things/values');
 
+const { expect } = chai;
+const callbacks = {};
+let wsP01;
+let wsD01;
+let wsD05;
+let newMessageId;
+
+after(() => {
+  if (typeof wsP01.close === 'function') wsP01.close();
+  if (typeof wsD01.close === 'function') wsD01.close();
+  if (typeof wsD05.close === 'function') wsD05.close();
+});
+
 const wsOptions = {
   protocol: 'jsonrpc-telem',
   headers: {
@@ -26,15 +39,6 @@ const wsOptions = {
     cookie: `pat=${patient01Cookie}`,
   },
 };
-
-let wsP01;
-let wsD01;
-let wsD05;
-
-const { expect } = chai;
-const callbacks = {};
-
-let newMessageId;
 
 const sendReq = (ws, method, params, cb) => {
   const msg = {
@@ -67,12 +71,6 @@ const handleMessage = (msgStr) => {
   }
   return msg;
 };
-
-after(() => {
-  if (typeof wsP01.close === 'function') wsP01.close();
-  if (typeof wsD01.close === 'function') wsD01.close();
-  if (typeof wsD05.close === 'function') wsD05.close();
-});
 
 describe('WebSocket sendMessage', () => {
   describe('WebSocket connect', () => {

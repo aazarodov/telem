@@ -14,10 +14,12 @@ module.exports = (ws, req) => {
   const userId = req.state.access.pid || req.state.access.did;
   const accessType = req.state.access.type;
   const doctorGroup = req.state.access.group || null;
+  const { userDoc } = req.state;
   if (!clients[userId]) {
     clients[userId] = {
       accessType,
       group: doctorGroup,
+      userDoc,
       ws: [],
     };
   }
@@ -77,5 +79,6 @@ module.exports = (ws, req) => {
     wsId,
     accessType,
     doctorGroup,
+    meta: userDoc.meta,
   });
 };

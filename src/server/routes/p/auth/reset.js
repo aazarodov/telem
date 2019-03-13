@@ -37,11 +37,20 @@ module.exports = {
       if (foundPatient) {
         if (foundPatient.status.presentation === 'Активен'
           || foundPatient.status.presentation === 'Новый') {
-          await patients.resetPassword(foundPatient, password);
-          ctx.body = {
-            status: 'success',
-            message: 'reset password successful',
-          };
+          const response = await patients.resetPassword(foundPatient._id, password);
+          if (response.ok) {
+            ctx.body = {
+              status: 'success',
+              message: 'reset password successful',
+            };
+          } else {
+            ctx.status = 500;
+            ctx.body = {
+              status: 'error',
+              message: 'couchdb reset password error',
+              error: response,
+            };
+          }
         } else {
           ctx.status = 400;
           ctx.body = {

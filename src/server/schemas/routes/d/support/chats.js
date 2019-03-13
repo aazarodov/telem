@@ -20,7 +20,7 @@ module.exports = {
       bookmark: Joi.string().default(''),
     }),
   ]),
-  put: Joi.object().keys({ // take new chat
-    _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
-  }),
+  // put: Joi.object().keys({ // take new chat
+  //   _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
+  // }),
 };

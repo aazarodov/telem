@@ -79,7 +79,7 @@ module.exports = {
   async getById(_id) {
     try {
       const doc = await db.get(_id);
-      if (doc.class_name !== className) {
+      if (!doc || doc.class_name !== className) {
         return null;
       }
       if (doc.meta) {
@@ -137,8 +137,8 @@ module.exports = {
     await patientSchema.validate(updPatient);
     return db.insert({ ...updPatient, _id, _rev });
   },
-  async resetPassword(foundPatient, password) {
-    return db.insert({ ...foundPatient, password: await hash(password) });
+  async resetPassword(_id, password) {
+    return db.atomic('ddoc', 'updatePatient', _id, { password: await hash(password) });
   },
   async updateDataMismatch(foundPatient, patientDataMismatch) {
     const updPatient = await preperePatient(

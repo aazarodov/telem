@@ -12,13 +12,29 @@ const {
   server,
   patient01Cookie,
   doctor05Cookie,
+  doctor06Cookie,
   p01SupportChat01Id,
   p01SupportChat02Id,
   doctor01Cookie,
   patient01Id,
   doctor01Id,
   doctor05Id,
+  doctor06Id,
 } = require('./things/values');
+
+const { expect } = chai;
+const callbacks = {};
+let wsP01;
+let wsD01;
+let wsD05;
+let wsD06;
+
+after(() => {
+  if (typeof wsP01.close === 'function') wsP01.close();
+  if (typeof wsD01.close === 'function') wsD01.close();
+  if (typeof wsD05.close === 'function') wsD05.close();
+  if (typeof wsD06.close === 'function') wsD06.close();
+});
 
 const wsOptions = {
   protocol: 'jsonrpc-telem',
@@ -27,13 +43,6 @@ const wsOptions = {
     cookie: `pat=${patient01Cookie}`,
   },
 };
-
-let wsP01;
-let wsD01;
-let wsD05;
-
-const { expect } = chai;
-const callbacks = {};
 
 const sendReq = (ws, method, params, cb) => {
   const msg = {
@@ -67,12 +76,6 @@ const handleMessage = (msgStr) => {
   return msg;
 };
 
-after(() => {
-  if (typeof wsP01.close === 'function') wsP01.close();
-  if (typeof wsD01.close === 'function') wsD01.close();
-  if (typeof wsD05.close === 'function') wsD05.close();
-});
-
 describe('WebSocket closeSupportChat', () => {
   describe('WebSocket connect', () => {
     it('should return connected when patient01', (done) => {
@@ -85,6 +88,8 @@ describe('WebSocket closeSupportChat', () => {
         expect(msg.params).to.have.property('wsId');
         expect(msg.params).to.have.property('accessType', 'patient');
         expect(msg.params).to.have.property('doctorGroup', null);
+        expect(msg.params).to.have.property('meta');
+        expect(msg.params.meta).to.have.property('test', 'testString');
         done();
       });
     });
@@ -100,6 +105,7 @@ describe('WebSocket closeSupportChat', () => {
         expect(msg.params).to.have.property('wsId');
         expect(msg.params).to.have.property('accessType', 'doctor');
         expect(msg.params).to.have.property('doctorGroup', 'doctor');
+        expect(msg.params).to.have.property('meta', '');
         done();
       });
     });
@@ -115,12 +121,34 @@ describe('WebSocket closeSupportChat', () => {
         expect(msg.params).to.have.property('wsId');
         expect(msg.params).to.have.property('accessType', 'doctor');
         expect(msg.params).to.have.property('doctorGroup', 'operator');
+        expect(msg.params).to.have.property('meta');
+        expect(msg.params.meta).to.have.property('supportTitles');
+        expect(msg.params.meta.supportTitles).to.have.property(0, 'Запись на прием');
+        expect(msg.params.meta.supportTitles).to.have.property(1, 'Медицинские услуги');
+        done();
+      });
+    });
+    it('should return connected when doctor06', (done) => {
+      wsOptions.headers.cookie = `dat=${doctor06Cookie}`;
+      wsOptions.headers.host = 'doctor.telmed.ml';
+      wsD06 = new WebSocket(`ws://${server}`, wsOptions);
+      wsD06.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'connected');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('userId', doctor06Id);
+        expect(msg.params).to.have.property('wsId');
+        expect(msg.params).to.have.property('accessType', 'doctor');
+        expect(msg.params).to.have.property('doctorGroup', 'operator');
+        expect(msg.params).to.have.property('meta');
+        expect(msg.params.meta).to.have.property('supportTitles');
+        expect(msg.params.meta.supportTitles).to.have.property(0, 'Запись на прием');
         done();
       });
     });
   });
-  describe('WebSocket closeSupportChat', () => {
-    it('doctor05  -> closeSupportChat, patient01 <- supportChatClosed,\n      ✓ doctor05 <- supportChatClosed, doctor05  <- closeSupportChatCallback', (done) => {
+  describe('WebSocket closeSupportChat p01SupportChat02Id', () => {
+    it('doctor05  -> closeSupportChat,\n      ✓ patient01 <- supportChatClosed,\n      ✓ doctor05 <- supportChatClosed,\n      ✓ doctor05  <- closeSupportChatCallback', (done) => {
       sendReq(wsD05, 'closeSupportChat', {
         _id: p01SupportChat02Id,
       }, (error, result) => {
@@ -133,6 +161,15 @@ describe('WebSocket closeSupportChat', () => {
         console.log('      ✓ doctor05 <- closeSupportChatCallback');
         done();
       });
+      wsP01.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'supportChatClosed');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('_id', p01SupportChat02Id);
+        expect(msg.params).to.have.property('closeDate');
+        expect(msg.params).to.have.property('meta');
+        console.log('      ✓ patient01 <- closeSupportChat');
+      });
       wsD05.once('message', (msgStr) => {
         const msg = handleMessage(msgStr);
         expect(msg).to.have.property('method', 'supportChatClosed');
@@ -142,15 +179,6 @@ describe('WebSocket closeSupportChat', () => {
         expect(msg.params).to.have.property('meta');
         console.log('      ✓ doctor05 <- closeSupportChat');
         wsD05.once('message', handleMessage);
-      });
-      wsP01.once('message', (msgStr) => {
-        const msg = handleMessage(msgStr);
-        expect(msg).to.have.property('method', 'supportChatClosed');
-        expect(msg).to.have.property('params');
-        expect(msg.params).to.have.property('_id', p01SupportChat02Id);
-        expect(msg.params).to.have.property('closeDate');
-        expect(msg.params).to.have.property('meta');
-        console.log('      ✓ patient01 <- closeSupportChat');
       });
       console.log('      ✓ doctor05 -> closeSupportChat');
     });
@@ -183,6 +211,51 @@ describe('WebSocket closeSupportChat', () => {
         done();
       });
       wsD01.once('message', handleMessage);
+    });
+  });
+  describe('WebSocket closeSupportChat p01SupportChat01Id', () => {
+    it('patient01  -> closeSupportChat,\n      ✓ patient01 <- supportChatClosed,\n      ✓ doctor05 <- supportChatClosed,\n      ✓ doctor06 <- supportChatClosed,\n      ✓ patient01  <- closeSupportChatCallback', (done) => {
+      sendReq(wsP01, 'closeSupportChat', {
+        _id: p01SupportChat01Id,
+      }, (error, result) => {
+        if (error) {
+          expect(true, error).to.be.false();
+          done();
+          return;
+        }
+        expect(result).to.be.eq('success');
+        console.log('      ✓ patient01 <- closeSupportChatCallback');
+        done();
+      });
+      wsP01.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'supportChatClosed');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('_id', p01SupportChat01Id);
+        expect(msg.params).to.have.property('closeDate');
+        expect(msg.params).to.have.property('meta');
+        console.log('      ✓ patient01 <- closeSupportChat');
+        wsP01.once('message', handleMessage);
+      });
+      wsD05.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'supportChatClosed');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('_id', p01SupportChat01Id);
+        expect(msg.params).to.have.property('closeDate');
+        expect(msg.params).to.have.property('meta');
+        console.log('      ✓ doctor05 <- closeSupportChat');
+      });
+      wsD06.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'supportChatClosed');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('_id', p01SupportChat01Id);
+        expect(msg.params).to.have.property('closeDate');
+        expect(msg.params).to.have.property('meta');
+        console.log('      ✓ doctor06 <- closeSupportChat');
+      });
+      console.log('      ✓ patient01 -> closeSupportChat');
     });
   });
 });

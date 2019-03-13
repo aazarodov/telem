@@ -92,39 +92,39 @@ describe('GET supportChats', () => {
       });
     });
   });
-  describe('PUT /support/chats as patient01', () => {
-    it('should return supportChat created, with _id on data field', async () => {
-      const title = 'Лабораторные анализы';
-      const sendDate = new Date();
-      const text = 'Чем общий анализ крови отличается от развёрнутого?';
-      let newSupportChatId;
-      {
-        const res = await chai.request(server)
-          .put('/support/chats')
-          .set('Cookie', `pat=${patient01Cookie}`)
-          .send({
-            title,
-            firstMessage: {
-              sendDate,
-              text,
-            },
-          });
-        test(res, 201, 'supportChat created', { dataKeys: ['_id'] });
-        newSupportChatId = res.body.data._id;
-      }
-      const res = await chai.request(server)
-        .get('/support/chats')
-        .query({ _id: newSupportChatId })
-        .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'supportChat doc', {
-        data: {
-          _id: newSupportChatId,
-          title,
-          closeDate: '',
-        },
-      });
-      res.body.data.should.have.property('openDate');
-      (new Date(res.body.data.openDate)).getTime().should.be.closeTo(sendDate.getTime(), 5000);
-    });
-  });
+  // describe('PUT /support/chats as patient01', () => {
+  //   it('should return supportChat created, with _id on data field', async () => {
+  //     const title = 'Лабораторные анализы';
+  //     const sendDate = new Date();
+  //     const text = 'Чем общий анализ крови отличается от развёрнутого?';
+  //     let newSupportChatId;
+  //     {
+  //       const res = await chai.request(server)
+  //         .put('/support/chats')
+  //         .set('Cookie', `pat=${patient01Cookie}`)
+  //         .send({
+  //           title,
+  //           firstMessage: {
+  //             sendDate,
+  //             text,
+  //           },
+  //         });
+  //       test(res, 201, 'supportChat created', { dataKeys: ['_id'] });
+  //       newSupportChatId = res.body.data._id;
+  //     }
+  //     const res = await chai.request(server)
+  //       .get('/support/chats')
+  //       .query({ _id: newSupportChatId })
+  //       .set('Cookie', `pat=${patient01Cookie}`);
+  //     test(res, 'supportChat doc', {
+  //       data: {
+  //         _id: newSupportChatId,
+  //         title,
+  //         closeDate: '',
+  //       },
+  //     });
+  //     res.body.data.should.have.property('openDate');
+  //     (new Date(res.body.data.openDate)).getTime().should.be.closeTo(sendDate.getTime(), 5000);
+  //   });
+  // });
 });

@@ -122,7 +122,7 @@
       "presentation": "Операторы",
       "type": "enm.typesGroupOfMis"
     },
-    "meta": "",
+    "meta": "{\"supportTitles\":[\"Запись на прием\"]}",
     "class_name": "cat.doctors"
   }
 ]

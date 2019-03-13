@@ -15,7 +15,7 @@ module.exports = {
   async getById(_id) {
     try {
       const doc = await db.get(_id);
-      if (doc.class_name !== className) {
+      if (!doc || doc.class_name !== className) {
         return null;
       }
       if (doc.meta) {

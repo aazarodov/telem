@@ -12,13 +12,13 @@ module.exports = {
       bookmark: Joi.string().default(''),
     }),
   ]),
-  put: Joi.object().keys({ // create new
-    title: Joi.string().max(255).required(),
-    meta: Joi.object().default({}),
-    firstMessage: Joi.object().keys({
-      sendDate: Joi.date().required(),
-      meta: Joi.object().default({}),
-      text: Joi.string().max(4096).required(),
-    }).required(),
-  }),
+  // put: Joi.object().keys({ // create new
+  //   title: Joi.string().max(255).required(),
+  //   meta: Joi.object().default({}),
+  //   firstMessage: Joi.object().keys({
+  //     sendDate: Joi.date().required(),
+  //     meta: Joi.object().default({}),
+  //     text: Joi.string().max(4096).required(),
+  //   }).required(),
+  // }),
 };
