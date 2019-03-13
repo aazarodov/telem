@@ -180,7 +180,7 @@ describe('WebSocket updateListeningSupportTitles', () => {
         supportTitles,
       }, (error, result) => {
         if (error) {
-          expect(error).to.be.eq('supportChats for patient and operator only');
+          expect(error).to.be.eq('only operator can listening for new supportChat');
           done();
           return;
         }

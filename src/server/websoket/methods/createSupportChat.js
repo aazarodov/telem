@@ -5,7 +5,7 @@
 const log = require('logger-file-fun-line');
 const send = require('../utils/send');
 const { supportTitles } = require('../../db/queries/supportChats');
-const { create } = require('../../db/queries/supportChats');
+const supportChats = require('../../db/queries/supportChats');
 
 module.exports = async (clients, userId, wsId, data) => {
   if (clients[userId].accessType !== 'patient') {
@@ -41,7 +41,7 @@ module.exports = async (clients, userId, wsId, data) => {
   };
 
   try {
-    const res = await create(chatRaw, messageRaw);
+    const res = await supportChats.create(chatRaw, messageRaw);
     if (!res.ok) {
       return ['couchdb error', null];
     }

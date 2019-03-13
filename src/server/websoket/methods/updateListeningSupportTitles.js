@@ -7,8 +7,8 @@ const doctors = require('../../db/queries/doctors');
 const { supportTitles } = require('../../db/queries/supportChats');
 
 module.exports = async (clients, userId, wsId, data) => {
-  if (clients[userId].accessType !== 'patient' && clients[userId].group !== 'operator') {
-    return ['supportChats for patient and operator only', null];
+  if (clients[userId].group !== 'operator') {
+    return ['only operator can listening for new supportChat', null];
   }
   const supportTitlesList = await supportTitles();
   if (!data.supportTitles.every(title => supportTitlesList.includes(title))) {

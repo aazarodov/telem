@@ -56,6 +56,7 @@ module.exports = {
   p01SupportChat02Id: '00000000-0000-1000-8000-000000001002', // open taken op5
   p01SupportChat03Id: '00000000-0000-1000-8000-000000001003', // open taken op6
   p01SupportChat04Id: '00000000-0000-1000-8000-000000001004', // closed op5
+  p01SupportChat05Id: '00000000-0000-1000-8000-000000001005', // open not taken
   p02SupportChat01Id: '00000000-0000-1000-8000-000000002001', // open not taken
   p02SupportChat02Id: '00000000-0000-1000-8000-000000002002', // open taken op5
   p02SupportChat03Id: '00000000-0000-1000-8000-000000002003', // closed op6

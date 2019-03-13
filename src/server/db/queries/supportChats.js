@@ -115,7 +115,7 @@ module.exports = {
     messageDoc._id = createdMessage.id;
     return { ok: true, chatDoc, messageDoc };
   },
-  async take(_id, did) {
+  async take(did, _id) {
     return db.atomic('ddoc', 'takeSupportChat', _id, { did });
   },
   async messagesList(chatId, limit, bookmark, pid) {

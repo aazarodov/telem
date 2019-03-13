@@ -166,5 +166,17 @@
     "deliveredDate": "",
     "readDate": "",
     "text": "Are you still here?"
+  },
+  {
+    "_id": "00000000-0000-1000-8000-000000100015",
+    "type": "supportMessage",
+    "chatId": "00000000-0000-1000-8000-000000001005",
+    "from": "cat.patients|00000000-0000-1000-8000-000000000001",
+    "to": "",
+    "sendDate": "2019-03-12T00:56:00.000Z",
+    "receivedDate": "2019-03-12T00:56:01.000Z",
+    "deliveredDate": "",
+    "readDate": "",
+    "text": "Как записаться на прием?"
   }
 ]
