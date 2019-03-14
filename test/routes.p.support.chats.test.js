@@ -14,6 +14,8 @@ const {
   p01SupportChat04Id,
   p02SupportChat01Id,
   patient02Id,
+  patient01Id,
+  doctor05Id,
 } = require('./things/values');
 
 
@@ -29,6 +31,8 @@ describe('GET supportChats', () => {
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'supportChats list', { dataKeys: ['docs', 'bookmark'] });
       res.body.data.docs.should.all.have.property('_id');
+      res.body.data.docs.should.all.have.property('pid');
+      res.body.data.docs.should.all.have.property('did');
       res.body.data.docs.should.all.have.property('title');
       res.body.data.docs.should.all.have.property('openDate');
       res.body.data.docs.should.all.have.property('closeDate');
@@ -43,6 +47,8 @@ describe('GET supportChats', () => {
       test(res, 'supportChat doc', {
         data: {
           _id: p01SupportChat01Id,
+          pid: patient01Id,
+          did: '',
           title: 'Запись на прием',
           openDate: '2019-03-06T11:22:06.001Z',
           closeDate: '',
@@ -59,6 +65,8 @@ describe('GET supportChats', () => {
       test(res, 'supportChat doc', {
         data: {
           _id: p01SupportChat04Id,
+          pid: patient01Id,
+          did: doctor05Id,
           title: 'Медицинские услуги',
           openDate: '2019-01-01T01:01:01.000Z',
           closeDate: '2019-01-01T02:02:02.000Z',

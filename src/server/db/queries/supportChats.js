@@ -54,6 +54,7 @@ module.exports = {
       },
       fields: [
         '_id',
+        'pid',
         'did',
         'title',
         'meta',
@@ -68,7 +69,7 @@ module.exports = {
     unreadMessages.rows.forEach((row) => {
       const docIndex = supportChats.docs.findIndex(doc => doc._id === row.key[1]);
       if (docIndex !== -1) {
-        supportChats.docs[docIndex].unreadCount = row.value;
+        supportChats.docs[docIndex].unread = row.value;
       }
     });
     return supportChats;
@@ -97,7 +98,7 @@ module.exports = {
     unreadMessages.rows.forEach((row) => {
       const docIndex = supportChats.docs.findIndex(doc => doc._id === row.key[1]);
       if (docIndex !== -1) {
-        supportChats.docs[docIndex].unreadCount = row.value;
+        supportChats.docs[docIndex].unread = row.value;
       }
     });
     return supportChats;
@@ -135,6 +136,7 @@ module.exports = {
       fields: [
         '_id',
         'chatId',
+        'type',
         'from',
         'to',
         'sendDate',

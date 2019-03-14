@@ -29,6 +29,7 @@ describe('GET supportMessages', () => {
       test(res, 'supportMessages list', { dataKeys: ['docs', 'bookmark'] });
       res.body.data.docs.should.all.have.property('_id');
       res.body.data.docs.should.all.have.property('chatId');
+      res.body.data.docs.should.all.have.property('type');
       res.body.data.docs.should.all.have.property('from');
       res.body.data.docs.should.all.have.property('to');
       res.body.data.docs.should.all.have.property('sendDate');
