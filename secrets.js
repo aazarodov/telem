@@ -3,7 +3,7 @@
 module.exports = {
   salt: '{-FF*/m7I#PuG#h_rbJzvcZeab{||46Y)-GNZ_B72-4g?E4k"V',
   cipherKey: 'aRGdfI268+tyCzSUAAm5kqcUDHGfKtLZYezbaXbDkkw=',
-  couchdbUrlDev: 'http://admin:LlRp4QjzZHzCCiCRVpHobye8d8qQBvDBUeQ@couch.telmed.ml:5984',
+  couchdbUrlDev: 'http://admin:LlRp4QjzZHzCCiCRVpHobye8d8qQBvDBUeQ@159.69.200.160:5984',
   couchdbUrlProd: 'http://admin:SsAa%4085@195.201.96.73:5984',
   smsGatewayBaseUrl: 'https://gt.smsgold.ru/sendsms.php?user=mcvita35&pwd=123456&dadr=',
   sendPDFUrl: 'http://mit.paas1c.ru/celdi_unf_tRmXuGCedXGN/hs/celdiApi/sendPDF',

@@ -19,10 +19,11 @@
           }
         }
       },
-      "supportChat,pid": {
+      "supportChat,pid,openDate": {
         "map": {
           "fields": {
-            "pid": "asc"
+            "pid": "desc",
+            "openDate": "desc"
           },
           "partial_filter_selector": {
             "type": "supportChat"
@@ -32,17 +33,19 @@
         "options": {
           "def": {
             "fields": [
-              "pid"
+              "pid",
+              "openDate"
             ]
           }
         }
       },
-      "supportChat,did,closeDate,title": {
+      "supportChat,did,openDate,closeDate,title": {
         "map": {
           "fields": {
-            "did": "asc",
-            "closeDate": "asc",
-            "title": "asc"
+            "did": "desc",
+            "openDate": "desc",
+            "closeDate": "desc",
+            "title": "desc"
           },
           "partial_filter_selector": {
             "type": "supportChat"
@@ -53,6 +56,7 @@
           "def": {
             "fields": [
               "did",
+              "openDate",
               "closeDate",
               "title"
             ]
@@ -80,10 +84,11 @@
           }
         }
       },
-      "unread": {
+      "unread,sendDate": {
         "map": {
           "fields": {
-            "to": "asc"
+            "to": "desc",
+            "sendDate": "desc"
           },
           "partial_filter_selector": {
             "readDate": ""
@@ -93,15 +98,17 @@
         "options": {
           "def": {
             "fields": [
-              "to"
+              "to",
+              "sendDate"
             ]
           }
         }
       },
-      "supportMessage,chatId": {
+      "supportMessage,chatId,sendDate": {
         "map": {
           "fields": {
-            "chatId": "asc"
+            "chatId": "desc",
+            "sendDate": "desc"
           },
           "partial_filter_selector": {
             "type": "supportMessage"
@@ -111,7 +118,8 @@
         "options": {
           "def": {
             "fields": [
-              "chatId"
+              "chatId",
+              "sendDate"
             ]
           }
         }

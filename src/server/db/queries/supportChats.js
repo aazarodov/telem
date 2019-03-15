@@ -11,9 +11,10 @@ const dbname = prefix('chats');
 const db = couch.use(dbname);
 const supportTitles = [];
 
-// indexes: type, supportChat,pid, supportChat,did,closeDate,title, supportUnread,
-// supportMessage,chatId
-// ddoc: takeSupportChat updMessageStatus closeSupportChat
+// indexes: type, supportUnread, supportChat,pid,openDate,
+// indexes: supportChat,did,closeDate,title, supportMessage,chatId,sendDate
+// indexes: unread,sendDate
+// updates: takeSupportChat updMessageStatus closeSupportChat
 
 module.exports = {
   async supportTitles() {
@@ -61,7 +62,8 @@ module.exports = {
         'openDate',
         'closeDate',
       ],
-      use_index: ['indexes', 'supportChat,pid'],
+      sort: [{ openDate: 'desc' }],
+      use_index: ['indexes', 'supportChat,pid,openDate'],
       limit,
       bookmark,
     });
@@ -78,6 +80,7 @@ module.exports = {
     const supportChats = await db.find({
       selector: {
         did: _new ? '' : did,
+        openDate: { $gt: '' },
         closeDate: _closed ? { $gt: '' } : '',
         title: { $in: _titles },
       },
@@ -90,7 +93,8 @@ module.exports = {
         'openDate',
         'closeDate',
       ],
-      use_index: ['indexes', 'supportChat,did,closeDate,title'],
+      sort: [{ openDate: 'desc' }],
+      use_index: ['indexes', 'supportChat,did,openDate,closeDate,title'],
       limit,
       bookmark,
     });
@@ -146,7 +150,8 @@ module.exports = {
         'meta',
         'text',
       ],
-      use_index: ['indexes', 'supportMessage,chatId'],
+      sort: [{ sendDate: 'desc' }],
+      use_index: ['indexes', 'supportMessage,chatId,sendDate'],
       limit,
       bookmark,
     });
@@ -166,7 +171,8 @@ module.exports = {
         'meta',
         'text',
       ],
-      use_index: ['indexes', 'unread'],
+      sort: [{ sendDate: 'desc' }],
+      use_index: ['indexes', 'unread,sendDate'],
       limit,
       bookmark,
     });
