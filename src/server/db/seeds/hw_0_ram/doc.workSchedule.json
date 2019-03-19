@@ -1,0 +1,413 @@
+[
+  {
+    "_id": "doc.workSchedule|00000000-0000-1000-8000-000011000001",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "kindOfDocument": {
+      "name": "УточнениеГрафика",
+      "presentation": "Уточнение графика",
+      "type": "enm.kindOfDocumentWorkSchedule"
+    },
+    "startDateOfWorkSchedule": "2019-03-13T00:00:00",
+    "workSchedule": [
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 5,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T10:00:00",
+        "duration": "0001-01-01T04:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      }
+    ],
+    "class_name": "doc.workSchedule",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-02-22T12:24:45 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.workSchedule|00000000-0000-1000-8000-000010000001",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "kindOfDocument": {
+      "name": "ИзменениеГрафика",
+      "presentation": "Изменение графика",
+      "type": "enm.kindOfDocumentWorkSchedule"
+    },
+    "beginDateOfWorkSchedule": "2019-02-17T00:00:00",
+    "workSchedule": [
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 1,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T18:00:00",
+        "duration": "0001-01-01T08:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 2,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T16:00:00",
+        "duration": "0001-01-01T07:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 3,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T12:00:00",
+        "duration": "0001-01-01T03:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 4,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T11:00:00",
+        "duration": "0001-01-01T02:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 5,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T18:00:00",
+        "duration": "0001-01-01T08:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 6,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T18:00:00",
+        "duration": "0001-01-01T08:00:00",
+        "kindOfDay": {
+          "name": "Выходной",
+          "presentation": "Выходной",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "",
+          "presentation": "",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 7,
+        "beginTimeOfWork": "0001-01-01T09:00:00",
+        "endTimeOfWork": "0001-01-01T18:00:00",
+        "duration": "0001-01-01T08:00:00",
+        "kindOfDay": {
+          "name": "Выходной",
+          "presentation": "Выходной",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "",
+          "presentation": "",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:20:00",
+        "note": ""
+      }
+    ],
+    "class_name": "doc.УтверждениеГрафикаРаботы",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-02-22T12:26:22 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "doc.workSchedule|00000000-0000-1000-8000-000010000002",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000070",
+      "presentation": "Иван Михайлович Сеченов",
+      "type": "cat.doctors"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "kindOfDocument": {
+      "name": "ИзменениеГрафика",
+      "presentation": "Изменение графика",
+      "type": "enm.kindOfDocumentWorkSchedule"
+    },
+    "beginDateOfWorkSchedule": "2019-03-10T00:00:00",
+    "workSchedule": [
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 1,
+        "beginTimeOfWork": "0001-01-01T12:00:00",
+        "endTimeOfWork": "0001-01-01T18:00:00",
+        "duration": "0001-01-01T06:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:30:00",
+        "note": ""
+      },
+      {
+        "company": {
+          "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+          "presentation": "ООО \"Медицинский центр \"Вита\" (Ленинградская ул, дом №136)",
+          "type": "cat.companies"
+        },
+        "specialization": {
+          "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+          "presentation": "Хирург",
+          "type": "cat.specializations"
+        },
+        "office": {
+          "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+          "presentation": "Кабинет №1",
+          "type": "cat.offices"
+        },
+        "dayOfWeekNumber": 3,
+        "beginTimeOfWork": "0001-01-01T08:00:00",
+        "endTimeOfWork": "0001-01-01T12:00:00",
+        "duration": "0001-01-01T04:00:00",
+        "kindOfDay": {
+          "name": "Рабочий",
+          "presentation": "Рабочий",
+          "type": "enm.kindsOfDay"
+        },
+        "kindOfInterval": {
+          "name": "РабочееВремя",
+          "presentation": "Рабочее время",
+          "type": "enm.kindsOfInterval"
+        },
+        "durationOfAppointment": "0001-01-01T00:10:00",
+        "note": ""
+      }
+    ],
+    "class_name": "doc.УтверждениеГрафикаРаботы",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-02-22T12:26:22 +0300",
+      "e1cib": true
+    }
+  }
+]

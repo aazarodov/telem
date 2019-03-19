@@ -21,8 +21,8 @@ module.exports = {
   p04Password: 'buzzword123',
   neverExpiry: 33071673600,
   alwaysExpired: 1544808748,
-  patient01Id: 'cat.patients|00000000-0000-1000-8000-000000000001',
-  patient02Id: 'cat.patients|00000000-0000-1000-8000-000000000002',
+  patient01Id: 'cat.patients|00000000-0000-1000-8000-000000000001', // Пушкин Александр Сергеевич
+  patient02Id: 'cat.patients|00000000-0000-1000-8000-000000000002', // Бродский Иосиф Александрович
   patient03Id: 'cat.patients|00000000-0000-1000-8000-000000000003',
   patient01Cookie: 'Rq9JzZBIiZ2Fb/cNOh5LPOnqN4HH5/TIMW5IHtunFCsut5P/gfzk/4bQWVmY9WrQ28Ow9uKbu2JZMXwqwWPatXFAUxy4r9i+qowCAhMBEQHNfseukI1X883xoLVnprN5EeN/F3Avry78iQdwSg1gfLgr3sMiqE+687WjGt2Lp5g=',
   notExistId: '00000000-0000-1000-8000-000000000404',
@@ -46,12 +46,14 @@ module.exports = {
   d04Login: 'pupkin', // Уволенный хигрург
   d05Login: 'avril', // Оператор
   d06Login: 'jack', // Оператор
+  d07Login: 'sechenov', // Хирург
   d01Password: '123456',
   d02Password: 'qwerty',
   d03Password: 'asdfgh',
   d04Password: 'zxcvbn',
   d05Password: 'complicated',
   d06Password: 'tenacious',
+  d07Password: 'reflex',
   p01SupportChat01Id: '00000000-0000-1000-8000-000000001001', // open not taken
   p01SupportChat02Id: '00000000-0000-1000-8000-000000001002', // open taken op5
   p01SupportChat03Id: '00000000-0000-1000-8000-000000001003', // open taken op6
@@ -67,4 +69,5 @@ module.exports = {
   doctor01Cookie: 'D7j5UNKCSLxxL3rLb7X8VfpzhfwP4sWLIGaSVpJ7KnNsQpp5gI6U5BRQPl5rGYJpFRAwJNmILgvlQWdkaaN5e7ew3K86xgjxzym0ck9BlxwJxN4rZ0Mm1D6HpSSMlC7sGAafm31iDa0VrmtQm4AOO2SMQp0BaagveKF7ST9p7397fIG85v6Wad9AO6TT5G7z',
   doctor05Cookie: 'NKI4p+wuL2zYYZQYubZryLyzr2TETgcIB0ttrpufqw3BO5vKh+W2vEzF4XbEmpVfRe5tUtNMGdL+7RBv3IyTEpN5wmMaDkzsz6i/CDIzDnhIToGbzYkrKUnS7l2CuyqkkvEVFSKUrsFWtfP/HTE1f/OX8CTf0ij7EsAS52w59nfOdbHrXjjwOk1nHSJZ/5lM',
   doctor06Cookie: 'nCsWLHSTgqP8W8v2jOYbbExqPqvllwek9LMheAGxROeT3ljAkrufhXQRZGb40+soEVcjdOOXQtm4Z25vmZCA7uo30wWcLmAwrZo2U6M53DmtCKnv+uuoxxES0I4BLaEjDaXJVtEMtbVTEw0IK5LlU2DfxAI+LY+72wvWH6hRbEBP3dwS+zlBXYzEcPiZCsd3',
+  p01appointment01Id: 'doc.appointment|4469814b-45a5-11e9-8102-fa32b2a877f7',
 };

@@ -1,0 +1,239 @@
+[
+  {
+    "_id": "cat.companies|9010f2d8-dab7-11de-b21b-00140b0496c2",
+    "name": "ООО \"Медицинский центр \"Вита\"",
+    "fullName": "Общество с ограниченной ответственностью \"Медицинский центр \"Вита\"",
+    "addressForPresentation": "Ленинградская ул, дом №136",
+    "cityOfCompany": {
+      "ref": "38593dd7-ce2c-11e6-81e6-001e679abfc4",
+      "presentation": "Вологда",
+      "type": "cat.cities"
+    },
+    "contactInformation": [
+      {
+        "type": {
+          "name": "Адрес",
+          "presentation": "Адрес",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeadd-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Факт. адрес",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "Ленинградская ул, дом №136",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"Ленинградская ул, дом №136\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Вологда г</Город><Улица>Ленинградская ул</Улица><ОКТМО></ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"136\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>",
+        "country": "РОССИЯ",
+        "region": "Вологодская обл",
+        "city": "Вологда г",
+        "emailAddress": "",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Адрес",
+          "presentation": "Адрес",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeade-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Юр. адрес",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "Ленинградская ул, дом №136",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"Ленинградская ул, дом №136\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Вологда г</Город><Улица>Ленинградская ул</Улица><ОКТМО></ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"136\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>",
+        "country": "РОССИЯ",
+        "region": "Вологодская обл",
+        "city": "Вологда г",
+        "emailAddress": "",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeadb-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Телефон",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "512854",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"512854\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"512854\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "512854",
+        "phoneNumberWithoutCodes": ""
+      }
+    ],
+    "class_name": "cat.companies",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-03-15T05:58:33 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "cat.companies|9010f2d9-dab7-11de-b21b-00140b0496c2",
+    "name": "ООО \"Биомедика\"",
+    "fullName": "Общество с ограниченной ответственностью \"Биомедика\"",
+    "addressForPresentation": "г. Череповец, Победы пр-кт, дом №133/19",
+    "cityOfCompany": {
+      "ref": "38593dd8-ce2c-11e6-81e6-001e679abfc4",
+      "presentation": "Череповец",
+      "type": "cat.cities"
+    },
+    "contactInformation": [
+      {
+        "type": {
+          "name": "Адрес",
+          "presentation": "Адрес",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeadd-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Факт. адрес",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "г. Череповец, Победы пр-кт, дом №133/19",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"г. Череповец, Победы пр-кт, дом №133/19\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Череповец г</Город><Улица>Победы пр-кт</Улица><ОКТМО></ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"133/19\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>",
+        "country": "РОССИЯ",
+        "region": "Вологодская обл",
+        "city": "Череповец г",
+        "emailAddress": "",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Адрес",
+          "presentation": "Адрес",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeade-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Юр. адрес",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "г. Череповец, Победы пр-кт, дом №133/19",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"г. Череповец, Победы пр-кт, дом №133/19\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Череповец г</Город><Улица>Победы пр-кт</Улица><ОКТМО></ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"133/19\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>",
+        "country": "РОССИЯ",
+        "region": "Вологодская обл",
+        "city": "Череповец г",
+        "emailAddress": "",
+        "phoneNumber": "",
+        "phoneNumberWithoutCodes": ""
+      },
+      {
+        "type": {
+          "name": "Телефон",
+          "presentation": "Телефон",
+          "type": "enm.typesOfContactInformation"
+        },
+        "kind": {
+          "ref": "63cdeadb-8455-11e8-80fb-c58a8f9432fe",
+          "presentation": "Телефон",
+          "type": "cat.kindsOfContactInformation"
+        },
+        "presentation": "(8202) 269523",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"8202269523\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"8202269523\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+        "country": "",
+        "region": "",
+        "city": "",
+        "emailAddress": "",
+        "phoneNumber": "8202269523",
+        "phoneNumberWithoutCodes": ""
+      }
+    ],
+    "class_name": "cat.companies",
+    "timestamp": {
+      "user": "Администратор",
+      "moment": "2019-03-15T05:58:33 +0300",
+      "e1cib": true
+    }
+  },
+  {
+    "_id": "cat.companies|59f239a6-0383-4689-a625-419b486d1746",
+    "name": "ООО \"КДЦ \"Вита клиника",
+    "fullName": "Общество с ограниченной ответственностью \"Консультативно-диагностический центр \"Вита клиника\"",
+    "addressForPresentation": "160000, Вологодская обл, Вологда г, М.Ульяновой ул, дом №3",
+    "cityOfCompany": {
+        "ref": "38593dd7-ce2c-11e6-81e6-001e679abfc4",
+        "presentation": "Вологда",
+        "type": "cat.cities"
+    },
+    "contactInformation": [
+        {
+            "type": {
+                "name": "Адрес",
+                "presentation": "Адрес",
+                "type": "enm.typesOfContactInformation"
+            },
+            "kind": {
+                "ref": "63cdeadd-8455-11e8-80fb-c58a8f9432fe",
+                "presentation": "Факт. адрес",
+                "type": "cat.kindsOfContactInformation"
+            },
+            "presentation": "160000, Вологодская обл, Вологда г, М.Ульяновой ул, дом №3",
+            "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"160000, Вологодская обл, Вологда г, М.Ульяновой ул, дом №3\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Вологда г</Город><Улица>М.Ульяновой ул</Улица><ОКТМО>160000</ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"3\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"160000\"/></Состав></Состав></КонтактнаяИнформация>",
+            "country": "РОССИЯ",
+            "region": "Вологодская обл",
+            "city": "Вологда г",
+            "emailAddress": "",
+            "phoneNumber": "",
+            "phoneNumberWithoutCodes": ""
+        },
+        {
+            "type": {
+                "name": "Адрес",
+                "presentation": "Адрес",
+                "type": "enm.typesOfContactInformation"
+            },
+            "kind": {
+                "ref": "63cdeade-8455-11e8-80fb-c58a8f9432fe",
+                "presentation": "Юр. адрес",
+                "type": "cat.kindsOfContactInformation"
+            },
+            "presentation": "М.Ульяновой ул, дом №3",
+            "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"М.Ульяновой ул, дом №3\"><Комментарий/><Состав xsi:type=\"Адрес\" Страна=\"РОССИЯ\"><Состав xsi:type=\"АдресРФ\"><СубъектРФ>Вологодская обл</СубъектРФ><СвРайМО><Район></Район></СвРайМО><НаселПункт></НаселПункт><Город>Вологда г</Город><Улица>М.Ульяновой ул</Улица><ОКТМО></ОКТМО><ДопАдрЭл><Номер Тип=\"1010\" Значение=\"3\"/></ДопАдрЭл><ДопАдрЭл ТипАдрЭл=\"10100000\" Значение=\"\"/></Состав></Состав></КонтактнаяИнформация>",
+            "country": "РОССИЯ",
+            "region": "Вологодская обл",
+            "city": "Вологда г",
+            "emailAddress": "",
+            "phoneNumber": "",
+            "phoneNumberWithoutCodes": ""
+        },
+        {
+            "type": {
+                "name": "Телефон",
+                "presentation": "Телефон",
+                "type": "enm.typesOfContactInformation"
+            },
+            "kind": {
+                "ref": "63cdeadb-8455-11e8-80fb-c58a8f9432fe",
+                "presentation": "Телефон",
+                "type": "cat.kindsOfContactInformation"
+            },
+            "presentation": "(8172) 762020",
+            "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"8172762020\"><Комментарий/><Состав xsi:type=\"НомерТелефона\" КодСтраны=\"8172762020\" КодГорода=\"\" Номер=\"\" Добавочный=\"\"/></КонтактнаяИнформация>",
+            "country": "",
+            "region": "",
+            "city": "",
+            "emailAddress": "",
+            "phoneNumber": "8172762020",
+            "phoneNumberWithoutCodes": ""
+        }
+    ],
+    "class_name": "cat.companies",
+    "timestamp": {
+        "user": "Администратор",
+        "moment": "2019-03-15T05:58:33 +0300",
+        "e1cib": true
+    }
+}
+]

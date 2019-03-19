@@ -11,13 +11,36 @@
     "login": "luke",
     "password": "4JDouhWjss8+7A1mxYQShvbTyMG21anV79r2Yl4GSNU=",
     "childDoctor": false,
+    "adultDoctor": true,
     "groupOfMis": {
       "name": "Врачи",
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
     "meta": "",
-    "adultDoctor": true,
+    "services": [
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000001",
+          "presentation": "Услуга хирурга номер один",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000002",
+          "presentation": "Услуга хирурга номер два",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000003",
+          "presentation": "Услуга хирурга номер три",
+          "type": "cat.analyzesAndServices"
+        }
+      }
+    ],
     "class_name": "cat.doctors"
   },
   {
@@ -32,13 +55,36 @@
     "login": "fedorov",
     "password": "JW/G0i9GtKV6svYMyayVDEvypwbEhm/kQZ0im11HrIE=",
     "childDoctor": true,
+    "adultDoctor": true,
     "groupOfMis": {
       "name": "Врачи",
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
     "meta": "",
-    "adultDoctor": true,
+    "services": [
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000021",
+          "presentation": "Услуга офтальмолога номер один",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000022",
+          "presentation": "Услуга офтальмолога номер два",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000023",
+          "presentation": "Услуга офтальмолога номер три",
+          "type": "cat.analyzesAndServices"
+        }
+      }
+    ],
     "class_name": "cat.doctors"
   },
   {
@@ -53,13 +99,36 @@
     "login": "leo",
     "password": "wuRup7VnxGqp7kl+4Cuf4PKFLY6N50/ia5nBozzq6RE=",
     "childDoctor": true,
+    "adultDoctor": true,
     "groupOfMis": {
       "name": "Врачи",
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
     "meta": "",
-    "adultDoctor": false,
+    "services": [
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000031",
+          "presentation": "Услуга кардиолога номер один",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000032",
+          "presentation": "Услуга кардиолога номер два",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000033",
+          "presentation": "Услуга кардиолога номер три",
+          "type": "cat.analyzesAndServices"
+        }
+      }
+    ],
     "class_name": "cat.doctors"
   },
   {
@@ -74,13 +143,22 @@
     "login": "pupkin",
     "password": "nPSlvx7LHwTpB0CyZW3stJaPCQqU36sZxVT17DRtRcg=",
     "childDoctor": true,
+    "adultDoctor": false,
     "groupOfMis": {
       "name": "Врачи",
       "presentation": "Врачи",
       "type": "enm.typesGroupOfMis"
     },
     "meta": "",
-    "adultDoctor": false,
+    "services": [
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000001",
+          "presentation": "Услуга хирурга номер один",
+          "type": "cat.analyzesAndServices"
+        }
+      }
+    ],
     "class_name": "cat.doctors"
   },
   {
@@ -123,6 +201,43 @@
       "type": "enm.typesGroupOfMis"
     },
     "meta": "{\"supportTitles\":[\"Запись на прием\"]}",
+    "class_name": "cat.doctors"
+  },
+  {
+    "_id": "cat.doctors|00000000-0000-1000-8000-000000000070",
+    "name": "Иван Михайлович Сеченов",
+    "noActive": false,
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "login": "sechenov",
+    "password": "hoHBimZVlYPxzsu3CBUP/EXZAHAMtBh6gnfu6Z4BS+Y=",
+    "childDoctor": true,
+    "adultDoctor": true,
+    "groupOfMis": {
+      "name": "Врачи",
+      "presentation": "Врачи",
+      "type": "enm.typesGroupOfMis"
+    },
+    "meta": "",
+    "services": [
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000001",
+          "presentation": "Услуга хирурга номер один",
+          "type": "cat.analyzesAndServices"
+        }
+      },
+      {
+        "service": {
+          "ref": "00000000-0000-1000-8000-000001000003",
+          "presentation": "Услуга хирурга номер три",
+          "type": "cat.analyzesAndServices"
+        }
+      }
+    ],
     "class_name": "cat.doctors"
   }
 ]

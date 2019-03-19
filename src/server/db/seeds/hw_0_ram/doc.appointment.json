@@ -1,0 +1,183 @@
+[
+  {
+    "_id": "doc.appointment|4469814b-45a5-11e9-8102-fa32b2a877f7",
+    "date": "2019-02-13T19:20:52",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "ООО \"КДЦ \"Вита клиника",
+      "type": "cat.companies"
+    },
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "oneTimeContractNumber": "",
+    "percentDiscount": 0,
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
+    "beginOfAppointment": "2019-02-14T09:00:00",
+    "office": {
+      "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+      "presentation": "Кабинет №1",
+      "type": "cat.offices"
+    },
+    "endOfAppointment": "2019-02-14T09:30:00",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "appointmentServices": [
+      {
+        "analyzesAndServices": {
+          "ref": "00000000-0000-1000-8000-000001000001",
+          "presentation": "Услуга хирурга номер один",
+          "type": "cat.analyzesAndServices"
+        },
+        "price": 800,
+        "summ": 800,
+        "summDiscount": 0,
+        "percentDiscount": 0,
+        "stringGUID": "eeeaaae6-925a-4a66-91d8-5edd11ea1b5a",
+        "isSet": false
+      }
+    ],
+    "class_name": "doc.appointment"
+  },
+  {
+    "_id": "doc.appointment|afc1a3d7-45a5-11e9-8102-fa32b2a877f7",
+    "date": "2019-03-13T19:50:00",
+    "company": {
+      "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+      "presentation": "ООО \"Медицинский центр \"Вита\"",
+      "type": "cat.companies"
+    },
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "specialization": {
+      "ref": "55eba090-dd9f-11de-9112-001bfcfe4479",
+      "presentation": "Кардиолог",
+      "type": "cat.specializations"
+    },
+    "oneTimeContractNumber": "",
+    "percentDiscount": 0,
+    "recipient": {
+      "ref": "00000000-0000-1000-8000-000000000002",
+      "presentation": "Бродский Иосиф Александрович",
+      "type": "cat.patients"
+    },
+    "beginOfAppointment": "2019-03-15T10:00:00",
+    "office": {
+      "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+      "presentation": "Кабинет №1",
+      "type": "cat.Кабинеты"
+    },
+    "endOfAppointment": "2019-03-15T10:20:00",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000030",
+      "presentation": "Бокерия Леонид Антонович",
+      "type": "cat.doctors"
+    },
+    "appointmentServices": [
+      {
+        "analyzesAndServices": {
+          "ref": "00000000-0000-1000-8000-000001000031",
+          "presentation": "Услуга кардиолога номер один",
+          "type": "cat.analyzesAndServices"
+        },
+        "price": 500,
+        "summ": 500,
+        "summDiscount": 0,
+        "percentDiscount": 0,
+        "stringGUID": "3041e9c9-c257-49c9-9a9b-fe52cee8af70",
+        "isSet": false
+      },
+      {
+        "analyzesAndServices": {
+          "ref": "00000000-0000-1000-8000-000001000032",
+          "presentation": "Услуга кардиолога номер два",
+          "type": "cat.analyzesAndServices"
+        },
+        "price": 800,
+        "summ": 800,
+        "summDiscount": 0,
+        "percentDiscount": 0,
+        "stringGUID": "3041e9c9-c257-49c9-9a9b-fe52cee8af70",
+        "isSet": false
+      }
+    ],
+    "class_name": "doc.appointment"
+  },
+  {
+    "_id": "doc.appointment|4469814b-45a5-11e9-8102-fa32b2afffff",
+    "date": "2019-03-13T23:55:55",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "ООО \"КДЦ \"Вита клиника",
+      "type": "cat.companies"
+    },
+    "note": "",
+    "documentLink": "",
+    "patient": {
+      "ref": "00000000-0000-1000-8000-000000000001",
+      "presentation": "Пушкин Александр Сергеевич",
+      "type": "cat.patients"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "oneTimeContractNumber": "",
+    "percentDiscount": 0,
+    "recipient": {
+      "ref": "00000000-0000-0000-0000-000000000000",
+      "presentation": "",
+      "type": "cat.patients"
+    },
+    "beginOfAppointment": "2019-04-20T08:00:00",
+    "office": {
+      "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
+      "presentation": "Кабинет №1",
+      "type": "cat.offices"
+    },
+    "endOfAppointment": "2019-04-20T08:30:00",
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "appointmentServices": [
+      {
+        "analyzesAndServices": {
+          "ref": "00000000-0000-1000-8000-000001000002",
+          "presentation": "Услуга хирурга номер два",
+          "type": "cat.analyzesAndServices"
+        },
+        "price": 400,
+        "summ": 400,
+        "summDiscount": 0,
+        "percentDiscount": 0,
+        "stringGUID": "eeeaaae6-925a-4a66-91d8-5edd11efffff",
+        "isSet": false
+      }
+    ],
+    "class_name": "doc.appointment"
+  }
+]

@@ -37,11 +37,10 @@
           }
         }
       },
-      "class_name,ownerOfObject.ref": {
+      "cat.insurancePolicies,ownerOfObject.ref": {
         "map": {
           "fields": {
-            "class_name": "asc",
-            "patient.ref": "asc"
+            "ownerOfObject.ref": "asc"
           },
           "partial_filter_selector": {
             "class_name": "cat.insurancePolicies"
@@ -51,8 +50,27 @@
         "options": {
           "def": {
             "fields": [
-              "class_name",
               "ownerOfObject.ref"
+            ]
+          }
+        }
+      },
+      "doc.appointment,patient.ref,beginOfAppointment": {
+        "map": {
+          "fields": {
+            "patient.ref": "asc",
+            "beginOfAppointment": "asc"
+          },
+          "partial_filter_selector": {
+            "class_name": "doc.appointment"
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "patient.ref",
+              "beginOfAppointment"
             ]
           }
         }
