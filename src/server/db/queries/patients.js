@@ -162,4 +162,15 @@ module.exports = {
   async updateAvatar(_id, avatar) {
     return db.atomic('ddoc', 'updatePatient', _id, { avatar });
   },
+  async updateMeta(_id, meta) {
+    let metaString = '';
+    if (meta !== '') {
+      try {
+        metaString = JSON.stringify(meta);
+      } catch (er) {
+        metaString = '';
+      }
+    }
+    return db.atomic('ddoc', 'updatePatient', _id, { meta: metaString });
+  },
 };

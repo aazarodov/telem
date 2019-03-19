@@ -36,9 +36,10 @@ describe('GET patient', () => {
           agreementOfSendingOtherInformation: true,
           agreementOfSendingResults: true,
         },
-        dataKeys: ['contactInformation'],
+        dataKeys: ['contactInformation', 'meta'],
         dataNotKeys: ['_id', '_rev', 'id', 'rev', 'password', 'note', 'status'],
       });
+      res.body.data.meta.should.have.property('test', 'testString');
       // Тут вид контактной информации Телефон, Телефон представителя, E-mail, Адрес
       res.body.data.contactInformation.should.all.have.nested.property('kind.presentation');
       res.body.data.contactInformation.should.all.have.property('presentation'); // Тут адрес
