@@ -42,9 +42,10 @@ describe('GET patient info', () => {
           agreementOfSendingOtherInformation: true,
           agreementOfSendingResults: true,
         },
-        dataKeys: ['contactInformation', 'note', 'status'],
+        dataKeys: ['contactInformation', 'note', 'status', 'meta'],
         dataNotKeys: ['_rev', 'password'],
       });
+      res.body.data.meta.should.have.property('test', 'testString');
     });
     it('should return patient02 info', async () => {
       const res = await chai.request(server)
