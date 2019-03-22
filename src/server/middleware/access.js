@@ -78,7 +78,8 @@ module.exports = () => async (ctx, next) => {
     ctx.state.access.did = tokenData.did;
   }
   await next();
-  const expiry = unixtimestamp() + accessExpiry;
+  const newExpiry = unixtimestamp() + accessExpiry;
+  const expiry = newExpiry > tokenData.expiry ? newExpiry : tokenData.expiry;
   const newTokenData = { ...tokenData, expiry };
   ctx.cookies.set(
     cookieName,

@@ -16,7 +16,7 @@
       "presentation": "Уточнение графика",
       "type": "enm.kindOfDocumentWorkSchedule"
     },
-    "startDateOfWorkSchedule": "2019-03-13T00:00:00",
+    "beginDateOfWorkSchedule": "2019-03-13T00:00:00",
     "workSchedule": [
       {
         "company": {
