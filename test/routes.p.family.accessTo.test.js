@@ -60,6 +60,7 @@ describe('PUT POST DELETE family/accessTo', () => {
         .send({
           ref: trimId(patient02Id),
           relation: 'Супруг',
+          access: false,
         });
       test(res, 'accessTo updated');
     });
@@ -75,7 +76,7 @@ describe('PUT POST DELETE family/accessTo', () => {
       res.body.data.family[0].should.have.nested.property('patient.presentation', 'Бродский Иосиф Александрович');
       res.body.data.family[0].should.have.nested.property('patient.type', 'cat.patients');
       res.body.data.family[0].should.have.property('general', true);
-      res.body.data.family[0].should.have.property('access', true);
+      res.body.data.family[0].should.have.property('access', false);
     });
   });
   describe('DELETE /family/accessTo as patient01', () => {
