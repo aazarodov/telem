@@ -51,7 +51,7 @@ describe('PUT/GET/POST/DELETE files', () => {
         .set('Cookie', `pat=${patient01Cookie}`)
         .set('Content-Type', 'image/png')
         .set('Content-Length', 82);
-      test(res, 400, 'files limit reached');
+      test(res, 423, 'files limit reached');
     });
     it('should return 415 when multipart/* Content-Type', async () => {
       const res = await chai.request(server)

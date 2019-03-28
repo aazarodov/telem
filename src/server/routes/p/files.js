@@ -42,7 +42,7 @@ module.exports = {
       return;
     }
     if (await files.count(ctx.state.access.pid) >= fileMaxCount) {
-      ctx.status = 400;
+      ctx.status = 423;
       ctx.body = {
         status: 'error',
         message: 'files limit reached',
