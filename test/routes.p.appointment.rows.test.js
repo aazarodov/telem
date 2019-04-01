@@ -51,17 +51,17 @@ describe('GET /appointment/rows', () => {
           if (!company[val.company.ref]) {
             company[val.company.ref] = {
               self: val.company,
-              specialist: [],
+              specialist: {},
             };
           }
-          company[val.company.ref].specialist.push(val.specialist);
+          company[val.company.ref].specialist[val.specialist.ref] = val.specialist;
           if (!specialist[val.specialist.ref]) {
             specialist[val.specialist.ref] = {
               self: val.specialist,
-              company: [],
+              company: {},
             };
           }
-          specialist[val.specialist.ref].company.push(val.company);
+          specialist[val.specialist.ref].company[val.company.ref] = val.company;
         }
         {
           if (!tree.company[val.company.ref]) {
@@ -75,17 +75,17 @@ describe('GET /appointment/rows', () => {
           if (!service[val.service.ref]) {
             service[val.service.ref] = {
               self: val.service,
-              specialist: [],
+              specialist: {},
             };
           }
-          service[val.service.ref].specialist.push(val.specialist);
+          service[val.service.ref].specialist[val.specialist.ref] = val.specialist;
           if (!specialist[val.specialist.ref]) {
             specialist[val.specialist.ref] = {
               self: val.specialist,
-              service: [],
+              service: {},
             };
           }
-          specialist[val.specialist.ref].service.push(val.service);
+          specialist[val.specialist.ref].service[val.service.ref] = val.service;
         }
         {
           if (!tree.specialist[val.specialist.ref]) {
@@ -99,17 +99,17 @@ describe('GET /appointment/rows', () => {
           if (!service[val.service.ref]) {
             service[val.service.ref] = {
               self: val.service,
-              company: [],
+              company: {},
             };
           }
-          service[val.service.ref].company.push(val.company);
+          service[val.service.ref].company[val.company.ref] = val.company;
           if (!company[val.company.ref]) {
             company[val.company.ref] = {
               self: val.company,
-              service: [],
+              service: {},
             };
           }
-          company[val.company.ref].service.push(val.service);
+          company[val.company.ref].service[val.service.ref] = val.service;
         }
       });
       expect(tree
@@ -122,7 +122,8 @@ describe('GET /appointment/rows', () => {
       expect(tree
         .service['00000000-0000-1000-8000-000001000001']
         .company['59f239a6-0383-4689-a625-419b486d1746']
-        .specialist[1]).to.have.ownProperty('presentation', 'Иван Михайлович Сеченов');
+        .specialist['00000000-0000-1000-8000-000000000070'])
+        .to.have.ownProperty('presentation', 'Иван Михайлович Сеченов');
       // log(JSON.stringify(rows, null, 4));
       // log(JSON.stringify(tree, null, 4));
     });
