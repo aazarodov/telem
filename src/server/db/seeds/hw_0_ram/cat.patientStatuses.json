@@ -28,5 +28,10 @@
     "_id": "cat.patientStatuses|e255a9c2-f87f-11e8-8476-2fcec2888318",
     "name": "Новый",
     "class_name": "cat.patientStatuses"
+  },
+  {
+    "_id": "cat.patientStatuses|ddcb75c2-4dad-11e9-8102-fa32b2a877f7",
+    "name": "Не верифицирован",
+    "class_name": "cat.patientStatuses"
   }
 ]

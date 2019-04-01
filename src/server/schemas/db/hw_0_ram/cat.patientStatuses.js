@@ -9,12 +9,13 @@ const idRegExp = new RegExp(`^cat\\.${name}\\|[a-f0-9]{8}-[a-f0-9]{4}-1[a-f0-9]{
 module.exports = Joi.object().keys({
   _id: Joi.string().regex(idRegExp, `${className}|uuidv1`).required(),
   name: Joi.string().valid([
-    'Активен',
-    'Заблокирован',
-    'Не активирован',
-    'Удален',
     'Не создан',
+    'Не активирован',
+    'Активен',
+    'Удален',
+    'Заблокирован',
     'Новый',
+    'Не верифицирован',
   ]).required(),
   class_name: Joi.string().valid(className).required(),
 });

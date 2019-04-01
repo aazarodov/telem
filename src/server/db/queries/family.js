@@ -56,7 +56,7 @@ const prepereBoundPatient = async (pid, postedBoundPatient) => {
     birthDate: dateTime(post.birthDate),
     agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
     agreementOfSendingResults: post.agreementOfSendingResults,
-    status: patientStatuses['Новый'],
+    status: patientStatuses['Не верифицирован'],
     family: [
       {
         relation: revRelation[post.relation],
