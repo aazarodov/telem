@@ -1,6 +1,6 @@
 'use strict';
 
-process.env.NODE_ENV = 'test';
+process.env.self_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -42,8 +42,7 @@ describe('GET /appointment/rows', () => {
         {
           if (!tree.service[val.service.ref]) {
             tree.service[val.service.ref] = {
-              ref: val.service.ref,
-              presentation: val.service.presentation,
+              self: val.service,
               company: {},
               specialist: {},
             };
@@ -51,16 +50,14 @@ describe('GET /appointment/rows', () => {
           const { company, specialist } = tree.service[val.service.ref];
           if (!company[val.company.ref]) {
             company[val.company.ref] = {
-              ref: val.company.ref,
-              presentation: val.company.presentation,
+              self: val.company,
               specialist: [],
             };
           }
           company[val.company.ref].specialist.push(val.specialist);
           if (!specialist[val.specialist.ref]) {
             specialist[val.specialist.ref] = {
-              ref: val.specialist.ref,
-              presentation: val.specialist.presentation,
+              self: val.specialist,
               company: [],
             };
           }
@@ -69,8 +66,7 @@ describe('GET /appointment/rows', () => {
         {
           if (!tree.company[val.company.ref]) {
             tree.company[val.company.ref] = {
-              ref: val.company.ref,
-              presentation: val.company.presentation,
+              self: val.company,
               service: {},
               specialist: {},
             };
@@ -78,16 +74,14 @@ describe('GET /appointment/rows', () => {
           const { service, specialist } = tree.company[val.company.ref];
           if (!service[val.service.ref]) {
             service[val.service.ref] = {
-              ref: val.service.ref,
-              presentation: val.service.presentation,
+              self: val.service,
               specialist: [],
             };
           }
           service[val.service.ref].specialist.push(val.specialist);
           if (!specialist[val.specialist.ref]) {
             specialist[val.specialist.ref] = {
-              ref: val.specialist.ref,
-              presentation: val.specialist.presentation,
+              self: val.specialist,
               service: [],
             };
           }
@@ -96,8 +90,7 @@ describe('GET /appointment/rows', () => {
         {
           if (!tree.specialist[val.specialist.ref]) {
             tree.specialist[val.specialist.ref] = {
-              ref: val.specialist.ref,
-              presentation: val.specialist.presentation,
+              self: val.specialist,
               service: {},
               company: {},
             };
@@ -105,16 +98,14 @@ describe('GET /appointment/rows', () => {
           const { service, company } = tree.specialist[val.specialist.ref];
           if (!service[val.service.ref]) {
             service[val.service.ref] = {
-              ref: val.service.ref,
-              presentation: val.service.presentation,
+              self: val.service,
               company: [],
             };
           }
           service[val.service.ref].company.push(val.company);
           if (!company[val.company.ref]) {
             company[val.company.ref] = {
-              ref: val.company.ref,
-              presentation: val.company.presentation,
+              self: val.company,
               service: [],
             };
           }
@@ -122,9 +113,17 @@ describe('GET /appointment/rows', () => {
         }
       });
       expect(tree
-        .service['00000000-0000-1000-8000-000001000001'] // Услуга хирурга номер один
-        .company['59f239a6-0383-4689-a625-419b486d1746'] // КДЦ Вита клиника (М.Ульяновой 3)
+        .service['00000000-0000-1000-8000-000001000001']
+        .self.presentation).to.eq('Услуга хирурга номер один');
+      expect(tree
+        .service['00000000-0000-1000-8000-000001000001']
+        .company['59f239a6-0383-4689-a625-419b486d1746']
+        .self.presentation).to.eq('КДЦ Вита клиника (М.Ульяновой 3)');
+      expect(tree
+        .service['00000000-0000-1000-8000-000001000001']
+        .company['59f239a6-0383-4689-a625-419b486d1746']
         .specialist[1]).to.have.ownProperty('presentation', 'Иван Михайлович Сеченов');
+      // log(JSON.stringify(rows, null, 4));
       // log(JSON.stringify(tree, null, 4));
     });
   });
