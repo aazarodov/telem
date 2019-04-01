@@ -1,0 +1,194 @@
+[
+  {
+    "_id": "ireg.filters|59f239a6-0383-4689-a625-419b486d1746¶00000000-0000-1000-8000-000000000010¶00000000-0000-1000-8000-000001000001¶6135a5ce-454f-11e4-9b57-001517b46888",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "КДЦ Вита клиника (М.Ульяновой 3)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000001",
+      "presentation": "Услуга хирурга номер один",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "records": [
+      {
+        "male": true,
+        "female": true,
+        "child": true,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  },
+  {
+    "_id": "ireg.filters|59f239a6-0383-4689-a625-419b486d1746¶00000000-0000-1000-8000-000000000010¶00000000-0000-1000-8000-000001000002¶6135a5ce-454f-11e4-9b57-001517b46888",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "КДЦ Вита клиника (М.Ульяновой 3)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000002",
+      "presentation": "Услуга хирурга номер два",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "records": [
+      {
+        "male": false,
+        "female": true,
+        "child": false,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  },
+  {
+    "_id": "ireg.filters|9010f2d8-dab7-11de-b21b-00140b0496c2¶00000000-0000-1000-8000-000000000010¶00000000-0000-1000-8000-000001000003¶6135a5ce-454f-11e4-9b57-001517b46888",
+    "company": {
+      "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+      "presentation": "МЦ Вита (Ленинградская 136)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000010",
+      "presentation": "Валентин Феликсович Войно-Ясенецкий",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000003",
+      "presentation": "Услуга хирурга номер три",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "records": [
+      {
+        "male": true,
+        "female": true,
+        "child": true,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  },
+  {
+    "_id": "ireg.filters|59f239a6-0383-4689-a625-419b486d1746¶00000000-0000-1000-8000-000000000020¶00000000-0000-1000-8000-000001000021¶4856c431-59d3-11e4-b9ac-001e679abfc4",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "КДЦ Вита клиника (М.Ульяновой 3)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000020",
+      "presentation": "Фёдоров Святослав Николаевич",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000021",
+      "presentation": "Услуга офтальмолога номер один",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "4856c431-59d3-11e4-b9ac-001e679abfc4",
+      "presentation": "Офтальмолог",
+      "type": "cat."
+    },
+    "records": [
+      {
+        "male": true,
+        "female": true,
+        "child": true,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  },
+  {
+    "_id": "ireg.filters|59f239a6-0383-4689-a625-419b486d1746¶00000000-0000-1000-8000-000000000070¶00000000-0000-1000-8000-000001000001¶6135a5ce-454f-11e4-9b57-001517b46888",
+    "company": {
+      "ref": "59f239a6-0383-4689-a625-419b486d1746",
+      "presentation": "КДЦ Вита клиника (М.Ульяновой 3)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000070",
+      "presentation": "Иван Михайлович Сеченов",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000001",
+      "presentation": "Услуга хирурга номер один",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "records": [
+      {
+        "male": true,
+        "female": true,
+        "child": true,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  },
+  {
+    "_id": "ireg.filters|9010f2d9-dab7-11de-b21b-00140b0496c2¶00000000-0000-1000-8000-000000000070¶00000000-0000-1000-8000-000001000001¶6135a5ce-454f-11e4-9b57-001517b46888",
+    "company": {
+      "ref": "9010f2d9-dab7-11de-b21b-00140b0496c2",
+      "presentation": "Биомедика (Победы 133/19)",
+      "type": "cat.companies"
+    },
+    "specialist": {
+      "ref": "00000000-0000-1000-8000-000000000070",
+      "presentation": "Иван Михайлович Сеченов",
+      "type": "cat.doctors"
+    },
+    "service": {
+      "ref": "00000000-0000-1000-8000-000001000001",
+      "presentation": "Услуга хирурга номер один",
+      "type": "cat.analyzesAndServices"
+    },
+    "specialization": {
+      "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
+      "presentation": "Хирург",
+      "type": "cat.specializations"
+    },
+    "records": [
+      {
+        "male": true,
+        "female": true,
+        "child": true,
+        "adult": true
+      }
+    ],
+    "class_name": "ireg.filters"
+  }
+]

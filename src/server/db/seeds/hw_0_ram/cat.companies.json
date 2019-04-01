@@ -71,12 +71,7 @@
         "phoneNumberWithoutCodes": ""
       }
     ],
-    "class_name": "cat.companies",
-    "timestamp": {
-      "user": "Администратор",
-      "moment": "2019-03-15T05:58:33 +0300",
-      "e1cib": true
-    }
+    "class_name": "cat.companies"
   },
   {
     "_id": "cat.companies|9010f2d9-dab7-11de-b21b-00140b0496c2",
@@ -150,12 +145,7 @@
         "phoneNumberWithoutCodes": ""
       }
     ],
-    "class_name": "cat.companies",
-    "timestamp": {
-      "user": "Администратор",
-      "moment": "2019-03-15T05:58:33 +0300",
-      "e1cib": true
-    }
+    "class_name": "cat.companies"
   },
   {
     "_id": "cat.companies|59f239a6-0383-4689-a625-419b486d1746",
@@ -229,11 +219,6 @@
             "phoneNumberWithoutCodes": ""
         }
     ],
-    "class_name": "cat.companies",
-    "timestamp": {
-        "user": "Администратор",
-        "moment": "2019-03-15T05:58:33 +0300",
-        "e1cib": true
-    }
+    "class_name": "cat.companies"
 }
 ]

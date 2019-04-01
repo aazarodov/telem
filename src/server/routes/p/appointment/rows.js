@@ -1,16 +1,20 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const { services } = require('../../../db/queries/appointments');
+const filters = require('../../../db/queries/filters');
 
 module.exports = {
   get: async (ctx) => {
     try {
-      const servicesList = await services(ctx.state.data.chaild);
+      const response = await filters(
+        ctx.state.data.cityName,
+        ctx.state.data.sex,
+        ctx.state.data.age,
+      );
       ctx.body = {
         status: 'success',
-        message: 'services list',
-        data: servicesList,
+        message: 'rows for appointment',
+        data: response,
       };
     } catch (error) {
       log(error);
