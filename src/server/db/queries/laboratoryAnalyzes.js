@@ -12,18 +12,26 @@ const db = couch.use(dbname);
 
 const labAnalyzesAndResultsMap = (response) => {
   const newResponse = {};
+  const has = Object.prototype.hasOwnProperty;
   newResponse.docs = [];
   newResponse.bookmark = response.bookmark;
   response.docs.forEach((docOrIreg) => {
     if (docOrIreg.class_name === 'ireg.approvedResults') {
-      const labAnalys = response.docs.find(doc => doc._id === `doc.laboratoryAnalyzes|${docOrIreg.document.ref}`);
-      if (labAnalys) {
+      const docLabAnalysis = response.docs.find(doc => doc._id === `doc.laboratoryAnalyzes|${docOrIreg.document.ref}`);
+      if (docLabAnalysis) {
         docOrIreg.records.forEach((rec) => {
-          const analys = labAnalys.analyzes.find(an => an.stringGUID === rec.stringGUID);
-          if (analys) {
-            analys.result = rec.result.presentation ? rec.result.presentation : rec.result;
-            analys.approvalDateResult = rec.approvalDateResult;
-            if (!labAnalys.PDFAvailable) labAnalys.PDFAvailable = true;
+          if (
+            has.call(rec, 'result')
+            && rec.result !== null
+            && has.call(rec, 'approvalDateResult')
+            && rec.approvalDateResult !== '0001-01-01T00:00:00'
+          ) {
+            const analys = docLabAnalysis.analyzes.find(an => an.stringGUID === rec.stringGUID);
+            if (analys) {
+              analys.result = has.call(rec.result, 'presentation') ? rec.result.presentation : rec.result;
+              analys.approvalDateResult = rec.approvalDateResult;
+              if (!docLabAnalysis.PDFAvailable) docLabAnalysis.PDFAvailable = true;
+            }
           }
         });
       }
