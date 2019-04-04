@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const appointments = require('../../../db/queries/appointments');
-const dateTime = require('../../../utils/dateTimeFor1C');
+const trimDate = require('../../../utils/trimDate');
 
 module.exports = {
   get: async (ctx) => {
@@ -29,8 +29,8 @@ module.exports = {
       }
       const list = await appointments.list(
         ctx.state.access.pid,
-        ctx.state.data.beginOfAppointmentDateGTE === '' ? '' : dateTime(ctx.state.data.beginOfAppointmentDateGTE),
-        ctx.state.data.beginOfAppointmentDateLT === 'infinity' ? 'infinity' : dateTime(ctx.state.data.beginOfAppointmentDateLT),
+        ctx.state.data.beginOfAppointmentDateGTE === '' ? '' : trimDate(ctx.state.data.beginOfAppointmentDateGTE),
+        ctx.state.data.beginOfAppointmentDateLT === 'infinity' ? 'infinity' : trimDate(ctx.state.data.beginOfAppointmentDateLT),
         ctx.state.data.limit,
         ctx.state.data.bookmark,
       );

@@ -16,4 +16,5 @@ module.exports = {
   neverExpiry: 33071673600,
   fileMaxLength: 10485760, // 10485760 = 10MB
   fileMaxCount: 5,
+  scheduleMaxDays: 62,
 };

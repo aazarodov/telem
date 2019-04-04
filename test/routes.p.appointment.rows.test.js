@@ -124,8 +124,11 @@ describe('GET /appointment/rows', () => {
         .company['59f239a6-0383-4689-a625-419b486d1746']
         .specialist['00000000-0000-1000-8000-000000000070'])
         .to.have.ownProperty('presentation', 'Иван Михайлович Сеченов');
-      // log(JSON.stringify(rows, null, 4));
-      // log(JSON.stringify(tree, null, 4));
+      expect(tree
+        .company['59f239a6-0383-4689-a625-419b486d1746']
+        .service['00000000-0000-1000-8000-000001000001']
+        .specialist['00000000-0000-1000-8000-000000000070'])
+        .to.have.ownProperty('presentation', 'Иван Михайлович Сеченов');
     });
   });
 });

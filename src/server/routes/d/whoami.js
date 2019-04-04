@@ -14,7 +14,7 @@ const whoami = async (ctx) => {
       data: {
         doctor: {
           name: doctor.name,
-          specialization: doctor.specialization.presentation,
+          specialization: doctor.mitSpecialization.presentation,
           group,
           childDoctor: doctor.childDoctor,
           adultDoctor: doctor.adultDoctor,

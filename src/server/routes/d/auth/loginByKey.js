@@ -38,7 +38,7 @@ module.exports = {
         data: {
           doctor: {
             name: foundDoctor.name,
-            specialization: foundDoctor.specialization.presentation,
+            specialization: foundDoctor.mitSpecialization.presentation,
             group,
             childDoctor: foundDoctor.childDoctor,
             adultDoctor: foundDoctor.adultDoctor,

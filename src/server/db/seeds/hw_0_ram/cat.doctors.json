@@ -3,7 +3,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000010",
     "name": "Валентин Феликсович Войно-Ясенецкий",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
       "presentation": "Хирург",
       "type": "cat.specializations"
@@ -47,7 +47,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000020",
     "name": "Фёдоров Святослав Николаевич",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "4856c431-59d3-11e4-b9ac-001e679abfc4",
       "presentation": "Офтальмолог",
       "type": "cat."
@@ -91,7 +91,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000030",
     "name": "Бокерия Леонид Антонович",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "55eba090-dd9f-11de-9112-001bfcfe4479",
       "presentation": "Кардиолог",
       "type": "cat."
@@ -135,7 +135,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000040",
     "name": "Пупкин Василий Уволенный",
     "noActive": true,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
       "presentation": "Хирург",
       "type": "cat."
@@ -165,7 +165,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000050",
     "name": "Лавин Аврил Рамона",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "55eba094-dd9f-11de-9112-001bfcfe4479",
       "presentation": "Медицинская сестра",
       "type": "cat.specializations"
@@ -186,7 +186,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000060",
     "name": "Блэк Томас Джейкоб",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "55eba091-dd9f-11de-9112-001bfcfe4479",
       "presentation": "Администратор - кассир",
       "type": "cat.specializations"
@@ -207,7 +207,7 @@
     "_id": "cat.doctors|00000000-0000-1000-8000-000000000070",
     "name": "Иван Михайлович Сеченов",
     "noActive": false,
-    "specialization": {
+    "mitSpecialization": {
       "ref": "6135a5ce-454f-11e4-9b57-001517b46888",
       "presentation": "Хирург",
       "type": "cat.specializations"

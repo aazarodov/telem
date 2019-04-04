@@ -57,14 +57,14 @@ describe('GET appointments', () => {
       res.body.data.docs.should.all.have.property('specialist');
       res.body.data.docs.should.all.have.property('appointmentServices');
       res.body.data.docs.should.all.have.property('class_name');
-      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-02-14T09:00:00');
+      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-04-03T10:20:00');
     });
-    it('should return array of appointments on data.docs field starts 2019-03-01 end 2019-04-01', async () => {
+    it('should return array of appointments on data.docs field starts 2019-04-01 end 2019-05-01', async () => {
       const res = await chai.request(server)
         .get('/events/appointments')
         .query({
-          beginOfAppointmentDateGTE: '2019-03-01',
-          beginOfAppointmentDateLT: '2019-04-01',
+          beginOfAppointmentDateGTE: '2019-04-01',
+          beginOfAppointmentDateLT: '2019-05-01',
         })
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'appointments list', { dataKeys: ['docs', 'bookmark'] });
@@ -78,15 +78,15 @@ describe('GET appointments', () => {
       res.body.data.docs.should.all.have.property('specialist');
       res.body.data.docs.should.all.have.property('appointmentServices');
       res.body.data.docs.should.all.have.property('class_name');
-      res.body.data.docs.should.have.lengthOf(1);
-      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-03-15T10:00:00');
+      res.body.data.docs.should.have.lengthOf(3);
+      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-04-03T10:20:00');
     });
-    it('should return array of appointments on data.docs field starts 2019-03-15 end 2019-04-01 on JSON date format (and trim time)', async () => {
+    it('should return array of appointments on data.docs field when JSON date format', async () => {
       const res = await chai.request(server)
         .get('/events/appointments')
         .query({
-          beginOfAppointmentDateGTE: '2019-03-15T23:59:59.000Z',
-          beginOfAppointmentDateLT: '2019-04-01T00:00:00.000Z',
+          beginOfAppointmentDateGTE: '2019-04-10T23:59:59.000Z',
+          beginOfAppointmentDateLT: '2019-05-01T00:00:00.000Z',
         })
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'appointments list', { dataKeys: ['docs', 'bookmark'] });
@@ -100,8 +100,8 @@ describe('GET appointments', () => {
       res.body.data.docs.should.all.have.property('specialist');
       res.body.data.docs.should.all.have.property('appointmentServices');
       res.body.data.docs.should.all.have.property('class_name');
-      res.body.data.docs.should.have.lengthOf(1);
-      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-03-15T10:00:00');
+      res.body.data.docs.should.have.lengthOf(2);
+      res.body.data.docs[0].should.have.property('beginOfAppointment', '2019-04-10T09:10:00');
     });
   });
 });

@@ -92,6 +92,48 @@
             ]
           }
         }
+      },
+      "doc.workSchedules,specialist.ref,beginDateOfWorkSchedule": {
+        "map": {
+          "fields": {
+            "specialist.ref": "desc",
+            "beginDateOfWorkSchedule": "desc"
+          },
+          "partial_filter_selector": {
+            "class_name": "doc.workSchedules"
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "specialist.ref",
+              "beginDateOfWorkSchedule"
+            ]
+          }
+        }
+      },
+      "doc.appointment,specialist.ref,company.ref,beginOfAppointment": {
+        "map": {
+          "fields": {
+            "specialist.ref": "asc",
+            "company.ref": "asc",
+            "beginOfAppointment": "asc"
+          },
+          "partial_filter_selector": {
+            "class_name": "doc.appointment"
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "specialist.ref",
+              "company.ref",
+              "beginOfAppointment"
+            ]
+          }
+        }
       }
     }
   },

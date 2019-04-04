@@ -3,8 +3,8 @@
     "_id": "doc.appointment|4469814b-45a5-11e9-8102-fa32b2a877f7",
     "date": "2019-02-13T19:20:52",
     "company": {
-      "ref": "59f239a6-0383-4689-a625-419b486d1746",
-      "presentation": "ООО \"КДЦ \"Вита клиника",
+      "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+      "presentation": "МЦ Вита (Ленинградская 136)",
       "type": "cat.companies"
     },
     "note": "",
@@ -26,13 +26,13 @@
       "presentation": "",
       "type": "cat.patients"
     },
-    "beginOfAppointment": "2019-02-14T09:00:00",
+    "beginOfAppointment": "2019-04-03T10:20:00",
     "office": {
       "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
       "presentation": "Кабинет №1",
       "type": "cat.offices"
     },
-    "endOfAppointment": "2019-02-14T09:30:00",
+    "endOfAppointment": "2019-04-03T10:40:00",
     "specialist": {
       "ref": "00000000-0000-1000-8000-000000000010",
       "presentation": "Валентин Феликсович Войно-Ясенецкий",
@@ -82,13 +82,13 @@
       "presentation": "Бродский Иосиф Александрович",
       "type": "cat.patients"
     },
-    "beginOfAppointment": "2019-03-15T10:00:00",
+    "beginOfAppointment": "2019-04-10T09:40:00",
     "office": {
       "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
       "presentation": "Кабинет №1",
       "type": "cat.Кабинеты"
     },
-    "endOfAppointment": "2019-03-15T10:20:00",
+    "endOfAppointment": "2019-04-10T10:00:00",
     "specialist": {
       "ref": "00000000-0000-1000-8000-000000000030",
       "presentation": "Бокерия Леонид Антонович",
@@ -128,8 +128,8 @@
     "_id": "doc.appointment|4469814b-45a5-11e9-8102-fa32b2afffff",
     "date": "2019-03-13T23:55:55",
     "company": {
-      "ref": "59f239a6-0383-4689-a625-419b486d1746",
-      "presentation": "ООО \"КДЦ \"Вита клиника",
+      "ref": "9010f2d8-dab7-11de-b21b-00140b0496c2",
+      "presentation": "МЦ Вита (Ленинградская 136)",
       "type": "cat.companies"
     },
     "note": "",
@@ -151,13 +151,13 @@
       "presentation": "",
       "type": "cat.patients"
     },
-    "beginOfAppointment": "2019-04-20T08:00:00",
+    "beginOfAppointment": "2019-04-10T09:10:00",
     "office": {
       "ref": "292352bd-32f4-11e9-8101-f41614cd568a",
       "presentation": "Кабинет №1",
       "type": "cat.offices"
     },
-    "endOfAppointment": "2019-04-20T08:30:00",
+    "endOfAppointment": "2019-04-10T09:20:00",
     "specialist": {
       "ref": "00000000-0000-1000-8000-000000000010",
       "presentation": "Валентин Феликсович Войно-Ясенецкий",

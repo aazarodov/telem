@@ -9,7 +9,6 @@ const dbname = prefix('hw_0_ram');
 const db = couch.use(dbname);
 
 // indexes: doc.appointment,patient.ref,beginOfAppointment
-// ddoc: view services
 
 module.exports = {
   async getById(_id, pid) {
@@ -39,25 +38,4 @@ module.exports = {
       bookmark,
     });
   },
-  // async services(chaild) {
-  //   const response = await db.view('ddoc', 'services', {
-  //     startkey: [chaild],
-  //     endkey: [chaild, {}],
-  //   });
-  //   if (response.rows.length === 0) return null;
-  //   const docs = {};
-  //   response.rows.forEach((row) => {
-  //     if (docs[row.value.ref]) {
-  //       docs[row.value.ref].doctors.push({ _id: row.value.doctor, name: row.value.name });
-  //     } else {
-  //       docs[row.value.ref] = {
-  //         _id: row.value.ref,
-  //         child: row.value.child,
-  //         presentation: row.value.presentation,
-  //         doctors: [{ _id: row.value.doctor, name: row.value.name }],
-  //       };
-  //     }
-  //   });
-  //   return Object.values(docs);
-  // },
 };
