@@ -78,6 +78,7 @@ module.exports = (ws, req) => {
   send.req(ws, 'connected', {
     userId,
     wsId,
+    wsNumber: Object.keys(clients[userId].ws).length,
     accessType,
     doctorGroup,
     meta: userDoc.meta,
