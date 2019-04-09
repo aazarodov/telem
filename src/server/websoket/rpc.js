@@ -4,6 +4,7 @@ const log = require('logger-file-fun-line');
 const { join } = require('path');
 const dynamicRequire = require('../utils/dynamicRequire');
 const send = require('./utils/send');
+const id = require('../utils/_id')();
 
 const schemas = dynamicRequire(join(__dirname, 'schemas'));
 const methods = dynamicRequire(join(__dirname, 'methods'));
@@ -20,10 +21,11 @@ module.exports = (ws, req) => {
       accessType,
       group: doctorGroup,
       userDoc,
-      ws: [],
+      ws: {},
     };
   }
-  const wsId = clients[userId].ws.push(ws) - 1;
+  const wsId = id();
+  clients[userId].ws[wsId] = ws;
 
   const handleMessage = async (msgStr) => {
     let msg;
@@ -67,8 +69,8 @@ module.exports = (ws, req) => {
     }
   };
   ws.on('close', () => {
-    clients[userId].ws.splice(wsId, 1);
-    if (clients[userId].ws.length === 0) {
+    delete clients[userId].ws[wsId];
+    if (Object.keys(clients[userId].ws).length === 0) {
       delete clients[userId];
     }
   });

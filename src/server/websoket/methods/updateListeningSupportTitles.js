@@ -31,7 +31,7 @@ module.exports = async (clients, userId, wsId, data) => {
     clients[userId].userDoc.meta.supportTitles = {};
   }
   clients[userId].userDoc.meta.supportTitles = data.supportTitles;
-  clients[userId].ws.forEach((ws) => {
+  Object.values(clients[userId].ws).forEach((ws) => {
     send.req(ws, 'listeningSupportTitlesUpdated', { supportTitles: data.supportTitles });
   });
   return [null, 'success'];

@@ -51,8 +51,8 @@ module.exports = async (clients, userId, wsId, data) => {
           && clients[clientIndex].userDoc.meta
           && clients[clientIndex].userDoc.meta.supportTitles
           && clients[clientIndex].userDoc.meta.supportTitles.includes(data.title))
-        && clients[clientIndex].ws.length > 0) {
-        clients[clientIndex].ws.forEach((ws) => {
+          && Object.keys(clients[clientIndex].ws).length > 0) {
+        Object.values(clients[clientIndex].ws).forEach((ws) => {
           send.req(ws, 'supportChatCreated', res.chatDoc);
         });
       }

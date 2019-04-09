@@ -27,8 +27,8 @@ module.exports = async function sendMessage(clients, userId, wsId, data) {
   if (error) {
     return [error, null];
   }
-  if (clients[newMessage.to] && clients[newMessage.to].ws.length > 0) {
-    clients[newMessage.to].ws.forEach((ws) => {
+  if (clients[newMessage.to] && Object.keys(clients[newMessage.to].ws).length > 0) {
+    Object.values(clients[newMessage.to].ws).forEach((ws) => {
       send.req(ws, 'sendMessage', newMessage);
     });
   }

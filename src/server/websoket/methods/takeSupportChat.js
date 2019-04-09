@@ -20,8 +20,8 @@ module.exports = async (clients, userId, wsId, data) => {
     log(error);
     return ['couchdb error', null];
   }
-  if (clients[res.pid] && clients[res.pid].ws.length > 0) {
-    clients[res.pid].ws.forEach((ws) => {
+  if (clients[res.pid] && Object.keys(clients[res.pid].ws).length > 0) {
+    Object.values(clients[res.pid].ws).forEach((ws) => {
       send.req(ws, 'supportChatTaken', { _id: data._id });
     });
   }
@@ -31,8 +31,8 @@ module.exports = async (clients, userId, wsId, data) => {
         && clients[clientIndex].userDoc.meta
         && clients[clientIndex].userDoc.meta.supportTitles
         && clients[clientIndex].userDoc.meta.supportTitles.includes(res.title))
-      && clients[clientIndex].ws.length > 0) {
-      clients[clientIndex].ws.forEach((ws) => {
+      && Object.keys(clients[clientIndex].ws).length > 0) {
+      Object.values(clients[clientIndex].ws).forEach((ws) => {
         send.req(ws, 'supportChatTaken', { _id: data._id });
       });
     }

@@ -14,8 +14,8 @@ module.exports = async function messageDelivered(clients, userId, wsId, data) {
   if (!result.ok) {
     return [result.reason, null];
   }
-  if (clients[result.from] && clients[result.from].ws.length > 0) {
-    clients[result.from].ws.forEach((ws) => {
+  if (clients[result.from] && Object.keys(clients[result.from].ws).length > 0) {
+    Object.values(clients[result.from].ws).forEach((ws) => {
       send.req(ws, 'messageDelivered', { ...data, chatId: result.chatId });
     });
   }
