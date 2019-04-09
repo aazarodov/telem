@@ -111,7 +111,7 @@ describe('WebSocket updateListeningSupportTitles', () => {
     });
   });
   describe('WebSocket updateListeningSupportTitles', () => {
-    it('doctor05  -> updateListeningSupportTitles,\n      ✓ doctor05  <- updateListeningSupportTitlesChatCallback', (done) => {
+    it('doctor05  -> updateListeningSupportTitles,\n      ✓ doctor05  <- listeningSupportTitlesUpdated,\n      ✓ doctor05  <- updateListeningSupportTitlesChatCallback', (done) => {
       sendReq(wsD05, 'updateListeningSupportTitles', {
         supportTitles,
       }, (error, result) => {
@@ -124,7 +124,14 @@ describe('WebSocket updateListeningSupportTitles', () => {
         console.log('      ✓ doctor05 <- updateListeningSupportTitlesCallback');
         done();
       });
-      wsD05.once('message', handleMessage);
+      wsD05.once('message', (msgStr) => {
+        const msg = handleMessage(msgStr);
+        expect(msg).to.have.property('method', 'listeningSupportTitlesUpdated');
+        expect(msg).to.have.property('params');
+        expect(msg.params).to.have.property('supportTitles');
+        console.log('      ✓ doctor05 <- listeningSupportTitlesUpdated');
+        wsD05.once('message', handleMessage);
+      });
       console.log('      ✓ doctor05 -> updateListeningSupportTitles');
     });
     it('should trow error when supportTitle not correct', (done) => {

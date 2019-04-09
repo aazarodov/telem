@@ -5,6 +5,7 @@
 const log = require('logger-file-fun-line');
 const doctors = require('../../db/queries/doctors');
 const { supportTitles } = require('../../db/queries/supportChats');
+const send = require('../utils/send');
 
 module.exports = async (clients, userId, wsId, data) => {
   if (clients[userId].group !== 'operator') {
@@ -30,5 +31,8 @@ module.exports = async (clients, userId, wsId, data) => {
     clients[userId].userDoc.meta.supportTitles = {};
   }
   clients[userId].userDoc.meta.supportTitles = data.supportTitles;
+  clients[userId].ws.forEach((ws) => {
+    send.req(ws, 'listeningSupportTitlesUpdated', { supportTitles: data.supportTitles });
+  });
   return [null, 'success'];
 };

@@ -71,7 +71,7 @@ const handleMessage = (msgStr) => {
   return msg;
 };
 
-describe('WebSocket closeSupportChat', () => {
+describe('WebSocket takeSupportChat', () => {
   describe('WebSocket connect', () => {
     it('should return connected when patient01', (done) => {
       wsP01 = new WebSocket(`ws://${server}`, wsOptions);
