@@ -7,9 +7,10 @@ const dateTimeRegExp = new RegExp('^20\\d\\d-(?:0[1-9]|1[012])-(?:0[1-9]|[12][0-
 
 module.exports = {
   post: Joi.object().keys({
-    service: Joi.string().uuid({ version: 'uuidv1' }).required(),
-    specialist: Joi.string().uuid({ version: 'uuidv1' }).required(),
-    company: Joi.string().uuid({ version: 'uuidv1' }).required(),
+    service: Joi.string().uuid().required(),
+    specialist: Joi.string().uuid().required(),
+    company: Joi.string().uuid().required(),
     beginOfAppointment: Joi.string().regex(dateTimeRegExp, 'dateTimeRegExp').required(),
+    endOfAppointment: Joi.string().regex(dateTimeRegExp, 'dateTimeRegExp').required(),
   }),
 };

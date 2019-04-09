@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const fetch = require('node-fetch');
-const { getPDFUrl, PDFToken } = require('../../../../secrets');
+const { getPDFUrl, OneSToken } = require('../../../../secrets');
 
 module.exports = {
   get: async (ctx) => {
@@ -13,7 +13,7 @@ module.exports = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          token: PDFToken,
+          token: OneSToken,
           barcode: ctx.state.data.barcode,
         }),
       });

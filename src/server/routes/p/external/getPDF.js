@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const fetch = require('node-fetch');
-const { getPDFUrl, PDFToken } = require('../../../../../secrets');
+const { getPDFUrl, OneSToken } = require('../../../../../secrets');
 const dateTimeFor1C = require('../../../utils/dateTimeFor1C');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          token: PDFToken,
+          token: OneSToken,
           barcode: ctx.state.data.barcode,
           lastName: ctx.state.data.lastName,
           birthDate: dateTimeFor1C(ctx.state.data.birthDate),
