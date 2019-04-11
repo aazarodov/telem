@@ -6,8 +6,15 @@ const doctors = require('../../db/queries/doctors');
 const whoami = async (ctx) => {
   try {
     const doctor = await doctors.getById(ctx.state.access.did);
+    if (!doctor) {
+      ctx.status = 400;
+      ctx.body = {
+        status: 'error',
+        message: 'You are unknown',
+      };
+      return;
+    }
     const group = doctor.groupOfMis.name === 'Операторы' ? 'operator' : 'doctor';
-
     ctx.body = {
       status: 'success',
       message: `You are ${doctor.name}`,

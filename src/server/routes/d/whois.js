@@ -7,6 +7,14 @@ module.exports = {
   get: async (ctx) => {
     try {
       const patient = await patients.getById(ctx.state.data.patientId);
+      if (!patient) {
+        ctx.status = 400;
+        ctx.body = {
+          status: 'error',
+          message: 'patient not found',
+        };
+        return;
+      }
       delete patient._rev;
       delete patient.password;
       ctx.body = {
