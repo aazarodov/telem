@@ -107,6 +107,29 @@ module.exports = {
     });
     return supportChats;
   },
+  async selectAllList(_titles, _closed, limit, bookmark) {
+    const supportChats = await db.find({
+      selector: {
+        openDate: { $gt: '' },
+        closeDate: _closed ? { $gt: '' } : '',
+        title: { $in: _titles },
+      },
+      fields: [
+        '_id',
+        'pid',
+        'did',
+        'title',
+        'meta',
+        'openDate',
+        'closeDate',
+      ],
+      sort: [{ openDate: 'desc' }],
+      use_index: ['indexes', 'supportChat,taken,openDate,closeDate,title'],
+      limit,
+      bookmark,
+    });
+    return supportChats;
+  },
   async create(chatRaw, messageRaw) {
     const chatDoc = await supportChatsSchema.validate({ ...chatRaw, _id: id() });
     const createdChat = await db.insert(chatDoc);

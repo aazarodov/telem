@@ -63,6 +63,31 @@
           }
         }
       },
+      "supportChat,taken,openDate,closeDate,title": {
+        "map": {
+          "fields": {
+            "openDate": "desc",
+            "closeDate": "desc",
+            "title": "desc"
+          },
+          "partial_filter_selector": {
+            "type": "supportChat",
+            "did": {
+              "$gt": ""
+           }
+          }
+        },
+        "reduce": "_count",
+        "options": {
+          "def": {
+            "fields": [
+              "openDate",
+              "closeDate",
+              "title"
+            ]
+          }
+        }
+      },
       "supportUnread": {
         "map": {
           "fields": {
