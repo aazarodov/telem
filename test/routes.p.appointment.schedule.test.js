@@ -130,20 +130,5 @@ describe('GET /appointment/schedule', () => {
       res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('duration', '00:10');
       res.body.data.should.have.property(notExistId, null);
     });
-    it('benchmark 100 specialists', async () => {
-      const specialist = [];
-      while (specialist.length < 100) { specialist.push(doctor01TrimId); }
-      const res = await chai.request(server)
-        .get('/appointment/schedule')
-        .query({
-          specialist,
-          company: company01Id,
-          dateGTE: '2019-04-01',
-          dateLT: '2019-05-01T00:00:00.000Z',
-        })
-        .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'schedule trees');
-      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('day', 3);
-    });
   });
 });
