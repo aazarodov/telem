@@ -3,5 +3,5 @@
 const Joi = require('joi');
 
 module.exports = Joi.object().keys({
-  supportTitles: Joi.array().items(Joi.string().max(256).required()).required(),
+  supportTitles: Joi.array().unique().items(Joi.string().max(256).required()).required(),
 });

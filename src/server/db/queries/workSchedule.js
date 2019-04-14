@@ -1,7 +1,7 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const couch = require('../../db/connection');
+const couch = require('../connection');
 const prefix = require('../../utils/prefix');
 
 const dbname = prefix('hw_0_ram');
@@ -53,7 +53,7 @@ const getDateArray = (gte, lt) => {
   return arr;
 };
 
-const workSchedule = async (specialist, company, dateGTE, dateLT) => {
+const workSchedule = async (specialist, companies, dateGTE, dateLT) => {
   const firstScheduleResponse = await db.find({
     selector: {
       'specialist.ref': specialist,
@@ -115,7 +115,7 @@ const workSchedule = async (specialist, company, dateGTE, dateLT) => {
     }
     const daySchedule = currentSchedule.find(val => (
       val.dayOfWeekNumber === dt.day
-      && val.company.ref === company
+      && companies.includes(val.company.ref)
       && val.kindOfInterval.name === 'РабочееВремя'));
     calendar[dt.date] = {
       date: dt.date,
@@ -138,7 +138,7 @@ const workSchedule = async (specialist, company, dateGTE, dateLT) => {
   const appointmentsResponse = await db.find({
     selector: {
       'specialist.ref': specialist,
-      'company.ref': company,
+      'company.ref': { $in: companies },
       beginOfAppointment: {
         $gte: dateGTE,
         $lt: dateLT,

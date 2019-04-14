@@ -29,18 +29,38 @@ module.exports = {
       return;
     }
     // TODO dateGTE >= today
-    try {
-      const response = await schedule(
-        ctx.state.data.specialist,
-        ctx.state.data.company,
+    const schedulePromises = [];
+    const specialists = Array.isArray(ctx.state.data.specialist)
+      ? ctx.state.data.specialist : [ctx.state.data.specialist];
+    const companies = Array.isArray(ctx.state.data.company)
+      ? ctx.state.data.company : [ctx.state.data.company];
+    specialists.forEach((specialist) => {
+      schedulePromises.push(schedule(
+        specialist,
+        companies,
         trimDate(ctx.state.data.dateGTE),
         trimDate(ctx.state.data.dateLT),
-      );
-      ctx.body = {
-        status: 'success',
-        message: 'schedule tree',
-        data: response,
-      };
+      ));
+    });
+    try {
+      const response = await Promise.all(schedulePromises);
+      if (Array.isArray(ctx.state.data.specialist)) {
+        const data = {};
+        specialists.forEach((specialist, index) => {
+          data[specialist] = response[index];
+        });
+        ctx.body = {
+          status: 'success',
+          message: 'schedule trees',
+          data,
+        };
+      } else {
+        ctx.body = {
+          status: 'success',
+          message: 'schedule tree',
+          data: response[0],
+        };
+      }
     } catch (error) {
       log(error);
       ctx.status = 500;

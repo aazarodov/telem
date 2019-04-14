@@ -12,18 +12,20 @@ const {
   server,
   patient01Cookie,
   doctor01Id,
+  doctor07Id,
+  notExistId,
 } = require('./things/values');
 
 const doctor01TrimId = trimId(doctor01Id);
+const doctor07TrimId = trimId(doctor07Id);
 const company01Id = '9010f2d8-dab7-11de-b21b-00140b0496c2';
-
 
 chai.should();
 chai.use(chaiThings);
 chai.use(chaiHttp);
 
 describe('GET /appointment/schedule', () => {
-  describe('GET /appointment/schedule as patient01', () => {
+  describe('GET /appointment/schedule with one specialist and one company', () => {
     it('should return schedule tree on data field', async () => {
       const res = await chai.request(server)
         .get('/appointment/schedule')
@@ -104,6 +106,44 @@ describe('GET /appointment/schedule', () => {
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'schedule tree');
       res.body.should.have.property('data', null);
+    });
+  });
+  describe('GET /appointment/schedule with arrays', () => {
+    it('should return schedule trees on data[specialist] fields', async () => {
+      const res = await chai.request(server)
+        .get('/appointment/schedule')
+        .query({
+          specialist: [doctor01TrimId, doctor07TrimId, notExistId],
+          company: [company01Id, notExistId],
+          dateGTE: '2019-04-02',
+          dateLT: '2019-04-05T00:00:00.000Z',
+        })
+        .set('Cookie', `pat=${patient01Cookie}`);
+      test(res, 'schedule trees');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('day', 3);
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('begin', '09:00');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('end', '12:00');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('duration', '00:20');
+      res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('day', 3);
+      res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('begin', '08:00');
+      res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('end', '12:00');
+      res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('duration', '00:10');
+      res.body.data.should.have.property(notExistId, null);
+    });
+    it('benchmark 100 specialists', async () => {
+      const specialist = [];
+      while (specialist.length < 100) { specialist.push(doctor01TrimId); }
+      const res = await chai.request(server)
+        .get('/appointment/schedule')
+        .query({
+          specialist,
+          company: company01Id,
+          dateGTE: '2019-04-01',
+          dateLT: '2019-05-01T00:00:00.000Z',
+        })
+        .set('Cookie', `pat=${patient01Cookie}`);
+      test(res, 'schedule trees');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('day', 3);
     });
   });
 });

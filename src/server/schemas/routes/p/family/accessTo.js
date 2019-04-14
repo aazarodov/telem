@@ -13,11 +13,11 @@ module.exports = {
     access: Joi.bool().required(),
   }),
   post: Joi.object().keys({
-    ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
+    ref: Joi.string().uuid().required(),
     relation: Joi.any().valid(['Ребенок', 'Родитель', 'Супруг', 'Другая']),
     access: Joi.bool(),
   }),
   delete: Joi.object().keys({
-    ref: Joi.string().uuid({ version: 'uuidv1' }).required(),
+    ref: Joi.string().uuid().required(),
   }),
 };

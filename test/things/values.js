@@ -40,6 +40,7 @@ module.exports = {
   doctor04Id: 'cat.doctors|00000000-0000-1000-8000-000000000040',
   doctor05Id: 'cat.doctors|00000000-0000-1000-8000-000000000050',
   doctor06Id: 'cat.doctors|00000000-0000-1000-8000-000000000060',
+  doctor07Id: 'cat.doctors|00000000-0000-1000-8000-000000000070',
   d01Login: 'luke', // Хирург
   d02Login: 'fedorov', // Офтальмолог
   d03Login: 'leo', // Кардиолог

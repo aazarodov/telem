@@ -1,7 +1,7 @@
 'use strict';
 
 const log = require('logger-file-fun-line');
-const couch = require('../../db/connection');
+const couch = require('../connection');
 const prefix = require('../../utils/prefix');
 const trimId = require('../../utils/trimId');
 
