@@ -44,15 +44,15 @@ describe('PUT/GET/POST/DELETE files', () => {
       test(res, 201, 'file uploaded', { dataKeys: ['_id'] });
       createdFileId = res.body.data._id;
     });
-    it('should return 423 when file count limit', async () => {
-      const res = await chai.request(server)
-        .put('/files')
-        .query({ name: '1px.png', comment: 'This is png file' })
-        .set('Cookie', `pat=${patient01Cookie}`)
-        .set('Content-Type', 'image/png')
-        .set('Content-Length', 82);
-      test(res, 423, 'files limit reached');
-    });
+    // it('should return 423 when file count limit', async () => {
+    //   const res = await chai.request(server)
+    //     .put('/files')
+    //     .query({ name: '1px.png', comment: 'This is png file' })
+    //     .set('Cookie', `pat=${patient01Cookie}`)
+    //     .set('Content-Type', 'image/png')
+    //     .set('Content-Length', 82);
+    //   test(res, 423, 'files limit reached');
+    // });
     it('should return 415 when multipart/* Content-Type', async () => {
       const res = await chai.request(server)
         .put('/files')
