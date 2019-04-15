@@ -15,7 +15,7 @@ module.exports = {
   accessExpiry: 3600, // 3600 = 1 hour
   registerExpiry: 900, // 900 =  15 min, 1 year = 31556926
   neverExpiry: 33071673600,
-  fileMaxLength: 10485760, // 10485760 = 10MB
-  fileMaxCount: 5,
+  fileMaxLength: 5242880, // 10485760 = 10MB, 5242880 = 5MB
+  fileMaxCount: 30,
   scheduleMaxDays: 62,
 };
