@@ -25,9 +25,23 @@ chai.use(chaiHttp);
 
 describe('GET supportChats', () => {
   describe('GET /support/chats list as patient01', () => {
-    it('should return array of supportChats on data.docs field', async () => {
+    it('should return array of opened supportChats on data.docs field', async () => {
       const res = await chai.request(server)
         .get('/support/chats')
+        .query({ closed: false })
+        .set('Cookie', `pat=${patient01Cookie}`);
+      test(res, 'supportChats list', { dataKeys: ['docs', 'bookmark'] });
+      res.body.data.docs.should.all.have.property('_id');
+      res.body.data.docs.should.all.have.property('pid');
+      res.body.data.docs.should.all.have.property('did');
+      res.body.data.docs.should.all.have.property('title');
+      res.body.data.docs.should.all.have.property('openDate');
+      res.body.data.docs.should.all.have.property('closeDate', '');
+    });
+    it('should return array of closed supportChats on data.docs field', async () => {
+      const res = await chai.request(server)
+        .get('/support/chats')
+        .query({ closed: true })
         .set('Cookie', `pat=${patient01Cookie}`);
       test(res, 'supportChats list', { dataKeys: ['docs', 'bookmark'] });
       res.body.data.docs.should.all.have.property('_id');
@@ -36,6 +50,7 @@ describe('GET supportChats', () => {
       res.body.data.docs.should.all.have.property('title');
       res.body.data.docs.should.all.have.property('openDate');
       res.body.data.docs.should.all.have.property('closeDate');
+      res.body.data.docs.should.all.not.have.property('closeDate', '');
     });
   });
   describe('GET /support/chats doc as patient01', () => {

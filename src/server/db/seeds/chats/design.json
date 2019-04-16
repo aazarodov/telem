@@ -19,11 +19,12 @@
           }
         }
       },
-      "supportChat,pid,openDate": {
+      "supportChat,pid,openDate,closeDate": {
         "map": {
           "fields": {
             "pid": "desc",
-            "openDate": "desc"
+            "openDate": "desc",
+            "closeDate": "desc"
           },
           "partial_filter_selector": {
             "type": "supportChat"
@@ -34,7 +35,8 @@
           "def": {
             "fields": [
               "pid",
-              "openDate"
+              "openDate",
+              "closeDate"
             ]
           }
         }

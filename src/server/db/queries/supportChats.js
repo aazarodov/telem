@@ -48,10 +48,12 @@ module.exports = {
       throw error;
     }
   },
-  async list(pid, limit, bookmark) {
+  async list(pid, _closed, limit, bookmark) {
     const supportChats = await db.find({
       selector: {
         pid,
+        openDate: { $gt: '' },
+        closeDate: _closed ? { $gt: '' } : '',
       },
       fields: [
         '_id',
@@ -63,7 +65,7 @@ module.exports = {
         'closeDate',
       ],
       sort: [{ openDate: 'desc' }],
-      use_index: ['indexes', 'supportChat,pid,openDate'],
+      use_index: ['indexes', 'supportChat,pid,openDate,closeDate'],
       limit,
       bookmark,
     });

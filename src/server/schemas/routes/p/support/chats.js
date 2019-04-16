@@ -8,6 +8,7 @@ module.exports = {
       _id: Joi.string().uuid({ version: 'uuidv1' }).required(),
     }),
     Joi.object().keys({
+      closed: Joi.bool().required(),
       limit: Joi.number().positive().default(100),
       bookmark: Joi.string().default(''),
     }),

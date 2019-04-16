@@ -28,6 +28,7 @@ module.exports = {
       }
       const list = await supportChats.list(
         ctx.state.access.pid,
+        ctx.state.data.closed,
         ctx.state.data.limit,
         ctx.state.data.bookmark,
       );
