@@ -30,7 +30,7 @@ module.exports = {
         data: {
           doctor: {
             name: foundDoctor.name,
-            specialization: foundDoctor.mitSpecialization.presentation,
+            specialization: group === 'operator' ? group : foundDoctor.mitSpecialization.presentation,
             group,
             childDoctor: foundDoctor.childDoctor,
             adultDoctor: foundDoctor.adultDoctor,
