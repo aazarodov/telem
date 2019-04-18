@@ -26,7 +26,7 @@ chai.use(chaiHttp);
 
 describe('GET /appointment/schedule', () => {
   describe('GET /appointment/schedule with one specialist and one company', () => {
-    it('should return schedule tree on data field', async () => {
+    it('should return schedule trees on data field', async () => {
       const res = await chai.request(server)
         .get('/appointment/schedule')
         .query({
@@ -36,27 +36,29 @@ describe('GET /appointment/schedule', () => {
           dateLT: '2019-04-16T00:00:00.000Z',
         })
         .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'schedule tree');
-      res.body.data['2019-04-03'].should.have.property('day', 3);
-      res.body.data['2019-04-03'].should.have.property('begin', '09:00');
-      res.body.data['2019-04-03'].should.have.property('end', '12:00');
-      res.body.data['2019-04-03'].should.have.property('duration', '00:20');
-      res.body.data['2019-04-03'].should.have.property('slots');
-      res.body.data['2019-04-03'].slots['10:00'].should.have.property('begin', '10:00');
-      res.body.data['2019-04-03'].slots['10:00'].should.have.property('end', '10:20');
-      res.body.data['2019-04-03'].slots['10:00'].should.have.property('free', true);
-      res.body.data['2019-04-03'].slots['10:20'].should.have.property('begin', '10:20');
-      res.body.data['2019-04-03'].slots['10:20'].should.have.property('end', '10:40');
-      res.body.data['2019-04-03'].slots['10:20'].should.have.property('free', false);
+      test(res, 'schedule trees');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('day', 3);
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('begin', '09:00');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('end', '12:00');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('duration', '00:20');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('company', 'МЦ Вита (Ленинградская 136)');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('slots');
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:00'].should.have.property('begin', '10:00');
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:00'].should.have.property('end', '10:20');
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:00'].should.have.property('free', true);
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:20'].should.have.property('begin', '10:20');
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:20'].should.have.property('end', '10:40');
+      res.body.data[doctor01TrimId]['2019-04-03'].slots['10:20'].should.have.property('free', false);
 
-      res.body.data['2019-04-10'].should.have.property('day', 3);
-      res.body.data['2019-04-10'].should.have.property('begin', '09:00');
-      res.body.data['2019-04-10'].should.have.property('end', '10:00');
-      res.body.data['2019-04-10'].should.have.property('duration', '00:10');
-      res.body.data['2019-04-10'].should.have.property('slots');
-      res.body.data['2019-04-10'].slots['09:10'].should.have.property('begin', '09:10');
-      res.body.data['2019-04-10'].slots['09:10'].should.have.property('end', '09:20');
-      res.body.data['2019-04-10'].slots['09:10'].should.have.property('free', false);
+      res.body.data[doctor01TrimId]['2019-04-10'].should.have.property('day', 3);
+      res.body.data[doctor01TrimId]['2019-04-10'].should.have.property('begin', '09:00');
+      res.body.data[doctor01TrimId]['2019-04-10'].should.have.property('end', '10:00');
+      res.body.data[doctor01TrimId]['2019-04-10'].should.have.property('duration', '00:10');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('company', 'МЦ Вита (Ленинградская 136)');
+      res.body.data[doctor01TrimId]['2019-04-10'].should.have.property('slots');
+      res.body.data[doctor01TrimId]['2019-04-10'].slots['09:10'].should.have.property('begin', '09:10');
+      res.body.data[doctor01TrimId]['2019-04-10'].slots['09:10'].should.have.property('end', '09:20');
+      res.body.data[doctor01TrimId]['2019-04-10'].slots['09:10'].should.have.property('free', false);
     });
     it('should return days error when dates are equal', async () => {
       const res = await chai.request(server)
@@ -104,8 +106,8 @@ describe('GET /appointment/schedule', () => {
           dateLT: '2000-02-01',
         })
         .set('Cookie', `pat=${patient01Cookie}`);
-      test(res, 'schedule tree');
-      res.body.should.have.property('data', null);
+      test(res, 'schedule trees');
+      res.body.data.should.have.property(doctor01TrimId, null);
     });
   });
   describe('GET /appointment/schedule with arrays', () => {
@@ -124,10 +126,12 @@ describe('GET /appointment/schedule', () => {
       res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('begin', '09:00');
       res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('end', '12:00');
       res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('duration', '00:20');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('company', 'МЦ Вита (Ленинградская 136)');
       res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('day', 3);
       res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('begin', '08:00');
       res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('end', '12:00');
       res.body.data[doctor07TrimId]['2019-04-03'].should.have.property('duration', '00:10');
+      res.body.data[doctor01TrimId]['2019-04-03'].should.have.property('company', 'МЦ Вита (Ленинградская 136)');
       res.body.data.should.have.property(notExistId, null);
     });
   });

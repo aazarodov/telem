@@ -44,23 +44,15 @@ module.exports = {
     });
     try {
       const response = await Promise.all(schedulePromises);
-      if (Array.isArray(ctx.state.data.specialist)) {
-        const data = {};
-        specialists.forEach((specialist, index) => {
-          data[specialist] = response[index];
-        });
-        ctx.body = {
-          status: 'success',
-          message: 'schedule trees',
-          data,
-        };
-      } else {
-        ctx.body = {
-          status: 'success',
-          message: 'schedule tree',
-          data: response[0],
-        };
-      }
+      const data = {};
+      specialists.forEach((specialist, index) => {
+        data[specialist] = response[index];
+      });
+      ctx.body = {
+        status: 'success',
+        message: 'schedule trees',
+        data,
+      };
     } catch (error) {
       log(error);
       ctx.status = 500;
