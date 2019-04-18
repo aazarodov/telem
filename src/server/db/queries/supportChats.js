@@ -146,7 +146,35 @@ module.exports = {
     return { ok: true, chatDoc, messageDoc };
   },
   async take(did, _id) {
-    return db.atomic('ddoc', 'takeSupportChat', _id, { did });
+    const takeRes = await db.atomic('ddoc', 'takeSupportChat', _id, { did });
+    if (!takeRes.ok) return takeRes;
+    const findRes = await db.find({
+      selector: {
+        chatId: _id,
+      },
+      sort: [{ sendDate: 'desc' }],
+      use_index: ['indexes', 'supportMessage,chatId,sendDate'],
+      limit: Number.MAX_SAFE_INTEGER,
+    });
+    findRes.docs.forEach((doc) => {
+      doc.to = did; // eslint-disable-line no-param-reassign
+    });
+    let bulkRes;
+    try {
+      bulkRes = await db.bulk({ docs: findRes.docs });
+    } catch (error) {
+      return {
+        ok: false,
+        reason: 'bulk update error',
+      };
+    }
+    if (bulkRes.some(val => !val.ok)) {
+      return {
+        ok: false,
+        reason: 'bulk update some doc error',
+      };
+    }
+    return { ok: true };
   },
   async messagesList(chatId, limit, bookmark, pid) {
     try {
