@@ -125,7 +125,10 @@ const workSchedule = async (specialist, companies, dateGTE, dateLT) => {
       const begin = hoursMinutes(daySchedule.beginTimeOfWork);
       const end = hoursMinutes(daySchedule.endTimeOfWork);
       const duration = hoursMinutes(daySchedule.durationOfAppointment);
-      const company = daySchedule.company.presentation;
+      const company = {
+        ref: daySchedule.company.ref,
+        presentation: daySchedule.company.presentation,
+      };
       Object.assign(calendar[dt.date], {
         begin: `${begin}`,
         end: `${end}`,
