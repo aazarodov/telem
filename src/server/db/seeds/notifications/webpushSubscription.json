@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "00000000-0000-1000-8000-000200000001",
+    "type": "webpushSubscription",
+    "pid": "cat.patients|00000000-0000-1000-8000-000000000001",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36",
+    "subscription": {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/cpy9U2tzRIo:APA91bH9AJShBPZamGsqquJyxXMfiLnav30-onXXRWp7A4Ziht0Ov3GZfnTjEiRP7Xag6U3tSgfZlah3nlrAWS7n5Ttpe08sa_1ysLrIZ0j0PvDbcfWMuNAHW7R4Z4gfPvRGudoRI1x4",
+      "expirationTime": null,
+      "keys": {
+        "auth": "oI9InaCK6fdfUCoR2amnoQ",
+        "p256dh": "BIN2XrVoOguXoR1Y1XJfNOvZvkvObCWLZXkmlpsdrhpLEmMAuoPhuq2kv751yCNvVkYzu3JMKs6dGH48YVT8PuI"
+      }
+    }
+  },
+  {
+    "_id": "00000000-0000-1000-8000-000200000002",
+    "type": "webpushSubscription",
+    "pid": "cat.patients|00000000-0000-1000-8000-000000000001",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0",
+    "subscription": {
+      "endpoint": "https://updates.push.services.mozilla.com/wpush/v2/gAAAAABcxsjRZcIXlRp48m95JAPWONJbh2PB5PAXT7-mmLwMICFZvlxWdcvUm4nyA_qC6IxR6PU5ki03tkpF56b12Wp5jgNnkQP0gPCh1aujLvuivTm5MQS80dAApx_gGQ1FXIhAXCIR1kGO8y1jV7bkzLyG481h13dCWNg5CQlYGc-ggwv3e-4",
+      "keys": {
+        "auth": "6VpIh1OhX2s670yGm_GAhA",
+        "p256dh": "BPkyXPt15ldqWVv11VxdbmkNwxTgimxNoBtmMyP0BBOL_nYAGoo3p1WSgYaWxgds7atPNMC99b0O5R_WCn1fwE0"
+      }
+    }
+  }
+]

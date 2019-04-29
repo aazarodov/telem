@@ -35,7 +35,7 @@ const labAnalyzesAndResultsMap = (response) => {
           }
         });
       }
-    } else if (docOrIreg.class_name === 'doc.laboratoryAnalyzes') {
+    } else if (docOrIreg.class_name === 'doc.laboratoryAnalyzes' && !docOrIreg.deletionMark) {
       docOrIreg.PDFAvailable = !!docOrIreg.PDFAvailable; // eslint-disable-line no-param-reassign
       newResponse.docs.push(docOrIreg);
     }
