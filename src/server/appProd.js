@@ -1,15 +1,13 @@
 'use strict';
 
-if (process.env.NODE_ENV === 'multiple') {
-  if (process.env.NODE_APP_INSTANCE === '0') process.env.NODE_ENV = 'production';
-  if (process.env.NODE_APP_INSTANCE === '1') process.env.NODE_ENV = 'dev1';
-  if (process.env.NODE_APP_INSTANCE === '2') process.env.NODE_ENV = 'dev2';
-}
+process.env.NODE_ENV = 'production';
 
 const Koa = require('koa');
+const https = require('https');
 const webSocket = require('ws');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
+const { readFileSync } = require('fs');
 const { join } = require('path');
 const log = require('logger-file-fun-line');
 const catcher = require('./middleware/catcher');
@@ -20,20 +18,12 @@ const mountRoutes = require('./utils/koa-router-mount');
 const { verifyClient, handleProtocols } = require('./websoket/handshake');
 const rpc = require('./websoket/rpc');
 
-let PORT;
-switch (process.env.NODE_ENV) {
-  case 'production': PORT = 80;
-    break;
-  case 'dev1': PORT = 8081;
-    break;
-  case 'dev2': PORT = 8082;
-    break;
-  case 'test': PORT = 9999;
-    break;
-  default:
-    process.exit(1);
-    break;
-}
+const PORT = 443;
+
+const options = {
+  key: readFileSync(join(__dirname, '../../cert/privkey.pem')),
+  cert: readFileSync(join(__dirname, '../../cert/fullchain.pem')),
+};
 
 const app = new Koa();
 
@@ -45,8 +35,8 @@ app.use(access());
 app.use(validator(join(__dirname, 'schemas/routes')));
 mountRoutes(app, join(__dirname, 'routes'));
 
-const server = app.listen(PORT, () => {
-  log(`Start server on ${process.env.NODE_ENV} mode, port: ${PORT}`);
+const server = https.createServer(options, app.callback()).listen(PORT, '0.0.0.0', () => {
+  log(`Start HTTPS server on ${process.env.NODE_ENV} mode, port: ${PORT}`);
   if (typeof process.send === 'function') process.send('ready');
 });
 

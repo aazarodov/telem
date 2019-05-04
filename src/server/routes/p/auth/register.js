@@ -2,7 +2,7 @@
 
 const log = require('logger-file-fun-line');
 const patients = require('../../../db/queries/patients');
-const { decrypt, hash } = require('../../../utils/crypto');
+const { decrypt } = require('../../../utils/crypto');
 const unixtimestamp = require('../../../utils/unixtimestamp');
 const dateTime = require('../../../utils/dateTimeFor1C');
 
@@ -37,7 +37,7 @@ module.exports = {
     try {
       foundPatient = await patients.getByphoneNumber(postedPatient.phoneNumber);
       if (!foundPatient) {
-        await patients.insertNew(postedPatient);
+        await patients.registerNew(postedPatient);
         ctx.status = 201;
         ctx.body = {
           status: 'success',
@@ -58,42 +58,34 @@ module.exports = {
       }
       const patientDataMismatch = {};
       postedPatient.birthDate = dateTime(postedPatient.birthDate);
-      if (foundPatient.lastName && postedPatient.lastName !== foundPatient.lastName) {
+      if (postedPatient.lastName !== foundPatient.lastName) {
         patientDataMismatch.lastName = postedPatient.lastName;
       }
-      if (foundPatient.firstName && postedPatient.firstName !== foundPatient.firstName) {
+      if (postedPatient.firstName !== foundPatient.firstName) {
         patientDataMismatch.firstName = postedPatient.firstName;
       }
-      if (foundPatient.middleName && postedPatient.middleName !== foundPatient.middleName) {
+      if (postedPatient.middleName !== foundPatient.middleName) {
         patientDataMismatch.middleName = postedPatient.middleName;
       }
-      if (foundPatient.birthDate && postedPatient.birthDate !== foundPatient.birthDate) {
+      if (postedPatient.birthDate !== foundPatient.birthDate) {
         patientDataMismatch.birthDate = postedPatient.birthDate;
       }
-      if (foundPatient.sex && postedPatient.sex !== foundPatient.sex.name) {
+      if (postedPatient.sex !== foundPatient.sex.name) {
         patientDataMismatch.sex = postedPatient.sex;
       }
-      if (!foundPatient.password) {
-        foundPatient.password = await hash(postedPatient.password);
-      }
-      if (Object.keys(patientDataMismatch).length === 0) {
-        await patients.updateClean(
-          foundPatient._id,
-          foundPatient._rev,
-          postedPatient,
-        );
+      await patients.registerUpdate(foundPatient, postedPatient, patientDataMismatch);
+      if (Object.keys(patientDataMismatch).length !== 0) {
         ctx.status = 200;
         ctx.body = {
           status: 'success',
-          message: 'stored patient updated without data mismatch',
+          message: 'stored patient updated with data mismatch',
         };
         return;
       }
-      await patients.updateDataMismatch(foundPatient, patientDataMismatch);
       ctx.status = 200;
       ctx.body = {
         status: 'success',
-        message: 'stored patient updated with data mismatch',
+        message: 'stored patient updated without data mismatch',
       };
     } catch (error) {
       log(error);

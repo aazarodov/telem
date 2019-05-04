@@ -16,63 +16,29 @@ const className = 'cat.patients';
 
 // indexes: class_name, views: patientLoginPassword
 
-let preperePatientHandle = null;
-let prepereCityHandle = null;
+let prepareCityHandle;
+let prepareStatusesHandle;
+let contactInformationHandle;
 
-const preperePatient = async (postedPatient, newStatus, changeStatusOnly) => {
-  if (typeof preperePatientHandle === 'function') return preperePatientHandle(postedPatient, newStatus, changeStatusOnly);
-  const sex = {
-    Мужской: { name: 'Мужской', presentation: 'Мужской', type: 'enm.typesOfSex' },
-    Женский: { name: 'Женский', presentation: 'Женский', type: 'enm.typesOfSex' },
-  };
-  const patientStatuses = await classNameFetch('cat.patientStatuses');
-  const contactInformation = await contactInformationFetch();
-
-  preperePatientHandle = async (post, status = 'Новый', changeStatusOnlyFlag = false) => {
-    if (changeStatusOnlyFlag) {
-      return {
-        ...post,
-        status: patientStatuses[status],
-      };
-    }
-    return {
-      _id: id(),
-      name: `${post.lastName} ${post.firstName} ${post.middleName}`,
-      lastName: post.lastName,
-      firstName: post.firstName,
-      middleName: post.middleName,
-      sex: sex[post.sex],
-      birthDate: dateTime(post.birthDate),
-      agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
-      agreementOfSendingResults: post.agreementOfSendingResults,
-      status: patientStatuses[status],
-      note: `Дата создания: ${dateTime()}`,
-      password: await hash(post.password),
-      contactInformation: [
-        {
-          ...contactInformation['Телефон'],
-          presentation: `+${post.phoneNumber}`,
-          phoneNumber: post.phoneNumber,
-          fieldValues: contactInformation['Телефон'].fieldValues.replace(/REPLACEME/g, post.phoneNumber),
-        },
-        {
-          ...contactInformation['E-mail'],
-          presentation: post.email,
-          emailAddress: post.email,
-          fieldValues: contactInformation['E-mail'].fieldValues.replace(/REPLACEME/g, post.email),
-        },
-      ],
-      class_name: className,
-    };
-  };
-  return preperePatientHandle(postedPatient, newStatus, changeStatusOnly);
+const prepareCity = async (cityName) => {
+  if (typeof prepareCityHandle === 'function') return prepareCityHandle(cityName);
+  const cities = await classNameFetch('cat.cities');
+  prepareCityHandle = cName => cities[cName];
+  return prepareCityHandle(cityName);
 };
 
-const prepereCity = async (cityName) => {
-  if (typeof prepereCityHandle === 'function') return prepereCityHandle(cityName);
-  const cities = await classNameFetch('cat.cities');
-  prepereCityHandle = cName => cities[cName];
-  return prepereCityHandle(cityName);
+const prepareStatuses = async (status) => {
+  if (typeof prepareStatusesHandle === 'function') return prepareStatusesHandle(status);
+  const patientStatuses = await classNameFetch('cat.patientStatuses');
+  prepareStatusesHandle = st => patientStatuses[st];
+  return prepareStatusesHandle(status);
+};
+
+const prepareContactInformation = async (kindOfCI) => {
+  if (typeof contactInformationHandle === 'function') return contactInformationHandle(kindOfCI);
+  const contactInformation = await contactInformationFetch();
+  contactInformationHandle = kind => contactInformation[kind];
+  return contactInformationHandle(kindOfCI);
 };
 
 module.exports = {
@@ -127,35 +93,82 @@ module.exports = {
     }
     return doc;
   },
-  async insertNew(postedPatient) {
-    const newPatient = await preperePatient(postedPatient);
+  async registerNew(post) {
+    const phone = await prepareContactInformation('Телефон');
+    const email = await prepareContactInformation('E-mail');
+    const newPatient = {
+      _id: id(),
+      name: `${post.lastName} ${post.firstName} ${post.middleName}`,
+      lastName: post.lastName,
+      firstName: post.firstName,
+      middleName: post.middleName,
+      sex: { name: post.sex, presentation: post.sex, type: 'enm.typesOfSex' },
+      birthDate: dateTime(post.birthDate),
+      agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
+      agreementOfSendingResults: post.agreementOfSendingResults,
+      status: await prepareStatuses('Новый'),
+      note: `Дата создания: ${dateTime()}`,
+      password: await hash(post.password),
+      contactInformation: [
+        {
+          ...phone,
+          presentation: `+${post.phoneNumber}`,
+          phoneNumber: post.phoneNumber,
+          fieldValues: phone.fieldValues.replace(/REPLACEME/g, post.phoneNumber),
+        },
+        {
+          ...email,
+          presentation: post.email,
+          emailAddress: post.email,
+          fieldValues: email.fieldValues.replace(/REPLACEME/g, post.email),
+        },
+      ],
+      class_name: className,
+    };
     await patientSchema.validate(newPatient);
     return db.insert(newPatient);
   },
-  async updateClean(_id, _rev, postedPatient) {
-    const updPatient = await preperePatient(postedPatient, 'Активен');
-    await patientSchema.validate(updPatient);
-    return db.insert({ ...updPatient, _id, _rev });
+  async registerUpdate(foundPatient, post, dataMismatch) {
+    if (Object.keys(dataMismatch).length !== 0) {
+      return db.atomic('ddoc', 'updatePatient', foundPatient._id, {
+        password: foundPatient.password || await hash(post.password),
+        status: await prepareStatuses('Не активирован'),
+        note: `Дата создания: ${dateTime()} Несовпадающие данные: ${JSON.stringify(dataMismatch)}`,
+      });
+    }
+    const foundEmail = foundPatient.contactInformation.find(val => val.type.name === 'АдресЭлектроннойПочты');
+    if (foundEmail) {
+      if (foundEmail.emailAddress !== post.email) {
+        foundEmail.fieldValues = foundEmail.fieldValues.replace(new RegExp(foundEmail.emailAddress, 'g'), post.email);
+        foundEmail.emailAddress = post.email;
+        foundEmail.presentation = post.email;
+      }
+    } else {
+      const email = await prepareContactInformation('E-mail');
+      foundPatient.contactInformation.push({
+        ...email,
+        presentation: post.email,
+        emailAddress: post.email,
+        fieldValues: email.fieldValues.replace(/REPLACEME/g, post.email),
+      });
+    }
+    return db.atomic('ddoc', 'updatePatient', foundPatient._id, {
+      password: await hash(post.password),
+      status: await prepareStatuses('Активен'),
+      note: `Дата создания: ${dateTime()}`,
+      agreementOfSendingOtherInformation: post.agreementOfSendingOtherInformation,
+      agreementOfSendingResults: post.agreementOfSendingResults,
+      contactInformation: foundPatient.contactInformation,
+    });
   },
   async resetPassword(_id, password) {
     return db.atomic('ddoc', 'updatePatient', _id, { password: await hash(password) });
-  },
-  async updateDataMismatch(foundPatient, patientDataMismatch) {
-    const updPatient = await preperePatient(
-      {
-        ...foundPatient,
-        note: `Дата создания: ${dateTime()} Несовпадающие данные: ${JSON.stringify(patientDataMismatch)}`,
-      },
-      'Не активирован',
-      true,
-    );
-    return db.insert(updPatient);
   },
   async updateAgreements(_id, agreements) {
     return db.atomic('ddoc', 'updatePatient', _id, agreements);
   },
   async updateCity(_id, cityName) {
-    const city = await prepereCity(cityName);
+    const city = await prepareCity(cityName);
     if (!city) return { error: 'city not found' };
     return db.atomic('ddoc', 'updatePatient', _id, { city });
   },

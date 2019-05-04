@@ -13,7 +13,7 @@ module.exports = {
   p04phoneNumber: '7900000040', // Булгаков М.А. Появляется в базе после успешной регистрации
   p01emailAddress: 'alex@mail.ru',
   p02emailAddress: 'yosif@gmail.com',
-  p03emailAddress: 'ann@yahoo.com',
+  p03emailAddress: 'ann@yahoo.com', // annNOT@yahoo.com
   p04emailAddress: 'michel@supermail.io',
   p01Password: '123456',
   p02Password: 'qwerty',

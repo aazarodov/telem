@@ -2,3 +2,4 @@
 exec.js
 .pm2/
 node_modules/
+cert/

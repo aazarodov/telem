@@ -181,7 +181,7 @@
         },
         "patient": {
           "ref": "00000000-0000-1000-8000-000000000003",
-          "presentation": "Ахматова Анна",
+          "presentation": "Ахматова Анна Андреевна",
           "type": "cat.patients"
         },
         "general": false,
@@ -234,10 +234,10 @@
   },
   {
     "_id": "cat.patients|00000000-0000-1000-8000-000000000003",
-    "name": "Ахматова Анна",
+    "name": "Ахматова Анна Андреевна",
     "lastName": "Ахматова",
     "firstName": "Анна",
-    "middleName": "",
+    "middleName": "Андреевна",
     "sex": {
       "name": "Женский",
       "presentation": "Женский",
@@ -290,12 +290,12 @@
           "presentation": "E-mail",
           "type": "cat.kindsOfContactInformation"
         },
-        "presentation": "ann@yahoo.com",
-        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"ann@yahoo.com\"><Комментарий/><Состав xsi:type=\"ЭлектроннаяПочта\" Значение=\"ann@yahoo.com\"/></КонтактнаяИнформация>",
+        "presentation": "annNOT@yahoo.com",
+        "fieldValues": "<КонтактнаяИнформация xmlns=\"http://www.v8.1c.ru/ssl/contactinfo\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" Представление=\"annNOT@yahoo.com\"><Комментарий/><Состав xsi:type=\"ЭлектроннаяПочта\" Значение=\"annNOT@yahoo.com\"/></КонтактнаяИнформация>",
         "country": "",
         "region": "",
         "city": "",
-        "emailAddress": "ann@yahoo.com",
+        "emailAddress": "annNOT@yahoo.com",
         "phoneNumber": "",
         "phoneNumberWithoutCodes": ""
       }

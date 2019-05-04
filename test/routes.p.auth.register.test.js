@@ -76,7 +76,7 @@ describe('POST auth/register', () => {
     });
   });
   describe('existed patient without data mismatch', () => {
-    it('should add middleName to patient data without mismatch', async () => {
+    it('should patient without mismatch', async () => {
       const today = new Date();
       const res = await chai.request(server)
         .post('/auth/register')
@@ -92,13 +92,14 @@ describe('POST auth/register', () => {
           agreementOfSendingResults: false,
           registerToken: await encrypt({ phoneNumber: p03phoneNumber, expiry: neverExpiry }),
         });
-      test(res, 200, 'stored patient updated without data mismatch');
+      test(res, 'stored patient updated without data mismatch');
       const foundPatient = await patients.login(p03phoneNumber, p03NewPassword);
       foundPatient.should.have.property('name', 'Ахматова Анна Андреевна');
       foundPatient.should.have.property('agreementOfSendingOtherInformation', false);
       foundPatient.should.have.property('agreementOfSendingResults', false);
       foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p03emailAddress);
       foundPatient.should.have.nested.property('status.presentation', 'Активен');
+      foundPatient.should.have.nested.property('city.presentation', 'Вологда');
       foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)}`);
     });
   });
@@ -119,7 +120,7 @@ describe('POST auth/register', () => {
           agreementOfSendingResults: false,
           registerToken: await encrypt({ phoneNumber: p02phoneNumber, expiry: neverExpiry }),
         });
-      test(res, 200, 'stored patient updated with data mismatch');
+      test(res, 'stored patient updated with data mismatch');
       const foundPatient = await patients.login(p02phoneNumber, p02Password);
       foundPatient.should.have.property('name', 'Бродский Иосиф Александрович');
       foundPatient.should.have.property('agreementOfSendingOtherInformation', true);
@@ -127,6 +128,9 @@ describe('POST auth/register', () => {
       foundPatient.should.have.property('birthDate', '1940-05-24T00:00:00');
       foundPatient.should.have.nested.property('contactInformation[1].emailAddress', p02emailAddress);
       foundPatient.should.have.nested.property('status.presentation', 'Не активирован');
+      foundPatient.should.have.nested.property('city.presentation', 'Вельск');
+      foundPatient.should.have.property('avatar', '00000000-0000-1000-8000-000000000210');
+      foundPatient.should.have.nested.property('family[0].patient.presentation', 'Пушкин Александр Сергеевич');
       foundPatient.should.have.property('note', `Дата создания: ${dateTime(today)} Несовпадающие данные: {"birthDate":"${dateTime('3000-05-21')}"}`);
     });
   });
