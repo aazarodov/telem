@@ -37,6 +37,7 @@ describe('POST family/register', () => {
         .set('Cookie', `pat=${patient01Cookie}`)
         .send({ ...patient01Bound01, sex: 'Мужской', relation: 'Ребенок' });
       test(res, 201, 'new bound patient created');
+      res.body.data.should.have.property('_id');
     });
   });
   describe('GET /family/accessBy as patient01', () => {
