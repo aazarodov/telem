@@ -26,6 +26,10 @@ describe('GET family/accessBy', () => {
       test(res, 'accessBy list');
       res.body.data.should.all.have.property('relation');
       res.body.data.should.all.have.property('patient');
+      res.body.data.should.all.have.nested.property('patient.ref');
+      res.body.data.should.all.have.nested.property('patient.presentation');
+      res.body.data.should.all.have.nested.property('patient.avatar');
+      res.body.data.should.all.have.nested.property('patient.type');
       res.body.data.should.all.have.property('general');
       res.body.data.should.all.have.property('access');
       res.body.data.should.have.lengthOf(1);
