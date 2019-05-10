@@ -27,6 +27,7 @@ describe('GET insurancePolicies', () => {
       res.body.data.docs.should.all.have.property('name');
       res.body.data.docs.should.all.have.property('dateOfStartInsurance');
       res.body.data.docs.should.all.have.property('dateofEndInsurance');
+      res.body.data.docs.should.all.have.property('generalInsurance');
       res.body.data.docs.should.all.have.property('noActive');
       res.body.data.docs.should.all.have.nested.property('insuranceCompany.presentation');
       res.body.data.docs.should.all.have.nested.property('kindOfInsurance.presentation');

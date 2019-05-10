@@ -20,6 +20,7 @@ const insurancePolicies = async (pid, limit, bookmark) => {
       'name',
       'dateOfStartInsurance',
       'dateofEndInsurance',
+      'generalInsurance',
       'noActive',
       'insuranceCompany.presentation',
       'kindOfInsurance.presentation',
