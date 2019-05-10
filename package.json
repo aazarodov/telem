@@ -32,8 +32,8 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "logger-file-fun-line": "^1.0.1",
-    "nano": "^8.0.1",
-    "node-fetch": "^2.4.0",
+    "nano": "^8.1.0",
+    "node-fetch": "^2.5.0",
     "uuid": "^3.3.2",
     "ws": "^6.2.1"
   }
